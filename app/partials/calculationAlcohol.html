@@ -1,0 +1,214 @@
+<div  ng-controller="CalculationAlcoholCtrl">
+
+    <div><h2>Prevoyez votre quantité de boissons</h2></div>
+
+
+
+    <div class="row" style="color:black">
+
+        <div class="col-md-8">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Parametres</h3>
+                </div>
+
+
+                <div class="panel-body main-panel" >
+
+
+                    <div ng-show="showImprovement" style="font-size: 20px; color:#d9534f">
+                        <br>
+                        (titre "gestion boissons"! et non : "soiree alcoolise")
+                        <br>
+                        prevoir ensuite de permettre de choisir entre gerer la qty "boissons alcoolisees" ou "boissons non alcoolisees"
+                        <br>
+                        => pour non alcoolisee : pareil : NB_PERS + NB_VERRES (de base 6) sauf que 1 verre tt le tps  : 20cl (par ex)
+
+                        <br>
+                        <br>
+                    </div>
+
+
+                    <div>
+                        <label>Nombre de personnes : </label>
+                        &nbsp&nbsp<input type="number" ng-model ='nbPers' min="1" style="width:60px"/>
+                    </div>
+                    <br>
+                    <div>
+                        <label>Moyenne de verres/pers : </label>
+                        &nbsp&nbsp<input type="number" ng-model ='nbGlass' min="1" style="width:60px"/>
+                    </div>
+                    <div>
+                        (Un verre = 25cl biere / 10cl vin / 3 cl alcool fort)
+                    </div>
+
+
+                    <!--
+                    <div>total nbGlass = {{totalNbGlass}}</div>
+                    <div>total amount alcohol = {{totalAmountAlcohol}}</div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <br>
+    <br>
+
+
+
+
+
+    <div class="row" style="color:black" >
+        <div class="col-md-2" >
+
+            <div>
+                <div><button style="width:150px;" class="btn btn-info" ng-click="selectAlcoholType('biere')"> Bieres </button></div>
+                <br>
+                <div><button style="width:150px;" class="btn btn-info" ng-click="selectAlcoholType('vin')">  Vins </button></div>
+                <br>
+                <div><button style="width:150px;" class="btn btn-info" ng-click="selectAlcoholType('fort')"> Alcools forts </button></div>
+                <br>
+            </div>
+
+        </div>
+        <div class="col-md-10">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading" >
+                    <div class="row">
+                        <h3 class="col-md-2 panel-title">{{alcoholType}}</h3>
+                        <div class="col-md-6">
+                        </div>
+                        <div class="col-md-4" style="font-size:15px">
+                            <span   class="glyphicon glyphicon-search " ></span>
+                            &nbsp
+                            <input  type="text" ng-model="searchAlcohol" placeholder="nom ou degre" style="border:none; ">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel-body main-panel">
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div ng-repeat="alcohol in alcohols  | filter : searchAlcohol " style="display:inline-block ">
+                                <div   style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
+                                       data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="alcohols" ng-show="alcohol.name"
+                                       jqyoui-draggable="{index: {{$index}},placeholder:'keep', deepCopy:true}"
+                                       title="{{displayAlcoholDetail(alcohol)}}">
+                                    {{alcohol.name}} &nbsp({{alcohol.degre}}°)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+
+
+                            <div ng-repeat="filterQty in filterQties">
+                                <label>
+                                    <input type="radio" ng-model="$parent.filterQtyChosen" ng-value="filterQty.cl"
+                                           checked="checked" />{{filterQty.name}}
+                                </label>
+                            </div>
+                            <!--filterQtyChosen : {{filterQtyChosen}}-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <br>
+    <br>
+
+    <!--
+alcohols :
+
+    <br>
+    {{alcohols}}
+    <br>
+    <br>
+    <br>
+    <br>
+
+    chosenAlcohols:
+
+    <br>
+    {{chosenAlcohols}}
+-->
+
+
+    <div class="row" style="color:black">
+        <div class="col-md-12">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Liste Alcools</h3>
+                </div>
+
+
+                <div class="panel-body main-panel" >
+                    <div ng-show="showImprovement" style="font-size: 20px; color:#d9534f">
+                        Prevoir de gerer le prix en indiquant un prix maximum ???
+                        <br>
+                        Remettre filtre_bieres-vins-alcFort!
+                    </div>
+
+                    <div class="row" style="color:black">
+
+                        <div class="col-md-6" data-drop="true" ng-model='chosenAlcohols'  jqyoui-droppable="{multiple:true}"
+                             style="margin-left:100px;min-height:200px;background:lightgrey;border:1px solid lightgrey; border-radius:5px; margin:5px; padding:7px; ">
+
+
+                            <!-- apparement pas util.."track by $index" qui sert normalement a autoriser des doublon ds la list cible (de drop) -->
+                            <div ng-repeat="chosenAlcohol in chosenAlcohols " style="width:350px; border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
+                                 data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="chosenAlcohols" ng-show="chosenAlcohol.name"
+                                 jqyoui-draggable="{index: {{$index}},placeholder:false}"   >
+
+                                {{chosenAlcohol.name}}({{chosenAlcohol.degre}}°) &nbsp {{chosenAlcohol.txtQty}} &nbsp  &nbsp
+                                - &nbsp {{chosenAlcohol.price}}€
+                                &nbsp&nbsp&nbsp{{displayNbItem(chosenAlcohol)}}
+                            </div>
+                            <div></div>
+
+
+
+                        </div>
+
+
+                        <div class="col-md-5">
+
+                            <br>
+                            <div style="color:{{colorGlassLeft}}; font-size: 20px;">
+                                <span ng-show="isGlassLeft"> Vous avez une marge de  </span>
+                                <span style="font-size: 50px;"> {{nbGlassLeft | number:0}}</span>
+                                verres
+                                <span ng-show="!isGlassLeft"> en TROP!</span>
+                            </div>
+
+                            <!--{{totalAmountAlcohol}}-->
+
+                            <br>
+                            <div id="trashAlcohol" class="glyphicon glyphicon-trash" style="font-size: 100px; color:#5bc0de"
+                                 data-drop="{{dataDropTrash}}" ng-model='trash'  jqyoui-droppable="{multiple:true, onOver:'onOverTrash()', onOut:'onOutTrash()', onDrop:'onOutTrash()'}"  > <!-- , onOver:'onOverTrash()', onOut:'onOutTrash()' }" -->
+
+                            </div>
+                            <!--{{trash}}-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

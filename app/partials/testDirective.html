@@ -1,0 +1,283 @@
+
+<div><h2>Tests Directives</h2></div>
+
+<div ng-controller="TestDragDropCtrl">
+
+
+    <div class="row" style="color:black" >
+        <div class="col-md-2" style="margin-top:20px">
+
+            <div>
+                <div><button class="btn btn-info" ng-click="selectRecipes('starters')"> Starters</button></div>
+                <br>
+                <div><button class="btn btn-info" ng-click="selectRecipes('courses')">Courses</button></div>
+                <br>
+                <div><button class="btn btn-info" ng-click="selectRecipes('desserts')">Desserts</button></div>
+                <br>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Courses</h3>
+                </div>
+
+                <div class="panel-body main-panel">
+                    <div ng-repeat="course in courses" style="display:inline-block ">
+                        <div   style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
+                               data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"  ng-model="courses" ng-show="course.name"
+                               jqyoui-draggable="{index: {{$index}},placeholder:'keep' }" >
+                            {{course.name}} + {{$index}}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+
+
+
+    <div class="row" style="color:black" >
+        <div class="col-md-2" style="margin-top:20px">
+
+            <div>
+                <div><button class="btn btn-info" ng-click="selectRecipes('starters')"> Starters</button></div>
+                <br>
+                <div><button class="btn btn-info" ng-click="selectRecipes('courses')">Courses</button></div>
+                <br>
+                <div><button class="btn btn-info" ng-click="selectRecipes('desserts')">Desserts</button></div>
+                <br>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Courses</h3>
+                </div>
+
+                <div class="panel-body main-panel">
+                    <div ng-repeat="course in courses" style="display:inline-block ">
+                        <div   style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
+                               data-drag="true" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}"  ng-model="courses" ng-show="course.name"
+                               jqyoui-draggable="{index: {{$index}},placeholder:'keep' }" >
+                            {{course.name}} + {{$index}}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row" style="color:black; " >
+        <div class="col-md-2" style="margin-top:20px">
+
+        </div>
+
+
+        <div class="col-md-8">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">PLANNING</h3>
+                </div>
+
+                <div class="panel-body main-panel" style="color:white; background:green;"  data-drop="true" ng-model='results'  jqyoui-droppable="{multiple:true}">
+                    <div ng-repeat="item in results track by $index" >
+                        <div>{{item.name}}</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div>
+        {{courses}}
+    </div>
+    <br>
+    <div style="color:white; background:green;" >
+        {{results}}
+    </div>
+
+    <br><br><br><br><br><br><br>
+
+
+</div>
+
+
+
+
+
+
+
+<div ng-controller="TestDirectiveCtrl">
+    <style>
+        .thumbnail { height: 280px !important; }
+        .btn-droppable { width: 180px; height: 30px; padding-left: 4px; }
+        .btn-draggable { width: 160px; }
+    </style>
+
+
+    <div class="navbar-inner">
+        <div class="container form-inline" style="text-align: center;">
+            <div class="btn btn-droppable" ng-repeat="item in list5" data-drop="true" ng-model='list5' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list5])'}"  jqyoui-droppable="{index: {{$index}}}">
+                <div class="btn btn-info btn-draggable" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list5" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" ng-show="item.title">{{item.title}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class='contentWrapper ng-cloak'>
+        <div class='content'>
+            <div class="row-fluid">
+                <div class="col-md-3 ">
+                        <div class="thumbnail" data-drop="true" ng-model='list1' data-jqyoui-options="optionsList1" jqyoui-droppable="{multiple:true}">
+                            <div class="caption">
+                                <div class="btn btn-info btn-draggable" ng-repeat="item in list1" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="col-md-3 ">
+                        <div class="thumbnail" data-drop="true" ng-model='list2' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list2])'}"  jqyoui-droppable="{multiple:true}">
+                            <div class="caption">
+                                <div class="btn btn-info btn-draggable" ng-repeat="item in list2" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list2" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="col-md-3 ">
+                        <div class="thumbnail" data-drop="true" ng-model='list3' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list3])'}"  jqyoui-droppable="{multiple:true}">
+                            <div class="caption">
+                                <div class="btn btn-info btn-draggable" ng-repeat="item in list3" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list3" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="col-md-3 ">
+                        <div class="thumbnail" data-drop="true" ng-model='list4' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=list4])'}"  jqyoui-droppable="{multiple:true}">
+                            <div class="caption">
+                                <div class="btn btn-info btn-draggable" ng-repeat="item in list4" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list4" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.title}}</div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div>
+        {{list1}}
+    </div>
+    <div>
+        {{list2}}
+    </div>
+    <div>
+        {{list3}}
+    </div>
+    <div>
+        {{list4}}
+    </div>
+    <div>
+        {{list5}}
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="row" style="color:black"  ng-controller="TestWatchCtrl">
+    <div class="col-md-8 "> <!-- col-md-offset-3-->
+
+        <div  class="panel panel-default" >
+            <div class="panel-heading">
+                <h3 class="panel-title">Watch</h3>
+            </div>
+
+            <div class="panel-body main-panel">
+                {{bonjour}}
+            </div>
+            <div>
+                <div ng-repeat="item in items">
+                    <span>{{item.title}}</span>
+                    <input ng-model="item.quantity">
+                    <span>{{item.price | currency}}</span>
+                    <span>{{item.price * item.quantity | currency}}</span>
+                </div>
+                <div>Total: {{totalCart() | currency}}</div>
+                <div>TEST2 : {{test2}} - TOTAL card</div>
+                <br>
+                <div>Discount: {{bill.discount | currency}} - watches totalCart() and modifies discount</div>
+                <div>Discount1: {{calculateDiscount1() | currency}} - function calculateDiscount1() return direct</div>
+                <div>Discount2: {{calculateDiscount2()}} -ah {{ bill.discount2 | currency}} - function calculateDiscount2() modifies discount2</div>
+                <div>Discount3: {{bill.discount3 | currency}} - wtaches items and modifies discount3</div>
+                <div>TEST : {{test}} - newVALUE</div>
+                <div>Subtotal: {{subtotal() | currency}}</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- Test interessant sur la couche de 'compilation' seul 10 evaluation sont recalculees au final...
+<div class="row" style="color:black"  ng-controller="TestEvalCtrl">
+    <div class="col-md-8 "> <!-- col-md-offset-3->
+
+        <div  class="panel panel-default" >
+            <div class="panel-heading">
+                <h3 class="panel-title">Test eval</h3>
+            </div>
+
+            <div class="panel-body main-panel">
+
+                <input type="number" ng-model="vareval">
+                <div>{{eval()}}</div>
+                <div>{{eval1()}}</div>
+                <div>{{eval2()}}</div>
+                <div>{{eval3()}}</div>
+                <div>{{eval4()}}</div>
+                <div>{{eval5()}}</div>
+                <div>{{eval6()}}</div>
+                <div>{{eval7()}}</div>
+                <div>{{eval8()}}</div>
+                <div>{{eval9()}}</div>
+                <div>{{eval10()}}</div>
+                <div>{{eval11()}}</div>
+                <div>{{eval12()}}</div>
+                <div>{{eval13()}}</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+-->

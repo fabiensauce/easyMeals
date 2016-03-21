@@ -1,0 +1,71 @@
+<!doctype html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+    <meta charset="utf-8">
+    <title>NG-CRW</title>
+    <meta name="description" content="">
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" >
+    <!-- Custom Theme CSS -->
+    <link href="css/grayscale.css" rel="stylesheet">
+    <link href="css/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="css/myCSS.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <!-- <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- JQuery pour DRAG&DROP  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+   <!-- <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.min.css" rel="stylesheet" type="text/css" /> -->
+
+
+
+</head>
+
+
+
+<body id="page-top" style="" scroll ng-app="myApp">
+
+        <div ng-include="'navbar.html'"></div>
+        <div class="container main" ng-view ng-controller="GlobalCtrl" ></div>
+
+
+
+<!-- LIB -->
+<script src="lib/angular.js"></script>
+<script src="lib/angular-route.js"></script>
+<script src="js/app.js"></script>
+<script src="lib/angular-dragdrop.js"></script>
+
+
+<!-- CONTROLLERS -->
+<script src="js/Controllers/controllers.js"></script>
+<script src="js/Controllers/global-controller.js"></script>
+<script src="js/Controllers/welcomeMeal-controller.js"></script>
+<script src="js/Controllers/recipe-controller.js"></script>
+<script src="js/Controllers/recipeCreation-controller.js"></script>
+<script src="js/Controllers/planning-controller.js"></script>
+<script src="js/Controllers/listShopping-controller.js"></script>
+<script src="js/Controllers/customizeShopping-controller.js"></script>
+<script src="js/Controllers/calculationExpense-controller.js"></script>
+<script src="js/Controllers/calculationAlcohol-controller.js"></script>
+<script src="js/Controllers/grilleImpot-controller.js"></script>
+<script src="js/Controllers/testDirective-controller.js"></script>
+<!-- DIRECTIVES -->
+<!--<script src="js/Directives/directives.js"></script>-->
+<script src="js/Directives/creationPlanning-directive.js"></script>
+<!-- SERVICES -->
+<script src="js/Services/services.js"></script>
+<script src="js/Services/global-service.js"></script>
+<script src="js/Services/recipe-service.js"></script>
+<script src="js/Services/planning-service.js"></script>
+<script src="js/Services/alcohol-service.js"></script>
+
+
+</body>
+</html>

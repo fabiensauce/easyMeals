@@ -1,0 +1,78 @@
+<div ng-controller="RecipeCtrl">
+
+
+    <div><h2>{{recipeType}} </h2></div>
+    <!--
+    <div class="row" style="color:black"  >
+
+        <div class="col-xs-2 " >
+
+        </div>
+
+
+    </div>
+    -->
+    <div class="row" style="color:black"  >
+
+        <!--
+            NAVBAR RECIPES LEFT-FIXED
+        -->
+
+
+
+        <div class="col-xs-2 " style="position: fixed" >
+            <span style="display:block; height:50px; visibility:hidden;"></span> <!-- DEGUEU permet d etre au meme niveau que les recipes -->
+            <div  class="panel panel-default" style=" overflow: hidden;" >
+
+                <div class="panel-heading">
+                    <h3 class="panel-title">List {{recipeType}}</h3>
+                </div>
+
+                <div class="panel-body main-panel">
+
+                    <div class="">
+                        <div ng-repeat="recipe in recipes | orderBy:'name'">
+                            <div><a href="#/recipe/{{recipeType}}#{{recipe.id}}" class="btn btn-default" >{{recipe.name}}</a></div> <!--(id:{{recipe.id}})-->
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-1">
+
+        </div >
+        <!--
+            Description Recipes
+        -->
+        <div class="col-xs-8 col-xs-offset-2 ">
+            <div style="display:block; height:50px;">
+                <a href="#/recipeCreation/{{recipeType}}"  class="btn btn-warning"> Create a new {{recipeType}}</a>
+            </div>
+
+            <div ng-repeat="recipe in recipes | orderBy:'name'">
+                <span id="{{recipe.id}}" style="display:block; height:50px; visibility:hidden;"></span> <!-- DEGUEU permet de voir le recipe lors du liens anchor -->
+                <div  class="panel panel-default" >
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{recipe.name}} ({{recipe.nbPerson}} pers.)</h3>
+                    </div>
+
+                    <div class="panel-body main-panel">
+                        <div> <b>Ingredients : </b></div>
+                        <div ng-repeat="ingredient in recipe.ingredients">
+                            <div> - {{ingredient.qty}}{{getIngrUnitDisplay(ingredient.unit)}} {{ingredient.food}}</div>
+                        </div>
+                        <br>
+                        <div> <b>Description : </b></div>
+                        <div>{{ recipe.description }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,60 @@
+<div ng-controller="WelcomeMealCtrl">
+
+    <h2>WELCOME to the MEAL application ! :)</h2>
+
+
+<!--
+    <br>
+    THE ID : {{myId}}
+    <br>
+    <button ng-click="incrementId()" type="button" class="btn btn-success">INCREMENT</button>
+
+    <br>
+-->
+    <span class="checkbox checkbox-danger" >
+        <input type="checkbox"  ng-model="showImprovement"  id="idShowImprovement" ng-change="toggleImpr()">
+        <label for="idShowImprovement" >
+            VISUALISER AMELIORATIONS !
+        </label>
+    </span>
+
+    <br>
+
+
+
+        <div ng-show="showImprovement" class="row" style="font-size: 15px; color:#d9534f" >
+
+            <div class="col-md-8">
+
+                <div  class="panel panel-default" >
+                    <div class="panel-heading">
+                        <h3 class="panel-title" style="color:#d9534f">Ameliorations/Bugs</h3>
+                    </div>
+
+
+                    <div class="panel-body main-panel" style="color:#d9534f">
+                        <div>NAV avec liste deroulante (RECETTES -> ENTREES/PLATS/DESSERTS)</div>
+                        <div>faire INTERFACE PERSO pour trier recette a ajouter base commune...</div>
+                        <div>ajout de BREAKFAST & SNACK avec entree/plat/desserts</div>
+                        <div>tout en francais..</div>
+                        <div style="font-size: 22px;">GIT..</div>
+
+                        <br>
+                        <br>
+
+                        <div style="font-size: 20px;color:rebeccapurple"> Faire un mode debug (comme improvement)
+                            où ca affiche toutes les sructures etc... . Essayer de mettre la checkbox "debug" dans bar de nav
+                            ou endroit plus accessible
+                        </div>
+
+                        <div style="font-size: 30px;color:darkorange">
+                            DEBUG calcul depenses en affichant $log.debug().. et augmenter ensuite nbPers..
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</div>

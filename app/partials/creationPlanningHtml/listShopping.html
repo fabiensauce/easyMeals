@@ -1,0 +1,127 @@
+<div ng-controller="ListShoppingCtrl" >
+
+    <div class="row" style="color:black"id="listShopping">
+
+
+
+        <div class="col-md-12">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">List Shopping</h3>
+                </div>
+
+                <div class="panel-body main-panel row"  ng-controller="CustomizeShoppingCtrl">
+
+                    <div ng-show="showImprovement" style="font-size: 20px; color:#d9534f">
+                        <div>Prevoir d'envoyer la liste par email</div>
+                        <div>(et eventuellement de l'imprimer sur une page a part ? -> moins important)</div>
+                        <div>lisShopping automatiquement triée par categorie (frais, legumes..etc)</div>
+                        <br>
+                        <div>permettre de supprimer un ingredient de listShopping (petit dessins poubelle rouge)</div>
+                    </div>
+
+                    <div style="margin-left:40px">
+                        <button class="btn btn-success" ng-click="calculListShopping()">Calcul shooping list </button>
+                    </div>
+                    <br>
+
+                    <div class="col-md-4" ng-show="listShop.length>0" >
+
+                        <h5>Votre liste de courses</h5>
+                        <div ng-repeat="ingr in listShop | orderBy:'food'"> <!-- | orderBy:'food'-->
+                            <div>
+                                - <span ng-show="!modifQty">{{ingr.qty}}</span>
+                                <span ng-show="modifQty"><input style="width:60px" type="number" ng-model ='ingr.qty' min="0" /></span>
+                                {{getIngrUnitDisplay(ingr.unit)}} {{ingr.food}}
+                                <button type="button" class="btn btn-default" ng-click="moveListToCategory(ingr)"> <!-- $index indique l'index du ng-repeat -->
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                            </div>
+                        </div>
+
+
+
+                        <input style="width:30px" type="number" ng-model ='newIngredient.qty' min="0"  placeholder="1" />
+                        <input style="width:60px" type="text" ng-model ='newIngredient.unit' placeholder="tablette" />
+                        <input style="width:90px" type="text" ng-model ='newIngredient.food' placeholder="chocolat" />
+                        <button type="button" class="btn btn-default" ng-click="addIngredientList(newIngredient)"> <!-- $index indique l'index du ng-repeat -->
+                            <span class="glyphicon glyphicon-plus"></span> ingredient
+                        </button>
+
+                        <!--{{listShop}}-->
+                    </div>
+
+                    <div class="col-md-3" ng-show="listShop.length>0" >
+                        <h5>Customisez votre liste</h5>
+
+                        <div ng-repeat="category in categories | orderBy:'name'">
+                            <label>
+                                <input type="radio" ng-model="$parent.categoryChosen" ng-value="category.name" />{{category.name}}
+                            </label>
+
+                        </div>
+
+
+
+<!--
+                                <span class="checkbox checkbox-circle " >
+                                    <input type="radio"  ng-model="categoryChosen"  ng-value="category.name" id="0">
+                                    <label for="0" >
+                                        Surgeles
+                                    </label>
+                                </span><span class="checkbox checkbox-info " >
+                                    <input type="radio"  ng-model="categoryChosen"  ng-value="category.name" id="2">
+                                    <label for="2" >
+                                        Surgeles
+                                    </label>
+                                </span>
+-->
+
+                        <input style="width:90px" type="text" ng-model ='catName' placeholder="chocolat" />
+                        <button type="button" class="btn btn-default" ng-click="addCategoryList(catName)"> <!-- $index indique l'index du ng-repeat -->
+                            <span class="glyphicon glyphicon-plus"></span> categorie
+                        </button>
+
+
+                        <br>
+                        <br>
+                        <br>
+                        <button class="btn btn-default" ng-click="toggleModifQty()" ng-show="!modifQty">Modifier Quantities</button>
+                        <button class="btn btn-info" ng-click="toggleModifQty()" ng-show="modifQty">Modification ok</button>
+
+                    </div>
+
+
+                    <div class="col-md-5" ng-show="listShop.length>0" >
+                        <h5>Votre Liste avec Categories</h5>
+
+                        <div ng-repeat="category in categories | orderBy:'name'  ">
+                            <div style="border:2px solid grey; border-radius:5px; margin:5px; padding:7px; " ng-show="category.ingredients.length>0">
+
+                                <b style="border-bottom:1px solid grey; " >{{category.name}}</b>
+                                <div ng-repeat="ingr in category.ingredients | orderBy:'food'">
+                                    <div>
+                                        -
+                                        <span ng-show="!modifQty">{{ingr.qty}}</span>
+                                        <span ng-show="modifQty"><input style="width:60px" type="number" ng-model ='ingr.qty' min="0" /></span>
+                                        {{getIngrUnitDisplay(ingr.unit)}} {{ingr.food}}
+                                        <button type="button" class="btn btn-default" ng-click="moveCategoryToList(category, ingr)"> <!-- $index indique l'index du ng-repeat -->
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

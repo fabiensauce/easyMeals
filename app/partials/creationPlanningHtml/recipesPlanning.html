@@ -1,0 +1,70 @@
+    <div class="row" style="color:black" >
+        <div class="col-md-2" style="margin-top:20px">
+
+            <div>
+                <div><button class="btn btn-info" ng-click="selectRecipes('starter')"> Starters</button></div>
+                <br>
+                <div><button class="btn btn-info" ng-click="selectRecipes('course')">Courses</button></div>
+                <br>
+                <div><button class="btn btn-info" ng-click="selectRecipes('dessert')">Desserts</button></div>
+                <br>
+            </div>
+
+        </div>
+        <div class="col-md-10">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading" >
+                    <div class="row">
+                        <h3 class="col-md-2 panel-title">
+                            {{recipeType}}
+                        </h3>
+                        <div class="col-md-6">
+                        </div>
+                        <div class="col-md-4" style="font-size:15px">
+                            <span   class="glyphicon glyphicon-search " ></span>
+                            &nbsp
+                            <input  type="text" ng-model="searchRecipe" placeholder="plat ou ingredient" style="border:none; ">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel-body main-panel">
+                    <div ng-repeat="recipe in recipes | filter : searchRecipe" style="display:inline-block ">
+                        <div   style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
+                               data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="recipes" ng-show="recipe.name"
+                               jqyoui-draggable="{index: {{$index}},placeholder:'keep'}"
+                        title="{{displayIngredientsOfRecipe(recipe)}}">
+                            {{recipe.name}}
+                        </div>
+                    </div>
+
+                    <!--
+                    <br>
+                    <br>
+                    <div>
+
+                        <b>Ajout Recette Express</b>
+                        -
+
+                        Pour : <input style="width:40px" type="number" min="1"   ng-model="quickRecipe.nbPerson"> pers.
+                        -
+                        <input style="width:50px" type="number" ng-model ='quickRecipe.ingredients[0].qty' min="0"  step="{{step}}" placeholder="Ex: 50" />
+                        <select ng-model='quickRecipe.ingredients[0].unit' ng-change="changeValSelect(quickRecipe.ingredients[0])" ng-options='unit for unit in units' ></select>
+                        <input type="text" ng-model ='quickRecipe.ingredients[0].food' placeholder="Ex: tomato" style="width:100px"/>
+                        : &nbsp
+                        <span style="border:1px solid black; border-radius:5px; padding:7px;"
+                              data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="quickRecipe"
+                              jqyoui-draggable="{placeholder:false}">
+                            <input style="width:100px; border:none" type="text" ng-model="quickRecipe.name" placeholder="Name (to drag)">
+                            <!--{{quickRecipe.name}}--
+                            <span class="glyphicon glyphicon-tags"></span> <!--glyphicon-move glyphicon-hand-down--
+                        </span>
+                    </div>
+                -->
+                </div>
+            </div>
+
+        </div>
+    </div>

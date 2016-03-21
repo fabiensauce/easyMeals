@@ -1,0 +1,12 @@
+
+.myBorder{
+    border: 5px solid red;
+    border-radius:10px;
+}
+#resultExpense {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 20px;
+    color:#5bc0de;
+}

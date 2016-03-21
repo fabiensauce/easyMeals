@@ -1,0 +1,50 @@
+
+<div class="container" ng-controller="RecipeCreationCtrl">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading"  >
+                    <h3 class="panel-title">Create {{recipeType}}</h3>
+                </div>
+                <div class="panel-body main-panel">
+
+                     <form role="form" class="css-form">
+                         <div class="form-group">
+                             <div><label>Name Recipe:</label></div>
+                             <input type="text" ng-model ='recipe.name' maxlength="20" placeholder="Ex: Lasagna" required />
+                         </div>
+                         <div class="form-group">
+                             <div><label>Recipe for <input style="width:40px" type="number" ng-model ='recipe.nbPerson' min="1" placeholder="Ex:4" required/> person(s)</label></div>
+
+                         </div>
+                        <div class="form-group">
+                            <div><label>Ingredient(s): (quantity, unit, food)</label></div>
+
+                            <div ng-repeat="ingredient in recipe.ingredients">
+                                <input style="width:60px" type="number" ng-model ='ingredient.qty' min="0"  step="{{step}}" placeholder="Ex: 50"  required />
+                                <select ng-model='ingredient.unit' ng-change="changeValSelect(ingredient)" ng-options='unit for unit in units' ></select>
+                                <input type="text" ng-model ='ingredient.food' placeholder="Ex: tomato" required />
+                                <button type="button" class="btn btn-default" ng-click="removeRowIngredient($index,ingredient)"> <!-- $index indique l'index du ng-repeat -->
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                </button>
+                            </div>
+                            <button type="button" class="btn btn-default" ng-click="addRowIngredient()">
+                                <span class="glyphicon glyphicon-plus"></span> ingredients
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <div><label>Description:</label></div>
+                            <textarea name="comment" ng-model ='recipe.description' placeholder="Ex: lasagna are good" style="width:25vw; min-width:200px;">Enter text here...</textarea>
+                        </div>
+                        <br>
+                        <input type="submit" value="Add recipe : {{recipe.name}}" ng-click="addRecipe(recipe)" class="btn btn-success"/>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

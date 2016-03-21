@@ -1,0 +1,67 @@
+<div class="panel-body main-panel" ng-controller="GrilleImpotCtrl">
+
+
+    <!-- TABLE avec differences de couleurs entre lignes -->
+
+    <table class="table table-hover">
+        <th class="info">Revenus BRUT</th>
+        <th class="success">Revenus NET</th>
+        <th class="danger">Impots annuels NET</th>
+        <th class="info">Mensuels BRUT</th>
+        <th class="success">Mensuels NET</th>
+        <th class="danger">Mensuels NET D'IMPÔTS</th>
+        <th class="warning">Avec mois de vac :)</th>
+        <tr ng-repeat="revenusBrut in listRevenusBrut">
+            <td> {{revenusBrut}}</td>
+            <td > {{revenusNet(revenusBrut)  | number:1 }}</td>
+            <td > {{impotsAnnuel(revenusBrut) | number:1 }}</td>
+            <td > {{brutMensuel(revenusBrut) | number:1 }}</td>
+            <td > {{netMensuel(revenusBrut)  | number:1 }}</td>
+            <td > {{revenuMensuelNetDimpots(revenusBrut)  | number:1 }}</td>
+            <td > {{revenuMensuelNetDimpotsWithVac(revenusBrut)  | number:1 }}</td>
+        </tr>
+        <tr >
+            <td class="info"> <input type="number" ng-model='revenusBrut' step='1000'> </input></td>
+            <td class="success">{{revenusNet(revenusBrut)  | number:1 }}</td>
+            <td class="danger"> {{impotsAnnuel(revenusBrut) | number:1 }}</td>
+            <td class="info"> {{brutMensuel(revenusBrut) | number:1 }}</td>
+            <td class="success"> {{netMensuel(revenusBrut)  | number:1 }}</td>
+            <td class="danger"> {{revenuMensuelNetDimpots(revenusBrut)  | number:1 }}</td>
+            <td class="warning"> {{revenuMensuelNetDimpotsWithVac(revenusBrut)  | number:1 }}</td>
+        </tr>
+    </table>
+
+
+
+    <!-- TABLE avec differences de couleurs entre colonnes
+
+     <table class="table table-hover">
+        <th class="info">Revenus BRUT</th>
+        <th class="success">Revenus NET</th>
+        <th class="danger">Impots annuels NET</th>
+        <th class="info">Mensuels BRUT</th>
+        <th class="success">Mensuels NET</th>
+        <th class="warning">Mensuels NET D'IMPÔTS</th>
+        <th class="warning">Avec mois de vac :)</th>
+        <tr ng-repeat="revenusBrut in listRevenusBrut">
+            <td class="info"> {{revenusBrut}}</td>
+            <td class="success"> {{revenusNet(revenusBrut)  | number:1 }}</td>
+            <td class="danger"> {{impotsAnnuel(revenusBrut) | number:1 }}</td>
+            <td class="info"> {{brutMensuel(revenusBrut) | number:1 }}</td>
+            <td class="success"> {{netMensuel(revenusBrut)  | number:1 }}</td>
+            <td class="warning"> {{revenuMensuelNetDimpots(revenusBrut)  | number:1 }}</td>
+            <td class="warning"> {{revenuMensuelNetDimpotsWithVac(revenusBrut)  | number:1 }}</td>
+        </tr>
+        <tr >
+            <td class="info"> <input type="number" ng-model='revenusBrut' step='1000'> </input></td>
+            <td class="success"> {{revenusNet(revenusBrut)  | number:1 }}</td>
+            <td class="danger"> {{impotsAnnuel(revenusBrut) | number:1 }}</td>
+            <td class="info"> {{brutMensuel(revenusBrut) | number:1 }}</td>
+            <td class="success"> {{netMensuel(revenusBrut)  | number:1 }}</td>
+            <td class="warning"> {{revenuMensuelNetDimpots(revenusBrut)  | number:1 }}</td>
+            <td class="warning"> {{revenuMensuelNetDimpotsWithVac(revenusBrut)  | number:1 }}</td>
+        </tr>
+    </table>
+
+    -->
+</div>

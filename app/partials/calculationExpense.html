@@ -1,0 +1,163 @@
+<div  ng-controller="CalculationExpenseCtrl">
+
+    <div><h2>{{bonjour}}</h2></div>
+
+
+    <div class="row" style="color:black">
+        <div class="col-md-6">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Parametres</h3>
+                </div>
+
+
+                <div class="panel-body main-panel" >
+                    <div>
+                        <label>Nombre de personnes : </label>
+                        &nbsp&nbsp<input type="number" ng-model ='nbPers' ng-change="updatePersons()" min="1" style="width:60px"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="row" style="color:black">
+        <div class="col-md-12">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Tableau de Calcul</h3>
+                </div>
+
+
+
+                <div class="panel-body main-panel" >
+
+                    <!--
+                    <div ng-repeat="row in rows" >
+                        {{row}}
+                        <br>
+                    </div>
+                    -->
+                    <table class="table table-striped table-hover table-bordered">
+
+
+                        <th class="info">A payé</th>
+                        <th class="info">Prix</th>
+                        <th class="info" ng-repeat="person in persons">
+                            <input style="width:70px; border:none; text-align: center; background-color:#f9f9f9" type="text"  ng-model="person.name" >
+
+                        </th>
+                        <th class="info">All</th>
+                        <th class="info">Description</th>
+                        <th class="info">Supp. ligne</th>
+
+
+                        <tr ng-repeat="row in rows" >
+                            <div ng-show="{{row.listChecked}}">euh..:!</div>
+                            <!--{
+                            buyer:'fab',
+                            price:30,
+                            listChecked:[true, false],
+                            checkedAll:false,
+                            description:'pour les courses'
+                            -->
+                            <td>
+                                <!-- <select ng-model='row.buyer' ng-options='person.name for person in persons' >-->
+                                <select ng-model='row.buyerId'  >
+                                    <option ng-repeat="person in persons" value="{{person.id}}">{{person.name}}</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input style="width:35px; border:none; text-align: center; background-color:#f9f9f9" type="number" min="0"  ng-model="row.price" >
+                            </td>
+                            <td ng-repeat="isChecked in row.listChecked"><!-- ng-click="toggleCheckList(isChecked)">-->
+                                <span class="checkbox checkbox-info" style="margin-left:40px">
+                                     <input type="checkbox"  ng-model="isChecked.bool" ng-change="aPersonColumnChecked(row)" id="{{isChecked.id}}+idRow{{row.id}}">
+                                     <label for="{{isChecked.id}}+idRow{{row.id}}" >
+                                         <!--{{isChecked.bool}}-->
+                                     </label>
+                                 </span>
+                            </td>
+                            <!--<td ng-click="toggleAll(row)" > ceci ne fait pas fonctionner correctmeent le ng-change
+                                                                qui nest pas appele si on clique dans la case mais pas sur la checkbox-->
+                            <td >
+                                <span class="checkbox checkbox-success" style="margin-left:40px">
+                                     <input type="checkbox"  ng-model="row.checkedAll" ng-change="aAllChecked(row)" id="idCheckedAll+{{row.id}}">
+                                     <label for="idCheckedAll+{{row.id}}" >
+                                         <!--{{row.checkedAll}}-->
+                                     </label>
+                                 </span>
+                            </td>
+                            <td>
+                                <textarea rows="2" cols="25"  >{{row.description}}</textarea>
+
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-default" ng-click="deleteRowExpense(row)">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                </button>
+
+
+                            </td>
+                        </tr>
+                    </table>
+
+                    <br>
+                    <button type="button" class="btn btn-default" ng-click="addRowExpense()">
+                        <span class="glyphicon glyphicon-plus"></span> Ligne
+                    </button>
+
+                    <br>
+                    <br>
+                    <div ng-show="showImprovement" style="font-size: 15px; color:#d9534f">
+                        <div>Prevoir de drag&drop les row entre elle</div>
+                        <div style="font-size: 22px">ALLER voir ex. codeFormer Examples->filters with ngRepeat !!!!</div>
+                        <div>peut regler pb des filtres en mm tps !!</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row" style="color:black">
+        <div class="col-md-6">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title">Results</h3>
+                </div>
+
+
+
+                <div class="panel-body main-panel" id="resultExpense">
+
+
+                    <!--
+                    <br>
+                    {{tabExpense}}
+                    <br>
+                    <br>
+                    {{tabCouple}}
+                    <br>
+                    -->
+                    <div ng-repeat="couple in tabCouple" >
+                        <span>{{couple.debtGuy.name}}</span> -> {{couple.amount}}€ à {{couple.benefitGuy.name}}
+                    </div>
+                    <br>
+                    (-> : "doit")
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
