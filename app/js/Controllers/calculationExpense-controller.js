@@ -245,4 +245,6 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
     }
 
 
+    $scope.helloU = "hello you.. !";
+
 });
