@@ -1,0 +1,45 @@
+
+****************************************************
+ -  AJOUT DROP-DOWN MENU dans NAVBAR
+download (puis mettre dans /lib)
+    ui-bootstrap-tpls.min.js
+ajout ds index.html de :
+    <script src="lib/ui-bootstrap-tpls.min.js"></script>
+ajouter dependance "ui.bootstrap" dans controller.js :
+    angular.module('controllers', ['services', 'ngDragDrop', "ui.bootstrap"]);
+puis voir exemple <li class="dropdown"> dans navbar.html
+
+
+
+****************************************************
+  - DRAG & DROP by codeformer
+
+(http://codef0rmer.github.io/angular-dragdrop/)
+
+download (puis mettre dans /lib)
+    angular-dragdrop.js
+ajout ds index.html de :
+    <script src="lib/angular-dragdrop.js"></script>
+ajouter dependance "ngDragDrop" dans controller.js :
+  angular.module('controllers', ['services', 'ngDragDrop', "ui.bootstrap"]);
+puis voir exemples (planningToFill.html...etc)
+
+Differentes fonctionnalites
+
+jqyoui-draggable="{index: {{$index}},placeholder:'keep', deepCopy:true}"
+options visible dans le liens ci dessus!
+
+deepCopy (true or false) permet de faire une copy de l'obj, le nouvel objet n'aura ainsi pas la mm reference que l'initial.
+placeholder (keep, true or false) indique si l'objet restera egalement dans la source
+                            Sans le 'deepcopy' lobjet resté a la source partagera la reference de l'obj dans le drop
+                            false laisse aucune trace à la source tandis que true laisse un objet vide : {}
+il est egalement possible d'avoir 2x le meme element dans la cible sans avoir fait un deepCopy depuis la source :
+=> 'track by $index' ex planningToFill.html : '<div ng-repeat="recipe in meal.recipes track by $index>'
+permet ainsi de differencier les 2 meme elements et de pouvoir les afficher!
+
+data-jqyoui-options="{revert: 'invalid', helper:'clone'}"
+options de jquery (http://api.jqueryui.com/draggable/)
+revert : indique si l'element reviendra a sa place (animation visuelle)
+    true/false : reviendra toujours/jamais
+    invalid/valid : reviendra si drop non valid / inverse
+helper : "original" or "clone" permet de cloner ou non l'elem to drag (ou possible fonction) cf doc jquery...
