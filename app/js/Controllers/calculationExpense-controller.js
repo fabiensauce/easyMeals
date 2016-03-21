@@ -8,6 +8,7 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
 
     $scope.bonjour = "Calculez vos depenses";
     $scope.nbPers = 4;
+    $scop.bonjour = "bonjour";
 
     //$scope.persons = ['person1', 'person2', 'person3', 'person4'];
     $scope.persons = [{id:0, name:'fab'}, {id:1, name:'math'}, {id:2, name:'eddy'}, {id:3, name:'carine'}];
@@ -32,7 +33,7 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
         }
 
         $log.debug('BONJOUUUUUUR');
-    }
+    };
 
     $scope.aPersonColumnChecked = function(row){//a person has been (un)checked
         var checkAll = true;
@@ -42,27 +43,27 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
             }
         }
         row.checkedAll = checkAll;
-    }
+    };
     $scope.aAllChecked = function(row){//'all' has been (un)checked
         for(var i=0; i<row.listChecked.length; i++){
             row.listChecked[i].bool = row.checkedAll;
         }
-    }
+    };
 
 
     $scope.toggleCheckList = function(isChecked){
         isChecked.bool = !isChecked.bool ;
-    }
+    };
     $scope.toggleAll = function(row){
         row.checkedAll = !row.checkedAll;
-    }
+    };
 
 
     var updateRows = function(){
         creationTabExpense();
         creationTabCouple();
 
-    }
+    };
     $scope.$watch('rows', updateRows, true);
     // $scope.$watch('filterQtyChosen', updateAlcoholsWithQty);
 
@@ -74,11 +75,11 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
         }
         var row = {id:numId, buyerId:0, price:0,listChecked:listCheck, checkedAll:false, description:''}
         $scope.rows.push(row);
-    }
+    };
     $scope.deleteRowExpense = function(row){
         var index = $scope.rows.indexOf(row); //fonctionne aussi tres bien
         $scope.rows.splice(index, 1);
-    }
+    };
     $scope.idRow = 3; //permet d'avoir un id unique pour chaque row qui s'incremente dans $scope.addRowExpense()
                       // (autrement possible pb lors de suppression de row puis ajout...
     $scope.rows = [
@@ -106,7 +107,7 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
             checkedAll:true,
             description:'bonbons2'
         }
-    ]
+    ];
 
 
     /*******************************************************************************************************************************
@@ -127,30 +128,6 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
     *
     *
      */
-
-    function afficheResult(){
-        var text = '';
-        for(var k=0; k<tabCouple.length; k++){
-            text += tabPerson[tabCouple[k][2]] + " -> " + tabCouple[k][1] + "€ to "+ tabPerson[tabCouple[k][0]] + "</br>\n";
-        }
-
-
-        var resultDiv = document.getElementById("fieldResultExpenses");
-        resultDiv.innerHTML = text+'</br>(-> : "owes")';
-
-
-        //alert(text+'(-> : "owes")');
-    }
-    $scope.tabResult = [];
-    var updateTabResult = function(){
-        $scope.tabResult = [];
-        for(var i=0; i<$scope.tabCouple.length; i++){
-            $scope.tabResult.push()
-        }
-
-
-
-    }
 
     $scope.tabExpense = [];
     var creationTabExpense = function(){
@@ -201,7 +178,7 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
 
         }
         $scope.tabExpense = tabExpense;
-    }
+    };
 
 
 
@@ -236,7 +213,7 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
 
         $log.debug('tabExpense : '+tabExpense+ '  -  tabCouple : '+tabCouple);
         $scope.tabCouple = tabCouple;
-    }
+    };
 
     var findIndexMin = function(tab){
         if(tab.length > 0){
@@ -251,7 +228,7 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
             return index;
         }
         return null;
-    }
+    };
     var findIndexMax = function(tab){ //return index
         if(tab.length > 0){
             var max = tab[0];
