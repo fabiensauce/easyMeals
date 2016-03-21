@@ -28,8 +28,7 @@
                     </div>
                     <br>
 
-                    <div class="col-md-4" ng-show="listShop.length>0" >
-
+                    <div class="col-md-4" ng-show="showListShopping()" >
                         <h5>Votre liste de courses</h5>
                         <div ng-repeat="ingr in listShop | orderBy:'food'"> <!-- | orderBy:'food'-->
                             <div>
@@ -54,7 +53,7 @@
                         <!--{{listShop}}-->
                     </div>
 
-                    <div class="col-md-3" ng-show="listShop.length>0" >
+                    <div class="col-md-3" ng-show="showListShopping()" >
                         <h5>Customisez votre liste</h5>
 
                         <div ng-repeat="category in categories | orderBy:'name'">
@@ -63,9 +62,6 @@
                             </label>
 
                         </div>
-
-
-
 <!--
                                 <span class="checkbox checkbox-circle " >
                                     <input type="radio"  ng-model="categoryChosen"  ng-value="category.name" id="0">
@@ -95,7 +91,7 @@
                     </div>
 
 
-                    <div class="col-md-5" ng-show="listShop.length>0" >
+                    <div class="col-md-5" ng-show="showListShopping()">
                         <h5>Votre Liste avec Categories</h5>
 
                         <div ng-repeat="category in categories | orderBy:'name'  ">

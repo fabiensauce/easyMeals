@@ -14,6 +14,26 @@ myModule.controller('CustomizeShoppingCtrl', function($scope, $log, PlanningServ
         $scope.modifQty = ! $scope.modifQty;
     }
 
+
+    $scope.showListShopping = function(){
+        for(var i=0; i<$scope.categories.length; i++){
+            if($scope.categories[i].ingredients.length > 0){
+                return true;
+            }
+        }
+        return $scope.listShop.length>0;
+    }
+    /* display for "showListShopping()"
+    $scope.elemNotEmptyListShopping = function(){
+        for(var i=0; i<$scope.categories.length; i++){
+            if($scope.categories[i].ingredients.length > 0){
+                return $scope.categories[i].name;
+            }
+        }
+        return "list shop not empty ";//+$scope.listShop.[0].food;
+    }
+    */
+
     //the parent scope (ListShoppingCtrl) sent broadcast to say we need to reset categories lists
     $scope.$on('resetCategories', function() {
         //reset all categories
@@ -22,7 +42,7 @@ myModule.controller('CustomizeShoppingCtrl', function($scope, $log, PlanningServ
         }
     });
 
-    $scope.newIngredient = {qty:1, unit:'tablette', food:'chocolat'};
+    $scope.newIngredient = {qty:null, unit:'', food:''};
 
     $scope.addIngredientList = function(ingr){
         var newIngr = JSON.parse(JSON.stringify(ingr));//NEW OBJECT
