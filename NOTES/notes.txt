@@ -150,3 +150,13 @@ DEPENDANCE :
 
 
  ********************************************************************************************************
+   - ROUTE PARAMS
+
+   ex de $routeParams dans recipe-controller.js
+
+
+ ********************************************************************************************************
+   - EMIT BROADCAST &
+
+   ex de $broadcast-$on entre listShopping.js & customizeShopping.js
+   ex de $emit-$on entre ..planning-controller.js & global-controller.js

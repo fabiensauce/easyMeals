@@ -5,7 +5,7 @@
 
 var myModule = angular.module('controllers');
 
-myModule.controller('GlobalCtrl', function($scope, $log, $location, GlobalService) {
+myModule.controller('GlobalCtrl', function($scope, $log, $routeParams, $location, GlobalService) {
 
     /**
      * Pour avoir une variable "global" utilisable entre les differentes section/view
@@ -13,6 +13,14 @@ myModule.controller('GlobalCtrl', function($scope, $log, $location, GlobalServic
      * uniquement ici dans le controller vont etre remise a zero a chaque fois que l'on recherche la view...
      *
      */
+
+    $scope.$on('intoPlanning', function() {
+        //alert("BOOOM ON EST DS PLANNING AAHAHAHA");
+        $scope.classBody = "bodyPlanning";
+    });
+
+    $scope.classBody = "bodyEasyMeals";
+
 
     $scope.showDebug=GlobalService.getDebug();
     $scope.toggleDebug = function(){

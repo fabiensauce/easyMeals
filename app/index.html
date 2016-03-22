@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:ng="http://angularjs.org">
+<html xmlns:ng="http://angularjs.org" ng-app="myApp">
 <head>
     <meta charset="utf-8">
     <title>easyMeals</title>
@@ -27,12 +27,12 @@
 </head>
 
 
-<body id="page-top" style="" scroll ng-app="myApp">
+<body id="page-top" class="{{classBody}}" style="" scroll ng-controller="GlobalCtrl">
 
-    <div ng-controller="GlobalCtrl">
-        <div ng-include="'navbar.html'"></div>
-        <div class="container main" ng-view ></div>
-    </div>
+
+    <div ng-include="'navbar.html'"></div>
+    <div class="container main" ng-view ></div>
+
 
 
     <!-- LIB -->
