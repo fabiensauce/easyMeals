@@ -111,3 +111,40 @@ DEPENDANCE :
  - GLYPHICON (http://getbootstrap.com/components/)
 
 <span   class="glyphicon glyphicon-search " ></span>
+
+
+
+
+********************************************************************************************************
+  - WATCH
+
+
+ ex : $scope.$watch('showImprovement', toggleImpr);
+
+ ATTENTION WATCH NE FONCTIONNE PAS sur les $scope pour les FONCTIONS
+  => $scope.toggleImpr = function(){...} //NE FONCTIONNE PAS
+     var toggleImpr = function(){...} //FONCTIONNE!
+
+
+
+ ********************************************************************************************************
+   - AWSOME CHECKBOXES
+
+   https://github.com/flatlogic/awesome-bootstrap-checkbox
+
+
+   FORMATTAGE IMPORTANT :
+    - SPAN avec la classe "checkbox checkbox-info" qui contient :
+            - un INPUT suivi d'un LABEL est necessaire, avec le MEME id pour les deux
+
+    EX :
+     <span class="checkbox checkbox-warning" >
+             <input type="checkbox"  ng-model="showDebug"  id="idShowDebug" ng-change="toggleDebug()">
+             <label for="idShowDebug" >
+                 SHOW DEBUG
+             </label>
+     </span>
+
+
+
+ ********************************************************************************************************

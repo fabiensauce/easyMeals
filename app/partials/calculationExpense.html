@@ -4,15 +4,17 @@
 
 
     <div class="row" style="color:black">
-        <div class="col-md-6">
-
+        <div class="{{largeExpense}}" > <!-- 'col-md-12' or 'col-md-6'-->
             <div  class="panel panel-default" >
                 <div class="panel-heading">
                     <h3 class="panel-title">Parametres</h3>
                 </div>
-
-
                 <div class="panel-body main-panel" >
+                    <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
+                        <div style="font-size: 12px;">@ le mode accompagnement peut être désactivé dans l'accueil "EASYMEALS"</div>
+                        <div>Le calcul de dépense permet de saisir toutes les dépenses de chacun des membres du groupe et de voir facilement qui doit rembourser qui</div>
+                        <div><b>Selectionner le nombre de personnes composant le groupe (même si certains n'ont rien payé)</b></div>
+                    </div>
                     <div>
                         <label>Nombre de personnes : </label>
                         &nbsp&nbsp<input type="number" ng-model ='nbPers' ng-change="updatePersons()" min="1" style="width:60px"/>
@@ -20,6 +22,8 @@
                 </div>
             </div>
         </div>
+
+
     </div>
 
     <br>
@@ -37,12 +41,17 @@
 
                 <div class="panel-body main-panel" >
 
-                    <!--
-                    <div ng-repeat="row in rows" >
-                        {{row}}
-                        <br>
+                    <!-- DEBUG -->
+                    <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                        <div ng-repeat="row in rows" >
+                            {{row}}<br>
+                        </div>
                     </div>
-                    -->
+
+                    <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
+                        <div ><b>Il est possible de saisir le prenom des membres du groupe directement dans chaque en-têtes de colonne</b></div>
+                    </div>
+
                     <table class="table table-striped table-hover table-bordered">
 
 
@@ -58,7 +67,6 @@
 
 
                         <tr ng-repeat="row in rows" >
-                            <div ng-show="{{row.listChecked}}">euh..:!</div>
                             <!--{
                             buyer:'fab',
                             price:30,
@@ -79,7 +87,6 @@
                                 <span class="checkbox checkbox-info" style="margin-left:40px">
                                      <input type="checkbox"  ng-model="isChecked.bool" ng-change="aPersonColumnChecked(row)" id="{{isChecked.id}}+idRow{{row.id}}">
                                      <label for="{{isChecked.id}}+idRow{{row.id}}" >
-                                         <!--{{isChecked.bool}}-->
                                      </label>
                                  </span>
                             </td>
@@ -89,7 +96,11 @@
                                 <span class="checkbox checkbox-success" style="margin-left:40px">
                                      <input type="checkbox"  ng-model="row.checkedAll" ng-change="aAllChecked(row)" id="idCheckedAll+{{row.id}}">
                                      <label for="idCheckedAll+{{row.id}}" >
-                                         <!--{{row.checkedAll}}-->
+                                         <!-- DEBUG -->
+                                         <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                                             <div >{{row.checkedAll}}</div>
+                                         </div>
+                                         <!---->
                                      </label>
                                  </span>
                             </td>
@@ -115,9 +126,6 @@
                     <br>
                     <br>
                     <div ng-show="showImprovement" style="font-size: 15px; color:#d9534f">
-                        <div>Prevoir de drag&drop les row entre elle</div>
-                        <div style="font-size: 22px">ALLER voir ex. codeFormer Examples->filters with ngRepeat !!!!</div>
-                        <div>peut regler pb des filtres en mm tps !!</div>
                     </div>
 
                 </div>
@@ -126,6 +134,13 @@
     </div>
 
 
+
+    <!-- DEBUG -->
+    <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+        <div >{{tabExpense}}</div>
+        <div ng-repeat="couple in tabCouple" >{{couple}}</div>
+    </div>
+    <!---->
 
 
     <div class="row" style="color:black">
@@ -136,19 +151,7 @@
                     <h3 class="panel-title">Results</h3>
                 </div>
 
-
-
                 <div class="panel-body main-panel" id="resultExpense">
-
-
-                    <!--
-                    <br>
-                    {{tabExpense}}
-                    <br>
-                    <br>
-                    {{tabCouple}}
-                    <br>
-                    -->
                     <div ng-repeat="couple in tabCouple" >
                         <span>{{couple.debtGuy.name}}</span> -> {{couple.amount}}€ à {{couple.benefitGuy.name}}
                     </div>

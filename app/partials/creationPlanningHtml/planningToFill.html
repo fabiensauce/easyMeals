@@ -11,12 +11,6 @@
 
             <div class="panel-body main-panel">
 
-                <div ng-show="showImprovement" style="font-size: 20px; color:#d9534f">
-                    <div>Corriger filtre : remettre filtre_entree-plat-desserts</div>
-                    <div>Colorer case planning lors event "onDropOver"</div>
-                </div>
-
-
                 <table class="table table-striped table-hover table-bordered">
                     <th class="info"></th>
                     <th class="info">Lundi</th>
@@ -26,8 +20,6 @@
                     <th class="info">Vendredi</th>
                     <th class="info">Samedi</th>
                     <th class="info">Dimanche</th>
-
-
                     <!--
                          //fourWeekMeals = [aWeekMealLunch, aWeekMealDinner, .., ..]
                          //aWeekMeal = {typeMeal: lunch, show:true, weekMeals:[meal1, meal2, ..., meal7]}
@@ -44,8 +36,6 @@
                                  jqyoui-droppable="{multiple:true}">
                                 <input style="width:35px; border:none; text-align: center; background-color:#f9f9f9" type="number" min="1"  ng-model="meal.nbPers" > pers.
                             </div>
-
-
                             <!--ng-repeat="recipe in meal.recipes  | orderByRecipeType" -->
                             <!--track by $index permet d'avoir 2x le mm element dans un drop sans bug -->
                             <div ng-repeat="recipe in meal.recipes track by $index " style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
@@ -56,21 +46,22 @@
                         </td>
                     </tr>
                 </table>
-                <div ng-repeat="recipe in fourWeekMeals[1].weekMeals[0].recipes">
 
-                    {{recipe.name}}
+
+                <!-- DEBUG -->
+                <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                    <div ng-repeat="recipe in fourWeekMeals[1].weekMeals[0].recipes">
+                        {{recipe.name}}
+                    </div>
                 </div>
 
 
                 <div class="row" style="color:black" >
 
-                    <div class="col-md-7">
+                    <div class="col-md-10">
                         <div>
 
 
-                            <!--
-                            AWSOME CHECKBOX : https://github.com/flatlogic/awesome-bootstrap-checkbox
-                            -->
 
                             <span class="checkbox checkbox-info checkbox-inline" ng-repeat="aWeekMeal in fourWeekMeals">
                                 <input type="checkbox"  ng-model="aWeekMeal.show" id="{{aWeekMeal.id}}">
@@ -82,10 +73,16 @@
 
                         </div>
 
+
+
                         <div>
                             Global Number of Persons : <input type="number" ng-model="globalNbPers" ng-change="spreadGlobalNbPers(globalNbPers)" min="1" style="width:40px">
                         </div>
 
+
+                        <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
+                            <div>Apres avoir choisi le nombre de personne global, il est possible de le modifier pour un repas en particulier : cocher "afficher nb pers." puis modifier directement le nb dans le repas ou y faire glisser le nb ci-dessous  </div>
+                        </div>
                         <div>
                             <!--<input type="checkbox" ng-model="showNbPers" >Show NbPers &nbsp-->
                              <span class="checkbox checkbox-success checkbox-inline" >
@@ -113,21 +110,24 @@
                     </div>
 
 
-                    <div class="col-md-3">
 
+
+                    <div class="col-md-2">
+                        <div id="trashPlanning" class="glyphicon glyphicon-trash" style="font-size: 50px; color:green"
+                             data-drop="{{dataDropTrash}}" ng-model='trash'  jqyoui-droppable="{multiple:true, onOver:'onOverTrash()', onOut:'onOutTrash()', onDrop:'onOutTrash()'}"  > <!-- , onOver:'onOverTrash()', onOut:'onOutTrash()' }" -->
+                        </div>
+                    </div>
+
+                    <!-- DEBUG -->
+                    <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                        <div class="col-md-3">
                         <span class="checkbox checkbox-success checkbox-inline" >
                                  <input type="checkbox"  ng-model="dataDropTrash" id="dataDropTrashId">
                                  <label for="dataDropTrashId" >
                                      Trash Droppable ?
                                  </label>
                         </span>
-
-                       droppable ? : {{dataDropTrash}}
-                    </div>
-                    <div class="col-md-2">
-                        <div id="trashPlanning" class="glyphicon glyphicon-trash" style="font-size: 50px; color:green"
-                             data-drop="{{dataDropTrash}}" ng-model='trash'  jqyoui-droppable="{multiple:true, onOver:'onOverTrash()', onOut:'onOutTrash()', onDrop:'onOutTrash()'}"  > <!-- , onOver:'onOverTrash()', onOut:'onOutTrash()' }" -->
-
+                            droppable ? : {{dataDropTrash}}
                         </div>
                     </div>
                 </div>

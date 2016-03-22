@@ -11,6 +11,75 @@
 
     <br>
 -->
+
+    <span class="checkbox checkbox-info" >
+        <input type="checkbox"  ng-model="showHelp"  id="idShowHelp" ng-change="toggleHelp()">
+        <label for="idShowHelp" >
+            MODE ACCOMPAGNEMENT
+        </label>
+    </span>
+
+    <br>
+
+    <div ng-show="showHelp" class="row" style="font-size: 15px; color:cornflowerblue" >
+
+        <div class="col-md-12">
+
+            <div  class="panel panel-default"  >
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="color:cornflowerblue">Accompagnement</h3>
+                </div>
+
+
+                <div class="panel-body main-panel" style="color:cornflowerblue">
+                    <div>Ce mode vous permet d'être guidé sur l'utilisation de ce site web</div>
+                    <div>Utile pour le début surtout, vous pourrez désactiver ce mode par la suite</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+
+
+
+    <span class="checkbox checkbox-warning" >
+        <input type="checkbox"  ng-model="showDebug"  id="idShowDebug" ng-change="toggleDebug()">
+        <label for="idShowDebug" >
+            SHOW DEBUG
+        </label>
+    </span>
+
+    <br>
+
+    <div ng-show="showDebug" class="row" style="font-size: 15px; color:darkorange" >
+
+        <div class="col-md-12">
+
+            <div  class="panel panel-default"  >
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="color:darkorange">Debug</h3>
+                </div>
+
+
+                <div class="panel-body main-panel" style="color:darkorange">
+                    <div>Ce mode permet d'afficher le contenu des objets pour aider à debugger</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+
+
+
+
+
+
+
+
     <span class="checkbox checkbox-danger" >
         <input type="checkbox"  ng-model="showImprovement"  id="idShowImprovement" ng-change="toggleImpr()">
         <label for="idShowImprovement" >
@@ -24,7 +93,7 @@
 
         <div ng-show="showImprovement" class="row" style="font-size: 15px; color:#d9534f" >
 
-            <div class="col-md-8">
+            <div class="col-md-12">
 
                 <div  class="panel panel-default" >
                     <div class="panel-heading">
@@ -33,36 +102,70 @@
 
 
                     <div class="panel-body main-panel" style="color:#d9534f">
+                        <h5 class="h5WelcomeMeal">General</h5>
                         <ul>
-
                             <li>tout en francais..</li>
                             <li >Git : faire du menage (enlever TP1...)</li>
-
                             <br>
-
                             <li>PAGE listShop où suppression des ingredient qu'on a ds le cadie</li>
                             <li>INTERFACE PERSO pour trier recette a ajouter base commune...</li>
                             <br>
-                            <br>
-
                             <li style="font-size: 20px;color:cornflowerblue">
                                 Faire un mode debug (comme improvement)où ca affiche toutes les sructures etc... .
                                 Essayer de mettre la checkbox "debug" dans bar de nav ou endroit plus accessible
                             </li>
-
                             <li style="font-size: 20px;color:darkorange">
                                 DEBUGER le pb ds calcul depenses (ca plante quand on augmente le nbPers)
                                 -> afficher $log.debug().. et augmenter ensuite nbPers..
                             </li>
-
                             <li style="font-size: 20px;color:darkorange">
                                 Mettre a jour les service (comme si on sauvegardait ds la base...)
                             </li>
+                        </ul>
+
+                        <h5 class="h5WelcomeMeal">Recipe</h5>
+                        <ul>
+                            <li>bloquer defilement avec scroll...</li>
+                        </ul>
+
+                        <h5 class="h5WelcomeMeal">Planning</h5>
+                        <ul>
+                            <li>FILTRES : remettre entree-plat-desserts</li>
+                            <li>Colorer case planning lors event "onDropOver"</li>
+                            <li>reduire largeur border of recipe when dropped into planning</li>
+                            <li>trash droppable ?? je ne me rappel plus l'utilite..</li>
+                        </ul>
+
+                        <h5 class="h5WelcomeMeal">ListShopping</h5>
+                        <ul>
+                            <li>Prevoir d'envoyer la liste par email</li>
+                            <li>(et eventuellement de l'imprimer sur une page a part ? -> moins important)</li>
+                            <li>lisShopping automatiquement triée par categorie (frais, legumes..etc)</li>
+                            <li>permettre de supprimer un ingredient de listShopping (petit dessins poubelle rouge)</li>
+                        </ul>
+
+                        <h5 class="h5WelcomeMeal">Expenses</h5>
+                        <ul>
+                            <li>Prevoir de drag&drop les row entre elle</li>
+                            <li style="font-size: 22px">ALLER voir ex. codeFormer Examples->filters with ngRepeat !!!!</li>
+                            <li>peut regler pb des FILTRES pr planning & alcohol en mm tps!!</li>
+                        </ul>
+
+                        <h5 class="h5WelcomeMeal">Alcohol</h5>
+                        <ul>
+                            <li>(titre "prevoir boissons"! et non : "soiree alcoolise")</li>
+                            <li>
+                                permettre de choisir entre gerer la qty "boissons alcoolisees" ou "boissons non alcoolisees"
+                            <br> => pour non alcoolisee : pareil : NB_PERS + NB_VERRES (de base 6) sauf que 1 verre tt le tps  : 20cl (par ex)</li>
+                            <li>gerer le prix en indiquant un prix maximum ???</li>
+                            <li>FILTRES : remettre bieres-vins-alcFort!</li>
+
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+
 
 
     <div ng-show="showImprovement" class="row" style="font-size: 15px; color:#d9534f" >
@@ -81,6 +184,9 @@
                         <li >Faire un file "note" avec tous les details important (ex pour la nav deroulante avec fichier bootstrap!</li>
                         <li>NAV avec liste deroulante (RECETTES -> ENTREES/PLATS/DESSERTS)</li>
                         <li>ajout de BREAKFAST & SNACK avec entree/plat/desserts</li>
+                        <li style="color:cornflowerblue">
+                            Faire un mode accompagnement...
+                        </li>
                     </ul>
                 </div>
             </div>

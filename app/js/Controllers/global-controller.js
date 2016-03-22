@@ -14,6 +14,20 @@ myModule.controller('GlobalCtrl', function($scope, $log, $location, GlobalServic
      *
      */
 
+    $scope.showDebug=GlobalService.getDebug();
+    $scope.toggleDebug = function(){
+        GlobalService.toggleDebug();
+        $scope.showDebug=GlobalService.getDebug();
+    }
+
+    $scope.showHelp=GlobalService.getHelp();
+    $scope.largeExpense=GlobalService.getLargeExpenseParameter();
+    $scope.toggleHelp = function(){
+        GlobalService.toggleHelp();
+        $scope.showHelp=GlobalService.getHelp();
+        $scope.largeExpense=GlobalService.getLargeExpenseParameter();
+    }
+
     $scope.showImprovement=GlobalService.getImprovement();
     $scope.toggleImpr = function(){
         GlobalService.toggleImprovement();

@@ -97,7 +97,7 @@ myModule.controller('PlanningCtrl', function($scope, $log, PlanningService, Reci
     }
 
     $scope.trash = []
-    $scope.dataDropTrash = true;
+
     $scope.quickRecipe = {
         id:'',
         name:'',

@@ -6,7 +6,7 @@
 
     <div class="row" style="color:black">
 
-        <div class="col-md-8">
+        <div class="{{largeExpense}}">
 
             <div  class="panel panel-default" >
                 <div class="panel-heading">
@@ -17,16 +17,15 @@
                 <div class="panel-body main-panel" >
 
 
-                    <div ng-show="showImprovement" style="font-size: 20px; color:#d9534f">
-                        <br>
-                        (titre "prevoir boissons"! et non : "soiree alcoolise")
-                        <br>
-                        permettre de choisir entre gerer la qty "boissons alcoolisees" ou "boissons non alcoolisees"
-                        <br>
-                        => pour non alcoolisee : pareil : NB_PERS + NB_VERRES (de base 6) sauf que 1 verre tt le tps  : 20cl (par ex)
+                    <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
+                        <div style="font-size: 12px;">@ le mode accompagnement peut être désactivé dans l'accueil "EASYMEALS"</div>
+                        <div>Ce module permet de prévoir la quantite d'alcool qu'il faut acheter en fonction du nombre de personnes et du type de soirée que l'on veut faire (soft, arrosée, très alcoolisée...)</div>
+                        <div>Indication du nb de verres/pers. en fonction du type de Soirées :
+                            <br> &nbsp - SOFT 2/3 verres &nbsp - ARROSEE 5/6 verres &nbsp - TRES ALCOOLISEE 8/9 verres</div>
+                        <div><b>Fixer les nb de pers ainsi que la moyenne de verres/pers que l'on prevoit.</b></div>
+                    </div>
 
-                        <br>
-                        <br>
+                    <div ng-show="showImprovement" style="font-size: 20px; color:#d9534f">
                     </div>
 
 
@@ -38,16 +37,15 @@
                     <div>
                         <label>Moyenne de verres/pers : </label>
                         &nbsp&nbsp<input type="number" ng-model ='nbGlass' min="1" style="width:60px"/>
-                    </div>
-                    <div>
-                        (Un verre = 25cl biere / 10cl vin / 3 cl alcool fort)
+                        &nbsp (Un verre = 25cl biere / 10cl vin / 3 cl alcool fort)
                     </div>
 
-
-                    <!--
-                    <div>total nbGlass = {{totalNbGlass}}</div>
-                    <div>total amount alcohol = {{totalAmountAlcohol}}</div>
-                    -->
+                    <!-- DEBUG -->
+                    <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                        <div>total nbGlass = {{totalNbGlass}}</div>
+                        <div>total amount alcohol = {{totalAmountAlcohol}}</div>
+                    </div>
+                    <!---->
                 </div>
             </div>
         </div>
@@ -83,6 +81,7 @@
                         <h3 class="col-md-2 panel-title">{{alcoholType}}</h3>
                         <div class="col-md-6">
                         </div>
+
                         <div class="col-md-4" style="font-size:15px">
                             <span   class="glyphicon glyphicon-search " ></span>
                             &nbsp
@@ -96,6 +95,14 @@
 
                     <div class="row">
                         <div class="col-md-8">
+
+                            <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
+                               <div>
+                                    <b>Faire glisser les boissons dans la liste ci-dessous</b> en ayant pris soin de selectionner le volume (sur la droite)
+                                </div>
+                            </div>
+
+
                             <div ng-repeat="alcohol in alcohols  | filter : searchAlcohol " style="display:inline-block ">
                                 <div   style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
                                        data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="alcohols" ng-show="alcohol.name"
@@ -114,7 +121,11 @@
                                            checked="checked" />{{filterQty.name}}
                                 </label>
                             </div>
-                            <!--filterQtyChosen : {{filterQtyChosen}}-->
+                            <!-- DEBUG -->
+                            <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                                <div>filterQtyChosen : {{filterQtyChosen}}</div>
+                            </div>
+                            <!---->
 
                         </div>
                     </div>
@@ -129,21 +140,23 @@
     <br>
     <br>
 
-    <!--
-alcohols :
 
-    <br>
-    {{alcohols}}
-    <br>
-    <br>
-    <br>
-    <br>
 
-    chosenAlcohols:
 
-    <br>
-    {{chosenAlcohols}}
--->
+    <!-- DEBUG -->
+    <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+        <div>
+            alcohols :
+            <br>
+            {{alcohols}}
+            <br>
+            <br>
+            chosenAlcohols:
+            <br>
+            {{chosenAlcohols}}
+        </div>
+    </div>
+    <!---->
 
 
     <div class="row" style="color:black">
@@ -156,11 +169,6 @@ alcohols :
 
 
                 <div class="panel-body main-panel" >
-                    <div ng-show="showImprovement" style="font-size: 20px; color:#d9534f">
-                        gerer le prix en indiquant un prix maximum ???
-                        <br>
-                        Remettre filtre_bieres-vins-alcFort!
-                    </div>
 
                     <div class="row" style="color:black">
 
@@ -194,14 +202,25 @@ alcohols :
                                 <span ng-show="!isGlassLeft"> en TROP!</span>
                             </div>
 
-                            <!--{{totalAmountAlcohol}}-->
+                            <!-- DEBUG -->
+                            <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                                <div>totalAmountAlcohol: {{totalAmountAlcohol}}</div>
+                            </div>
+                            <!---->
+
 
                             <br>
                             <div id="trashAlcohol" class="glyphicon glyphicon-trash" style="font-size: 100px; color:#5bc0de"
                                  data-drop="{{dataDropTrash}}" ng-model='trash'  jqyoui-droppable="{multiple:true, onOver:'onOverTrash()', onOut:'onOutTrash()', onDrop:'onOutTrash()'}"  > <!-- , onOver:'onOverTrash()', onOut:'onOutTrash()' }" -->
 
                             </div>
-                            <!--{{trash}}-->
+
+                            <!-- DEBUG -->
+                            <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                                <div>trash: {{trash}}</div>
+                            </div>
+                            <!---->
+
                         </div>
                     </div>
                 </div>

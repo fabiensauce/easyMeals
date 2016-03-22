@@ -14,13 +14,17 @@
                 <div class="panel-body main-panel row"  ng-controller="CustomizeShoppingCtrl">
 
                     <div ng-show="showImprovement" style="font-size: 20px; color:#d9534f">
-                        <div>Prevoir d'envoyer la liste par email</div>
-                        <div>(et eventuellement de l'imprimer sur une page a part ? -> moins important)</div>
-                        <div>lisShopping automatiquement triée par categorie (frais, legumes..etc)</div>
+
+                    </div>
+                    <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
+                        <div><b>Cliquer sur "Generer la liste de course" une fois que le planning convient</b></div>
+                        <div>La liste va s'afficher (sauf si le planning est vide)</div>
                         <br>
-                        <div style="font-size: 20px;">listShopping direct into categories...!!!!</div>
-                        <br>
-                        <div>permettre de supprimer un ingredient de listShopping (petit dessins poubelle rouge)</div>
+                    </div>
+
+                    <!-- DEBUG -->
+                    <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                        <div >{{listShop}}</div>
                     </div>
 
                     <div style="margin-left:40px">
@@ -50,7 +54,7 @@
                             <span class="glyphicon glyphicon-plus"></span> ingredient
                         </button>
 
-                        <!--{{listShop}}-->
+
                     </div>
 
                     <div class="col-md-3" ng-show="showListShopping()" >

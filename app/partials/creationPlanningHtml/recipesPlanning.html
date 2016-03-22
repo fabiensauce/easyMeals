@@ -31,6 +31,13 @@
                 </div>
 
                 <div class="panel-body main-panel">
+
+                    <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
+                        <div style="font-size: 12px;">@ le mode accompagnement peut être désactivé dans l'accueil "EASYMEALS"</div>
+                        <div>Il est possible de creer de nouvelles recettes dans l'onglet Recettes, il sera également possible d'ajouter un simple ingredient à la liste de course à la fin</div>
+                        <div><b>Faire glisser les recettes dans le planning ci-dessous</b></div>
+                    </div>
+                    <br>
                     <div ng-repeat="recipe in recipes | filter : searchRecipe" style="display:inline-block ">
                         <div   style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
                                data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="recipes" ng-show="recipe.name"
