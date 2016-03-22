@@ -14,12 +14,22 @@ myModule.controller('GlobalCtrl', function($scope, $log, $routeParams, $location
      *
      */
 
+    $scope.classBody = "bodyEasyMeals";
+
+
     $scope.$on('intoPlanning', function() {
-        //alert("BOOOM ON EST DS PLANNING AAHAHAHA");
         $scope.classBody = "bodyPlanning";
     });
+    $scope.$on('intoRecipe', function() {
+        $scope.classBody = "bodyRecipe";
+    });
+    $scope.$on('intoAlcohol', function() {
+        $scope.classBody = "bodyAlcohol";
+    });
+    $scope.$on('intoExpense', function() {
+        $scope.classBody = "bodyExpense";
+    });
 
-    $scope.classBody = "bodyEasyMeals";
 
 
     $scope.showDebug=GlobalService.getDebug();

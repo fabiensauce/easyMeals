@@ -7,6 +7,9 @@ var myModule = angular.module('controllers');
 
 myModule.controller('CalculationAlcoholCtrl', function($scope, $log, AlcoholService) {
 
+
+    $scope.$emit('intoAlcohol'); //will tell to parents (global-controller.js) to modify pix
+
     /*
 
      var bieres = [

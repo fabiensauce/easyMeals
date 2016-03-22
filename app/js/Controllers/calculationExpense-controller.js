@@ -6,12 +6,17 @@ var myModule = angular.module('controllers');
 
 myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
 
+
+    $scope.$emit('intoExpense'); //will tell to parents (global-controller.js) to modify pix
+
     $scope.nbPers = 4;
 
     //$scope.persons = ['person1', 'person2', 'person3', 'person4'];
     $scope.persons = [{id:0, name:'fab'}, {id:1, name:'math'}, {id:2, name:'eddy'}, {id:3, name:'carine'}];
 
     $scope.updatePersons = function(){
+        $log.debug('BONJOUUUUUUR 1 - persons.length :'+$scope.persons.length);
+        $log.debug( ' nb persons :'+$scope.nbPers);
         //$scope.persons = [];
         if($scope.nbPers > $scope.persons.length){//on ajoute des elemts
             for(var i=$scope.persons.length; i<$scope.nbPers; i++){
@@ -23,14 +28,17 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
                     $scope.rows[k].listChecked.push(objCheck);
                 }
             }
-        }else{//on doit supprimer
+        }else if($scope.nbPers < $scope.persons.length){//on doit supprimer
             for(var k=0; k<$scope.rows.length; k++){
                 $scope.rows[k].listChecked.splice($scope.nbPers, ($scope.persons.length-$scope.nbPers));
             }
             $scope.persons.splice($scope.nbPers, ($scope.persons.length-$scope.nbPers)); //le 1 indique combien d'element on remove a partir de index
+        }else{
+            $log.info('AIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIEE AIE AIE');
         }
 
-        $log.debug('BONJOUUUUUUR');
+        $log.info('BONJOUUUUUUR 2 - persons.length :'+$scope.persons.length);
+        $log.info( ' nb persons :'+$scope.nbPers);
     };
 
     $scope.aPersonColumnChecked = function(row){//a person has been (un)checked
@@ -175,14 +183,42 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
             }
 
         }
+        verifyTabExpenseSumZero();
         $scope.tabExpense = tabExpense;
     };
+
+    var verifyTabExpenseSumZero = function(){
+        var sum = 0;
+        for(var i=0; i<$scope.tabExpense.length; i++){
+            sum += $scope.tabExpense[i];
+        }
+
+        $log.warn('>>>>>>>> verif SUM ='+sum);
+        return sum < 1;
+    }
 
 
 
 
     $scope.tabCouple = [];
     var creationTabCouple = function(){
+        var num1 = 0.5;
+        var num2 = 0.00005;
+        var num3 = 0;
+        /* true
+        alert('PUTIN DADELLE');
+        alert('PUTIN 3 : '+num1.toFixed(1) > num3.toFixed(1)); //true
+        alert('0 toFixe 1 : '+num3.toFixed(1)); //true
+        alert('PUTIN DADELLE2');
+           */
+        /* false
+        alert(num1 > num2);
+        alert(num2 > num1);
+        alert(num1.toFixed(1) < num2.toFixed(1));
+        alert(num3 ==  num2.toFixed(0));
+        alert(num3.toFixed(0) ==  num2.toFixed(0));
+        */
+
         $scope.tabCouple = [];
         var tabCouple = $scope.tabCouple;
         var tabExpense = $scope.tabExpense;
@@ -190,24 +226,34 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
         var indexMin = findIndexMin(tabExpense);
         var isBiggestPositive = true;
         var amount = 0;
-        while(tabExpense[indexMax] > 0){
-            $log.debug('tabExpense : '+tabExpense+ '  -  tabCouple : '+tabCouple);
+        var maxLoop = 0;
+        var isTooSmall = false;
+        var zeroFive = 0.5;
+        while(tabExpense[indexMax] > 0 && !isTooSmall){ //maxLoop < 20){
+            //$log.debug('tabExpense : '+tabExpense+ '  -  tabCouple : '+tabCouple);
             isBiggestPositive = tabExpense[indexMax] >= Math.abs(tabExpense[indexMin]);
+            maxLoop++;
 
             if(!isBiggestPositive){
                 amount = tabExpense[indexMax];
                 tabExpense[indexMin] += amount;
                 tabExpense[indexMax] = 0;
+                isTooSmall = zeroFive.toFixed(1) > Math.abs(tabExpense[indexMax]).toFixed(1);
+                $log.debug(' NOT is biggest positive  - tabExpense[indexMin] : '+tabExpense[indexMin]+' || isTooSmall:'+isTooSmall);
+
             }else{
                 amount = tabExpense[indexMin];
                 tabExpense[indexMax] += amount; // tabExpense[indexMin] est < 0
                 tabExpense[indexMin] = 0;
+                Math.abs(tabExpense[indexMax]) < 0.5;
+                isTooSmall = zeroFive.toFixed(1) > Math.abs(tabExpense[indexMax]).toFixed(1);
+                $log.debug(' IS BIGGEST POSITIVE - tabExpense[indexMax] : '+tabExpense[indexMax]+' || isTooSmall:'+isTooSmall);
             }
-
             tabCouple.push({debtGuy:$scope.persons[indexMin], amount:Math.abs(amount.toFixed(0)), benefitGuy:$scope.persons[indexMax]});
             indexMax = findIndexMax(tabExpense);
             indexMin = findIndexMin(tabExpense);
         }
+        //$log.error("AIIIIE AIIIIIE AIIIIIE --  MAX LOOP : "+maxLoop);
 
         $log.debug('tabExpense : '+tabExpense+ '  -  tabCouple : '+tabCouple);
         $scope.tabCouple = tabCouple;

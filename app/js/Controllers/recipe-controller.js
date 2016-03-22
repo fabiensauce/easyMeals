@@ -5,6 +5,10 @@ var myModule = angular.module('controllers');
 
 myModule.controller('RecipeCtrl', function($scope, $routeParams, RecipeService) {
 
+
+    $scope.$emit('intoRecipe'); //will tell to parents (global-controller.js) to modify pix
+
+
     var recipeType =  $routeParams.recipeType;
     $scope.recipeType = recipeType;
 

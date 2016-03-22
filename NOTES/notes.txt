@@ -160,3 +160,17 @@ DEPENDANCE :
 
    ex de $broadcast-$on entre listShopping.js & customizeShopping.js
    ex de $emit-$on entre ..planning-controller.js & global-controller.js
+
+
+ ********************************************************************************************************
+   - BUG EXPENSES -> INFINITE LOOP   in creationTabCouple()
+
+   => add the stop condition !isTooSmall
+where isTooSmall = zeroFive.toFixed(1) > Math.abs(tabExpense[indexMax]).toFixed(1);
+
+L'exemple qui a permis de deceller ce bug :
+fab 30€ to fab & carine
+fab 15€ to math, eddy, carine
+fab 40€ to fab, math, eddy, carine, person4, person5
+
+********************************************************************************************************
