@@ -17,6 +17,7 @@ myModule.controller('PlanningCtrl', function($scope, $log, PlanningService, Reci
             case 'starter' : return RecipeService.getStarters();
             case 'course' :  return RecipeService.getCourses();
             case 'dessert' : return RecipeService.getDesserts();
+            case 'breakfast' : return RecipeService.getBreakfasts();
             default:  $scope.recipeType = 'ERROR';
         }
     }
@@ -24,6 +25,15 @@ myModule.controller('PlanningCtrl', function($scope, $log, PlanningService, Reci
     $scope.selectRecipes = function(recipeType){
         $scope.recipeType = recipeType;
         $scope.recipes = getRecipes(recipeType);
+    }
+
+    $scope.displayRecipeType = function(){
+        switch($scope.recipeType){
+            case 'starter' : return 'Entrees';
+            case 'course' :  return 'Plats';
+            case 'dessert' : return 'Desserts';
+            case 'breakfast' : return 'Petit Dej - Gouter';
+        }
     }
 
 
@@ -39,6 +49,15 @@ myModule.controller('PlanningCtrl', function($scope, $log, PlanningService, Reci
     /**
      * PLANNING Construction
      */
+    $scope.displayMealType = function(mealType){
+        switch(mealType){
+            case 'breakfast' : return 'Petit déjeuner';
+            case 'lunch' :  return 'Repas du midi';
+            case 'snack' : return 'Goûter';
+            case 'dinner' : return 'Dîner';
+        }
+    }
+
     $scope.planningInitialized = false;
 
 
@@ -89,13 +108,13 @@ myModule.controller('PlanningCtrl', function($scope, $log, PlanningService, Reci
     }
     $scope.onOutTrash = function(){
         document.getElementById("trashPlanning").style.color = 'green';
-    }
-
-    $scope.hehe = 'BOOM \'n youpi2';
+    };
+    /*
     $scope.onOverTab = function(vaa){
         alert(vaa);
-    }
+    }*/
 
+    $scope.dataDropTrash = true; //pas vraiment utilisé mais ne pas supprimer cette ligne sans enlever {{dataDropTrash}} du data-drop de la trash
     $scope.trash = []
 
     $scope.quickRecipe = {

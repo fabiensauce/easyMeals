@@ -41,13 +41,13 @@ myModule.controller('CalculationAlcoholCtrl', function($scope, $log, AlcoholServ
      */
     var getAlcohols = function(alcoholType){
         switch(alcoholType){
-            case 'biere' : return AlcoholService.getBieres();
-            case 'vin' :  return AlcoholService.getVins();
-            case 'fort' : return AlcoholService.getForts();
+            case 'bieres' : return AlcoholService.getBieres();
+            case 'vins' :  return AlcoholService.getVins();
+            case 'forts' : return AlcoholService.getForts();
             default:  $scope.alcoholType = 'ERROR';
         }
     };
-    $scope.alcoholType = "biere";
+    $scope.alcoholType = "bieres";
     $scope.alcohols  = AlcoholService.getBieres();
 
     $scope.selectAlcoholType = function(alcoholType){
@@ -71,9 +71,9 @@ myModule.controller('CalculationAlcoholCtrl', function($scope, $log, AlcoholServ
 
     var getFilterQties = function(alcoholType){
         switch(alcoholType){
-            case 'biere' : return AlcoholService.getFilterBiereQties();
-            case 'vin' :  return AlcoholService.getFilterVinQties();
-            case 'fort' : return AlcoholService.getFilterFortQties();
+            case 'bieres' : return AlcoholService.getFilterBiereQties();
+            case 'vins' :  return AlcoholService.getFilterVinQties();
+            case 'forts' : return AlcoholService.getFilterFortQties();
             default:  $scope.alcoholType = 'ERROR';
         }
     };
@@ -89,11 +89,12 @@ myModule.controller('CalculationAlcoholCtrl', function($scope, $log, AlcoholServ
     }
 
     $scope.$watch('filterQtyChosen', updateAlcoholsWithQty);
+
     var computeTxtQty = function(qty){
         if(qty==70){
             return '70 cl';
         }
-        if($scope.alcoholType == "biere"){
+        if($scope.alcoholType == "bieres"){
             return 'pack '+qty/25+'x25cl';
         }else{
             return qty/100+' l';
@@ -265,7 +266,7 @@ myModule.controller('CalculationAlcoholCtrl', function($scope, $log, AlcoholServ
 myModule.filter('orderByAlcoholType', function($log){
     var sortRecipeType = function(input){
         var recipesReordered = [];
-        var arrRecipeType=['biere','vin','fort'];//ordre filter
+        var arrRecipeType=['bieres','vins','forts'];//ordre filter
         var tmp = {};
         for(var i=0; i<arrRecipeType.length; i++){
             for(var j=0; j<input.length; j++){

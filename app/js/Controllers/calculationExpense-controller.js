@@ -6,7 +6,6 @@ var myModule = angular.module('controllers');
 
 myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
 
-    $scope.bonjour = "Calculez vos depenses";
     $scope.nbPers = 4;
 
     //$scope.persons = ['person1', 'person2', 'person3', 'person4'];

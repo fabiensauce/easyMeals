@@ -53,6 +53,15 @@ myModule.controller('CustomizeShoppingCtrl', function($scope, $log, PlanningServ
         $scope.categories.push(newCat);
     }
 
+
+    $scope.trashIngredientFromListShop = function(ingr){
+        var index = $scope.listShop.indexOf(ingr); //fonctionne aussi tres bien
+        $scope.listShop.splice(index, 1);
+    }
+    $scope.trashIngredientFromCategorie = function(category, ingr){
+        var index = category.ingredients.indexOf(ingr); //fonctionne aussi tres bien
+        category.ingredients.splice(index, 1);
+    }
     $scope.moveListToCategory = function(ingr){
         for(var i=0; i<$scope.categories.length; i++){
             if($scope.categories[i].name == $scope.categoryChosen){

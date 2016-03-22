@@ -8,7 +8,7 @@
 
             <div  class="panel panel-default" >
                 <div class="panel-heading">
-                    <h3 class="panel-title">List Shopping</h3>
+                    <h3 class="panel-title">Liste de courses</h3>
                 </div>
 
                 <div class="panel-body main-panel row"  ng-controller="CustomizeShoppingCtrl">
@@ -28,7 +28,7 @@
                     </div>
 
                     <div style="margin-left:40px">
-                        <button class="btn btn-success" ng-click="calculListShopping()">Calcul shooping list </button>
+                        <button class="btn btn-success" ng-click="calculListShopping()">Générer liste de course</button>
                     </div>
                     <br>
 
@@ -42,6 +42,7 @@
                                 <button type="button" class="btn btn-default" ng-click="moveListToCategory(ingr)"> <!-- $index indique l'index du ng-repeat -->
                                     <span class="glyphicon glyphicon-plus"></span>
                                 </button>
+                                    <span ng-click="trashIngredientFromListShop(ingr)" class="glyphicon glyphicon-trash" style="color:indianred"></span>
                             </div>
                         </div>
 
@@ -89,7 +90,7 @@
                         <br>
                         <br>
                         <br>
-                        <button class="btn btn-default" ng-click="toggleModifQty()" ng-show="!modifQty">Modifier Quantities</button>
+                        <button class="btn btn-default" ng-click="toggleModifQty()" ng-show="!modifQty">Modifier Quantités</button>
                         <button class="btn btn-info" ng-click="toggleModifQty()" ng-show="modifQty">Modification ok</button>
 
                     </div>
@@ -111,6 +112,8 @@
                                         <button type="button" class="btn btn-default" ng-click="moveCategoryToList(category, ingr)"> <!-- $index indique l'index du ng-repeat -->
                                             <span class="glyphicon glyphicon-minus"></span>
                                         </button>
+                                            <span ng-click="trashIngredientFromCategorie(category, ingr)" class="glyphicon glyphicon-trash" style="color:indianred"></span>
+
                                     </div>
                                 </div>
                             </div>

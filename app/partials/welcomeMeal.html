@@ -1,6 +1,6 @@
 <div ng-controller="WelcomeMealCtrl">
 
-    <h2>WELCOME to the MEAL application ! :)</h2>
+    <h2>Bienvenue dans easyMeals ! :)</h2>
 
 
 <!--
@@ -104,7 +104,6 @@
                     <div class="panel-body main-panel" style="color:#d9534f">
                         <h5 class="h5WelcomeMeal">General</h5>
                         <ul>
-                            <li>tout en francais..</li>
                             <li >Git : faire du menage (enlever TP1...)</li>
                             <br>
                             <li>PAGE listShop où suppression des ingredient qu'on a ds le cadie</li>
@@ -115,6 +114,9 @@
                                 -> afficher $log.debug().. et augmenter ensuite nbPers..
                             </li>
                             <li style="font-size: 20px">
+                               CSS ...
+                            </li>
+                            <li style="font-size: 20px">
                                 Mettre a jour les service (comme si on sauvegardait ds la base...)
                             </li>
                         </ul>
@@ -122,6 +124,7 @@
                         <h5 class="h5WelcomeMeal">Recipe</h5>
                         <ul>
                             <li>bloquer defilement avec scroll...</li>
+                            <li>optimiser l'affichage en francais "entree plat dessert" : displayRecipeType() se trouve de recipe-controller, recipeCreation-controller ET planning-controller => le mettre dans recipe-service</li>
                         </ul>
 
                         <h5 class="h5WelcomeMeal">Planning</h5>
@@ -129,6 +132,8 @@
                             <li>FILTRES : remettre entree-plat-desserts</li>
                             <li>Colorer case planning lors event "onDropOver"</li>
                             <li>reduire largeur border of recipe when dropped into planning</li>
+                            <li style="font-size: 20px">CORRIGER BUG lors de drag de recette (ex:burger) dans le drop de nbPers...gros mess ^^</li>
+                            <li>=> enlever le drag&drop de nbPers local ?</li>
                             <li>trash droppable ?? je ne me rappel plus l'utilite..</li>
                         </ul>
 
@@ -137,7 +142,6 @@
                             <li>Prevoir d'envoyer la liste par email</li>
                             <li>(et eventuellement de l'imprimer sur une page a part ? -> moins important)</li>
                             <li>lisShopping automatiquement triée par categorie (frais, legumes..etc)</li>
-                            <li>permettre de supprimer un ingredient de listShopping (petit dessins poubelle rouge)</li>
                         </ul>
 
                         <h5 class="h5WelcomeMeal">Expenses</h5>
@@ -186,6 +190,8 @@
                         <li style="color:darkorange">
                             Faire un mode debug (comme improvement)- checkbox "debug" dans bar de nav ou endroit plus accessible
                         </li>
+                        <li>tout en francais..</li>
+                        <li>permettre de supprimer un ingredient de listShopping (petit dessins poubelle rouge)</li>
                     </ul>
                 </div>
             </div>

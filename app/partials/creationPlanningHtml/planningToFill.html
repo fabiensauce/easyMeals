@@ -1,3 +1,14 @@
+<div>
+
+<!-- DEBUG -->
+<div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+    ELEMENTS LUNCH :
+    <div>{{fourWeekMeals[1]}}</div>
+    <br>
+    WEEKMEALS LUNCH -> LUNDI :
+    <div >{{fourWeekMeals[1].weekMeals[0]}}</div>
+</div>
+
 
 <div class="row" style="color:black">
     <div class="col-md-12">
@@ -28,7 +39,7 @@
                      -->
                     <tr ng-repeat="aWeekMeal in fourWeekMeals" ng-show="aWeekMeal.show" >
 
-                        <th class="danger" style="height:80px"> {{aWeekMeal.typeMeal}}</th>
+                        <th class="danger" style="height:80px"> {{displayMealType(aWeekMeal.typeMeal)}}</th>
 
                         <td ng-repeat="meal in aWeekMeal.weekMeals"  data-drop="true" ng-model='meal.recipes'  jqyoui-droppable="{multiple:true}"> <!--, onOver:'onOverTab(\'hehehe\')' -->
 
@@ -62,11 +73,14 @@
                         <div>
 
 
+                            <span>
+                                Afficher / Cacher : &nbsp&nbsp&nbsp&nbsp
+                            </span>
 
                             <span class="checkbox checkbox-info checkbox-inline" ng-repeat="aWeekMeal in fourWeekMeals">
                                 <input type="checkbox"  ng-model="aWeekMeal.show" id="{{aWeekMeal.id}}">
                                 <label for="{{aWeekMeal.id}}" >
-                                    Show {{aWeekMeal.typeMeal}} &nbsp&nbsp
+                                    <b>{{displayMealType(aWeekMeal.typeMeal)}}</b> &nbsp&nbsp
                                 </label>
                             </span>
 
@@ -76,7 +90,7 @@
 
 
                         <div>
-                            Global Number of Persons : <input type="number" ng-model="globalNbPers" ng-change="spreadGlobalNbPers(globalNbPers)" min="1" style="width:40px">
+                            Nombre global de personnes : &nbsp&nbsp <input type="number" ng-model="globalNbPers" ng-change="spreadGlobalNbPers(globalNbPers)" min="1" style="width:40px">
                         </div>
 
 
@@ -88,20 +102,39 @@
                              <span class="checkbox checkbox-success checkbox-inline" >
                                  <input type="checkbox"  ng-model="showNbPers" id="idShowPers">
                                  <label for="idShowPers" >
-                                     Show nbPers. &nbsp
+                                     Afficher nb pers. &nbsp
                                  </label>
                              </span>
 
 
                                     <span ng-show="showNbPers">
+                                        <!--
                                         - &nbsp
-                                        Modify nbPers : <input style="width:40px" type="number" min="1" ng-model="nbPers">
+                                        Modifier nb pers : <input style="width:40px" type="number" min="1" ng-model="nbPers">
                                         ->
-                                        Drag this into on 'pers.':
+                                        Faire glisser sur un item 'pers' d'une case du planning :
                                         <span style="border:1px solid black; border-radius:5px; padding:7px;"
                                               data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="nbPers"
                                               jqyoui-draggable="{placeholder:'keep'}">
                                             {{nbPers}}
+                                        </span>
+                                        --->
+
+                                         <span ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
+                                             - Modifier nb pers puis faire <b>glisser</b> sur un item 'pers' d'une case du planning :
+                                         </span>
+                                         <span ng-show="!showHelp">
+                                             - <b>Glisser</b> dans une case Nb pers. :
+                                         </span>
+
+
+
+                                        <span style="border:1px solid black; border-radius:5px; padding:7px;"
+                                              data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="nbPers"
+                                              jqyoui-draggable="{placeholder:'keep', deepCopy:'true'}">
+                                            <input style="width:40px" type="number" min="1" ng-model="nbPers">
+                                            <!--{{nbPers}}-->
+                                            <span   class="glyphicon glyphicon-tag " ></span>
                                         </span>
                                     </span>
                         </div>
@@ -135,4 +168,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

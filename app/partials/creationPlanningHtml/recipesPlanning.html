@@ -1,12 +1,14 @@
     <div class="row" style="color:black" >
-        <div class="col-md-2" style="margin-top:20px">
+        <div class="col-md-2" style="margin-top:0px">
 
             <div>
-                <div><button class="btn btn-info" ng-click="selectRecipes('starter')"> Starters</button></div>
+                <div style="width:50px"><button class="btn btn-info" ng-click="selectRecipes('breakfast')" style="width: 150px;" >Dej - Goûter</button></div>
                 <br>
-                <div><button class="btn btn-info" ng-click="selectRecipes('course')">Courses</button></div>
+                <div><button class="btn btn-info" ng-click="selectRecipes('starter')" style="width: 150px;">Entrees</button></div>
                 <br>
-                <div><button class="btn btn-info" ng-click="selectRecipes('dessert')">Desserts</button></div>
+                <div><button class="btn btn-info" ng-click="selectRecipes('course')" style="width: 150px;">Plats</button></div>
+                <br>
+                <div><button class="btn btn-info" ng-click="selectRecipes('dessert')" style="width: 150px;">Desserts</button></div>
                 <br>
             </div>
 
@@ -16,10 +18,10 @@
             <div  class="panel panel-default" >
                 <div class="panel-heading" >
                     <div class="row">
-                        <h3 class="col-md-2 panel-title">
-                            {{recipeType}}
+                        <h3 class="col-md-4 panel-title">
+                            {{displayRecipeType()}}
                         </h3>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                         </div>
                         <div class="col-md-4" style="font-size:15px">
                             <span   class="glyphicon glyphicon-search " ></span>
@@ -36,8 +38,8 @@
                         <div style="font-size: 12px;">@ le mode accompagnement peut être désactivé dans l'accueil "EASYMEALS"</div>
                         <div>Il est possible de creer de nouvelles recettes dans l'onglet Recettes, il sera également possible d'ajouter un simple ingredient à la liste de course à la fin</div>
                         <div><b>Faire glisser les recettes dans le planning ci-dessous</b></div>
+                        <br>
                     </div>
-                    <br>
                     <div ng-repeat="recipe in recipes | filter : searchRecipe" style="display:inline-block ">
                         <div   style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
                                data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="recipes" ng-show="recipe.name"

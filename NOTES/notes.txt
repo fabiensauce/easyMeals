@@ -81,6 +81,8 @@ cf. $scope.addIngredientList (customizeShopping-controller.js)
     <planning-tofill></planning-tofill>
     <list-shopping></list-shopping>
 
+    ATTENTION il est important d'avoir UN SEUL <DIV> dans chacun des fichier.html...
+
 Elles sont appelées dans "creationPlanning-directive.js"
 
 

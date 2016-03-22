@@ -12,11 +12,19 @@ myModule.controller('RecipeCreationCtrl', function($scope, $location, $routePara
 
         $scope.recipe =  {
             id:'MyRecipe',
-            name:'MyRecipe',
-            nbPerson:4,
-            ingredients:[{qty:200, unit:units[1], food:'food'}],
-            description:'Crazy recipe'
+            name:'',
+            nbPerson:2,
+            ingredients:[{qty:50, unit:units[1], food:''}],
+            description:''
         };
+    $scope.displayRecipeType = function(){
+        switch($scope.recipeType){
+            case 'starter' : return 'Entrée';
+            case 'course' :  return 'Plat';
+            case 'dessert' : return 'Dessert';
+            case 'breakfast' : return 'Petit Dej - Gouter';
+        }
+    }
 
         $scope.addRowIngredient = function(){
             var ingredient = {unit:'g'};//{qty:20, unit:units[2], food:'steack'};

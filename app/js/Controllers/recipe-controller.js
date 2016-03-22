@@ -14,10 +14,27 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, RecipeService) 
             case 'course' :  return RecipeService.getCourses();
             case 'dessert' : return RecipeService.getDesserts();
             case 'breakfast' : return RecipeService.getBreakfasts();
+            default:  $scope.recipeType = 'ERROR';
         }
     }
     $scope.recipes = getRecipes(recipeType);
 
+    $scope.displayRecipeType = function(){
+        switch($scope.recipeType){
+            case 'starter' : return 'Entrées';
+            case 'course' :  return 'Plats';
+            case 'dessert' : return 'Desserts';
+            case 'breakfast' : return 'Petit Dej - Gouter';
+        }
+    }
+    $scope.displayCreationRecipeType = function(){
+        switch($scope.recipeType){
+            case 'starter' : return 'Créer une nouvelle Entrée';
+            case 'course' :  return 'Créer un nouveau Plat';
+            case 'dessert' : return 'Créer un nouveau Dessert';
+            case 'breakfast' : return 'Créer un nouveau Petit Dej/Gouter';
+        }
+    }
    // $scope.courses = RecipeService.getCourses();
 
 

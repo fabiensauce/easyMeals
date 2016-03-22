@@ -9,8 +9,8 @@ myService.service('GlobalService', function() {
 
     var showImprovement = true;
 
-    var showHelp = true;
-    var largeExpenseParameter = 'col-md-12';
+    var showHelp = false;
+    var largeExpenseParameter = 'col-md-6';
 
     var showDebug = false;
 

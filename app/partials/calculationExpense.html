@@ -1,6 +1,6 @@
 <div  ng-controller="CalculationExpenseCtrl">
 
-    <div><h2>{{bonjour}}</h2></div>
+    <div><h2>Calcul des dépenses</h2></div>
 
 
     <div class="row" style="color:black">
@@ -34,7 +34,7 @@
 
             <div  class="panel panel-default" >
                 <div class="panel-heading">
-                    <h3 class="panel-title">Tableau de Calcul</h3>
+                    <h3 class="panel-title">QUI à payé QUOI à QUI ?</h3>
                 </div>
 
 
@@ -56,7 +56,7 @@
 
 
                         <th class="info">A payé</th>
-                        <th class="info">Prix</th>
+                        <th class="info">Prix (€)</th>
                         <th class="info" ng-repeat="person in persons">
                             <input style="width:70px; border:none; text-align: center; background-color:#f9f9f9" type="text"  ng-model="person.name" >
 
@@ -148,7 +148,7 @@
 
             <div  class="panel panel-default" >
                 <div class="panel-heading">
-                    <h3 class="panel-title">Results</h3>
+                    <h3 class="panel-title">Résultats des remboursements</h3>
                 </div>
 
                 <div class="panel-body main-panel" id="resultExpense">
