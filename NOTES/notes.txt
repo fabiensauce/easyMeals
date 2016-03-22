@@ -1,17 +1,17 @@
 
-****************************************************
+********************************************************************************************************
  -  AJOUT DROP-DOWN MENU dans NAVBAR
 download (puis mettre dans /lib)
     ui-bootstrap-tpls.min.js
-ajout ds index.html de :
+ajout ds INDEX.HTML de :
     <script src="lib/ui-bootstrap-tpls.min.js"></script>
-ajouter dependance "ui.bootstrap" dans controller.js :
+ajouter DEPENDANCE "ui.bootstrap" dans controllers.js :
     angular.module('controllers', ['services', 'ngDragDrop', "ui.bootstrap"]);
 puis voir exemple <li class="dropdown"> dans navbar.html
 
 
 
-****************************************************
+********************************************************************************************************
   - DRAG & DROP by codeformer
 
 (http://codef0rmer.github.io/angular-dragdrop/)
@@ -43,3 +43,71 @@ revert : indique si l'element reviendra a sa place (animation visuelle)
     true/false : reviendra toujours/jamais
     invalid/valid : reviendra si drop non valid / inverse
 helper : "original" or "clone" permet de cloner ou non l'elem to drag (ou possible fonction) cf doc jquery...
+
+
+
+********************************************************************************************************
+  - COPIER OBJET
+
+ex de copie de l'obj 'ingr' dans newIngr :
+var newIngr = JSON.parse(JSON.stringify(ingr));//NEW OBJECT
+cf. $scope.addIngredientList (customizeShopping-controller.js)
+
+
+
+********************************************************************************************************
+ - STRUCTURE PLANNING
+
+ HTML :
+ planning.html est divisé en 3 html
+    - recipesPlanning.html qui permet de choisir ses recipes à glisser dans le planning
+    - planningToFill.html : le planning en lui meme où on glisse les recettes
+    - listShopping.html est le module de calcul où un fois le planning remplie on peut calculer la list de shopping correspondante
+
+ LA DIVISION en 3 parties HTML est faite grace aux directives  dans "creationPlanning-directive.js"   (cf. explication ci-dessous)
+
+ JS :
+    - planning-controller.js englobe tout le html (ng-controller="PlanningCtrl" dans planning.html)
+    - listShopping-controller.js , fils de planning-controller englobe listShopping.html (ou l'on trouve donc ng-controller="ListShoppingCtrl")
+    - customizeShopping-controller.js, fils de listShopping est egalement dans listShopping.html (on l'on trouve donc ng-controller="CustomizeShoppingCtrl")
+
+
+
+********************************************************************************************************
+ - DIVISION HTML avec DIRECTIVES
+
+ dans planning.html nous avons 3 directives :
+    <recipes-planning></recipes-planning>
+    <planning-tofill></planning-tofill>
+    <list-shopping></list-shopping>
+
+Elles sont appelées dans "creationPlanning-directive.js"
+
+
+ajout ds >>> INDEX.HTML <<< de :
+    <script src="js/Directives/creationPlanning-directive.js"></script>
+
+DEPENDANCE :
+    - pas vraiment de dependance, juste utiliser le module 'controllers' et creer les directives
+      => dans creationPlanning-directive.js :
+      var myModule = angular.module('controllers');
+      myModule.directive('recipesPlanning', function(){...}
+
+     OU
+
+    - creer directives.js qui contient : angular.module('directives', []);
+      ajouter dependance "directives" dans controllers.js :
+          angular.module('controllers', ['directives','services', 'ngDragDrop', "ui.bootstrap"]);
+          => dans creationPlanning-directive.js :
+          var myDirective = angular.module('directives');
+          myDirective.directive('recipesPlanning', function(){...}
+      ajout ds INDEX.HTML : <script src="js/Directives/directives.js"></script>
+
+
+==> la seconde solution est la meilleure !!!
+
+
+********************************************************************************************************
+ - GLYPHICON (http://getbootstrap.com/components/)
+
+<span   class="glyphicon glyphicon-search " ></span>

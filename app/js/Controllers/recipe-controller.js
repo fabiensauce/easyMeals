@@ -13,6 +13,7 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, RecipeService) 
             case 'starter' : return RecipeService.getStarters();
             case 'course' :  return RecipeService.getCourses();
             case 'dessert' : return RecipeService.getDesserts();
+            case 'breakfast' : return RecipeService.getBreakfasts();
         }
     }
     $scope.recipes = getRecipes(recipeType);

@@ -34,7 +34,7 @@
                     <div ng-repeat="recipe in recipes | filter : searchRecipe" style="display:inline-block ">
                         <div   style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
                                data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="recipes" ng-show="recipe.name"
-                               jqyoui-draggable="{index: {{$index}},placeholder:'keep'}"
+                               jqyoui-draggable="{index: {{$index}},placeholder:'keep', deepCopy:'true'}"
                         title="{{displayIngredientsOfRecipe(recipe)}}">
                             {{recipe.name}}
                         </div>

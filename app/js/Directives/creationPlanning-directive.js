@@ -2,9 +2,11 @@
  * Created by fabien on 15/03/2016.
  */
 
-//var myDirective = angular.module('directives');
+var myDirective = angular.module('directives');
+//var myModule = angular.module('controllers');
 
-myModule.directive('helloTest', function(){
+
+myDirective.directive('helloTest', function(){
     return{
         restrict:'E',
         templateUrl: '../../partials/creationPlanningHtml/hello.html',
@@ -19,7 +21,7 @@ myModule.directive('helloTest', function(){
 
 
 
-myModule.directive('recipesPlanning', function(){
+myDirective.directive('recipesPlanning', function(){
     return{
         restrict:'E',
         templateUrl:'../../partials/creationPlanningHtml/recipesPlanning.html',
@@ -27,7 +29,7 @@ myModule.directive('recipesPlanning', function(){
 
     } ;
 });
-myModule.directive('planningTofill', function(){
+myDirective.directive('planningTofill', function(){
     return{
         restrict:'E',
         templateUrl:'../../partials/creationPlanningHtml/planningToFill.html',
@@ -35,7 +37,7 @@ myModule.directive('planningTofill', function(){
 
     } ;
 });
-myModule.directive('listShopping', function(){
+myDirective.directive('listShopping', function(){
     return{
         restrict:'E',
         templateUrl:'../../partials/creationPlanningHtml/listShopping.html',

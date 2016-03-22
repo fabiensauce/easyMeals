@@ -5,7 +5,7 @@
 
 var myModule = angular.module('controllers');
 
-myModule.controller('GlobalCtrl', function($scope, $log, GlobalService) {
+myModule.controller('GlobalCtrl', function($scope, $log, $location, GlobalService) {
 
     /**
      * Pour avoir une variable "global" utilisable entre les differentes section/view
@@ -27,6 +27,15 @@ myModule.controller('GlobalCtrl', function($scope, $log, GlobalService) {
         GlobalService.incrementId();
         $scope.myId = GlobalService.getId();
     }
+
+
+    $scope.isActiveInNavBar = function (viewLocationRoot) {
+        return (($location.path().indexOf(viewLocationRoot)) > -1);
+    };
+    /*$scope.isActiveInNavBar = function (viewLocation) {
+        return '#/planning' === $location.path();
+    };*/
+
 
 
 });

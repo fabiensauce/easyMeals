@@ -145,6 +145,40 @@ myService.service('RecipeService', function() {
             }
         ];
 
+        var breakfasts = [
+            {
+                id:'cereales',
+                name:'cereales',
+                recipeType:'breakfast',
+                nbPerson:8,
+                ingredients:[{qty:1, unit:'', food:'boite de cereale'}],
+                description:''
+            },
+            {
+                id:'tartines',
+                name:'tartines',
+                recipeType:'breakfast',
+                nbPerson:2,
+                ingredients:[{qty:6, unit:'', food:'tartines'}],
+                description:''
+            },
+            {
+                id:'nutella',
+                name:'nutella',
+                recipeType:'breakfast',
+                nbPerson:10,
+                ingredients:[{qty:500, unit:'g', food:'nutella'}],
+                description:''
+            },
+            {
+                id:'confiture',
+                name:'confiture',
+                recipeType:'breakfast',
+                nbPerson:10,
+                ingredients:[{qty:500, unit:'g', food:'confiture'}],
+                description:''
+            }
+        ];
 
         getCoursesInMyFct = function(){
             return courses;
@@ -156,6 +190,10 @@ myService.service('RecipeService', function() {
             return desserts;
         };
 
+        getBreakfasts = function(){
+            return breakfasts;
+        };
+
 
 
         addCourse = function (course) {
@@ -165,16 +203,19 @@ myService.service('RecipeService', function() {
         };
 
         addStarter = function (starter) {
-            //gerer IDS
             starter.id=id++;
             starters.push(starter);
         };
 
 
         addDessert = function (dessert) {
-            //gerer IDS
             dessert.id=id++;
             desserts.push(dessert);
+        };
+
+        addBreakfast = function (breakfast) {
+            breakfast.id=id++;
+            breakfasts.push(breakfast);
         };
 
 
@@ -182,9 +223,11 @@ myService.service('RecipeService', function() {
             getCourses: getCoursesInMyFct,
             getStarters: getStarters,
             getDesserts: getDesserts,
+            getBreakfasts: getBreakfasts,
             addCourse: addCourse,
             addStarter: addStarter,
-            addDessert: addDessert
+            addDessert: addDessert,
+            addBreakfast: addBreakfast
 
         };
     })

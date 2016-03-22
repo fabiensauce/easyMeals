@@ -34,6 +34,7 @@ myModule.controller('RecipeCreationCtrl', function($scope, $location, $routePara
                 case 'starter' : RecipeService.addStarter(recipe); break;
                 case 'course' :  RecipeService.addCourse(recipe); break;
                 case 'dessert' : RecipeService.addDessert(recipe); break;
+                case 'breakfast' : RecipeService.addBreakfast(recipe); break;
             }
             $location.path("/recipe/"+recipeType);$location.hash(recipe.id);
         }
