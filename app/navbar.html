@@ -49,6 +49,14 @@
                 <li class="page-scroll" ng-class="{ activeInNavBar: isActiveInNavBar('calculationAlcohol')}"><!--ng-class="{ active: isActiveInNavBar('#/calculationAlcohol')}"-->
                     <a href="/#/calculationAlcohol">Soirée Alcoolisée ?</a>
                 </li>
+                <li class="page-scroll" >
+                    <span class="checkbox checkbox-warning" >
+                        <input type="checkbox"  ng-model="showDebug"  id="idShowDebug" ng-change="toggleDebug()">
+                        <label for="idShowDebug" >
+                            DEBUG
+                        </label>
+                    </span>
+                </li>
 
 
                 <!--<li class="page-scroll">
