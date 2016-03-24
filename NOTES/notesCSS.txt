@@ -33,10 +33,21 @@
 
  ********************************************************************************************************
     COLOR
+    INFO btn : #5bc0de (60%)
+                #95d6e9 (75%)
+
+    DANGER btn : #d9534f (58%)
+                #e89996 (75%)
+
+    SUCCESS btn : #5cb85c (54%)
+                #95d095 (70%)
+
     #5bc0de : info btn
+    #d9edf7 : info background entete tab
     #5cb85c : success btn
     #dff0d8 : success background entete tab
     #d9534f : danger btn
+    #e89996 : danger background entete tab
 
 
  ********************************************************************************************************

@@ -233,7 +233,10 @@ textarea.fieldExpense {
     width:auto;
     text-align: left;
 }
-
+.fieldExpense:focus {
+    outline: 0; /*2px solid #d9534f;*/
+    border: 2px solid #95d095;
+}
 
 .myThExpense {
     color: darkslategrey;
@@ -268,16 +271,6 @@ textarea.fieldExpense {
     border: 2px solid #e89996;
 }
 
-.teste:focus{
-
-    outline: 0; /*2px solid #d9534f;*/
-    border: 2px solid #e89996;
-}
-.testa:focus{
-
-    outline: 0; /*2px solid #d9534f;*/
-    border: 2px solid #e89996;
-}
 
 .itemToDragAlcohol{
     padding: 6px;

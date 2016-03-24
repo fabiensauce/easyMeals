@@ -233,7 +233,7 @@ myModule.controller('CalculationAlcoholCtrl', function($scope, $log, AlcoholServ
     }
 
     $scope.onOverListDrop = function(){
-        document.getElementById("listDrop").style.border = '1px solid #d9534f';
+        document.getElementById("listDrop").style.border = '2px solid #e89996';
         //document.getElementById("listDrop").style.background =  '#d9534f';
         //document.getElementById("listDrop").style.color = 'white';
     }

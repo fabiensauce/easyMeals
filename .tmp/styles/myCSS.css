@@ -77,8 +77,19 @@
 }
 
 
-
-
+::selection { /* surlign / effet souris  */
+    color: white;
+    background: darkslategrey;
+}
+select::selection,option::selection { /* ne fonctionne pas  */
+    color: white;
+    background: darkslategrey;
+}
+/*ne fonctionne pas.. est ce que c pas assez precis
+.bodyPlanning::selection{
+    background: green; /* REMPLACER PAR LA COULEUR DÉSIRÉE*
+}
+*/
 
 
 /******************************************* NAVBAR *****************************************/
@@ -96,6 +107,10 @@
 .activeInNavBarExpense > a {
     color:#5cb85c;
 }
+.activeInNavBarAlcohol > a {
+    color:#d9534f;
+}
+
 .dropdown-menu > li > a{
     color:cornflowerblue;
     height:40px;
@@ -110,52 +125,23 @@
 }
 
 
+/******************************************* TABLES ****************************************/
 
-
-/*******************************************/
-
-
-
-.myBorder{
-    border: 5px solid red;
-    border-radius:10px;
-}
-#resultExpense {
+.myTh{
+    color:darkslategrey;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700; /* epaisseur txt */
     letter-spacing: 1px;
     font-size: 20px;
-    color:#5cb85c; /*success*/
-}
-::selection { /* surlign / effet souris  */
-    background: lightgreen; /* REMPLACER PAR LA COULEUR DÉSIRÉE*/
-    color: white;
-
 }
 
 
-.fieldExpense {
-    /*
-    border:none;
-    background-color:#dff0d8
-    */
-    padding: 7px;
-    width:60px;
-    border-radius:3px;
-    text-align: center;
 
-    border:1px solid lightgrey;
-    color: #5cb85c;
-}
+/**********************************************************************************************/
+/******************************************* PLANNING ****************************************/
+/********************************************************************************************/
 
-select.fieldExpense {
-    width:auto;
-}
-textarea.fieldExpense {
-    width:auto;
-    text-align: left;
-}
-
+/*
 .itemToDragPlanning_OldStyle {
     padding: 7px;
     border-radius:3px;
@@ -163,7 +149,7 @@ textarea.fieldExpense {
 
     border:1px solid #5bc0de;
     color: #5bc0de;
-}
+}*/
 .itemToDragPlanning {
     padding: 6px;
     border-radius:3px;
@@ -205,25 +191,110 @@ textarea.fieldExpense {
 .contourTxt{
     text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
 }
-.myTh{
-    color:darkslategrey;
+
+
+/**********************************************************************************************/
+/******************************************* EXPENSES ****************************************/
+/********************************************************************************************/
+
+
+
+.myBorder{
+    border: 5px solid red;
+    border-radius:10px;
+}
+#resultExpense {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700; /* epaisseur txt */
     letter-spacing: 1px;
     font-size: 20px;
-}
-.myThExpense{
-    color:darkslategrey;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 600; /* epaisseur txt */
-    letter-spacing: 1px;
-    font-size: 18px;
-}
-.myThFieldExpense{
-    font-weight: 500; /* epaisseur txt */
-    font-size: 18px;
+    color:#5cb85c; /*success*/
 }
 
-th > .fieldExpense {
-    width:100px;
+
+.fieldExpense {
+    /*
+    border:none;
+    background-color:#dff0d8
+    */
+    padding: 7px;
+    width:60px;
+    border-radius:3px;
+    text-align: center;
+
+    border:1px solid lightgrey;
+    color: #5cb85c;
 }
+
+select.fieldExpense {
+    width:auto;
+}
+textarea.fieldExpense {
+    width:auto;
+    text-align: left;
+}
+.fieldExpense:focus {
+    outline: 0; /*2px solid #d9534f;*/
+    border: 2px solid #95d095;
+}
+
+.myThExpense {
+    color: darkslategrey;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600; /* epaisseur txt */
+    letter-spacing: 1px;
+}
+
+/**********************************************************************************************/
+/******************************************* ALCOHOL ****************************************/
+/********************************************************************************************/
+
+
+.fieldAlcohol {
+    /*
+    border:none;
+    background-color:#dff0d8
+    */
+    ont-weight: 700; /* epaisseur txt */
+    font-size: 20px;
+    padding: 7px;
+    width:80px;
+    border-radius:3px;
+    text-align: center;
+
+    border:1px solid lightgrey;
+    color: #d9534f;
+
+}
+.fieldAlcohol:focus {
+    outline: 0; /*2px solid #d9534f;*/
+    border: 2px solid #e89996;
+}
+
+
+.itemToDragAlcohol{
+    padding: 6px;
+    margin:4px; /* seul difference avec itemDroppedAlcohol */
+
+    border-radius:3px;
+    border:1px solid lightgrey;
+    color: #d9534f;
+}
+
+.itemDroppedAlcohol {
+
+    width:350px;
+    padding: 6px;
+    margin:5px 0; /* seul difference avec itemToDragAlcohol */
+    margin-left:50px;
+    border-radius:3px;
+    border:1px solid lightgrey;
+    color: #d9534f;
+
+}
+/* ne fonctionne pas
+.bodyAlcohol > input:focus {
+    outline: 0;
+    border:2px solid #e89996;
+}
+*/
