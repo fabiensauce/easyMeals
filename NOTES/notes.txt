@@ -109,6 +109,21 @@ DEPENDANCE :
 ==> la seconde solution est la meilleure !!!
 
 
+
+********************************************************************************************************
+    DIRECTIVES - ELEMENT modification functions
+
+    A good example to modify an element is when we scroll into recipes and then the leftNavBar is fixed
+    This is done thanks to a directive called "scrollFixedPosition"
+    => recipe.html & recipe-controller.js (directive)
+    And in the directive the element is modify by changing the CSS and the className
+
+    EVERY functiuons on element can be found here :
+    https://docs.angularjs.org/api/ng/function/angular.element
+    => Angular's jqLite
+
+
+
 ********************************************************************************************************
  - GLYPHICON (http://getbootstrap.com/components/)
 
@@ -174,3 +189,5 @@ fab 15€ to math, eddy, carine
 fab 40€ to fab, math, eddy, carine, person4, person5
 
 ********************************************************************************************************
+    CHECKBOX size... cf(notesCSS.txt)
+    *********************************

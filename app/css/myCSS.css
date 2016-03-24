@@ -6,7 +6,7 @@
 .bodyEasyMeals{
     width: 100%;
     height: 100%;
-    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
     background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
     background-color: #000;
@@ -19,7 +19,7 @@
 
     width: 100%;
     height: 100%;
-    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
     background: url(../img/recipe_vegetables.jpg) repeat ; /* planning-recipe_meals OR recipe_fruits.jpeg  //bottom center scroll */
     background-color: #000;
@@ -33,7 +33,8 @@
 
     width: 100%;
     height: 100%;
-    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
     background: url(../img/expense-planning_Red-Raspberry.jpg) ; /* expense-planning_Red-Raspberry   OR  planning-recipe_meals.jpg*/
     background-color: #000;
@@ -48,9 +49,10 @@
 
     width: 100%;
     height: 100%;
-    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
-    background: url(../img/expense_note.jpg) no-repeat ; /* expense-planning_Red-Raspberry */
+    background: url(../img/expense_noteSober.jpg) no-repeat ; /*expense_note OR  expense-planning_Red-Raspberry */
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -64,7 +66,7 @@
 
     width: 100%;
     /*height: 100%;*/
-    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
     background: url(../img/alcohol_glass-wineGood.jpg) no-repeat ; /* alcohol_glassWineOnWood //center scroll */
     background-color: #000;
@@ -86,7 +88,13 @@
     background-color: purple;
 }
 .activeInNavBar > a {
+    color:yellow;
+}
+.activeInNavBarPlanning > a {
     color:cornflowerblue;
+}
+.activeInNavBarExpense > a {
+    color:#5cb85c;
 }
 .dropdown-menu > li > a{
     color:cornflowerblue;
@@ -114,8 +122,108 @@
 }
 #resultExpense {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-weight: 700; /* epaisseur txt */
     letter-spacing: 1px;
     font-size: 20px;
-    color:#5bc0de;
+    color:#5cb85c; /*success*/
+}
+::selection { /* surlign / effet souris  */
+    background: lightgreen; /* REMPLACER PAR LA COULEUR DÉSIRÉE*/
+    color: white;
+
+}
+
+
+.fieldExpense {
+    /*
+    border:none;
+    background-color:#dff0d8
+    */
+    padding: 7px;
+    width:60px;
+    border-radius:3px;
+    text-align: center;
+
+    border:1px solid lightgrey;
+    color: #5cb85c;
+}
+
+select.fieldExpense {
+    width:auto;
+}
+textarea.fieldExpense {
+    width:auto;
+    text-align: left;
+}
+
+.itemToDragPlanning_OldStyle {
+    padding: 7px;
+    border-radius:3px;
+    margin:5px;
+
+    border:1px solid #5bc0de;
+    color: #5bc0de;
+}
+.itemToDragPlanning {
+    padding: 6px;
+    border-radius:3px;
+    margin:5px 0;
+
+    border:1px solid lightgrey;
+    color: cornflowerblue;
+}
+.itemRecipesPlanning{
+    margin:4px;
+}
+
+.nbPers{
+    color:cornflowerblue;
+    color: lightgrey;
+    border:1px solid lightgrey;
+    border-radius:3px;
+    padding:3px;
+}
+.inputNbPers{
+    color:cornflowerblue;
+    width:40px;
+    border:none;
+    border-radius:3px;
+    text-align: center;
+    background-color:#f9f9f9;
+}
+.inputGlobalNbPers{
+
+    width:40px;
+    color:cornflowerblue;
+
+    border:1px solid lightgrey;
+    border-radius:3px;
+    padding:3px;
+    text-align: center;
+}
+
+.contourTxt{
+    text-shadow: #000000 1px 1px, #000000 -1px 1px, #000000 -1px -1px, #000000 1px -1px;
+}
+.myTh{
+    color:darkslategrey;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700; /* epaisseur txt */
+    letter-spacing: 1px;
+    font-size: 20px;
+}
+.myThExpense{
+    color:darkslategrey;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600; /* epaisseur txt */
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+.myThFieldExpense{
+    font-weight: 500; /* epaisseur txt */
+    font-size: 18px;
+}
+
+th > .fieldExpense {
+    width:100px;
 }

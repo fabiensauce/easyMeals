@@ -54,14 +54,27 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, RecipeService) 
 });
 
 
-myModule.directive("scroll", function ($window) {
+myModule.directive("scroll", function ($window, $log) {
     return function(scope, element, attrs) {
         angular.element($window).bind("scroll", function() {
-            if (this.pageYOffset >= 300) {
-                //scope.boolChangeClass = true;
-                //alert("BOOM ahah 100px");
+            if (this.pageYOffset >= 150) {
+                element.css({
+                    top: '0px',
+                    position: 'fixed'
+
+                });
+                element.removeClass('col-xs-3');
+                element.addClass('col-xs-3');
+                element.next().addClass('col-xs-offset-3');
+
+                $log.warn("BOOM - element : >"+element.contents());
             } else {
-                //scope.boolChangeClass = false;
+
+                element.css({
+                    top: "auto",
+                    position: 'static'
+                });
+                element.next().removeClass('col-xs-offset-3');
             }
             scope.$apply();
         });

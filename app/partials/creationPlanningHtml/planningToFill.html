@@ -22,15 +22,15 @@
 
             <div class="panel-body main-panel">
 
-                <table class="table table-striped table-hover table-bordered">
-                    <th class="info"></th>
-                    <th class="info">Lundi</th>
-                    <th class="info">Mardi</th>
-                    <th class="info">Mercredi</th>
-                    <th class="info">Jeudi</th>
-                    <th class="info">Vendredi</th>
-                    <th class="info">Samedi</th>
-                    <th class="info">Dimanche</th>
+                <table class="table  table-hover table-bordered table">
+                    <th class="info myTh" ></th>
+                    <th class="info myTh">Lundi</th>
+                    <th class="info myTh">Mardi</th>
+                    <th class="info myTh">Mercredi</th>
+                    <th class="info myTh">Jeudi</th>
+                    <th class="info myTh">Vendredi</th>
+                    <th class="info myTh">Samedi</th>
+                    <th class="info myTh">Dimanche</th>
                     <!--
                          //fourWeekMeals = [aWeekMealLunch, aWeekMealDinner, .., ..]
                          //aWeekMeal = {typeMeal: lunch, show:true, weekMeals:[meal1, meal2, ..., meal7]}
@@ -39,17 +39,18 @@
                      -->
                     <tr ng-repeat="aWeekMeal in fourWeekMeals" ng-show="aWeekMeal.show" >
 
-                        <th class="danger" style="height:80px"> {{displayMealType(aWeekMeal.typeMeal)}}</th>
+                        <th class="info myTh" style="height:80px; width:9%; vertical-align:middle"> {{displayMealType(aWeekMeal.typeMeal)}}</th>
 
-                        <td ng-repeat="meal in aWeekMeal.weekMeals"  data-drop="true" ng-model='meal.recipes'  jqyoui-droppable="{multiple:true}"> <!--, onOver:'onOverTab(\'hehehe\')' -->
+                        <td ng-repeat="meal in aWeekMeal.weekMeals"  style="width:13%" data-drop="true" ng-model='meal.recipes'  jqyoui-droppable="{multiple:true}"> <!--, onOver:'onOverTab(\'hehehe\')' -->
 
-                            <div ng-show="showNbPers" style="color:green; border:1px solid lightgrey; border-radius:5px; padding:2px;"  data-drop="true" ng-model='meal.nbPers'
+                            <div ng-show="showNbPers" class="nbPers"  data-drop="true" ng-model='meal.nbPers'
                                  jqyoui-droppable="{multiple:true}">
-                                <input style="width:35px; border:none; text-align: center; background-color:#f9f9f9" type="number" min="1"  ng-model="meal.nbPers" > pers.
+                                <input class="inputNbPers" type="number" min="1"  ng-model="meal.nbPers" > pers.
                             </div>
+
                             <!--ng-repeat="recipe in meal.recipes  | orderByRecipeType" -->
                             <!--track by $index permet d'avoir 2x le mm element dans un drop sans bug -->
-                            <div ng-repeat="recipe in meal.recipes track by $index " style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
+                            <div ng-repeat="recipe in meal.recipes track by $index " class="itemToDragPlanning"
                                  data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="meal.recipes" ng-show="recipe.name"
                                  jqyoui-draggable="{index: {{$index}},placeholder:false}"  >
                                 {{recipe.name}}
@@ -90,7 +91,8 @@
 
 
                         <div>
-                            Nombre global de personnes : &nbsp&nbsp <input type="number" ng-model="globalNbPers" ng-change="spreadGlobalNbPers(globalNbPers)" min="1" style="width:40px">
+                            Nombre global de personnes : &nbsp&nbsp
+                            <input class="inputGlobalNbPers" type="number" ng-model="globalNbPers" ng-change="spreadGlobalNbPers(globalNbPers)" min="1" style="width:40px">
                         </div>
 
 
@@ -99,7 +101,7 @@
                         </div>
                         <div>
                             <!--<input type="checkbox" ng-model="showNbPers" >Show NbPers &nbsp-->
-                             <span class="checkbox checkbox-success checkbox-inline" >
+                             <span class="checkbox checkbox-info checkbox-inline" >
                                  <input type="checkbox"  ng-model="showNbPers" id="idShowPers">
                                  <label for="idShowPers" >
                                      Afficher nb pers. &nbsp
@@ -129,12 +131,12 @@
 
 
 
-                                        <span style="border:1px solid black; border-radius:5px; padding:7px;"
+                                        <span class="itemToDragPlanning nbPers"
                                               data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="nbPers"
                                               jqyoui-draggable="{placeholder:'keep', deepCopy:'true'}">
-                                            <input style="width:40px" type="number" min="1" ng-model="nbPers">
+                                            <input class="inputNbPers" type="number" min="1" ng-model="nbPers">
                                             <!--{{nbPers}}-->
-                                            <span   class="glyphicon glyphicon-tag " ></span>
+                                            <span class="glyphicon glyphicon-tag" ></span>
                                         </span>
                                     </span>
                         </div>
@@ -146,7 +148,7 @@
 
 
                     <div class="col-md-2">
-                        <div id="trashPlanning" class="glyphicon glyphicon-trash" style="font-size: 50px; color:green"
+                        <div id="trashPlanning" class="glyphicon glyphicon-trash" style="font-size: 50px; color:#5bc0de"
                              data-drop="{{dataDropTrash}}" ng-model='trash'  jqyoui-droppable="{multiple:true, onOver:'onOverTrash()', onOut:'onOutTrash()', onDrop:'onOutTrash()'}"  > <!-- , onOver:'onOverTrash()', onOut:'onOutTrash()' }" -->
                         </div>
                     </div>

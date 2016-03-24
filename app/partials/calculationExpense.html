@@ -17,7 +17,7 @@
                     </div>
                     <div>
                         <label>Nombre de personnes : </label>
-                        &nbsp&nbsp<input type="number" ng-model ='nbPers' ng-change="updatePersons()" min="1" style="width:60px"/>
+                        &nbsp&nbsp<input class="fieldExpense" type="number" ng-model ='nbPers' ng-change="updatePersons()" min="1"/>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
     <div class="row" style="color:black">
         <div class="col-md-12">
 
-            <div  class="panel panel-default" >
+            <div  class="panel panel-default" style="overflow-y:auto">
                 <div class="panel-heading">
                     <h3 class="panel-title">QUI à payé QUOI à QUI ?</h3>
                 </div>
@@ -52,18 +52,17 @@
                         <div ><b>Il est possible de saisir le prenom des membres du groupe directement dans chaque en-têtes de colonne</b></div>
                     </div>
 
-                    <table class="table table-striped table-hover table-bordered">
+                    <table class="table table-hover table-bordered">
 
 
-                        <th class="info">A payé</th>
-                        <th class="info">Prix (€)</th>
-                        <th class="info" ng-repeat="person in persons">
-                            <input style="width:70px; border:none; text-align: center; background-color:#f9f9f9" type="text"  ng-model="person.name" >
-
+                        <th class="success myThExpense">A payé</th> <!-- style="background-color: lightgreen" -->
+                        <th class="success myThExpense">Prix (€)</th> <!-- this success :#dff0d8 -->
+                        <th class="success myThExpense myThFieldExpense" ng-repeat="person in persons">
+                            <input  class="fieldExpense"  type="text"  ng-model="person.name" >
                         </th>
-                        <th class="info">All</th>
-                        <th class="info">Description</th>
-                        <th class="info">Supp. ligne</th>
+                        <th class="success myThExpense ">All</th><!--#5cb85c(success) lightgreen -->
+                        <th class="success myThExpense">Description</th>
+                        <th class="success myThExpense" >Supp.</th>
 
 
                         <tr ng-repeat="row in rows" >
@@ -76,24 +75,23 @@
                             -->
                             <td>
                                 <!-- <select ng-model='row.buyer' ng-options='person.name for person in persons' >-->
-                                <select ng-model='row.buyerId'  >
+                                <select class="fieldExpense"  ng-model='row.buyerId'  >
                                     <option ng-repeat="person in persons" value="{{person.id}}">{{person.name}}</option>
                                 </select>
                             </td>
                             <td>
-                                <input style="width:35px; border:none; text-align: center; background-color:#f9f9f9" type="number" min="0"  ng-model="row.price" >
+                                <input class="fieldExpense" type="number" min="0"  ng-model="row.price" >
+
                             </td>
-                            <td ng-repeat="isChecked in row.listChecked"><!-- ng-click="toggleCheckList(isChecked)">-->
-                                <span class="checkbox checkbox-info" style="margin-left:40px">
+                            <td ng-repeat="isChecked in row.listChecked" ><!-- ng-click="toggleCheckList(isChecked, row)" --fonctionne pas car en double avec le click sur la checkbox en elle meme !!>-->
+                                <span class="checkbox checkbox-success" style="margin-left:65px; -webkit-transform: scale(1.5);">
                                      <input type="checkbox"  ng-model="isChecked.bool" ng-change="aPersonColumnChecked(row)" id="{{isChecked.id}}+idRow{{row.id}}">
-                                     <label for="{{isChecked.id}}+idRow{{row.id}}" >
-                                     </label>
+                                     <label for="{{isChecked.id}}+idRow{{row.id}}" ></label>
                                  </span>
                             </td>
-                            <!--<td ng-click="toggleAll(row)" > ceci ne fait pas fonctionner correctmeent le ng-change
-                                                                qui nest pas appele si on clique dans la case mais pas sur la checkbox-->
-                            <td >
-                                <span class="checkbox checkbox-success" style="margin-left:40px">
+
+                            <td style="text-align: center">
+                                <span class="checkbox checkbox-warning" style="margin-left:8px; " >
                                      <input type="checkbox"  ng-model="row.checkedAll" ng-change="aAllChecked(row)" id="idCheckedAll+{{row.id}}">
                                      <label for="idCheckedAll+{{row.id}}" >
                                          <!-- DEBUG -->
@@ -105,11 +103,11 @@
                                  </span>
                             </td>
                             <td>
-                                <textarea rows="2" cols="25"  >{{row.description}}</textarea>
+                                <textarea rows="1" cols="15" class="fieldExpense" >{{row.description}}</textarea>
 
                             </td>
                             <td>
-                                <button type="button" class="btn btn-default" ng-click="deleteRowExpense(row)">
+                                <button type="button" class="btn btn-success" ng-click="deleteRowExpense(row)">
                                     <span class="glyphicon glyphicon-minus"></span>
                                 </button>
 
@@ -118,12 +116,10 @@
                         </tr>
                     </table>
 
-                    <br>
-                    <button type="button" class="btn btn-default" ng-click="addRowExpense()">
+                    <button type="button" class="btn btn-success" ng-click="addRowExpense()">
                         <span class="glyphicon glyphicon-plus"></span> Ligne
                     </button>
 
-                    <br>
                     <br>
                     <div ng-show="showImprovement" style="font-size: 15px; color:#d9534f">
                     </div>

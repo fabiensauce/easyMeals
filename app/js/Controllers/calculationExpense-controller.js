@@ -56,14 +56,15 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
         }
     };
 
-
-    $scope.toggleCheckList = function(isChecked){
+/* //ne pas supprimer... peut servir
+    $scope.toggleCheckList = function(isChecked, row){
         isChecked.bool = !isChecked.bool ;
+        $scope.aPersonColumnChecked(row)
     };
     $scope.toggleAll = function(row){
         row.checkedAll = !row.checkedAll;
     };
-
+*/
 
     var updateRows = function(){
         creationTabExpense();

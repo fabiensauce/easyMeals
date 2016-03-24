@@ -2,7 +2,7 @@
         <div class="col-md-2" style="margin-top:0px">
 
             <div>
-                <div style="width:50px"><button class="btn btn-info" ng-click="selectRecipes('breakfast')" style="width: 150px;" >Dej - Goûter</button></div>
+                <div><button class="btn btn-info" ng-click="selectRecipes('breakfast')" style="width: 150px;" >Dej - Goûter</button></div>
                 <br>
                 <div><button class="btn btn-info" ng-click="selectRecipes('starter')" style="width: 150px;">Entrees</button></div>
                 <br>
@@ -41,7 +41,7 @@
                         <br>
                     </div>
                     <div ng-repeat="recipe in recipes | filter : searchRecipe" style="display:inline-block ">
-                        <div   style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
+                        <div  class="itemToDragPlanning itemRecipesPlanning"
                                data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="recipes" ng-show="recipe.name"
                                jqyoui-draggable="{index: {{$index}},placeholder:'keep', deepCopy:'true'}"
                         title="{{displayIngredientsOfRecipe(recipe)}}">

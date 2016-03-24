@@ -111,7 +111,7 @@ myModule.controller('PlanningCtrl', function($scope, $log, PlanningService, Reci
         document.getElementById("trashPlanning").style.color = 'orange';
     }
     $scope.onOutTrash = function(){
-        document.getElementById("trashPlanning").style.color = 'green';
+        document.getElementById("trashPlanning").style.color = '#5bc0de';
     };
     /*
     $scope.onOverTab = function(vaa){
