@@ -8,6 +8,17 @@
 
 
  ********************************************************************************************************
+   ORDRE de prise en compte code CSS avec class
+   ***********
+   l'ordre de laffichage des classes nest pas important, c lordre ds le file.css qui compte :
+
+   Ex : HTML <div class="a b"></div>
+        css .b{color:blue}
+            .a{color:yellow}
+            => la couleur du div sera YELLOW !
+
+
+ ********************************************************************************************************
    ::selection
    ***********
    surlignage du text avec curseur de la souris
@@ -25,6 +36,7 @@
     #5bc0de : info btn
     #5cb85c : success btn
     #dff0d8 : success background entete tab
+    #d9534f : danger btn
 
 
  ********************************************************************************************************

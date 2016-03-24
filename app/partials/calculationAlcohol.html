@@ -3,17 +3,17 @@
     <div><h2>Prevoir la quantité d'alcool</h2></div>
 
 
-    <div class="row" style="color:black">
+    <div class="row" style="color:darkslategrey">
 
         <div class="{{largeExpense}}">
 
             <div  class="panel panel-default" >
-                <div class="panel-heading">
+                <div class="panel-heading" style="color:darkslategrey">
                     <h3 class="panel-title">Logistique</h3>
                 </div>
 
 
-                <div class="panel-body main-panel" >
+                <div class="panel-body main-panel" style="color:darkslategrey">
 
 
                     <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
@@ -30,12 +30,12 @@
 
                     <div>
                         <label>Nombre de personnes : </label>
-                        &nbsp&nbsp<input type="number" ng-model ='nbPers' min="1" style="width:60px"/>
+                        &nbsp&nbsp<input class="fieldAlcohol" type="number" ng-model ='nbPers' min="1" style="width:60px"/>
                     </div>
                     <br>
                     <div>
                         <label>Moyenne de verres/pers : </label>
-                        &nbsp&nbsp<input type="number" ng-model ='nbGlass' min="1" style="width:60px"/>
+                        &nbsp&nbsp<input class="fieldAlcohol" type="number" ng-model ='nbGlass' min="1" style="width:60px"/>
                         <br>(Un verre = 25cl biere / 10cl vin / 3 cl alcool fort)
                     </div>
 
@@ -59,15 +59,15 @@
 
 
 
-    <div class="row" style="color:black" >
+    <div class="row" style="color:darkslategrey" >
         <div class="col-md-2" >
 
             <div>
-                <div><button style="width:150px;" class="btn btn-info" ng-click="selectAlcoholType('bieres')"> Bieres </button></div>
+                <div><button style="width:150px;" class="btn btn-danger" ng-click="selectAlcoholType('bieres')"> Bieres </button></div>
                 <br>
-                <div><button style="width:150px;" class="btn btn-info" ng-click="selectAlcoholType('vins')">  Vins </button></div>
+                <div><button style="width:150px;" class="btn btn-danger" ng-click="selectAlcoholType('vins')">  Vins </button></div>
                 <br>
-                <div><button style="width:150px;" class="btn btn-info" ng-click="selectAlcoholType('forts')"> Alcools forts </button></div>
+                <div><button style="width:150px;" class="btn btn-danger" ng-click="selectAlcoholType('forts')"> Alcools forts </button></div>
                 <br>
             </div>
 
@@ -75,8 +75,8 @@
         <div class="col-md-10">
 
             <div  class="panel panel-default" >
-                <div class="panel-heading" >
-                    <div class="row">
+                <div class="panel-heading" style="color:darkslategrey">
+                    <div class="row" style="color:darkslategrey">
                         <h3 class="col-md-2 panel-title">{{alcoholType}}</h3>
                         <div class="col-md-6">
                         </div>
@@ -90,9 +90,9 @@
 
                 </div>
 
-                <div class="panel-body main-panel">
+                <div class="panel-body main-panel" >
 
-                    <div class="row">
+                    <div class="row" style="color:darkslategrey">
                         <div class="col-md-8">
 
                             <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
@@ -103,7 +103,7 @@
 
 
                             <div ng-repeat="alcohol in alcohols  | filter : searchAlcohol " style="display:inline-block ">
-                                <div   style="border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
+                                <div  class="itemToDragAlcohol "
                                        data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="alcohols" ng-show="alcohol.name"
                                        jqyoui-draggable="{index: {{$index}},placeholder:'keep', deepCopy:true}"
                                        title="{{displayAlcoholDetail(alcohol)}}">
@@ -113,13 +113,14 @@
                         </div>
                         <div class="col-md-4">
 
-
-                            <div ng-repeat="filterQty in filterQties">
-                                <label>
-                                    <input type="radio" ng-model="$parent.filterQtyChosen" ng-value="filterQty.cl"
-                                           checked="checked" />{{filterQty.name}}
+                            <div  ng-repeat="filterQty in filterQties" class="radio radio-danger teste">
+                                <input class="testa" type="radio" ng-model="$parent.filterQtyChosen" ng-value="filterQty.cl"
+                                       checked="checked" id="filterQty{{filterQty.id}}">
+                                <label for="filterQty{{filterQty.id}}">
+                                    {{filterQty.name}}
                                 </label>
                             </div>
+
                             <!-- DEBUG -->
                             <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
                                 <div>filterQtyChosen : {{filterQtyChosen}}</div>
@@ -158,25 +159,26 @@
     <!---->
 
 
-    <div class="row" style="color:black">
+    <div class="row" style="color:darkslategrey">
         <div class="col-md-12">
 
             <div  class="panel panel-default" >
-                <div class="panel-heading">
+                <div class="panel-heading" style="color:darkslategrey">
                     <h3 class="panel-title">Liste Alcools</h3>
                 </div>
 
 
                 <div class="panel-body main-panel" >
 
-                    <div class="row" style="color:black">
+                    <div class="row" style="color:darkslategrey">
 
-                        <div class="col-md-6" data-drop="true" ng-model='chosenAlcohols'  jqyoui-droppable="{multiple:true}"
-                             style="margin-left:100px;min-height:200px;background:lightgrey;border:1px solid lightgrey; border-radius:5px; margin:5px; padding:7px; ">
+                        <div id="listDrop" class="col-md-6" data-drop="true" ng-model='chosenAlcohols'  jqyoui-droppable="{multiple:true , onOver:'onOverListDrop()', onOut:'onOutListDrop()', onDrop:'onOutListDrop()'}"
+                             style="min-height:200px; border-radius:3px; margin:5px; padding:7px; ">
+                            <!--border:1px solid lightgrey; -->
 
 
                             <!-- apparement pas util.."track by $index" qui sert normalement a autoriser des doublon ds la list cible (de drop) -->
-                            <div ng-repeat="chosenAlcohol in chosenAlcohols " style="width:350px; border:1px solid black; border-radius:5px; margin:5px; padding:7px; "
+                            <div  class="itemDroppedAlcohol " ng-repeat="chosenAlcohol in chosenAlcohols "
                                  data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="chosenAlcohols" ng-show="chosenAlcohol.name"
                                  jqyoui-draggable="{index: {{$index}},placeholder:false}"   >
 
@@ -194,10 +196,9 @@
                         <div class="col-md-5">
 
                             <br>
-                            <div style="color:{{colorGlassLeft}}; font-size: 20px;">
+                            <div style="font-size: 20px;">
                                 <span ng-show="isGlassLeft"> Vous avez une marge de  </span>
-                                <span style="font-size: 50px;"> {{nbGlassLeft | number:0}}</span>
-                                verres
+                                <span style="color:{{colorGlassLeft}}; font-size: 50px;"> {{nbGlassLeft | number:0}}</span>  verres
                                 <span ng-show="!isGlassLeft"> en TROP!</span>
                             </div>
 
@@ -209,7 +210,7 @@
 
 
                             <br>
-                            <div id="trashAlcohol" class="glyphicon glyphicon-trash" style="font-size: 100px; color:#5bc0de"
+                            <div id="trashAlcohol" class="glyphicon glyphicon-trash" style="font-size: 80px; color:#d9534f"
                                  data-drop="{{dataDropTrash}}" ng-model='trash'  jqyoui-droppable="{multiple:true, onOver:'onOverTrash()', onOut:'onOutTrash()', onDrop:'onOutTrash()'}"  > <!-- , onOver:'onOverTrash()', onOut:'onOutTrash()' }" -->
 
                             </div>

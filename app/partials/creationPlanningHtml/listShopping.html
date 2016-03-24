@@ -1,6 +1,6 @@
 <div ng-controller="ListShoppingCtrl" >
 
-    <div class="row" style="color: black" id="listShopping">
+    <div class="row" style="color: darkslategrey" id="listShopping">
 
 
 
@@ -8,7 +8,7 @@
 
             <div  class="panel panel-default" >
                 <div class="panel-heading">
-                    <h3 class="panel-title">Liste de courses</h3>
+                    <h3 class="panel-title" style="color:darkslategrey;">Liste de courses</h3>
                 </div>
 
                 <div class="panel-body main-panel row"  ng-controller="CustomizeShoppingCtrl">
@@ -32,7 +32,7 @@
                     </div>
                     <br>
 
-                    <div class="col-md-4" ng-show="showListShopping()" >
+                    <div class="col-md-4" ng-show="showListShopping()"style="color:darkslategrey">
                         <h5>Votre liste de courses</h5>
                         <div ng-repeat="ingr in listShop | orderBy:'food'"> <!-- | orderBy:'food'-->
                             <div>
@@ -58,7 +58,7 @@
 
                     </div>
 
-                    <div class="col-md-3" ng-show="showListShopping()" >
+                    <div class="col-md-3" ng-show="showListShopping()" style="color:darkslategrey" >
                         <h5>Customisez votre liste</h5>
 
                         <div ng-repeat="category in categories | orderBy:'name'">
@@ -96,7 +96,7 @@
                     </div>
 
 
-                    <div class="col-md-5" ng-show="showListShopping()">
+                    <div class="col-md-5" ng-show="showListShopping()" style="color:darkslategrey">
                         <h5>Votre Liste avec Categories</h5>
 
                         <div ng-repeat="category in categories | orderBy:'name'  ">

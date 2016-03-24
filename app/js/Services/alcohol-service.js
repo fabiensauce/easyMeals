@@ -116,9 +116,9 @@ myService.service('AlcoholService', function() {
         }
     ];
 
-    var filterBiereQties =  [{name:'70 cl', cl:70}, {name:'pack 6x25cl', cl:150},{name:'pack 12x25cl', cl:300}, {name:'pack 24x25cl', cl:600}];
-    var filterVinQties =  [{name:'70 cl', cl:70},{name:'1,5 l', cl:150}, {name:'3 l', cl:300}];
-    var filterFortQties = [{name:'70 cl', cl:70},{name:'1,5 l', cl:150}, {name:'3 l', cl:300}];
+    var filterBiereQties =  [{id:0, name:'70 cl', cl:70}, {id:1, name:'pack 6x25cl', cl:150},{id:2, name:'pack 12x25cl', cl:300}, {id:3, name:'pack 24x25cl', cl:600}];
+    var filterVinQties =  [{id:0,name:'70 cl', cl:70},{id:1,name:'1,5 l', cl:150}, {id:2,name:'3 l', cl:300}];
+    var filterFortQties = [{id:0,name:'70 cl', cl:70},{id:1,name:'1,5 l', cl:150}, {id:2,name:'3 l', cl:300}];
 
 
     getBieres = function(){

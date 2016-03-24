@@ -221,18 +221,27 @@ myModule.controller('CalculationAlcoholCtrl', function($scope, $log, AlcoholServ
         $scope.displayIsGlassLeft = " verres restants";
         $scope.isGlassLeft = true;
         if($scope.nbGlassLeft == 0){
-            $scope.colorGlassLeft = "#5bc0de";
+            $scope.colorGlassLeft = "#5bc0de"; /* bluebtn or try cornflowerblue*/
         }else if($scope.nbGlassLeft > 0){
-            $scope.colorGlassLeft = "green";
+            $scope.colorGlassLeft = "#5cb85c";/* green btn*/
         }else{
             $scope.nbGlassLeft = Math.abs($scope.nbGlassLeft);
-            $scope.colorGlassLeft = "red";
+            $scope.colorGlassLeft = "#d9534f";/*red btn*/
             $scope.displayIsGlassLeft = " verres en TROP";
             $scope.isGlassLeft = false;
         }
     }
 
-
+    $scope.onOverListDrop = function(){
+        document.getElementById("listDrop").style.border = '1px solid #d9534f';
+        //document.getElementById("listDrop").style.background =  '#d9534f';
+        //document.getElementById("listDrop").style.color = 'white';
+    }
+    $scope.onOutListDrop = function(){
+        document.getElementById("listDrop").style.border = 'none';
+        //document.getElementById("listDrop").style.background =  'white';
+        //document.getElementById("listDrop").style.color = '#d9534f';
+    }
 
     /*
 *****************************************************************************************
@@ -263,7 +272,7 @@ myModule.controller('CalculationAlcoholCtrl', function($scope, $log, AlcoholServ
         document.getElementById("trashAlcohol").style.color = 'orange';
     }
     $scope.onOutTrash = function(){
-        document.getElementById("trashAlcohol").style.color = '#5bc0de';
+        document.getElementById("trashAlcohol").style.color = '#d9534f';
     }
 });
 myModule.filter('orderByAlcoholType', function($log){
