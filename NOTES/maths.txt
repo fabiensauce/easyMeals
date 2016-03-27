@@ -1,0 +1,33 @@
+
+
+- Proposer un custom planning
+	En parcourant les recettes, petit bouton + permettant d'ajouter la recette dans une liste qui sera affichée lors 
+de la création du planning
+
+- Gérer das catégories
+	* viandes
+	* poissons
+	* quiche/pizza
+	* gratins
+	* pâtes et riz
+	* végétariens
+	* léger
+
+- Affichage des recettes:
+	Afficher juste nom de la recette et une photo
+	En cliquant dessus on voit le détail de la recette
+
+- Menu déroulant de recettes : 
+	Pourquoi pas une deuxième navbar parralèle à la première avec le choix entre
+	* entrées, viandes, poissons, accompagnement, dessert
+	- entrées: froide, chaude, potage/soupe, cakes, feuilletées/bricks
+	- viandes: boeuf/ volailles/ porc/ veau/ lapin/ 
+	- poissons: fruit de mer / poisson
+	- accompagnements: gratins, riz, pates, 
+	- dessert:
+	Chaque catégorie peut avoir une bar déroulante avec des sous-catégories ? 
+	Quand clique sur entrée, afficher en haut de la page recettes>entrées>soupe
+
+
+- A long terme...
+	Faire une note sur les recettes (sous forme d'avis)

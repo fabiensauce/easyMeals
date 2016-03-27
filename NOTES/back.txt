@@ -1,0 +1,7 @@
+
+
+- Installer tomcat 8
+
+- Télécharger MySQL :
+http://dev.mysql.com/downloads/mysql/#downloads
+Télécharger le MSI. Lancer le fichier. Add => MySQL Server 
