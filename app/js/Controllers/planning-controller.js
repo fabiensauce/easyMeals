@@ -5,7 +5,7 @@
 
 var myModule = angular.module('controllers');
 
-myModule.controller('PlanningCtrl', function($scope, $log, PlanningService, RecipeService, fourTypeMeal, units, steps) {
+myModule.controller('PlanningCtrl', function($scope, $log, RecipeService, fourTypeMeal, units, steps) {
 
 
     $scope.$emit('intoPlanning'); //will tell to parents (global-controller.js) to modify pix
