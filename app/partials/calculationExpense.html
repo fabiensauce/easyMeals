@@ -84,7 +84,7 @@
 
                             </td>
                             <td ng-repeat="isChecked in row.listChecked" ><!-- ng-click="toggleCheckList(isChecked, row)" --fonctionne pas car en double avec le click sur la checkbox en elle meme !!>-->
-                                <span class="checkbox checkbox-success" style="margin-left:65px; -webkit-transform: scale(1.5);">
+                                <span class="checkbox checkbox-success" style="margin-left:65px; -webkit-transform: scale(1.2);">
                                      <input type="checkbox"  ng-model="isChecked.bool" ng-change="aPersonColumnChecked(row)" id="{{isChecked.id}}+idRow{{row.id}}">
                                      <label for="{{isChecked.id}}+idRow{{row.id}}" ></label>
                                  </span>
