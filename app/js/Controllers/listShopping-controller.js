@@ -35,8 +35,6 @@ myModule.controller('ListShoppingCtrl', function($scope, $location, $log, Planni
         var newFood = '';
         var newRayonId = 0;
 
-        $scope.$broadcast('resetCategories'); //will tell to child (CustomizeShoppingCtrl to reset categories lists)
-
         var listShop = [];
         var fourMeals = $scope.fourWeekMeals;// [$scope.breakfasts, $scope.lunchs, $scope.snacks, $scope.dinners];
         for(var a=0; a<fourMeals.length; a++){
@@ -58,16 +56,18 @@ myModule.controller('ListShoppingCtrl', function($scope, $location, $log, Planni
                             listShop.push(ingrTmp);
                         }
                     }else{
-                        //ON ne traite pas its a number
+                        //ON ne traite pas if its a number
                     }
                 }
             }
         }
 
         $scope.listShop = mergeDuplicateIngredients(listShop);
+
         //$location.path("/creationPlanning");$location.hash('listShopping'); //?????? fonctionne pas
 
-        $scope.$broadcast('reCalculateCategories'); //will tell to child (CustomizeShoppingCtrl to reset categories lists)
+        $scope.$broadcast('reCalculateCategories', $scope.listShop); //will tell to child (CustomizeShoppingCtrl to recalculate categories lists)
+
     }
 
     var mergeDuplicateIngredients = function(listShop){

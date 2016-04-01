@@ -47,9 +47,9 @@
                                 <div ng-repeat="ingr in category.ingredients | orderBy:'food'">
                                     <div>
                                         -
-                                        <span ng-show="!modifQty">{{ingr.qty}}</span>
+                                        <span ng-show="!modifQty">{{ingr.qty | number:1}}</span>
                                         <span ng-show="modifQty"><input style="width:60px" type="number" ng-model ='ingr.qty' min="0" /></span>
-                                        {{getIngrUnitDisplay(ingr.unit)}} {{ingr.food}}
+                                        {{getIngrUnitDisplay(ingr.unit) }} {{ingr.food}}
                                         <button type="button" class="btn btn-default" ng-click="moveCategoryToList(category, ingr)"> <!-- $index indique l'index du ng-repeat -->
                                             <span class="glyphicon glyphicon-minus"></span>
                                         </button>

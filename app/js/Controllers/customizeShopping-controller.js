@@ -34,15 +34,9 @@ myModule.controller('CustomizeShoppingCtrl', function($scope, $log, PlanningServ
     }
     */
 
-    //the parent scope (ListShoppingCtrl) sent broadcast to say we need to reset categories lists
-    $scope.$on('resetCategories', function() {
-        //reset all categories
-        for(var i=0; i<$scope.categories.length; i++){
-            $scope.categories[i].ingredients = [];
-        }
-    });
 
-    $scope.$on('reCalculateCategories', function() {
+    //the parent scope (ListShoppingCtrl) sent broadcast to say we need to recalculate categories lists
+    $scope.$on('reCalculateCategories', function(event, listShop) {
         //reset all categories
         for(var i=0; i<$scope.categories.length; i++){
             $scope.categories[i].ingredients = [];
@@ -50,8 +44,9 @@ myModule.controller('CustomizeShoppingCtrl', function($scope, $log, PlanningServ
 
         var aListShop = [];
         var aCategory = [];
-        for(var i=0; i<$scope.listShop.length; i++){
-            aListShop = $scope.listShop[i];//aListShop = {qty:newQtity, unit:newUnit, food:newFood, rayonId:newRayonId};
+
+        for(var i=0; i<listShop.length; i++){
+            aListShop = listShop[i];//aListShop = {qty:newQtity, unit:newUnit, food:newFood, rayonId:newRayonId};
 
             for(var j=0; j<$scope.categories.length; j++){
                 aCategory = $scope.categories[j];

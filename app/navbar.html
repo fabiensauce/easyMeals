@@ -17,12 +17,26 @@
                 <li class="hidden">
                     <a href="#welcomeMeal"></a>
                 </li>
+                <li class="page-scroll" ng-class="{ activeInNavBarPlanning: isActiveInNavBar('planning')}">
+                    <a href="#/oldRecipe">OLD recette</a>
+                </li>
+
+                <!-- RECETTES -->
                 <li class=" page-scroll dropdown " ng-class="{ activeInNavBar: isActiveInNavBar('recipe')}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        Recettes
-                        <span class="caret"></span>
+                        Recettes<span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu" >
+                    <ul class="dropdown-menu" style="width:500px;">
+
+                        <li class="collapse navbar-collapse" ng-class="{ activeInNavBar: isActiveInNavBar('starter')}" >
+                            <ul class="nav navbar-nav">
+                                <li><a href="#welcomeMeal">hel3lo</a></li>
+                                <li><a href="#welcomeMeal">bonj2our</a></li>
+                                <li><a href="#welcomeMeal">aha1h!!</a></li>
+                            </ul>
+                        </li>
+
+
                         <li class="page-scroll" ng-class="{ activeInNavBar: isActiveInNavBar('starter')}" >
                             <a href="#/recipe/starter">Entrees</a>
                         </li>
@@ -36,7 +50,7 @@
                         </li>
                         <li role="separator" class="divider"></li>
                         <li class="page-scroll" ng-class="{ activeInNavBar: isActiveInNavBar('breakfast')}">
-                            <a href="/#/recipe/breakfast">Petit dej - Goûter</a>
+                            <a href="/#/recipe/breakfast">Petit dej - Goûter blablabla</a>
                         </li>
                     </ul>
                 </li>
