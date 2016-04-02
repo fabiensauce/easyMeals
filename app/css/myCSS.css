@@ -284,7 +284,10 @@ textarea.fieldExpense {
 
 
 /*** FILTER RECIPE #LEFT FIXED */
-
+.navRecipeFixed {
+    position: fixed;
+    top:50px;
+}
 #filterRecipe{
     float: left;
     margin-left:1vw;
@@ -348,7 +351,7 @@ textarea.fieldExpense {
 }*/
 
 
-/*********************** WITH DESCRIPTION **************************/
+/*********************** NO DESCRIPTION **************************/
 
 
 .pixRecipeNoDescription{
@@ -381,22 +384,107 @@ textarea.fieldExpense {
     color:darkslategrey; /*darkorange*/
 
 }
-.titleAndSoNoDescription > .heart{
+
+
+
+
+
+
+
+/*********************** WITH DESCRIPTION *************************************/
+
+
+
+.recipeWithDescrip{
+    background-image:url('../images/blackSlateSlab.jpg');
+    color:white;
+    border-radius:3px;
+    padding:10px;
+    padding-bottom:20px;
+}
+
+
+
+
+
+
+
+
+.divTopRecipe{
+    /*margin-top:15px;*/
+    overflow:hidden;
+    margin-bottom:10px;
+}
+
+.pixRecipeWithDescrip{
+    width:44%;/*240px;*/
+    height:160px; /* a modifier dynamiquement (avec javascript en recuperant la largeur et en faisant 2/3)*/
+    background-repeat:no-repeat;
+    background-size:cover; /*100% not enought*/
+    background-position:top left;
+    /*background-image:url("../images/burger2.jpg");*/
+    display: inline-block;
+    margin-left:2%;
+    border-radius:3px;
+
+}
+.ingredientRecipe{
+    display: inline-block;
+    width:50%;
+    margin-left:2%;
+    vertical-align:top;
+    /*font-style:bold;
+    font-size:large;*/
+}
+.preparationRecipe{
+    margin-left:2%;
+    /*font-style:bold;
+    font-size:large;*/
+}
+
+.titleOfDescrip{
+    margin: 5px 0 20px 2%;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.subTitleOfDescrip{
+    margin-bottom:10px;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+/***************************************   OTHERS *******************************************/
+
+
+/** .titleAndSoNoDescription > **/
+.heart{
     color: #ff4d4d ;
 }
-.titleAndSoNoDescription > .thList{
+.thList{
     color: cornflowerblue;
 }
-.titleAndSoNoDescription > .heart:hover{
+.heart:hover{
     color:red;
     transform: scale(1.5);
 }
-.titleAndSoNoDescription > .thList:hover{
+.thList:hover{
     color:#1b61e4;
     transform: scale(1.5);
 }
-.titleAndSoNoDescription > .heart[title]:hover:after,
-.titleAndSoNoDescription > .thList[title]:hover:after{
+.heart[title]:hover:after,
+.thList[title]:hover:after{
     padding: 4px 8px;
     position: absolute;
     top: 100%;
@@ -407,52 +495,15 @@ textarea.fieldExpense {
     font-size:8px;
     color:darkslategrey;
 }
-.titleAndSoNoDescription > .heart[title]:hover:after{
+.heart[title]:hover:after{
     content: 'Ajouter à mes recettes preferées';
 }
-.titleAndSoNoDescription > .thList[title]:hover:after{
+.thList[title]:hover:after{
     content: 'Ajouter à liste planning';
 }
 
-
-
-
-
-
-/*********************** NO DESCRIPTION *************************************/
-
-
-
-.divTopRecipe{
-    margin-top:15px;
-    overflow:hidden;
-}
-
-.littlePixRecipe{
-    width:350px;
-    height:200px;
-
-    background-repeat:no-repeat;
-    background-size:100%;
-    background-position:top left;
-    background-image:url("../images/burger2.jpg");
-
-    display: inline-block;
-    margin-left:2vw;
-
-}
-.ingredientRecipe{
-    display: inline-block;
-    margin-left:2vw;
-    vertical-align:top;
-    font-style:bold;
-    font-size:large;
-}
-.h4TitlePreparation{
-    margin-left:5vw;
-}
-.preparationRecipe{
-    margin-left:2vw;
-    font-style:bold;
-    font-size:large;
+.recipeWithDescrip .heart[title]:hover:after,
+.recipeWithDescrip .thList[title]:hover:after{
+    color:white;
+    left:-60px;
 }

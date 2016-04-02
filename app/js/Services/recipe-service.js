@@ -70,7 +70,7 @@ myService.service('RecipeService', function() {
                 pixName:'crepes.jpg',
                 recipeType:'course',
                 nbPerson:2,
-                ingredients:[{qty:100, unit:'g', food:'flour', rayonId:3},{qty:20, unit:'cl', food:'milk', rayonId:0}, {qty:2, unit:'', food:'egg', rayonId:0}, {qty:1, unit:'', food:'accompagnement crepes salees', rayonId:0}],
+                ingredients:[{qty:100, unit:'g', food:'flour', rayonId:3},{qty:20, unit:'cl', food:'milk', rayonId:0}, {qty:2, unit:'', food:'egg', rayonId:0}, {qty:1, unit:'', food:'accompagnement crepes salees et labalalaaabaalalalalaalalalalalabalkbalalalbalbalbalbaalblbalzlz', rayonId:0}],
                 description:'creeeepes',
                 descriptionOpen: false
             },

@@ -46,26 +46,6 @@
 
                 <div class="divRecipes" ng-repeat="recipe in recipes | orderBy:'name'"   ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
 
-                    <div ng-show="recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)"  style="background-image:url('../images/blackSlateSlab.jpg');">
-
-
-                            <h3 >{{recipe.name}}  ({{recipe.nbPerson}} pers.)</h3>
-                            <div class="divTopRecipe">
-                                <div  class="littlePixRecipe" style="background-image:url('../images/course/lasagne.jpg');"> <!--id="littlePixBurgers" -->
-                                </div>
-                                <div class="ingredientRecipe">
-                                    <h4> Ingrédients </h4>
-                                    <ul ng-repeat="ingr in recipe.ingredients">
-                                        <li > <span>{{ingr.qty}}</span>{{ingr.unit}}<span></span> <span>{{ingr.food}}<span> </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="preparationRecipe">
-                                <h4 class="h4TitlePreparation"> Préparation</h4>
-                                <p> {{recipe.description}} </p>
-                            </div>
-                    </div>
 
                     <div ng-show="!recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)">
 
@@ -79,6 +59,32 @@
 
                         </div>
                     </div>
+
+
+                    <div class="recipeWithDescrip" ng-show="recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)"  >
+                        <div class="titleOfDescrip" >{{recipe.name}}  ({{recipe.nbPerson}} pers.)
+                            &nbsp&nbsp <span  ng-click="fuck(); $event.stopPropagation();" title=""   class="glyphicon glyphicon-heart heart"></span>
+                            &nbsp&nbsp <span ng-click="fuck(); $event.stopPropagation();" title="" class="glyphicon glyphicon-th-list thList"></span>
+                        </div>
+
+                        <div class="divTopRecipe">
+                            <div class="pixRecipeWithDescrip" style="background-image:url('../images/course/{{recipe.pixName}}'),url('../images/no-image.png') ;"> </div>
+
+                            <div class="ingredientRecipe">
+                                <div class="subTitleOfDescrip"> Ingrédients </div>
+                                <ul ng-repeat="ingr in recipe.ingredients">
+                                    <li > <span>{{ingr.qty}}</span>{{ingr.unit}}<span></span> <span>{{ingr.food}}<span> </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="preparationRecipe">
+                            <div class="subTitleOfDescrip"> Préparation</div>
+                            <div> {{recipe.description}} </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
