@@ -290,7 +290,7 @@ textarea.fieldExpense {
 }
 #filterRecipe{
     float: left;
-    margin-left:1vw;
+    /*margin-left:1vw;*/
     width:22vw;
 }
 
