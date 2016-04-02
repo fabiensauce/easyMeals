@@ -358,7 +358,7 @@ textarea.fieldExpense {
     width:180px;
     height:120px;
     background-repeat:no-repeat;
-    background-size:100%;
+    background-size:cover;
     /*
     background-position:top left;
     background-image:url("../images/lasagne.jpg");

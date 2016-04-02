@@ -52,7 +52,7 @@ myService.service('RecipeService', function() {
                 nbPerson:2,
                 ingredients:[{qty:0.3, unit:'kg', food:'aubergine', rayonId:6},{qty:200, unit:'g', food:'cabillaud', rayonId:2}],
                 description:'le cabillaud c le meilleur',
-                descriptionOpen: true
+                descriptionOpen: false
             },
             {
                 id:'gratinAubergine',
@@ -102,7 +102,7 @@ myService.service('RecipeService', function() {
                             {qty:"1", unit:"", "food":"salade", rayonId:0}],
 
                 description:'Faire cuire les steaks hachés sans matière grasse dans une poele avec un couvercle. \nPendant ce temps, coupez les tomates en tranches fines et lavez la salade si besoin.Lorsque les steaks sont prêts, préparez les burgers:Déposez les tranches de pains burgers dans une assiète. Mettre du fromage sur les deux côtés du pain. Les faire chauffer au micro onde 30 secondes. Recouvrez les de sauce burger. Mettez le steak, 3 tranches de tomates et une feuille de salade.',
-                descriptionOpen: false
+                descriptionOpen: true
             },
 
             {
@@ -118,7 +118,7 @@ myService.service('RecipeService', function() {
                     {"qty":"1", unit:"pot", food:"creme fraiche", rayonId:0}],
 
                 description:"Faire cuire les steak hache. en parallele creme fraiche Placer dans un plat à four les steak puis creme puis couche de lasagne (pates) puis encoure 3 fois mettez au four 25min ",
-                descriptionOpen: true
+                descriptionOpen: false
             },
 
 
@@ -150,7 +150,7 @@ myService.service('RecipeService', function() {
                     {qty:"", unit:"", food:"thym", rayonId:0},
                     {qty:"", unit:"", food:"cumin", rayonId:0}],
                 description:" 1 - Faites une bonne compote Je met un fond d'eau et d'huile d'olive pour pas que ça crame , on y ajoute les pommes coupées en petit morceaux, on touille régulièrement et vers la fin de la cuisson on ajoute une pincée de cumin et du sucre si besoin. 2 - Préparez la viande à feu vif, sans ajout de matière grasse (vous pouvez même virer le gras au milieu de cuisson - avant d'ajouter les épices). Ajoutez y les épices que vous voulez, ça dépends des gout je met du thym ou des herbes de provence mais c'est assez libre. (La viande est parfaite quand elle commence à roussir, une des variantes est de mettre le sucre dans la viande - environ une cuillère à soupe - pour la faire caraméliser) 3 - Cuisson ! Étalez la pâte, faites une couche de viande et mettez la compote par dessus, refermez la pâte autour pour que ça tienne bien. Et enfournez 20/30 minutes en fonction de la pâte et du four! Dégustez émoticône grin Si vous voulez que le plat ressemble à ce que l'on voit dans les livres de cuisine, il suffit de faire une dorure (50% jaune d'oeuf, 50% eau) et de l'étaler sur la pâte feuilleté pour un effet doré.",
-        descriptionOpen:false,
+                descriptionOpen:false,
             }
 
         ];

@@ -7,25 +7,61 @@
 
 
 
+
     <article id="filterRecipe" scroll ng-class="{navRecipeFixed:boolNavFixed}">
+
         <div  class="panel panel-default" style=" overflow: hidden;" >
 
             <div class="panel-heading">
-                <h3 class="panel-title">Liste OLD {{displayRecipeType()}}</h3>
+                <h3 class="panel-title">Ma Selection</h3>
             </div>
 
 
 
             <div class="panel-body main-panel">
 
-                <div>Bonjour</div>
-                <div>Au revoir</div>
+                <div>Contient : viande</div>
+                <div>Contient : curry</div>
+                <br>
+                <div>Categorie : four</div>
+                <div>Categorie : complet</div>
+                <div>Categorie : viande</div>
+                <br>
+                <div>Origine : thai</div>
+                <div>Origine : italien</div>
 
 
-                <div style="display:block; height:50px;">
-                    <a href="#/recipeCreation/{{recipeType}}"  class="btn btn-warning"> {{displayCreationRecipeType()}}</a>
-                </div>
 
+            </div>
+        </div>
+
+        <div  class="panel panel-default" style=" overflow: hidden;" >
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Affiner la recherche</h3>
+            </div>
+
+
+
+            <div class="panel-body main-panel">
+
+                <div> checkbox : mes plats perso</div>
+                <div> checkbox : mes recettes preferees</div>
+                <div> checkbox : ma selection planning</div>
+                <br>
+                <div>Contient : (input  : ...) +</div>
+                <br>
+                <div>Type :</div>
+                <div> - Viande +</div>
+                <div> - Four +</div>
+                <div> - Complet +</div>
+                <div> - ... +</div>
+                <br>
+                <div>Origine :</div>
+                <div> - Thai +</div>
+                <div> - Italien +</div>
+                <div> - Marocain +</div>
+                <div> - ... +</div>
             </div>
         </div>
     </article>
@@ -42,6 +78,13 @@
 
 
             <div class="panel-body main-panel">
+
+
+                <div style="margin-left:5%; display:block; height:50px;">
+                    <a href="#/recipeCreation/{{recipeType}}"  class="btn btn-warning"> {{displayCreationRecipeType()}}</a>
+                </div>
+
+
 
 
                 <div class="divRecipes" ng-repeat="recipe in recipes | orderBy:'name'"   ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
