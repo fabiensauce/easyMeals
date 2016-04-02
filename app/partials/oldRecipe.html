@@ -1,0 +1,87 @@
+
+
+
+<section id="sectionCourses"  class="section" ng-controller="RecipeCtrl">
+
+    <div><h2>PLAT OLD </h2></div>
+
+
+
+    <article id="filterRecipe" scroll ng-class="{navRecipeFixed:boolNavFixed}">
+        <div  class="panel panel-default" style=" overflow: hidden;" >
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Liste OLD {{displayRecipeType()}}</h3>
+            </div>
+
+
+
+            <div class="panel-body main-panel">
+
+                <div>Bonjour</div>
+                <div>Au revoir</div>
+
+
+                <div style="display:block; height:50px;">
+                    <a href="#/recipeCreation/{{recipeType}}"  class="btn btn-warning"> {{displayCreationRecipeType()}}</a>
+                </div>
+
+            </div>
+        </div>
+    </article>
+
+
+
+    <article id="listRecipe" >
+        <div  class="panel panel-default" style=" overflow: hidden;" >
+
+            <div class="panel-heading">
+                <h3 class="panel-title">LES  PLATS</h3>
+            </div>
+
+
+
+            <div class="panel-body main-panel">
+
+
+                <div ng-repeat="recipe in recipes | orderBy:'name'" class="divRecipes"  ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
+
+                    <div ng-show="recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)"  style="background-image:url('../images/blackSlateSlab.jpg');">
+
+
+                            <h3 >{{recipe.name}}  ({{recipe.nbPerson}} pers.)</h3>
+                            <div class="divTopRecipe">
+                                <div  class="littlePixRecipe" style="background-image:url('../images/course/lasagne.jpg');"> <!--id="littlePixBurgers" -->
+                                </div>
+                                <div class="ingredientRecipe">
+                                    <h4> Ingrédients </h4>
+                                    <ul ng-repeat="ingr in recipe.ingredients">
+                                        <li > <span>{{ingr.qty}}</span>{{ingr.unit}}<span></span> <span>{{ingr.food}}<span> </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="preparationRecipe">
+                                <h4 class="h4TitlePreparation"> Préparation</h4>
+                                <p> {{recipe.description}} </p>
+                            </div>
+                    </div>
+
+                    <div ng-show="!recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)">
+
+                        <div class="pixRecipeNoDescription" style="background-image:url('../images/course/burger.jpg');"> </div>
+                        <div class="titleAndSoNoDescription">
+                            <span>{{recipe.name}}</span>
+                            &nbsp&nbsp &nbsp&nbsp
+                            <span  ng-click="fuck(); $event.stopPropagation();" title=""   class="glyphicon glyphicon-heart heart"></span>
+                            &nbsp&nbsp
+                            <span ng-click="fuck(); $event.stopPropagation();" title="" class="glyphicon glyphicon-th-list thList"></span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+</section >
