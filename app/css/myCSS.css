@@ -121,7 +121,7 @@ select::selection,option::selection { /* ne fonctionne pas  */
 .itemToDragPlanning {
     padding: 6px;
     border-radius:3px;
-    margin:5px 0;
+    margin:2px 0;
 
     border:1px solid lightgrey;
     color: cornflowerblue;
@@ -266,3 +266,244 @@ textarea.fieldExpense {
     border:2px solid #e89996;
 }
 */
+
+
+
+
+
+
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+/***********************************         RECIPE OLD            ***********************************************************************/
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+
+
+/*** FILTER RECIPE #LEFT FIXED */
+.navRecipeFixed {
+    position: fixed;
+    top:50px;
+}
+#filterRecipe{
+    float: left;
+    margin-left:1vw;
+    width:22vw;
+}
+
+#filterRecipe ul{
+    list-style-type: none;
+    padding-left:0;
+}
+
+#filterRecipe ul li{
+    /*border:3px solid chocolate;*/  /*bleu clair*/   /* blueviolet*/
+    border-radius: 15px ;
+    margin-top:10px;
+    background-image:url("../images/blackSlateSlab.jpg");
+
+    border:1px solid orange;
+    text-align: center;
+    /*padding : 6px 12px 6px 12px;*/
+    padding:0.4vh 1vh 0.4vh 1vh;
+    width : 15vw;
+    min-width:60px;
+    overflow:hidden; /*permet de cacher le texte qui dépasse*/
+}
+
+#filterRecipe ul li a{
+    color: white;
+    text-shadow:
+            -0.5px -0.5px 0 #000,
+            0.5px -0.5px 0 #000,
+            -0.5px 0.5px 0 #000,
+            0.5px 0.5px 0 #000;
+    font-family:Comic Sans MS;
+}
+
+
+
+/*** LIST RECIPE #RIGHT  *********************************************************************************************/
+
+#listRecipe{
+    margin-left:32%;
+    width:62%;
+}
+
+/** div recipe autant withDescr or noDescr.**/
+.divRecipes{
+    border-radius: 5px;
+    margin: 20px 5%;
+}
+.divRecipes:hover{
+    background-color: lightgrey;
+}
+
+/*
+.recipeWithDescription{
+    color:red;
+}
+.recipeWithNoDescr{
+    color:cornflowerblue;
+}*/
+
+
+/*********************** NO DESCRIPTION **************************/
+
+
+.pixRecipeNoDescription{
+    width:180px;
+    height:120px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    /*
+    background-position:top left;
+    background-image:url("../images/lasagne.jpg");
+    */
+    display: inline-block;
+    border-radius:3px;
+
+}
+
+.titleAndSoNoDescription{
+
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 1px;
+    display: inline-block;/*block sera a droite de la pix*/
+    margin-left:5%;
+    vertical-align:top;
+    font-size: 22px;
+}
+.titleAndSoNoDescription > .title{
+    margin-top:25px;
+    margin-bottom:25px;
+    font-size: 20px;/* 22*/
+    color:darkslategrey; /*darkorange*/
+
+}
+
+
+
+
+
+
+
+/*********************** WITH DESCRIPTION *************************************/
+
+
+
+.recipeWithDescrip{
+    background-image:url('../images/blackSlateSlab.jpg');
+    color:white;
+    border-radius:3px;
+    padding:10px;
+    padding-bottom:20px;
+}
+
+
+
+
+
+
+
+
+.divTopRecipe{
+    /*margin-top:15px;*/
+    overflow:hidden;
+    margin-bottom:10px;
+}
+
+.pixRecipeWithDescrip{
+    width:44%;/*240px;*/
+    height:160px; /* a modifier dynamiquement (avec javascript en recuperant la largeur et en faisant 2/3)*/
+    background-repeat:no-repeat;
+    background-size:cover; /*100% not enought*/
+    background-position:top left;
+    /*background-image:url("../images/burger2.jpg");*/
+    display: inline-block;
+    margin-left:2%;
+    border-radius:3px;
+
+}
+.ingredientRecipe{
+    display: inline-block;
+    width:50%;
+    margin-left:2%;
+    vertical-align:top;
+    /*font-style:bold;
+    font-size:large;*/
+}
+.preparationRecipe{
+    margin-left:2%;
+    /*font-style:bold;
+    font-size:large;*/
+}
+
+.titleOfDescrip{
+    margin: 5px 0 20px 2%;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.subTitleOfDescrip{
+    margin-bottom:10px;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+/***************************************   OTHERS *******************************************/
+
+
+/** .titleAndSoNoDescription > **/
+.heart{
+    color: #ff4d4d ;
+}
+.thList{
+    color: cornflowerblue;
+}
+.heart:hover{
+    color:red;
+    transform: scale(1.5);
+}
+.thList:hover{
+    color:#1b61e4;
+    transform: scale(1.5);
+}
+.heart[title]:hover:after,
+.thList[title]:hover:after{
+    padding: 4px 8px;
+    position: absolute;
+    top: 100%;
+    left:-30px;
+    white-space: nowrap;
+    z-index: 50;
+    border-radius: 5px;
+    font-size:8px;
+    color:darkslategrey;
+}
+.heart[title]:hover:after{
+    content: 'Ajouter à mes recettes preferées';
+}
+.thList[title]:hover:after{
+    content: 'Ajouter à liste planning';
+}
+
+.recipeWithDescrip .heart[title]:hover:after,
+.recipeWithDescrip .thList[title]:hover:after{
+    color:white;
+    left:-60px;
+}

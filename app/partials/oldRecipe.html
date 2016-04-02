@@ -7,25 +7,61 @@
 
 
 
+
     <article id="filterRecipe" scroll ng-class="{navRecipeFixed:boolNavFixed}">
+
         <div  class="panel panel-default" style=" overflow: hidden;" >
 
             <div class="panel-heading">
-                <h3 class="panel-title">Liste OLD {{displayRecipeType()}}</h3>
+                <h3 class="panel-title">Ma Selection</h3>
             </div>
 
 
 
             <div class="panel-body main-panel">
 
-                <div>Bonjour</div>
-                <div>Au revoir</div>
+                <div>Contient : viande</div>
+                <div>Contient : curry</div>
+                <br>
+                <div>Categorie : four</div>
+                <div>Categorie : complet</div>
+                <div>Categorie : viande</div>
+                <br>
+                <div>Origine : thai</div>
+                <div>Origine : italien</div>
 
 
-                <div style="display:block; height:50px;">
-                    <a href="#/recipeCreation/{{recipeType}}"  class="btn btn-warning"> {{displayCreationRecipeType()}}</a>
-                </div>
 
+            </div>
+        </div>
+
+        <div  class="panel panel-default" style=" overflow: hidden;" >
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Affiner la recherche</h3>
+            </div>
+
+
+
+            <div class="panel-body main-panel">
+
+                <div> checkbox : mes plats perso</div>
+                <div> checkbox : mes recettes preferees</div>
+                <div> checkbox : ma selection planning</div>
+                <br>
+                <div>Contient : (input  : ...) +</div>
+                <br>
+                <div>Type :</div>
+                <div> - Viande +</div>
+                <div> - Four +</div>
+                <div> - Complet +</div>
+                <div> - ... +</div>
+                <br>
+                <div>Origine :</div>
+                <div> - Thai +</div>
+                <div> - Italien +</div>
+                <div> - Marocain +</div>
+                <div> - ... +</div>
             </div>
         </div>
     </article>
@@ -44,41 +80,54 @@
             <div class="panel-body main-panel">
 
 
-                <div ng-repeat="recipe in recipes | orderBy:'name'" class="divRecipes"  ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
+                <div style="margin-left:5%; display:block; height:50px;">
+                    <a href="#/recipeCreation/{{recipeType}}"  class="btn btn-warning"> {{displayCreationRecipeType()}}</a>
+                </div>
 
-                    <div ng-show="recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)"  style="background-image:url('../images/blackSlateSlab.jpg');">
 
 
-                            <h3 >{{recipe.name}}  ({{recipe.nbPerson}} pers.)</h3>
-                            <div class="divTopRecipe">
-                                <div  class="littlePixRecipe" style="background-image:url('../images/course/lasagne.jpg');"> <!--id="littlePixBurgers" -->
-                                </div>
-                                <div class="ingredientRecipe">
-                                    <h4> Ingrédients </h4>
-                                    <ul ng-repeat="ingr in recipe.ingredients">
-                                        <li > <span>{{ingr.qty}}</span>{{ingr.unit}}<span></span> <span>{{ingr.food}}<span> </li>
-                                    </ul>
-                                </div>
-                            </div>
 
-                            <div class="preparationRecipe">
-                                <h4 class="h4TitlePreparation"> Préparation</h4>
-                                <p> {{recipe.description}} </p>
-                            </div>
-                    </div>
+                <div class="divRecipes" ng-repeat="recipe in recipes | orderBy:'name'"   ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
+
 
                     <div ng-show="!recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)">
 
-                        <div class="pixRecipeNoDescription" style="background-image:url('../images/course/burger.jpg');"> </div>
+                        <div class="pixRecipeNoDescription" style="background-image:url('../images/course/{{recipe.pixName}}'),url('../images/no-image.png') ;"> </div>
                         <div class="titleAndSoNoDescription">
-                            <span>{{recipe.name}}</span>
-                            &nbsp&nbsp &nbsp&nbsp
+                            <div class="title"> {{recipe.name}}</div>
+
                             <span  ng-click="fuck(); $event.stopPropagation();" title=""   class="glyphicon glyphicon-heart heart"></span>
                             &nbsp&nbsp
                             <span ng-click="fuck(); $event.stopPropagation();" title="" class="glyphicon glyphicon-th-list thList"></span>
 
                         </div>
                     </div>
+
+
+                    <div class="recipeWithDescrip" ng-show="recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)"  >
+                        <div class="titleOfDescrip" >{{recipe.name}}  ({{recipe.nbPerson}} pers.)
+                            &nbsp&nbsp <span  ng-click="fuck(); $event.stopPropagation();" title=""   class="glyphicon glyphicon-heart heart"></span>
+                            &nbsp&nbsp <span ng-click="fuck(); $event.stopPropagation();" title="" class="glyphicon glyphicon-th-list thList"></span>
+                        </div>
+
+                        <div class="divTopRecipe">
+                            <div class="pixRecipeWithDescrip" style="background-image:url('../images/course/{{recipe.pixName}}'),url('../images/no-image.png') ;"> </div>
+
+                            <div class="ingredientRecipe">
+                                <div class="subTitleOfDescrip"> Ingrédients </div>
+                                <ul ng-repeat="ingr in recipe.ingredients">
+                                    <li > <span>{{ingr.qty}}</span>{{ingr.unit}}<span></span> <span>{{ingr.food}}<span> </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="preparationRecipe">
+                            <div class="subTitleOfDescrip"> Préparation</div>
+                            <div> {{recipe.description}} </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
