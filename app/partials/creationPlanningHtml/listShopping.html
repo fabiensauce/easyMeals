@@ -32,35 +32,45 @@
                     </div>
                     <br>
 
-                    <div class="col-md-4" ng-show="showListShopping()"style="color:darkslategrey">
-                        <h5>Votre liste de courses</h5>
-                        <div ng-repeat="ingr in listShop | orderBy:'food'"> <!-- | orderBy:'food'-->
-                            <div>
-                                - <span ng-show="!modifQty">{{ingr.qty}}</span>
-                                <span ng-show="modifQty"><input style="width:60px" type="number" ng-model ='ingr.qty' min="0" /></span>
-                                {{getIngrUnitDisplay(ingr.unit)}} {{ingr.food}}
-                                <button type="button" class="btn btn-default" ng-click="moveListToCategory(ingr)"> <!-- $index indique l'index du ng-repeat -->
-                                    <span class="glyphicon glyphicon-plus"></span>
-                                </button>
-                                    <span ng-click="trashIngredientFromListShop(ingr)" class="glyphicon glyphicon-trash" style="color:indianred"></span>
+
+
+
+
+
+                    <div class="col-md-5" ng-show="showListShopping()" style="color:darkslategrey">
+                        <h5>Votre Liste avec Categories</h5>
+
+                        <div ng-repeat="category in categories | orderBy:'name'  ">
+                            <div style="border:2px solid grey; border-radius:5px; margin:5px; padding:7px; " ng-show="category.ingredients.length>0">
+
+                                <b style="border-bottom:1px solid grey; " >{{category.name}}</b>
+                                <div ng-repeat="ingr in category.ingredients | orderBy:'food'">
+                                    <div>
+                                        -
+                                        <span ng-show="!modifQty">{{ingr.qty | number:1}}</span>
+                                        <span ng-show="modifQty"><input style="width:60px" type="number" ng-model ='ingr.qty' min="0" /></span>
+                                        {{getIngrUnitDisplay(ingr.unit) }} {{ingr.food}}
+                                        <button type="button" class="btn btn-default" ng-click="moveCategoryToList(category, ingr)"> <!-- $index indique l'index du ng-repeat -->
+                                            <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                        <span ng-click="trashIngredientFromCategorie(category, ingr)" class="glyphicon glyphicon-trash" style="color:indianred"></span>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-
-
-                        <input style="width:30px" type="number" ng-model ='newIngredient.qty' min="0"  placeholder="1" />
-                        <input style="width:60px" type="text" ng-model ='newIngredient.unit' placeholder="tablette" />
-                        <input style="width:90px" type="text" ng-model ='newIngredient.food' placeholder="chocolat" />
-                        <button type="button" class="btn btn-default" ng-click="addIngredientList(newIngredient)"> <!-- $index indique l'index du ng-repeat -->
-                            <span class="glyphicon glyphicon-plus"></span> ingredient
-                        </button>
-
-
                     </div>
 
-                    <div class="col-md-3" ng-show="showListShopping()" style="color:darkslategrey" >
-                        <h5>Customisez votre liste</h5>
 
+
+
+
+
+
+                    <div class="col-md-3" ng-show="showListShopping()" style="color:darkslategrey" >
+                        <h5> Selectionner categorie pour inserer ingredients </h5>
+                        <span class="glyphicon glyphicon-arrow-left" style="margin-left:50px; font-size: 30px; color:#5bc0de"></span>
                         <div ng-repeat="category in categories | orderBy:'name'">
                             <label>
                                 <input type="radio" ng-model="$parent.categoryChosen" ng-value="category.name" />{{category.name}}
@@ -96,37 +106,45 @@
                     </div>
 
 
-                    <div class="col-md-5" ng-show="showListShopping()" style="color:darkslategrey">
-                        <h5>Votre Liste avec Categories</h5>
 
-                        <div ng-repeat="category in categories | orderBy:'name'  ">
-                            <div style="border:2px solid grey; border-radius:5px; margin:5px; padding:7px; " ng-show="category.ingredients.length>0">
 
-                                <b style="border-bottom:1px solid grey; " >{{category.name}}</b>
-                                <div ng-repeat="ingr in category.ingredients | orderBy:'food'">
-                                    <div>
-                                        -
-                                        <span ng-show="!modifQty">{{ingr.qty}}</span>
-                                        <span ng-show="modifQty"><input style="width:60px" type="number" ng-model ='ingr.qty' min="0" /></span>
-                                        {{getIngrUnitDisplay(ingr.unit)}} {{ingr.food}}
-                                        <button type="button" class="btn btn-default" ng-click="moveCategoryToList(category, ingr)"> <!-- $index indique l'index du ng-repeat -->
-                                            <span class="glyphicon glyphicon-minus"></span>
-                                        </button>
-                                            <span ng-click="trashIngredientFromCategorie(category, ingr)" class="glyphicon glyphicon-trash" style="color:indianred"></span>
-
-                                    </div>
-                                </div>
+                    <div class="col-md-4" ng-show="showListShopping()"style="color:darkslategrey">
+                        <h5>Liste temporaire</h5>
+                        <br>
+                        <div ng-repeat="ingr in listShop | orderBy:'food'"> <!-- | orderBy:'food'-->
+                            <div>
+                                - <span ng-show="!modifQty">{{ingr.qty}}</span>
+                                <span ng-show="modifQty"><input style="width:60px" type="number" ng-model ='ingr.qty' min="0" /></span>
+                                {{getIngrUnitDisplay(ingr.unit)}} {{ingr.food}}
+                                <button type="button" class="btn btn-default" ng-click="moveListToCategory(ingr)"> <!-- $index indique l'index du ng-repeat -->
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </button>
+                                <span ng-click="trashIngredientFromListShop(ingr)" class="glyphicon glyphicon-trash" style="color:indianred"></span>
                             </div>
                         </div>
 
+
+
+                        <input style="width:30px" type="number" ng-model ='newIngredient.qty' min="0"  placeholder="1" />
+                        <input style="width:60px" type="text" ng-model ='newIngredient.unit' placeholder="tablette" />
+                        <input style="width:90px" type="text" ng-model ='newIngredient.food' placeholder="chocolat" />
+                        <button type="button" class="btn btn-default" ng-click="addIngredientList(newIngredient)"> <!-- $index indique l'index du ng-repeat -->
+                            <span class="glyphicon glyphicon-plus"></span> ingredient
+                        </button>
+
+
                     </div>
+
+
+
+
+
+
+
 
                 </div>
             </div>
 
         </div>
     </div>
-
-
-
 </div>

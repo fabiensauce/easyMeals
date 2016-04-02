@@ -53,7 +53,20 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, RecipeService) 
     }
 });
 
+myModule.directive("scroll", function ($window, $log) {
+    return function(scope, element, attrs) {
+        angular.element($window).bind("scroll", function() {
 
+            if (this.pageYOffset >= 250) {
+                scope.boolNavFixed = true;
+            } else {
+                scope.boolNavFixed = false;
+            }
+            scope.$apply();
+        });
+    };
+});
+/*
 myModule.directive("scroll", function ($window, $log) {
     return function(scope, element, attrs) {
         angular.element($window).bind("scroll", function() {
@@ -80,3 +93,4 @@ myModule.directive("scroll", function ($window, $log) {
         });
     };
 });
+*/

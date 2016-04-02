@@ -92,38 +92,6 @@ select::selection,option::selection { /* ne fonctionne pas  */
 */
 
 
-/******************************************* NAVBAR *****************************************/
-
-
-.dropdown > .active > a{
-    background-color: purple;
-}
-.activeInNavBar > a {
-    color:yellow;
-}
-.activeInNavBarPlanning > a {
-    color:cornflowerblue;
-}
-.activeInNavBarExpense > a {
-    color:#5cb85c;
-}
-.activeInNavBarAlcohol > a {
-    color:#d9534f;
-}
-
-.dropdown-menu > li > a{
-    color:cornflowerblue;
-    height:40px;
-    vertical-align:middle;
-}
-.dropdown-menu > li{
-    /*vertical-align:middle; //ne marche pas.. meme en faisant sur le ul parent list-style: none;*/
-}
-.dropdown-menu > .activeInNavBar > a {
-    color:black;
-    /* background-color: cornflowerblue;*/
-}
-
 
 /******************************************* TABLES ****************************************/
 

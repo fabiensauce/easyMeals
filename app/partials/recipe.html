@@ -20,7 +20,7 @@
 
                 <div class="panel-body main-panel">
 
-                    <div class="">
+                    <div class="" ng-class="{navRecipeFixed:boolNavFixed}">
                         <div ng-repeat="recipe in recipes | orderBy:'name'">
                             <div><a href="#/recipe/{{recipeType}}#{{recipe.id}}" class="btn btn-default" >{{recipe.name}}</a></div> <!--(id:{{recipe.id}})-->
                         </div>

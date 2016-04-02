@@ -7,10 +7,21 @@ myModule.controller('ListShoppingCtrl', function($scope, $location, $log, Planni
     /**
      * LIST SHOPPING
      */
-    //$scope.listShop = [{"qty":0.6,"unit":"kg","food":"aubergine"},{"qty":2.4,"unit":"g","food":"cod"},{"qty":200,"unit":"g","food":"flour"},{"qty":40,"unit":"cl","food":"milk"},{"qty":4,"unit":"","food":"egg"},{"qty":50,"unit":"g","food":"tomato"},{"qty":4,"unit":"","food":"bread"},{"qty":400,"unit":"g","food":"steack"}];
-        //{qty:1, unit:'', food:'aubergine'}
+    /*$scope.listShop = [
+        {qty:0.6,unit:"kg",food:"aubergine", rayon:'Fruit & Legumes'},
+        {"qty":2.4,"unit":"g","food":"cod"},
+        {"qty":200,"unit":"g","food":"flour"},
+        {"qty":40,"unit":"cl","food":"milk"},
+        {"qty":4,"unit":"","food":"egg"},
+        {"qty":50,"unit":"g","food":"tomato", rayon:'Fruit & Legumes'},
+        {"qty":4,"unit":"","food":"bread"},
+        {"qty":400,"unit":"g","food":"steack"}
+    ];*/
     $scope.listShop = [];
 
+    /*
+    ng-click : "Générer liste de course"
+     */
     $scope.calculListShopping = function(){
         var meals = [];
         var recipes = [];
@@ -22,8 +33,7 @@ myModule.controller('ListShoppingCtrl', function($scope, $location, $log, Planni
         var newQtity = 0;
         var newUnit = '';
         var newFood = '';
-
-        $scope.$broadcast('resetCategories'); //will tell to child (CustomizeShoppingCtrl to reset categories lists)
+        var newRayonId = 0;
 
         var listShop = [];
         var fourMeals = $scope.fourWeekMeals;// [$scope.breakfasts, $scope.lunchs, $scope.snacks, $scope.dinners];
@@ -41,18 +51,22 @@ myModule.controller('ListShoppingCtrl', function($scope, $location, $log, Planni
                             newQtity = multIngr*ingredient.qty;
                             newUnit = ingredient.unit;
                             newFood = ingredient.food;
-                            ingrTmp = {qty:newQtity, unit:newUnit, food:newFood};
+                            newRayonId = ingredient.rayonId;
+                            ingrTmp = {qty:newQtity, unit:newUnit, food:newFood, rayonId:newRayonId};
                             listShop.push(ingrTmp);
                         }
                     }else{
-                        //ON ne traite pas its a number
+                        //ON ne traite pas if its a number
                     }
                 }
             }
         }
 
         $scope.listShop = mergeDuplicateIngredients(listShop);
+
         //$location.path("/creationPlanning");$location.hash('listShopping'); //?????? fonctionne pas
+
+        $scope.$broadcast('reCalculateCategories', $scope.listShop); //will tell to child (CustomizeShoppingCtrl to recalculate categories lists)
 
     }
 

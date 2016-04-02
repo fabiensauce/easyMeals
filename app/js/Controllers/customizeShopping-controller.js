@@ -7,7 +7,7 @@ myModule.controller('CustomizeShoppingCtrl', function($scope, $log, PlanningServ
 
 
     // $scope.listShop = [];
-    $scope.categories = [{name:'Fruit/Legumes', ingredients:[]}, {name:'Surgeles', ingredients:[]}, {name:'Frais', ingredients:[]}, {name:'Poissons', ingredients:[]}, {name:'Viandes', ingredients:[]}];
+    $scope.categories = [{id:0, name:'Autre', ingredients:[]},{id:3, name:'Epicerie', ingredients:[]},{id:5, name:'Boulangerie', ingredients:[]},{id:6, name:'Fruit/Legumes', ingredients:[]}, {id:4, name:'Surgeles', ingredients:[]}, {id:2, name:'Poissonnerie', ingredients:[]}, {id:1, name:'Boucherie', ingredients:[]}];
     $scope.categoryChosen = 'Surgeles';
     $scope.modifQty = false;
     $scope.toggleModifQty = function(){
@@ -34,13 +34,30 @@ myModule.controller('CustomizeShoppingCtrl', function($scope, $log, PlanningServ
     }
     */
 
-    //the parent scope (ListShoppingCtrl) sent broadcast to say we need to reset categories lists
-    $scope.$on('resetCategories', function() {
+
+    //the parent scope (ListShoppingCtrl) sent broadcast to say we need to recalculate categories lists
+    $scope.$on('reCalculateCategories', function(event, listShop) {
         //reset all categories
         for(var i=0; i<$scope.categories.length; i++){
             $scope.categories[i].ingredients = [];
         }
+
+        var aListShop = [];
+        var aCategory = [];
+
+        for(var i=0; i<listShop.length; i++){
+            aListShop = listShop[i];//aListShop = {qty:newQtity, unit:newUnit, food:newFood, rayonId:newRayonId};
+
+            for(var j=0; j<$scope.categories.length; j++){
+                aCategory = $scope.categories[j];
+                if(aListShop.rayonId == aCategory.id){
+                    aCategory.ingredients.push(aListShop);
+                }
+           }
+        }
+        $scope.listShop = [];
     });
+
 
     $scope.newIngredient = {qty:null, unit:'', food:''};
 

@@ -39,7 +39,7 @@ myService.service('RecipeService', function() {
                 name:'burgers',
                 recipeType:'course',
                 nbPerson:4,
-                ingredients:[{qty:50, unit:'g', food:'tomato'},{qty:4, unit:'', food:'bread'},{qty:400, unit:'g', food:'steack'}],
+                ingredients:[{qty:50, unit:'g', food:'tomate', rayonId:6},{qty:4, unit:'', food:'pain', rayonId:5},{qty:400, unit:'g', food:'steack', rayonId:1}],
                 description:'faire des burgers ahahah'
             },
             {
@@ -47,7 +47,7 @@ myService.service('RecipeService', function() {
                 name:'cabillaud four',
                 recipeType:'course',
                 nbPerson:2,
-                ingredients:[{qty:0.3, unit:'kg', food:'aubergine'},{qty:200, unit:'g', food:'cod'}],
+                ingredients:[{qty:0.3, unit:'kg', food:'aubergine', rayonId:6},{qty:200, unit:'g', food:'cabillaud', rayonId:2}],
                 description:'le cabillaud c le meilleur'
             },
             {
@@ -55,7 +55,7 @@ myService.service('RecipeService', function() {
                 name:'gratin d\'aubergine',
                 recipeType:'course',
                 nbPerson:2,
-                ingredients:[{qty:200, unit:'g', food:'aubergine'},{qty:0.5, unit:'l', food:'milk'}, {qty:3, unit:'', food:'egg'}],
+                ingredients:[{qty:200, unit:'g', food:'aubergine', rayonId:6},{qty:0.5, unit:'l', food:'milk', rayonId:0}, {qty:3, unit:'', food:'egg', rayonId:3}],
                 description:'un bon gratin'
             },
             {
@@ -63,7 +63,7 @@ myService.service('RecipeService', function() {
                 name:'crepes',
                 recipeType:'course',
                 nbPerson:2,
-                ingredients:[{qty:100, unit:'g', food:'flour'},{qty:20, unit:'cl', food:'milk'}, {qty:2, unit:'', food:'egg'}, {qty:1, unit:'', food:'accompagnement crepes salees'}],
+                ingredients:[{qty:100, unit:'g', food:'flour', rayonId:3},{qty:20, unit:'cl', food:'milk', rayonId:0}, {qty:2, unit:'', food:'egg', rayonId:0}, {qty:1, unit:'', food:'accompagnement crepes salees', rayonId:0}],
                 description:'creeeepes'
             },
             {
@@ -71,10 +71,10 @@ myService.service('RecipeService', function() {
                 name:'burritos',
                 recipeType:'course',
                 nbPerson:2,
-                ingredients:[{qty:4, unit:'', food:'crepe a burritos'},{qty:0.2, unit:'kg', food:'steack'}],
+                ingredients:[{qty:4, unit:'', food:'crepe a burritos', rayonId:0},{qty:0.2, unit:'kg', food:'steack', rayonId:1}],
                 description:'miam miam'
             },
-
+            /*
             {
                 id:'burgers2',
                 name:'burgers2',
@@ -115,6 +115,7 @@ myService.service('RecipeService', function() {
                 ingredients:[{qty:4, unit:'', food:'crepe a burritos'},{qty:0.2, unit:'kg', food:'steack'}],
                 description:'miam miam'
             }
+            */
         ];
 
 
@@ -240,4 +241,15 @@ myService.service('RecipeService', function() {
     )
     .constant('steps',
         [1, 25, 0.5, 5, 0.5]
-    );
+    )
+
+    .constant('rayonMagasin', [
+        'Fruit & Legumes',
+        'Boucherie',
+        'Poissonnerie',
+        'Epicerie',
+        'Boites',
+        'Surgeles',
+        'Petit dejeune',
+        'Autres'
+    ]);

@@ -33,7 +33,7 @@
 
  ********************************************************************************************************
     COLOR
-    INFO btn : #5bc0de (60%)
+    INFO btn : #5bc0de (60%) clair
                 #95d6e9 (75%)
 
     DANGER btn : #d9534f (58%)
@@ -41,6 +41,11 @@
 
     SUCCESS btn : #5cb85c (54%)
                 #95d095 (70%)
+
+    WARNING btn : #f0ad4e (62%)
+                #f5c88a(75%)
+
+    ORANGE : #ffba66 (70%)
 
     #5bc0de : info btn
     #d9edf7 : info background entete tab

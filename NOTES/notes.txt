@@ -10,7 +10,11 @@ ajouter DEPENDANCE "ui.bootstrap" dans controllers.js :
 puis voir exemple <li class="dropdown"> dans navbar.html
 
 
-
+-- NAVBAR
+il est important de bien garder la mm structure pr utiliser les class bootstrap
+=> dans le <ul dropdown-menu> il est important de faire un
+<li><ul><li> mon item <..
+"navbar-nav" dans le ul  permet de dire si les item des sous li seront en inline ou en block
 ********************************************************************************************************
   - DRAG & DROP by codeformer
 
