@@ -26,32 +26,32 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         Recettes<span class="caret"></span>
                     </a>
-                    <ul class="dropdown-menu" style="width:500px;">
+                    <ul class="dropdown-menu  nav myDropdown" style="width:300px;">
 
-                        <li class="collapse navbar-collapse" ng-class="{ activeInNavBar: isActiveInNavBar('starter')}" >
-                            <ul class="nav navbar-nav">
-                                <li><a href="#welcomeMeal">hel3lo</a></li>
-                                <li><a href="#welcomeMeal">bonj2our</a></li>
-                                <li><a href="#welcomeMeal">aha1h!!</a></li>
+                        <li class="collapse navbar-collapse " >
+                            <ul class="nav navbar-nav myNavBarNav">
+
+                                <li class="page-scroll myDropdownItem " ng-class="{ activeInNavBar: isActiveInNavBar('starter')}" ><a href="#/recipe/starter">Entrees</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">blabla</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">other</a></li>
+                            </ul>
+                        </li>
+                        <li class="collapse navbar-collapse " >
+                            <ul class="nav ">
+
+                                <li class="page-scroll myDropdownItem" ng-class="{ activeInNavBar: isActiveInNavBar('course')}">
+                                    <a href="/#/recipe/course">Plats</a>
+                                </li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ activeInNavBar: isActiveInNavBar('dessert')}">
+                                    <a href="/#/recipe/dessert">Desserts</a>
+                                </li>
+                                <!--<li role="separator" class="divider"></li>-->
+                                <li class="page-scroll " ng-class="{ activeInNavBar: isActiveInNavBar('breakfast')}">
+                                    <a href="/#/recipe/breakfast">Petit dej - Goûter</a>
+                                </li>
                             </ul>
                         </li>
 
-
-                        <li class="page-scroll" ng-class="{ activeInNavBar: isActiveInNavBar('starter')}" >
-                            <a href="#/recipe/starter">Entrees</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li class="page-scroll " ng-class="{ activeInNavBar: isActiveInNavBar('course')}">
-                            <a href="/#/recipe/course">Plats</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li class="page-scroll" ng-class="{ activeInNavBar: isActiveInNavBar('dessert')}">
-                            <a href="/#/recipe/dessert">Desserts</a>
-                        </li>
-                        <li role="separator" class="divider"></li>
-                        <li class="page-scroll" ng-class="{ activeInNavBar: isActiveInNavBar('breakfast')}">
-                            <a href="/#/recipe/breakfast">Petit dej - Goûter blablabla</a>
-                        </li>
                     </ul>
                 </li>
                 <li class="page-scroll" ng-class="{ activeInNavBarPlanning: isActiveInNavBar('planning')}">

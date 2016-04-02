@@ -1,0 +1,121 @@
+
+/******************************************* FROM GRAYSCALE *****************************************/
+.navbar { /* permet de background black*/
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #000;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+.navbar-brand:focus {
+    outline: 0;
+}
+
+
+/*********************************************** OK upper **************************/
+
+
+
+.navbar-custom a {
+    color: #fff;
+}
+
+.navbar-custom .nav li a {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li.active {
+    outline: 0;
+    background-color: rgba(255,255,255,.2);
+}
+
+/*********************************************** down osef **************************/
+.navbar-toggle {
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.navbar-toggle:focus,
+.navbar-toggle:active {
+    outline: 0;
+}
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        border-bottom: 0;
+        letter-spacing: 1px;
+        background: 0 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+        padding: 0;
+        background-color: #000;
+    }
+
+    .navbar-custom.top-nav-collapse {
+        border-bottom: 1px solid rgba(255,255,255,.3);
+    }
+}
+
+
+/******************************************* MY NAVBAR *****************************************/
+
+/* like .navbar */
+.myDropdown{ /* permet de background black*/
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #000;
+}
+.myDropdownItem{
+    border-bottom: 1px solid rgba(255,255,255,.3);
+}
+.myNavBarNav > li > a{ /* juste parce que avec bootstrap, ces sous parties etaient un peu trop grosses*/
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+}
+.dropdown-menu { /* car bootstrap a un padding et c moche! */
+    padding:0;
+}
+.activeInNavBar > a {
+    color:#f0ad4e;
+}
+.activeInNavBarPlanning > a {
+    color:cornflowerblue;
+}
+.activeInNavBarExpense > a {
+    color:#5cb85c;
+}
+.activeInNavBarAlcohol > a {
+    color:#d9534f;
+}
+
+/*
+.dropdown-menu > li > a,
+.dropdown-menu a{
+    color:cornflowerblue;
+    height:40px;
+    vertical-align:middle;
+}
+.dropdown-menu > li{
+    /*vertical-align:middle; //ne marche pas.. meme en faisant sur le ul parent list-style: none;*
+}
+.dropdown-menu > .activeInNavBar > a {
+    color:black;
+    /* background-color: cornflowerblue;*
+}
+*/
