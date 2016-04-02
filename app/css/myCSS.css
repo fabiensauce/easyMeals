@@ -121,7 +121,7 @@ select::selection,option::selection { /* ne fonctionne pas  */
 .itemToDragPlanning {
     padding: 6px;
     border-radius:3px;
-    margin:5px 0;
+    margin:2px 0;
 
     border:1px solid lightgrey;
     color: cornflowerblue;

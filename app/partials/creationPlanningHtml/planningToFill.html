@@ -43,17 +43,18 @@
 
                         <td ng-repeat="meal in aWeekMeal.weekMeals"  style="width:13%" data-drop="true" ng-model='meal.recipes'  jqyoui-droppable="{multiple:true}"> <!--, onOver:'onOverTab(\'hehehe\')' -->
 
-                            <div ng-show="showNbPers" class="nbPers"  data-drop="true" ng-model='meal.nbPers'
+                            <span ng-show="showNbPers" class="nbPers"  data-drop="true" ng-model='meal.nbPers'
                                  jqyoui-droppable="{multiple:true}">
                                 <input class="inputNbPers" type="number" min="1"  ng-model="meal.nbPers" > pers.
-                            </div>
-
+                            </span>
+                            <br ng-show="showNbPers">
                             <!--ng-repeat="recipe in meal.recipes  | orderByRecipeType" -->
                             <!--track by $index permet d'avoir 2x le mm element dans un drop sans bug -->
-                            <div ng-repeat="recipe in meal.recipes track by $index " class="itemToDragPlanning"
+                            <div ng-repeat="recipe in meal.recipes track by $index " class="itemToDragPlanning" style="display: inline-block;"
                                  data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="meal.recipes" ng-show="recipe.name"
                                  jqyoui-draggable="{index: {{$index}},placeholder:false}"  >
                                 {{recipe.name}}
+                                <br>
                             </div>
                         </td>
                     </tr>
