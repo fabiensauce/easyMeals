@@ -44,7 +44,7 @@
             <div class="panel-body main-panel">
 
 
-                <div ng-repeat="recipe in recipes | orderBy:'name'" class="divRecipes"  ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
+                <div class="divRecipes" ng-repeat="recipe in recipes | orderBy:'name'"   ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
 
                     <div ng-show="recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)"  style="background-image:url('../images/blackSlateSlab.jpg');">
 
@@ -69,10 +69,10 @@
 
                     <div ng-show="!recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)">
 
-                        <div class="pixRecipeNoDescription" style="background-image:url('../images/course/burger.jpg');"> </div>
+                        <div class="pixRecipeNoDescription" style="background-image:url('../images/course/{{recipe.pixName}}'),url('../images/no-image.png') ;"> </div>
                         <div class="titleAndSoNoDescription">
-                            <span>{{recipe.name}}</span>
-                            &nbsp&nbsp &nbsp&nbsp
+                            <div class="title"> {{recipe.name}}</div>
+
                             <span  ng-click="fuck(); $event.stopPropagation();" title=""   class="glyphicon glyphicon-heart heart"></span>
                             &nbsp&nbsp
                             <span ng-click="fuck(); $event.stopPropagation();" title="" class="glyphicon glyphicon-th-list thList"></span>

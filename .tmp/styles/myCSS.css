@@ -266,3 +266,309 @@ textarea.fieldExpense {
     border:2px solid #e89996;
 }
 */
+
+
+
+
+
+
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+/***********************************         RECIPE OLD            ***********************************************************************/
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+/*****************************************************************************************************************************************/
+
+
+/*** FILTER RECIPE #LEFT FIXED */
+
+#filterRecipe{
+    float: left;
+    margin-left:1vw;
+    width:22vw;
+}
+
+#filterRecipe ul{
+    list-style-type: none;
+    padding-left:0;
+}
+
+#filterRecipe ul li{
+    /*border:3px solid chocolate;*/  /*bleu clair*/   /* blueviolet*/
+    border-radius: 15px ;
+    margin-top:10px;
+    background-image:url("../images/blackSlateSlab.jpg");
+
+    border:1px solid orange;
+    text-align: center;
+    /*padding : 6px 12px 6px 12px;*/
+    padding:0.4vh 1vh 0.4vh 1vh;
+    width : 15vw;
+    min-width:60px;
+    overflow:hidden; /*permet de cacher le texte qui dépasse*/
+}
+
+#filterRecipe ul li a{
+    color: white;
+    text-shadow:
+            -0.5px -0.5px 0 #000,
+            0.5px -0.5px 0 #000,
+            -0.5px 0.5px 0 #000,
+            0.5px 0.5px 0 #000;
+    font-family:Comic Sans MS;
+}
+
+
+
+/*** LIST RECIPE #RIGHT  *********************************************************************************************/
+
+#listRecipe{
+    margin-left:32%;
+    width:62%;
+}
+
+/** div recipe autant withDescr or noDescr.**/
+.divRecipes{
+    border-radius: 5px;
+    margin: 20px 5%;
+}
+.divRecipes:hover{
+    background-color: lightgrey;
+}
+
+/*
+.recipeWithDescription{
+    color:red;
+}
+.recipeWithNoDescr{
+    color:cornflowerblue;
+}*/
+
+
+/*********************** WITH DESCRIPTION **************************/
+
+
+.pixRecipeNoDescription{
+    width:180px;
+    height:120px;
+    background-repeat:no-repeat;
+    background-size:100%;
+    /*
+    background-position:top left;
+    background-image:url("../images/lasagne.jpg");
+    */
+    display: inline-block;
+    border-radius:3px;
+
+}
+
+.titleAndSoNoDescription{
+
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    letter-spacing: 1px;
+    display: inline-block;/*block sera a droite de la pix*/
+    margin-left:5%;
+    vertical-align:top;
+    font-size: 22px;
+}
+.titleAndSoNoDescription > .title{
+    margin-top:25px;
+    margin-bottom:25px;
+    font-size: 20px;/* 22*/
+    color:darkslategrey; /*darkorange*/
+
+}
+.titleAndSoNoDescription > .heart{
+    color: #ff4d4d ;
+}
+.titleAndSoNoDescription > .thList{
+    color: cornflowerblue;
+}
+.titleAndSoNoDescription > .heart:hover{
+    color:red;
+    transform: scale(1.5);
+}
+.titleAndSoNoDescription > .thList:hover{
+    color:#1b61e4;
+    transform: scale(1.5);
+}
+.titleAndSoNoDescription > .heart[title]:hover:after,
+.titleAndSoNoDescription > .thList[title]:hover:after{
+    padding: 4px 8px;
+    position: absolute;
+    top: 100%;
+    left:-30px;
+    white-space: nowrap;
+    z-index: 50;
+    border-radius: 5px;
+    font-size:8px;
+    color:darkslategrey;
+}
+.titleAndSoNoDescription > .heart[title]:hover:after{
+    content: 'Ajouter à mes recettes preferées';
+}
+.titleAndSoNoDescription > .thList[title]:hover:after{
+    content: 'Ajouter à liste planning';
+}
+
+
+
+
+
+
+/*********************** NO DESCRIPTION *************************************/
+
+
+
+.divTopRecipe{
+    margin-top:15px;
+    overflow:hidden;
+}
+
+.littlePixRecipe{
+    width:350px;
+    height:200px;
+
+    background-repeat:no-repeat;
+    background-size:100%;
+    background-position:top left;
+    background-image:url("../images/burger2.jpg");
+
+    display: inline-block;
+    margin-left:2vw;
+
+}
+.ingredientRecipe{
+    display: inline-block;
+    margin-left:2vw;
+    vertical-align:top;
+    font-style:bold;
+    font-size:large;
+}
+.h4TitlePreparation{
+    margin-left:5vw;
+}
+.preparationRecipe{
+    margin-left:2vw;
+    font-style:bold;
+    font-size:large;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*** USELESS **/
+
+
+
+.h2TitleRecipe{
+    padding-top:30px;
+    padding-bottom:40px;
+    background:#D9F7E1;
+}
+
+.recipe{
+    border:3px solid #404040;/*chocolate bleu clair*/   /* blueviolet*/
+    /*border:2px solid orange;*/
+    border-radius: 10px ;
+    width: 70vw;
+    margin-left: 22vw;
+    margin-top:10px; /* espacement entre chaque recipe */
+    padding:10px;
+    opacity:1;
+    color: white;
+    text-shadow:
+            -0.5px -0.5px 0 #000,
+            0.5px -0.5px 0 #000,
+            -0.5px 0.5px 0 #000,
+            0.5px 0.5px 0 #000;
+    font-family:Comic Sans MS;
+    background-repeat:repeat;
+    background-size:100%;
+    background-position:top left;
+    /*background-repeat:no-repeat, repeat;
+    background-size:30%, 100%;
+    background-position:5% 15%, top left;
+    */
+    /* **for making it grey **
+    filter: grayscale(1);
+   -webkit-filter: grayscale(1);
+   -moz-filter: grayscale(1);
+   -o-filter: grayscale(1);
+   -ms-filter: grayscale(1);
+   */
+
+}
+
+.recipeNoPix{
+    background-repeat:repeat;
+    background-size:100%;
+    background-position:top left;
+}
+
+/*
+#recipeBurgers{
+	background-image:url("../images/burger.jpg");
+}
+#littlePixBurgers{
+	background-image:url("../images/burger2.jpg")
+}
+
+#recipeLasagna{
+	background-image:url("../images/lasagne.jpg");
+}
+#littlePixLasagna{
+	background-image:url("../images/lasagne2.jpg");
+}
+
+#recipeLasagna2{
+	background-image:url("../images/blueSlateSlab.jpg");
+
+}
+#recipeLasagna3{
+	background-image:url("../images/blackSlateSlab.jpg");
+}
+*/
+
+
+.artRecipes{
+    margin-left:32%;
+    width:60%;
+    border-radius: 10px;
+
+}
+
+.navRecipeFixed {
+    position: fixed;
+    top:50px;
+}
+
+.blackColor{
+    color:black;
+}
