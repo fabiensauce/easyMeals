@@ -56,15 +56,15 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
         }
     };
 
-/* //ne pas supprimer... peut servir
-    $scope.toggleCheckList = function(isChecked, row){
-        isChecked.bool = !isChecked.bool ;
-        $scope.aPersonColumnChecked(row)
-    };
-    $scope.toggleAll = function(row){
-        row.checkedAll = !row.checkedAll;
-    };
-*/
+    /* //ne pas supprimer... peut servir
+     $scope.toggleCheckList = function(isChecked, row){
+     isChecked.bool = !isChecked.bool ;
+     $scope.aPersonColumnChecked(row)
+     };
+     $scope.toggleAll = function(row){
+     row.checkedAll = !row.checkedAll;
+     };
+     */
 
     var updateRows = function(){
         creationTabExpense();
@@ -118,22 +118,22 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
 
 
     /*******************************************************************************************************************************
-    /*******************************************************************************************************************************
-    /*******************************************************************************************************************************
+     /*******************************************************************************************************************************
+     /*******************************************************************************************************************************
      * CALCULATION OF TAB
-    /*******************************************************************************************************************************
-    /*******************************************************************************************************************************
-    /*******************************************************************************************************************************
+     /*******************************************************************************************************************************
+     /*******************************************************************************************************************************
+     /*******************************************************************************************************************************
      */
 
     /*
-    * Explication calcul :
-    * On cree tout dabord un TAB_EXPENSE avec taille egale aux nombre de personnes
-    * il contiendra la valeur que chaque personne a payé (nb positif) ou doit rembourser (nb negatif)
-    *
-    * On cree ensuite un TAB_COUPLE qui est un array de triplet(triplet de 3 valeurs : QUI doit COMBIEN à QUI)
-    *
-    *
+     * Explication calcul :
+     * On cree tout dabord un TAB_EXPENSE avec taille egale aux nombre de personnes
+     * il contiendra la valeur que chaque personne a payé (nb positif) ou doit rembourser (nb negatif)
+     *
+     * On cree ensuite un TAB_COUPLE qui est un array de triplet(triplet de 3 valeurs : QUI doit COMBIEN à QUI)
+     *
+     *
      */
 
     $scope.tabExpense = [];
@@ -185,6 +185,7 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
 
         }
         verifyTabExpenseSumZero();
+        $log.info('------------------------------  tabExpense='+tabExpense);
         $scope.tabExpense = tabExpense;
     };
 
@@ -207,18 +208,18 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
         var num2 = 0.00005;
         var num3 = 0;
         /* true
-        alert('PUTIN DADELLE');
-        alert('PUTIN 3 : '+num1.toFixed(1) > num3.toFixed(1)); //true
-        alert('0 toFixe 1 : '+num3.toFixed(1)); //true
-        alert('PUTIN DADELLE2');
-           */
+         alert('PUTIN DADELLE');
+         alert('PUTIN 3 : '+num1.toFixed(1) > num3.toFixed(1)); //true
+         alert('0 toFixe 1 : '+num3.toFixed(1)); //true
+         alert('PUTIN DADELLE2');
+         */
         /* false
-        alert(num1 > num2);
-        alert(num2 > num1);
-        alert(num1.toFixed(1) < num2.toFixed(1));
-        alert(num3 ==  num2.toFixed(0));
-        alert(num3.toFixed(0) ==  num2.toFixed(0));
-        */
+         alert(num1 > num2);
+         alert(num2 > num1);
+         alert(num1.toFixed(1) < num2.toFixed(1));
+         alert(num3 ==  num2.toFixed(0));
+         alert(num3.toFixed(0) ==  num2.toFixed(0));
+         */
 
         $scope.tabCouple = [];
         var tabCouple = $scope.tabCouple;
@@ -229,9 +230,11 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
         var amount = 0;
         var maxLoop = 0;
         var isTooSmall = false;
+        var isPosTooSmall = false;
+        var isNegTooSmall = false;
         var zeroFive = 0.5;
+
         while(tabExpense[indexMax] > 0 && !isTooSmall){ //maxLoop < 20){
-            //$log.debug('tabExpense : '+tabExpense+ '  -  tabCouple : '+tabCouple);
             isBiggestPositive = tabExpense[indexMax] >= Math.abs(tabExpense[indexMin]);
             maxLoop++;
 
@@ -239,24 +242,25 @@ myModule.controller('CalculationExpenseCtrl', function($scope, $log) {
                 amount = tabExpense[indexMax];
                 tabExpense[indexMin] += amount;
                 tabExpense[indexMax] = 0;
-                isTooSmall = zeroFive.toFixed(1) > Math.abs(tabExpense[indexMax]).toFixed(1);
-                $log.debug(' NOT is biggest positive  - tabExpense[indexMin] : '+tabExpense[indexMin]+' || isTooSmall:'+isTooSmall);
-
             }else{
                 amount = tabExpense[indexMin];
                 tabExpense[indexMax] += amount; // tabExpense[indexMin] est < 0
                 tabExpense[indexMin] = 0;
-                Math.abs(tabExpense[indexMax]) < 0.5;
-                isTooSmall = zeroFive.toFixed(1) > Math.abs(tabExpense[indexMax]).toFixed(1);
-                $log.debug(' IS BIGGEST POSITIVE - tabExpense[indexMax] : '+tabExpense[indexMax]+' || isTooSmall:'+isTooSmall);
+                //Math.abs(tabExpense[indexMax]) < 0.5; //useless ? 2/04/2016
             }
             tabCouple.push({debtGuy:$scope.persons[indexMin], amount:Math.abs(amount.toFixed(0)), benefitGuy:$scope.persons[indexMax]});
             indexMax = findIndexMax(tabExpense);
             indexMin = findIndexMin(tabExpense);
+
+            /*** CONDITION DARRET ***/
+            isPosTooSmall = zeroFive.toFixed(1) > Math.abs(tabExpense[indexMax]).toFixed(1);
+            //$log.debug(' after MAJ - tabExpense[indexMax] : '+tabExpense[indexMax]+' || isPosTooSmall:'+isPosTooSmall);
+            isNegTooSmall = zeroFive.toFixed(1) > Math.abs(tabExpense[indexMin]).toFixed(1);
+            //$log.debug(' after MAJ - tabExpense[indexMin] : '+tabExpense[indexMin]+' || isNegTooSmall:'+isNegTooSmall);
+            isTooSmall = (isPosTooSmall && isNegTooSmall);
         }
         //$log.error("AIIIIE AIIIIIE AIIIIIE --  MAX LOOP : "+maxLoop);
-
-        $log.debug('tabExpense : '+tabExpense+ '  -  tabCouple : '+tabCouple);
+        //$log.debug('tabExpense : '+tabExpense+ '  -  tabCouple : '+tabCouple);
         $scope.tabCouple = tabCouple;
     };
 
