@@ -40,7 +40,8 @@ myService.service('RecipeService', function() {
                 recipeType:'course',
                 nbPerson:4,
                 ingredients:[{qty:50, unit:'g', food:'tomate', rayonId:6},{qty:4, unit:'', food:'pain', rayonId:5},{qty:400, unit:'g', food:'steack', rayonId:1}],
-                description:'faire des burgers ahahah'
+                description:'faire des burgers ahahah',
+                descriptionOpen: false
             },
             {
                 id:'poisson',
@@ -48,7 +49,8 @@ myService.service('RecipeService', function() {
                 recipeType:'course',
                 nbPerson:2,
                 ingredients:[{qty:0.3, unit:'kg', food:'aubergine', rayonId:6},{qty:200, unit:'g', food:'cabillaud', rayonId:2}],
-                description:'le cabillaud c le meilleur'
+                description:'le cabillaud c le meilleur',
+                descriptionOpen: true
             },
             {
                 id:'gratinAubergine',
@@ -56,7 +58,8 @@ myService.service('RecipeService', function() {
                 recipeType:'course',
                 nbPerson:2,
                 ingredients:[{qty:200, unit:'g', food:'aubergine', rayonId:6},{qty:0.5, unit:'l', food:'milk', rayonId:0}, {qty:3, unit:'', food:'egg', rayonId:3}],
-                description:'un bon gratin'
+                description:'un bon gratin',
+                descriptionOpen: false
             },
             {
                 id:'crepes',
@@ -64,7 +67,8 @@ myService.service('RecipeService', function() {
                 recipeType:'course',
                 nbPerson:2,
                 ingredients:[{qty:100, unit:'g', food:'flour', rayonId:3},{qty:20, unit:'cl', food:'milk', rayonId:0}, {qty:2, unit:'', food:'egg', rayonId:0}, {qty:1, unit:'', food:'accompagnement crepes salees', rayonId:0}],
-                description:'creeeepes'
+                description:'creeeepes',
+                descriptionOpen: false
             },
             {
                 id:'burritos',
@@ -72,7 +76,8 @@ myService.service('RecipeService', function() {
                 recipeType:'course',
                 nbPerson:2,
                 ingredients:[{qty:4, unit:'', food:'crepe a burritos', rayonId:0},{qty:0.2, unit:'kg', food:'steack', rayonId:1}],
-                description:'miam miam'
+                description:'miam miam',
+                descriptionOpen: false
             },
             /*
             {

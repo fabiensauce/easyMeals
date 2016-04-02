@@ -9,7 +9,7 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, RecipeService) 
     $scope.$emit('intoRecipe'); //will tell to parents (global-controller.js) to modify pix
 
 
-    var recipeType =  $routeParams.recipeType;
+    var recipeType = 'course';// $routeParams.recipeType;
     $scope.recipeType = recipeType;
 
     var getRecipes = function(recipeType){
@@ -51,8 +51,16 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, RecipeService) 
             return ' piece(s) of';
         }
     }
+
+    $scope.toggleDescOpen = function(recipe){
+        recipe.descriptionOpen = !recipe.descriptionOpen;
+    }
+    $scope.fuck = function(){
+        alert("BIBADABOOM");
+    }
 });
 
+/*
 myModule.directive("scroll", function ($window, $log) {
     return function(scope, element, attrs) {
         angular.element($window).bind("scroll", function() {
@@ -66,6 +74,37 @@ myModule.directive("scroll", function ($window, $log) {
         });
     };
 });
+*/
+
+myModule.directive("scroll", function ($window, $log) {
+    return function(scope, element, attrs) {
+        angular.element($window).bind("scroll", function() {
+            if (this.pageYOffset >= 100) {
+                scope.boolNavFixed = true;
+                /*element.css({
+                    top: '0px',
+                    position: 'fixed'
+                });*/
+
+                $log.warn("BOOM - element : >"+element.contents());
+            } else {
+
+                scope.boolNavFixed = false;
+                /*element.css({
+                    top: "auto",
+                    position: 'static'
+                });*/
+            }
+            scope.$apply();
+        });
+    };
+});
+
+
+
+
+
+/** old avec bootstrap */
 /*
 myModule.directive("scroll", function ($window, $log) {
     return function(scope, element, attrs) {
@@ -76,7 +115,7 @@ myModule.directive("scroll", function ($window, $log) {
                     position: 'fixed'
 
                 });
-                element.removeClass('col-xs-3');
+                element.removeClass('col-xs-4');
                 element.addClass('col-xs-3');
                 element.next().addClass('col-xs-offset-3');
 
