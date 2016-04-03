@@ -291,7 +291,7 @@ textarea.fieldExpense {
 #filterRecipe{
     float: left;
     /*margin-left:1vw;*/
-    width:22vw;
+    width:22%;
 }
 
 #filterRecipe ul{
@@ -506,4 +506,17 @@ textarea.fieldExpense {
 .recipeWithDescrip .thList[title]:hover:after{
     color:white;
     left:-60px;
+}
+
+/* pour NAVBAR */
+.myDropdown .heart[title]:hover:after{
+    content: 'Mes recettes preferées';
+}
+.myDropdown .thList[title]:hover:after{
+    content: 'Liste planning';
+}
+.myDropdown .heart[title]:hover:after,
+.myDropdown .thList[title]:hover:after{
+    color:white;
+    left:-10px;
 }

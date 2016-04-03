@@ -79,9 +79,14 @@
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     background-color: #000;
+    width:1500px;
 }
 .myDropdownItem{
     border-bottom: 1px solid rgba(255,255,255,.3);
+}
+.typeRecipe{
+    width:150px;
+    border-right: 1px solid rgba(255,255,255,.3);
 }
 .myNavBarNav > li > a{ /* juste parce que avec bootstrap, ces sous parties etaient un peu trop grosses*/
     padding-top: 10px;
