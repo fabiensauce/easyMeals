@@ -68,7 +68,7 @@ cf. $scope.addIngredientList (customizeShopping-controller.js)
     - planningToFill.html : le planning en lui meme où on glisse les recettes
     - listShopping.html est le module de calcul où un fois le planning remplie on peut calculer la list de shopping correspondante
 
- LA DIVISION en 3 parties HTML est faite grace aux directives  dans "creationPlanning-directive.js"   (cf. explication ci-dessous)
+ LA DIVISION en 3 parties HTML est faite grace aux directives  dans "planning-directive.js"   (cf. explication ci-dessous)
 
  JS :
     - planning-controller.js englobe tout le html (ng-controller="PlanningCtrl" dans planning.html)
@@ -87,15 +87,15 @@ cf. $scope.addIngredientList (customizeShopping-controller.js)
 
     ATTENTION il est important d'avoir UN SEUL <DIV> dans chacun des fichier.html...
 
-Elles sont appelées dans "creationPlanning-directive.js"
+Elles sont appelées dans "planning-directive.js"
 
 
 ajout ds >>> INDEX.HTML <<< de :
-    <script src="js/Directives/creationPlanning-directive.js"></script>
+    <script src="js/Directives/planning-directive.js"></script>
 
 DEPENDANCE :
     - pas vraiment de dependance, juste utiliser le module 'controllers' et creer les directives
-      => dans creationPlanning-directive.js :
+      => dans planning-directive.js :
       var myModule = angular.module('controllers');
       myModule.directive('recipesPlanning', function(){...}
 
@@ -104,7 +104,7 @@ DEPENDANCE :
     - creer directives.js qui contient : angular.module('directives', []);
       ajouter dependance "directives" dans controllers.js :
           angular.module('controllers', ['directives','services', 'ngDragDrop', "ui.bootstrap"]);
-          => dans creationPlanning-directive.js :
+          => dans planning-directive.js :
           var myDirective = angular.module('directives');
           myDirective.directive('recipesPlanning', function(){...}
       ajout ds INDEX.HTML : <script src="js/Directives/directives.js"></script>

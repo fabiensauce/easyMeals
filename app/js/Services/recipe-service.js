@@ -97,11 +97,11 @@ myService.service('RecipeService', function() {
                 ingredients:[ {qty:"10", unit:"", "food":"pains burgers", rayonId:0},
                             {qty:"5", unit:"", "food":"tomtaes", rayonId:0},
                             {qty:"100", unit:"g", "food":"fromage rapé", rayonId:0},
-                            {qty:"10", unit:"", "food":"steaks hachés", rayonId:0},
+                            {qty:"10", unit:"", "food":"steacks hachés", rayonId:0},
                             {qty:"1", unit:"", "food":"sauce burger", rayonId:0},
                             {qty:"1", unit:"", "food":"salade", rayonId:0}],
 
-                description:'Faire cuire les steaks hachés sans matière grasse dans une poele avec un couvercle. \nPendant ce temps, coupez les tomates en tranches fines et lavez la salade si besoin.Lorsque les steaks sont prêts, préparez les burgers:Déposez les tranches de pains burgers dans une assiète. Mettre du fromage sur les deux côtés du pain. Les faire chauffer au micro onde 30 secondes. Recouvrez les de sauce burger. Mettez le steak, 3 tranches de tomates et une feuille de salade.',
+                description:'Faire cuire les steacks hachés sans matière grasse dans une poele avec un couvercle. \nPendant ce temps, coupez les tomates en tranches fines et lavez la salade si besoin.Lorsque les steacks sont prêts, préparez les burgers:Déposez les tranches de pains burgers dans une assiète. Mettre du fromage sur les deux côtés du pain. Les faire chauffer au micro onde 30 secondes. Recouvrez les de sauce burger. Mettez le steack, 3 tranches de tomates et une feuille de salade.',
                 descriptionOpen: true
             },
 
@@ -113,11 +113,11 @@ myService.service('RecipeService', function() {
                 nbPerson:3,
                 ingredients: [ {"qty":"200", unit:"g", food:"sauce tomtaes", rayonId:0},
                     {"qty":"100", unit:"g", food:"fromage rapé", rayonId:0},
-                    {"qty":"500", unit:"g", food:"steaks hachés", rayonId:0},
+                    {"qty":"500", unit:"g", food:"steacks hachés", rayonId:0},
                     {"qty":"100", unit:"g", food:"pates lasagne", rayonId:0},
                     {"qty":"1", unit:"pot", food:"creme fraiche", rayonId:0}],
 
-                description:"Faire cuire les steak hache. en parallele creme fraiche Placer dans un plat à four les steak puis creme puis couche de lasagne (pates) puis encoure 3 fois mettez au four 25min ",
+                description:"Faire cuire les steack hache. en parallele creme fraiche Placer dans un plat à four les steack puis creme puis couche de lasagne (pates) puis encoure 3 fois mettez au four 25min ",
                 descriptionOpen: false
             },
 

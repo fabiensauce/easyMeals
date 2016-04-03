@@ -15,7 +15,6 @@ myModule.controller('PlanningCtrl', function($scope, $log, RecipeService, fourTy
      * RECIPES LIST ...
      */
     $scope.recipeType = 'course';
-    $scope.helloTest = "aie aie HELLO UU";
     var getRecipes = function(recipeType){
         switch(recipeType){
             case 'starter' : return RecipeService.getStarters();

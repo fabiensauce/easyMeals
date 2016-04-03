@@ -14,12 +14,14 @@
         <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
             <ul class="nav navbar-nav">
                 <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                <li class="hidden" style="width:100px;">
+                <li class="hidden" > <!-- style="width:100px;" ne fonctionne pas c une class hidden donc pas prix en compte par html -->
                     <a href="#welcomeMeal"></a>
                 </li>
+                <!-- OLD RECIPE.. still works
                 <li class="page-scroll" ng-class="{ activeInNavBarPlanning: isActiveInNavBar('planning')}">
-                    <a href="#/oldRecipe">OLD recette</a>
+                    <a href="#/oldRecipe/course">OLD recette</a>
                 </li>
+                -->
 
                 <!-- RECETTES -->
                 <li class=" page-scroll dropdown " ng-class="{ activeInNavBar: isActiveInNavBar('recipe')}">

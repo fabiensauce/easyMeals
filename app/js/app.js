@@ -7,14 +7,14 @@ angular.module('myApp', ['controllers','ngRoute'] )
     .config(['$routeProvider',
         function($routeProvider) {
             $routeProvider
-                .when('/welcomeMeal', {templateUrl: '../partials/welcomeMeal.html', controller: 'WelcomeMealCtrl'})
-                .when('/oldRecipe', {templateUrl: '../partials/oldRecipe.html', controller:'RecipeCtrl'})
-                .when('/recipe/:recipeType', {templateUrl: '../partials/recipe.html', controller:'RecipeCtrl'})
-                .when('/recipeCreation/:recipeType', {templateUrl: '../partials/recipeCreation.html', controller:'RecipeCreationCtrl'})
-                .when('/planning', {templateUrl: '../partials/planning.html', controller: 'PlanningCtrl'})
-                .when('/calculationExpense', {templateUrl: '../partials/calculationExpense.html', controller:'CalculationExpenseCtrl'})
-                .when('/calculationAlcohol', {templateUrl: '../partials/calculationAlcohol.html', controller:'CalculationAlcoholCtrl'})
-                .when('/grilleImpot', {templateUrl: '../partials/grilleImpot.html', controller:'GrilleImpotCtrl'})
-                .when('/testDirective', {templateUrl: '../partials/testDirective.html', controller:'TestDirectiveCtrl'})
+                .when('/welcomeMeal', {templateUrl: '../partials/others/welcomeMeal.html', controller: 'WelcomeMealCtrl'})
+                .when('/oldRecipe/:recipeType', {templateUrl: '../partials/recipe/oldRecipe.html', controller:'RecipeCtrl'})
+                .when('/recipe/:recipeType', {templateUrl: '../partials/recipe/recipe.html', controller:'RecipeCtrl'})
+                .when('/recipeCreation/:recipeType', {templateUrl: '../partials/recipe/recipeCreation.html', controller:'RecipeCreationCtrl'})
+                .when('/planning', {templateUrl: '../partials/planning/planning.html', controller: 'PlanningCtrl'})
+                .when('/calculationExpense', {templateUrl: '../partials/others/calculationExpense.html', controller:'CalculationExpenseCtrl'})
+                .when('/calculationAlcohol', {templateUrl: '../partials/others/calculationAlcohol.html', controller:'CalculationAlcoholCtrl'})
+                .when('/grilleImpot', {templateUrl: '../partials/others/grilleImpot.html', controller:'GrilleImpotCtrl'})
+                .when('/testDirective', {templateUrl: '../partials/others/testDirective.html', controller:'TestDirectiveCtrl'})
                 .otherwise({ redirectTo: '/welcomeMeal' });
         }]);
