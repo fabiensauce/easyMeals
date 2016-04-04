@@ -34,14 +34,14 @@
                             <ul class="nav navbar-nav myNavBarNav">
 
                                 <li class="page-scroll myDropdownItem typeRecipe" ng-class="{ activeInNavBar: isActiveInNavBar('starter')}" ><a href="#/recipe/starter">Entrees</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter/myFavorite">
                                     <span  title=""   class="glyphicon glyphicon-heart heart"></span>
                                 </a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter/myPlanning">
                                     <span  title=""   class="glyphicon glyphicon-th-list thList"></span>
                                 </a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">apero</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">rapide</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter/four">four</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">rapide><</a></li>
                                 <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">tout pret</a></li>
                             </ul>
                         </li>
@@ -49,20 +49,20 @@
                         <li class="collapse navbar-collapse " >
                             <ul class="nav navbar-nav myNavBarNav">
                                 <li class="page-scroll myDropdownItem typeRecipe" ng-class="{ activeInNavBar: isActiveInNavBar('course')}"><a href="/#/recipe/course">Plats</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course/favorite">
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course/myFavorite">
                                     <span  title=""   class="glyphicon glyphicon-heart heart"></span>
                                 </a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course/planning">
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course/myPlanning">
                                     <span  title=""   class="glyphicon glyphicon-th-list thList"></span>
                                 </a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">viandes</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">poissons</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">gratins</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">four</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">epice</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">oriental</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">francais</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">entre amis</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course/viande">viandes</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/cours/poisson">poissons</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course/gratin">gratins</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course/four">four</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course">epice><</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course">oriental</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course">francais</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course">entre amis</a></li>
                             </ul>
                         </li>
 
@@ -70,8 +70,14 @@
                             <ul class="nav navbar-nav myNavBarNav">
 
                                 <li class="page-scroll myDropdownItem typeRecipe" ng-class="{ activeInNavBar: isActiveInNavBar('dessert')}"><a href="/#/recipe/dessert">Desserts</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">chocolat</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">tartes</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/dessert/myFavorite">
+                                    <span  title=""   class="glyphicon glyphicon-heart heart"></span>
+                                </a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/dessert/myPlanning">
+                                    <span  title=""   class="glyphicon glyphicon-th-list thList"></span>
+                                </a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/dessert/chocolat">chocolat><</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/dessert/tartes">tartes</a></li>
                             </ul>
                         </li>
 
@@ -79,14 +85,26 @@
                             <ul class="nav navbar-nav myNavBarNav">
 
                                 <li class="page-scroll myDropdownItem typeRecipe" ng-class="{ activeInNavBar: isActiveInNavBar('breakfast')}"><a href="/#/recipe/breakfast">Dej-Goûters</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">brioches</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/starter">cereales</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/breakfast/myFavorite">
+                                    <span  title=""   class="glyphicon glyphicon-heart heart"></span>
+                                </a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/breakfast/myPlanning">
+                                    <span  title=""   class="glyphicon glyphicon-th-list thList"></span>
+                                </a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/breakfast">brioches</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/breakfast">cereales</a></li>
                             </ul>
                         </li>
 
                         <li class="collapse navbar-collapse " >
                             <ul class="nav navbar-nav myNavBarNav">
                                 <li class="page-scroll myDropdownItem typeRecipe" ng-class="{ activeInNavBar: isActiveInNavBar('cocktail')}"><a href="/#/recipe/cocktail">Cocktails</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/cocktail/myFavorite">
+                                    <span  title=""   class="glyphicon glyphicon-heart heart"></span>
+                                </a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/cocktail/myPlanning">
+                                    <span  title=""   class="glyphicon glyphicon-th-list thList"></span>
+                                </a></li>
                             </ul>
                         </li>
                         <!-- TOP : navbar vertiale avec 1 seul elem par etage --

@@ -551,10 +551,10 @@ textarea.fieldExpense {
 .thList{
     color: #bfbfbf ;/*lightgrey++*/
 }
-.heartTaken{
+.heartTaken, .heartNoBtn{
     color: #ff4d4d ;
  }
-.thListTaken{
+.thListTaken, .thListNoBtn{
     color: cornflowerblue;
 }
 .heart:hover{

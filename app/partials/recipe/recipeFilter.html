@@ -29,6 +29,10 @@
                         <span class="glyphicon glyphicon-minus" style=""></span>
                     </button>
                     <span class="txtSelection">{{myList.name}}</span>
+                    <span ng-show="isRecipeFavorite(myList.id)" class="glyphicon glyphicon-heart heartNoBtn"></span>
+                    &nbsp
+                    <span ng-show="isRecipePlanning(myList.id)" class="glyphicon glyphicon-th-list thListNoBtn"></span>
+
                 </div>
 
                 <div class="separatorSelection" ng-show="separateMyList()"></div>
@@ -44,7 +48,7 @@
 
                 <div class="separatorSelection" ng-show="separateIngredient()"></div>
 
-                <div class="divSubSelection" ng-repeat="category in filterMySelection.categories | orderBy:'name'">
+                <div class="divSubSelection" ng-repeat="category in filterMySelection.categories | orderBy:'toString()'">
 
                     <button  type="button" class="btn btn-default btnPlus" ng-click="removeCategoryFromSelection(category)"> <!-- $index indique l'index du ng-repeat -->
                         <span class="glyphicon glyphicon-minus" style=""></span>
@@ -83,12 +87,15 @@
             <div class="divSubFilter divSubFilterTop" ng-show="filterSearch.myLists.length > 0">
                 <div class="txtTitleSubFilter" >Mes listes</div>
 
-                <div ng-repeat="myList in filterSearch.myLists">
+                <div ng-repeat="myList in filterSearch.myLists | orderBy:'name'">
 
                     <button  type="button" class="btn btn-default btnPlus" ng-click="moveMyListToSelection(myList)"> <!-- $index indique l'index du ng-repeat -->
                         <span class="glyphicon glyphicon-plus" style=""></span>
                     </button>
                     <span class="txtFilter">{{myList.name}}</span>
+                    <span ng-show="isRecipeFavorite(myList.id)" class="glyphicon glyphicon-heart heartNoBtn"></span>
+                    &nbsp
+                    <span ng-show="isRecipePlanning(myList.id)" class="glyphicon glyphicon-th-list thListNoBtn"></span>
                 </div>
             </div>
 
@@ -107,7 +114,7 @@
             <div class="divSubFilter">
                 <div class="txtTitleSubFilter" >Categories recette</div>
 
-                <div ng-repeat="category in filterSearch.categories">
+                <div ng-repeat="category in filterSearch.categories | orderBy:'toString()'">
 
                     <button  type="button" class="btn btn-default btnPlus" ng-click="moveCategoryToSelection(category)"> <!-- $index indique l'index du ng-repeat -->
                         <span class="glyphicon glyphicon-plus" style=""></span>

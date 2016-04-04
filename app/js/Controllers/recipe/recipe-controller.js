@@ -9,6 +9,8 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $log, RecipeSer
 
 
     var recipeType = $routeParams.recipeType;
+    var recipeSelection = $routeParams.selection;
+
     $scope.recipeType = recipeType;
 
     var getRecipes = function(recipeType){
@@ -89,7 +91,7 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $log, RecipeSer
     /************************* FILTRE *********************************/
     $scope.filterSearch = {
         myLists:[ {id:'myFavorite', name:'Mes recettes préférées'}, {id:'myPlanning', name:'Mes recettes planning'}], /*{id:'myMeal', name:'Mes plats'},*/
-        categories:['Viande','Poisson','Four'],
+        categories:['Viande','Poisson','Four', 'Gratin'],
         origins:['Francais', 'Italien', 'Americain', 'Mexicain']
     };
     $scope.filterMySelection = {
@@ -99,6 +101,13 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $log, RecipeSer
         origins:[]
     };
 
+    $scope.isRecipeFavorite = function(myListId){
+        return myListId == 'myFavorite';
+    }
+    $scope.isRecipePlanning = function(myListId){
+        return myListId == 'myPlanning';
+
+    }
     $scope.separateMyList = function(){
         return $scope.filterMySelection.myLists.length > 0 &&
             ($scope.filterMySelection.ingredients.length > 0 || $scope.filterMySelection.categories.length > 0 || $scope.filterMySelection.origins.length > 0);
@@ -177,6 +186,30 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $log, RecipeSer
         var index =  $scope.filterSearch.origins.indexOf(origin); //fonctionne aussi tres bien
         $scope.filterSearch.origins.splice(index, 1);
     }
+
+
+    var directParamSelection = function(recipeSelection){
+
+        if(recipeSelection != undefined ){
+            for(var i=0; i<$scope.filterSearch.myLists.length; i++){
+                if($scope.filterSearch.myLists[i].id == recipeSelection){
+                    $scope.moveMyListToSelection($scope.filterSearch.myLists[i]);
+                }
+            }
+
+            for(var i=0; i<$scope.filterSearch.categories.length; i++){
+                if($scope.filterSearch.categories[i].toUpperCase() == recipeSelection.toUpperCase()){
+                    $scope.moveCategoryToSelection($scope.filterSearch.categories[i]);
+                }
+            }
+        }
+
+
+    }
+
+    directParamSelection(recipeSelection);
+
+
 
     /***************************************************************************************************
      *                                                           fin  FONCTION pour display FILTER
