@@ -1,3 +1,20 @@
+** LAST comenntaires **
+
+- les filtres  : + et - à droite des éléments
+- enlever le filtre ingrédient (on ne sait pas s'il faut mettre un s ou pas et on peut déjà chercher dans la recherche générale ? 
+- Affichage icon : centrer le nom de la recette en dessous de l'image + mettre les icon sur la droite de l'image :)
+- Recherche en plus gros au dessus de la liste
+
+Contenu des filtres : 
+ + Nouveautés
+ + Meilleures recettes
+ + De saison
+
+Mettre les filtres en plus gros et plus proche de la liste des recettes : faut vraiment qu'on les voie pour les utiliser (par 
+exemple sur la fourchettes ils sont plus gros)
+
+Selection viande : proposition type de viandes ? pas sur ^^
+
 
 
 - Proposer un custom planning
