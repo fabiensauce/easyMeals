@@ -104,6 +104,8 @@
 
 
 
+
+
                     <div panel-body main-panel style="color:#d9534f">
                         <h5 class="h5WelcomeMeal">General</h5>
                         <ul>
@@ -115,23 +117,33 @@
                             <li style="font-size: 20px">CSS ...</li>
                             <li>css PICTURES...</li>
                             <li style="font-size: 20px">Mettre a jour les service (comme si on sauvegardait ds la base...)</li>
-                            <li></li>
+                            <li>ameliore avec APP (pr alcohol )</li>
+                            <li>APP simplifiée pour planning (pas de creation de meal..)</li>
+                            <li>mangerMieux.com ???</li>
+                            <li>avec des concepts de meilleur bouff avec un bonhomme qui smile en fonction de ce quon prevoi pr la semaine</li>
+                            <li>aussi ajouter le cote CALORIE et a faire attention a ce qu'on mange (toinou est sur le coup :))</li>
                             <li></li>
                         </ul>
 
                         <h5 class="h5WelcomeMeal">Recipe</h5>
                         <ul>
-                            <li style="color: green">bloquer defilement avec scroll... => NO BOOTSTRAP FOR THIS : homemade CSS</li>
-                            <li>optimiser l'affichage en francais "entree plat dessert" : displayRecipeType() se trouve de recipe-controller, recipeCreation-controller ET planning-controller => le mettre dans recipe-service</li>
-                            <li>faire des possibilite denregistre les recette ds favoris / plat pr la semaine</li>
+                            <li>ajouter bouton fullscreen (glyphicon glyphicon-fullscreen) qui ouvre la recette en grand (nouvel onglet ?? : glyphicon glyphicon-new-window)</li>
+                            <li>faire fonctionner route avec NAVBAR raccourci category... </li>
+                            <li style="font-size: 20px">ameliorer filtre ingredients : faire que le text est contenu ds food (ex si on recherche pate on veut voir "pate feuillete" et "patepain" etc..) ne pas etre stricte sur les accents, et 's' pluriel a negliger...</li>
+                            <li> pouvoir ajouter une IMAGE pr une recette</li>
                             <li> depuis creation de recette -> boutton retour recettes</li>
-                            <li> mettre les recette en mode accordeon avec que |photo - nom| + duree preparation etc nivo complexite, calori, si on clique dessus -> description..</li>
-                            <li>nav de gauche : plus les nom des recettes mais des filtres (vegetarien, viande, plat rapide, recherche par ingredient/list dingredients)</li>
-                           </ul>
+                            <li>optimiser l'affichage en francais "entree plat dessert" : displayRecipeType() se trouve de recipe-controller, recipeCreation-controller ET planning-controller => le mettre dans recipe-service</li>
+                            <li> ajouter info sur rectte : duree preparation , nivo complexite, calori etc</li>
+                            <li style="text-decoration: line-through;">faire des possibilite denregistre les recette ds favoris / plat pr la semaine</li>
+                            <li style="text-decoration: line-through;"> mettre les recette en mode accordeon avec que |photo - nom| + si on clique dessus -> description..</li>
+                            <li style="text-decoration: line-through;"> pouvoir selectionne type affichage (liste ou en mode block d'images cote a cote avec nom recette dessous petit : comme le dessins fb de math)</li>
+                            <li style="text-decoration: line-through;">nav de gauche : plus les nom des recettes mais des filtres (vegetarien, viande, plat rapide, recherche par ingredient/list dingredients)</li>
+                           <li style="text-decoration: line-through;">bloquer defilement avec scroll... => NO BOOTSTRAP FOR THIS : homemade CSS</li>
+                        </ul>
 
                         <h5 class="h5WelcomeMeal">Planning</h5>
                         <ul>
-                            <li>FILTRES : remettre entree-plat-desserts</li>
+                            <li>FILTRES ... cf recipe (buttons entree plat dessert disposés horizontalement tout en haut, puis en dessous mettre filtre a gauche et list de recette a droite un peu comme section RECETTES</li>
                             <li>Colorer case planning lors event "onDropOver"</li>
                             <li style="color: lightgrey">reduire largeur border of recipe when dropped into planning => OUPAH : div trop complex et autre chose pas adapté..</li>
                             <li style="font-size: 20px">CORRIGER BUG lors de drag de recette (ex:burger) dans le drop de nbPers...gros mess ^^
@@ -173,6 +185,11 @@
 
                         </ul>
                     </div>
+
+
+
+
+
                 </div>
             </div>
         </div>
@@ -217,5 +234,40 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+    <div ng-show="showImprovement" class="row" style="font-size: 15px; color:lightgrey" >
+
+        <div class="col-md-8">
+
+            <div  class="panel panel-default" >
+                <div class="panel-heading">
+                    <h3 class="panel-title" >IDEES futurs</h3>
+                </div>
+
+
+                <div class="panel-body main-panel" >
+
+                    <ul>
+                        <li >Ajouter posssibilite de faire semaine healty => dietetique !!</li>
+                        <li >Faire marche le drive (leclerc, monop ..^^) (avec des filtres genre produits bio, produits pas chere, produit bonne qualite etc..)</li>
+                        <li >Quand les gens mettent leur plat ds planning calculer les calories et faire un bonhome qui smile ou non etc...</li>
+                        <li >MANGER-MIEUX.COM  !!! le but n'est pas de se priver mais bien manger quand mm! ce site calcul le bon equilibre!</li>
+                        <li> faire le planning en mode appli (ios/android)</li>
+                        <li>separer la partie alcohol !! Petite appli independante : BoireMieux.com :p avec option cocktails etc</li>
+                        <li> pouvoir ajouter egalement des cocktails dans plannin et ca calcul aussi la liste de course en prenant en compte les cocktails (rhum, citron etc) pouvoir parametrer si le cocktail sera legé ou en importante quantite (nb verre/pers paramettrable pr chaque coctail ds le planning...))</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
 
 </div>

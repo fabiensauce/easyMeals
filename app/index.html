@@ -32,7 +32,7 @@
 
 
     <div ng-include="'navbar.html'"></div>
-    <div class="container main" ng-view ></div>
+    <div class="main" ng-view ></div>
 
 
 
@@ -44,22 +44,23 @@
     <script src="lib/ui-bootstrap-tpls.min.js"></script>
 
     <!-- CONTROLLERS -->
-    <script src="js/Controllers/controllers.js"></script>
-    <script src="js/Controllers/global-controller.js"></script>
-    <script src="js/Controllers/welcomeMeal-controller.js"></script>
-    <script src="js/Controllers/recipe-controller.js"></script>
-    <script src="js/Controllers/recipeCreation-controller.js"></script>
-    <script src="js/Controllers/planning-controller.js"></script>
-    <script src="js/Controllers/listShopping-controller.js"></script>
-    <script src="js/Controllers/customizeShopping-controller.js"></script>
-    <script src="js/Controllers/calculationExpense-controller.js"></script>
-    <script src="js/Controllers/calculationAlcohol-controller.js"></script>
-    <script src="js/Controllers/grilleImpot-controller.js"></script>
-    <script src="js/Controllers/testDirective-controller.js"></script>
+    <script src="js/Controllers/others/controllers.js"></script>
+    <script src="js/Controllers/others/global-controller.js"></script>
+    <script src="js/Controllers/others/welcomeMeal-controller.js"></script>
+    <script src="js/Controllers/recipe/recipe-controller.js"></script>
+    <script src="js/Controllers/recipe/recipeCreation-controller.js"></script>
+    <script src="js/Controllers/planning/planning-controller.js"></script>
+    <script src="js/Controllers/planning/listShopping-controller.js"></script>
+    <script src="js/Controllers/planning/customizeShopping-controller.js"></script>
+    <script src="js/Controllers/others/calculationExpense-controller.js"></script>
+    <script src="js/Controllers/others/calculationAlcohol-controller.js"></script>
+    <script src="js/Controllers/others/grilleImpot-controller.js"></script>
+    <script src="js/Controllers/others/testDirective-controller.js"></script>
 
     <!-- DIRECTIVES -->
     <script src="js/Directives/directives.js"></script>
-    <script src="js/Directives/creationPlanning-directive.js"></script>
+<script src="js/Directives/planning-directive.js"></script>
+<script src="js/Directives/recipe-directive.js"></script>
 
     <!-- SERVICES -->
     <script src="js/Services/services.js"></script>

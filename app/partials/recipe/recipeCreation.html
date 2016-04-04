@@ -1,5 +1,5 @@
 
-<div class="container" ng-controller="RecipeCreationCtrl">
+<div  ng-controller="RecipeCreationCtrl">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <div><label>Ingrédient(s): (quantité, unité, nourriture)</label></div>
 
-                            <div ng-repeat="ingredient in recipe.ingredients">
+                            <div ng-repeat="ingredient in recipe.ingredients | ">
                                 <input style="width:60px" type="number" ng-model ='ingredient.qty' min="0"  step="{{step}}" placeholder="Ex: 50"  required />
                                 <select ng-model='ingredient.unit' ng-change="changeValSelect(ingredient)" ng-options='unit for unit in units' ></select>
                                 <input type="text" ng-model ='ingredient.food' placeholder="Ex: tomato" required />

@@ -41,7 +41,7 @@
                         <h5>Votre Liste avec Categories</h5>
 
                         <div ng-repeat="category in categories | orderBy:'name'  ">
-                            <div style="border:2px solid grey; border-radius:5px; margin:5px; padding:7px; " ng-show="category.ingredients.length>0">
+                            <div style="border:1px solid lightgrey; border-radius:5px; margin:5px; padding:7px; " ng-show="category.ingredients.length>0">
 
                                 <b style="border-bottom:1px solid grey; " >{{category.name}}</b>
                                 <div ng-repeat="ingr in category.ingredients | orderBy:'food'">

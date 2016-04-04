@@ -15,13 +15,13 @@ myModule.controller('PlanningCtrl', function($scope, $log, RecipeService, fourTy
      * RECIPES LIST ...
      */
     $scope.recipeType = 'course';
-    $scope.helloTest = "aie aie HELLO UU";
     var getRecipes = function(recipeType){
         switch(recipeType){
             case 'starter' : return RecipeService.getStarters();
             case 'course' :  return RecipeService.getCourses();
             case 'dessert' : return RecipeService.getDesserts();
             case 'breakfast' : return RecipeService.getBreakfasts();
+            case 'cocktail' : return RecipeService.getCocktails();
             default:  $scope.recipeType = 'ERROR';
         }
     }
@@ -37,6 +37,7 @@ myModule.controller('PlanningCtrl', function($scope, $log, RecipeService, fourTy
             case 'course' :  return 'Plats';
             case 'dessert' : return 'Desserts';
             case 'breakfast' : return 'Petit Dej - Gouter';
+            case 'cocktail' : return 'Cocktails';
         }
     }
 

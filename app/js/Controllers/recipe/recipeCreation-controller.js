@@ -23,9 +23,9 @@ myModule.controller('RecipeCreationCtrl', function($scope, $location, $routePara
             case 'course' :  return 'Plat';
             case 'dessert' : return 'Dessert';
             case 'breakfast' : return 'Petit Dej - Gouter';
+            case 'cocktail' : return 'Cocktail';
         }
     }
-
         $scope.addRowIngredient = function(){
             var ingredient = {unit:'g'};//{qty:20, unit:units[2], food:'steack'};
             $scope.recipe.ingredients.push(ingredient);
@@ -43,6 +43,8 @@ myModule.controller('RecipeCreationCtrl', function($scope, $location, $routePara
                 case 'course' :  RecipeService.addCourse(recipe); break;
                 case 'dessert' : RecipeService.addDessert(recipe); break;
                 case 'breakfast' : RecipeService.addBreakfast(recipe); break;
+                case 'cocktail' : RecipeService.addCocktail(recipe); break;
+
             }
             $location.path("/recipe/"+recipeType);$location.hash(recipe.id);
         }

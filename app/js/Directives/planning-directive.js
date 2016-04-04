@@ -6,10 +6,13 @@ var myDirective = angular.module('directives');
 //var myModule = angular.module('controllers');
 
 
+/* TEST avec scope : dans planning-controller.js ->
+ $scope.helloTest = "aie aie HELLO UU";
+ */
 myDirective.directive('helloTest', function(){
     return{
         restrict:'E',
-        templateUrl: '../../partials/creationPlanningHtml/hello.html',
+        template: "<div> <div>hello my DARLING !!</div> <div> HEYE</div> <div>{{helloTest}}</div> </div>",
         replace:true,
         scope:true,
         link: function(scope, element, attrs){
@@ -21,10 +24,13 @@ myDirective.directive('helloTest', function(){
 
 
 
+
+
+
 myDirective.directive('recipesPlanning', function(){
     return{
         restrict:'E',
-        templateUrl:'../../partials/creationPlanningHtml/recipesPlanning.html',
+        templateUrl:'../../partials/planning/planningRecipes.html',
         replace:true
 
     } ;
@@ -32,7 +38,7 @@ myDirective.directive('recipesPlanning', function(){
 myDirective.directive('planningTofill', function(){
     return{
         restrict:'E',
-        templateUrl:'../../partials/creationPlanningHtml/planningToFill.html',
+        templateUrl:'../../partials/planning/planningToFill.html',
         replace:true
 
     } ;
@@ -40,7 +46,7 @@ myDirective.directive('planningTofill', function(){
 myDirective.directive('listShopping', function(){
     return{
         restrict:'E',
-        templateUrl:'../../partials/creationPlanningHtml/listShopping.html',
+        templateUrl:'../../partials/planning/planningListShopping.html',
         replace:true
 
     } ;

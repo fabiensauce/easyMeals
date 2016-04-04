@@ -44,16 +44,22 @@ myModule.controller('CustomizeShoppingCtrl', function($scope, $log, PlanningServ
 
         var aListShop = [];
         var aCategory = [];
+        var hasCategory = false;
 
         for(var i=0; i<listShop.length; i++){
             aListShop = listShop[i];//aListShop = {qty:newQtity, unit:newUnit, food:newFood, rayonId:newRayonId};
 
+            hasCategory = false; //ne devrait pas etre utilisé: il est important de mettre par default une categorie (=0) lors de creation de recettes
             for(var j=0; j<$scope.categories.length; j++){
                 aCategory = $scope.categories[j];
                 if(aListShop.rayonId == aCategory.id){
                     aCategory.ingredients.push(aListShop);
+                    hasCategory = true;
                 }
-           }
+            }
+            if(!hasCategory){
+                $scope.categories[0].ingredients.push(aListShop);
+            }
         }
         $scope.listShop = [];
     });
