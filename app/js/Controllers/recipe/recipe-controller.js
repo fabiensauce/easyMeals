@@ -59,8 +59,8 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $log, RecipeSer
         recipe.descriptionOpen = !recipe.descriptionOpen;
     }
 
-    $scope.showInList = false;
-    $scope.showInBlock = true;
+    $scope.showInList = true;
+    $scope.showInBlock = false;
 
     $scope.showInListFct = function(){
         $scope.showInList = true;
