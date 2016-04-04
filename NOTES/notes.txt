@@ -139,13 +139,13 @@ DEPENDANCE :
 ********************************************************************************************************
   - WATCH
 
-
  ex : $scope.$watch('showImprovement', toggleImpr);
 
  ATTENTION WATCH NE FONCTIONNE PAS sur les $scope pour les FONCTIONS
   => $scope.toggleImpr = function(){...} //NE FONCTIONNE PAS
      var toggleImpr = function(){...} //FONCTIONNE!
 
+ !!! ATTENTION WATCH NE FONCTIONNE QUE s'il est placé en dessus de la fonction qu'il appel...
 
 
  ********************************************************************************************************

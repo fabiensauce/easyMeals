@@ -8,7 +8,7 @@ angular.module('myApp', ['controllers','ngRoute'] )
         function($routeProvider) {
             $routeProvider
                 .when('/welcomeMeal', {templateUrl: '../partials/others/welcomeMeal.html', controller: 'WelcomeMealCtrl'})
-                .when('/oldRecipe/:recipeType', {templateUrl: '../partials/recipe/oldRecipe.html', controller:'RecipeCtrl'})
+                //.when('/oldRecipe/:recipeType', {templateUrl: '../partials/recipe/oldRecipe.html', controller:'RecipeCtrl'})
                 .when('/recipe/:recipeType', {templateUrl: '../partials/recipe/recipe.html', controller:'RecipeCtrl'})
                 .when('/recipeCreation/:recipeType', {templateUrl: '../partials/recipe/recipeCreation.html', controller:'RecipeCreationCtrl'})
                 .when('/planning', {templateUrl: '../partials/planning/planning.html', controller: 'PlanningCtrl'})

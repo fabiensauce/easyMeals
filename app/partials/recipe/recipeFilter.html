@@ -1,32 +1,76 @@
 
 <article id="filterRecipe" scroll ng-class="{navRecipeFixed:boolNavFixed}">
 
-    <div  class="panel panel-default" style=" overflow: hidden;" >
+    <div  class="panel panel-default" style=" overflow: auto;" >
 
         <div class="panel-heading">
-            <h3 class="panel-title">Ma Selection</h3>
+            <h3 class="panel-title" style="display:inline-block">Ma Selection</h3>
+            <span ng-click="emptyFilterSelection()" class="glyphicon glyphicon-trash trashFilter glyphiconBtn" ></span>
         </div>
-
-
 
         <div class="panel-body main-panel">
 
-            <div>Contient : viande</div>
-            <div>Contient : curry</div>
-            <br>
-            <div>Categorie : four</div>
-            <div>Categorie : complet</div>
-            <div>Categorie : viande</div>
-            <br>
-            <div>Origine : thai</div>
-            <div>Origine : italien</div>
+
+            <!-- DEBUG ng-show="showDebug"-->
+            <div ng-show="false" style="font-size: 18px; color:darkorange">
+                <br>
+                filterMySelection.myLists :
+                <div ng-repeat="list in filterMySelection.myLists">
+                    {{list.id}}
+                </div>
+            </div>
+
+
+
+            <div class="divSelection">
+                <div class="divSubSelection" ng-repeat="myList in filterMySelection.myLists | orderBy:'name'">
+
+                    <button  type="button" class="btn btn-default btnPlus" ng-click="removeMyListFromSelection(myList)"> <!-- $index indique l'index du ng-repeat -->
+                        <span class="glyphicon glyphicon-minus" style=""></span>
+                    </button>
+                    <span class="txtSelection">{{myList.name}}</span>
+                </div>
+
+                <div class="separatorSelection" ng-show="separateMyList()"></div>
+
+
+                <div class="divSubSelection" ng-repeat="ingredientName in filterMySelection.ingredients | orderBy:'toString()'">
+
+                    <button  type="button" class="btn btn-default btnPlus" ng-click="removeIngredientFromSelection(ingredientName)"> <!-- $index indique l'index du ng-repeat -->
+                        <span class="glyphicon glyphicon-minus" style=""></span>
+                    </button>
+                    <span class="txtTitleSelection">Ingredient :</span> <span class="txtSelection">{{ingredientName}}</span>
+                </div>
+
+                <div class="separatorSelection" ng-show="separateIngredient()"></div>
+
+                <div class="divSubSelection" ng-repeat="category in filterMySelection.categories | orderBy:'name'">
+
+                    <button  type="button" class="btn btn-default btnPlus" ng-click="removeCategoryFromSelection(category)"> <!-- $index indique l'index du ng-repeat -->
+                        <span class="glyphicon glyphicon-minus" style=""></span>
+                    </button>
+                    <span class="txtTitleSelection">Categorie :</span> <span class="txtSelection">{{category}}</span>
+                </div>
+
+                <div class="separatorSelection" ng-show="separateCategorie()"></div>
+
+                <div class="divSubSelection" ng-repeat="origin in filterMySelection.origins | orderBy:'toString()'">
+
+                    <button  type="button" class="btn btn-default btnPlus" ng-click="removeOriginFromSelection(origin)"> <!-- $index indique l'index du ng-repeat -->
+                        <span class="glyphicon glyphicon-minus" style=""></span>
+                    </button>
+                    <span class="txtTitleSelection">Recette :</span> <span class="txtSelection">{{origin}}</span>
+                </div>
+            </div>
+
+
 
 
 
         </div>
     </div>
 
-    <div  class="panel panel-default" style=" overflow: hidden;" >
+    <div  class="panel panel-default"  style=" overflow: auto;">
 
         <div class="panel-heading">
             <h3 class="panel-title">Affiner la recherche</h3>
@@ -36,23 +80,53 @@
 
         <div class="panel-body main-panel">
 
-            <div> checkbox : mes plats perso</div>
-            <div> checkbox : mes recettes preferees</div>
-            <div> checkbox : ma selection planning</div>
-            <br>
-            <div>Contient : (input  : ...) +</div>
-            <br>
-            <div>Type :</div>
-            <div> - Viande +</div>
-            <div> - Four +</div>
-            <div> - Complet +</div>
-            <div> - ... +</div>
-            <br>
-            <div>Origine :</div>
-            <div> - Thai +</div>
-            <div> - Italien +</div>
-            <div> - Marocain +</div>
-            <div> - ... +</div>
+            <div class="divSubFilter divSubFilterTop" ng-show="filterSearch.myLists.length > 0">
+                <div class="txtTitleSubFilter" >Mes listes</div>
+
+                <div ng-repeat="myList in filterSearch.myLists">
+
+                    <button  type="button" class="btn btn-default btnPlus" ng-click="moveMyListToSelection(myList)"> <!-- $index indique l'index du ng-repeat -->
+                        <span class="glyphicon glyphicon-plus" style=""></span>
+                    </button>
+                    <span class="txtFilter">{{myList.name}}</span>
+                </div>
+            </div>
+
+            <div class="divSubFilter">
+                <div class="txtTitleSubFilter" ng-class="{divSubFilterTop: filterSearch.myLists.length  == 0}">Filtrer avec ingrédients</div>
+                <div>
+                    <button  type="button" class="btn btn-default btnPlus" ng-click="moveIngredientToSelection(ingredientName)"> <!-- $index indique l'index du ng-repeat -->
+                        <span class="glyphicon glyphicon-plus" style=""></span>
+                    </button>
+                    <span class="txtFilter">
+                        <input style="width:130px" type="text" ng-model ='ingredientName' placeholder="ingredient" />
+                    </span>
+                </div>
+            </div>
+
+            <div class="divSubFilter">
+                <div class="txtTitleSubFilter" >Categories recette</div>
+
+                <div ng-repeat="category in filterSearch.categories">
+
+                    <button  type="button" class="btn btn-default btnPlus" ng-click="moveCategoryToSelection(category)"> <!-- $index indique l'index du ng-repeat -->
+                        <span class="glyphicon glyphicon-plus" style=""></span>
+                    </button>
+                    <span class="txtFilter">{{category}}</span>
+                </div>
+            </div>
+
+            <div class="divSubFilter">
+                <div class="txtTitleSubFilter" >Recette</div>
+
+                <div ng-repeat="origin in filterSearch.origins | orderBy:'toString()' "><!--track by $index ne fonctionne pas : $index en argument de moveOr..() correspond pas-->
+
+                    <button  type="button" class="btn btn-default btnPlus" ng-click="moveOriginToSelection(origin)"> <!-- $index indique l'index du ng-repeat -->
+                        <span class="glyphicon glyphicon-plus" style=""></span>
+                    </button>
+                    <span class="txtFilter">{{origin}}</span>
+                </div>
+            </div>
         </div>
     </div>
 </article>
