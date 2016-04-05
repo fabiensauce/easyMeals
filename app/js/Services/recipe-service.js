@@ -35,7 +35,7 @@ myService.service('RecipeService', function() {
 
         var courses = [
             {
-                id:'burgers', //sera un num UNIQUE
+                id:1, //sera un num UNIQUE
                 name:'Burgers',
                 pixName:'burgers.jpg',//concatener avec id
                 recipeType:'course',
@@ -46,10 +46,11 @@ myService.service('RecipeService', function() {
                 origin:'Americain',
                 categories:['viande'],
                 favoriteRecipe: true,
-                forPlanning:true
+                forPlanning:true,
+                rating:2
             },
             {
-                id:'poisson',
+                id:2,
                 name:'Cabillaud au Four',
                 pixName:'cabillaudFour.jpg',
                 recipeType:'course',
@@ -60,10 +61,11 @@ myService.service('RecipeService', function() {
                 origin:'Francais',
                 categories:['poisson', 'four'],
                 favoriteRecipe: false,
-                forPlanning:false
+                forPlanning:false,
+                rating:2
             },
             {
-                id:'gratinAubergine',
+                id:3,
                 name:'Aubergines au Four',
                 pixName:'aubergineFour.jpg',
                 recipeType:'course',
@@ -74,10 +76,11 @@ myService.service('RecipeService', function() {
                 origin:'Francais',
                 categories:['legume', 'four'],
                 favoriteRecipe: false,
-                forPlanning:false
+                forPlanning:false,
+                rating:4
             },
             {
-                id:'crepes',
+                id:4,
                 name:'Crêpes',
                 pixName:'crepes.jpg',
                 recipeType:'course',
@@ -88,10 +91,11 @@ myService.service('RecipeService', function() {
                 origin:'Francais',
                 categories:[],
                 favoriteRecipe: false,
-                forPlanning:false
+                forPlanning:false,
+                rating:2
             },
             {
-                id:'burritos',
+                id:5,
                 name:'Burritos',
                 pixName:'burritos.jpg',
                 recipeType:'course',
@@ -102,10 +106,11 @@ myService.service('RecipeService', function() {
                 origin:'Mexicain',
                 categories:['viande'],
                 favoriteRecipe: false,
-                forPlanning:false
+                forPlanning:false,
+                rating:3.5
             },
             {
-                id:'18',
+                id:6,
                 name:'Burgers Maison',
                 pixName:'burgersMaison.jpeg',
                 recipeType:'course',
@@ -122,7 +127,8 @@ myService.service('RecipeService', function() {
                 origin:'Americain',
                 categories:['viande'],
                 favoriteRecipe: false,
-                forPlanning:false
+                forPlanning:false,
+                rating:5
             },
 
             {
@@ -142,7 +148,8 @@ myService.service('RecipeService', function() {
                 origin:'Italien',
                 categories:['viande', 'four'],
                 favoriteRecipe: false,
-                forPlanning:false
+                forPlanning:false,
+                rating:4
             },
 
 
@@ -163,7 +170,8 @@ myService.service('RecipeService', function() {
                 origin:'Italien',
                 categories:['viande', 'poelle'],
                 favoriteRecipe: false,
-                forPlanning:false
+                forPlanning:false,
+                rating:5
             },
             {
                 id:'21',
@@ -182,7 +190,8 @@ myService.service('RecipeService', function() {
                 origin:'Francais',
                 categories:['tarte', 'four'],
                 favoriteRecipe: false,
-                forPlanning:false
+                forPlanning:false,
+                rating:3
             }
 
         ];
@@ -272,7 +281,14 @@ myService.service('RecipeService', function() {
             }
         ];
 
-
+        getSingleRecipe = function(recipeType, recipeId){
+            for(var i=0; i<courses.length; i++){
+                if(courses[i].id == recipeId){
+                    return courses[i];
+                }
+            }
+            return null;
+        }
         getCoursesInMyFct = function(){
             return courses;
         };
@@ -329,7 +345,8 @@ myService.service('RecipeService', function() {
             addStarter: addStarter,
             addDessert: addDessert,
             addBreakfast: addBreakfast,
-            addCocktail: addCocktail
+            addCocktail: addCocktail,
+            getSingleRecipe: getSingleRecipe
 
         };
     })

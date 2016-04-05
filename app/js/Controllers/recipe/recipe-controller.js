@@ -3,7 +3,23 @@
  */
 var myModule = angular.module('controllers');
 
-myModule.controller('RecipeCtrl', function($scope, $routeParams, $location,  $log, RecipeService) {
+
+
+myModule.controller('SingleRecipeCtrl', function($scope, $routeParams, $location, $window,  $log, RecipeService) {
+
+    $scope.bonjour = "ahahah";
+
+    var recipeType = $routeParams.recipeType;
+    var recipeId = $routeParams.id;
+    $scope.recipeType = recipeType;
+    $scope.recipeId = recipeId;
+    $scope.recipe = RecipeService.getSingleRecipe(recipeType, recipeId);
+    $scope.showRecipe = $scope.recipe != null;
+
+});
+
+
+myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $window,  $log, RecipeService) {
 
     $scope.$emit('intoRecipe'); //will tell to parents (global-controller.js) to modify pix
 
@@ -85,12 +101,18 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $location,  $lo
         updateRecipesLists();
         updateFilter();
     }
-
-    $scope.reloadRoute = function() {
+    $scope.openRecipeNewWindow = function(id) {
+        event.stopPropagation();
+        $window.open('http://localhost:9000/#/singleRecipe/'+$scope.recipeType+'/'+id);
+    };
+    /*$scope.reloadRoute = function() {
         alert("bjr");
         $route.reload();
-    }
-    $location.search( 'viande', null );
+        $location.search( 'viande', null );
+    }*/
+
+    $scope.listOrderBy = [{name:'nom', value:'name'}, {name:'note', value:'-rating'}]; /*- permet dinverser lordre*/
+    $scope.recipeOrderBy = 'name';
 
     /************************* FILTRE *********************************/
     $scope.filterSearch = {

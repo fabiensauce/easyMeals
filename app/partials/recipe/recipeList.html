@@ -51,7 +51,10 @@
 
                 <div style="font-size:15px; margin-left:5%; display:inline-block; height:50px; ">
                     <span   class="glyphicon glyphicon-sort" ></span>
-                    &nbsp Trier par...
+                    &nbsp
+                    <select class="fieldRecipe"  ng-model='recipeOrderBy'  >
+                        <option ng-repeat="orderby in listOrderBy" value="{{orderby.value}}">{{orderby.name}}</option>
+                    </select>
                 </div>
 
 
@@ -77,7 +80,7 @@
 
 
 
-            <div ng-show="showInList" class="divRecipes" ng-repeat="recipe in recipesToDisplay | filter : searchRecipe | orderBy:'name'   " ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
+            <div ng-show="showInList" class="divRecipes" ng-repeat="recipe in recipesToDisplay | filter : searchRecipe | orderBy: recipeOrderBy " ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
 
 
                     <div ng-show="!recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)">
@@ -104,6 +107,9 @@
                             &nbsp&nbsp
                         <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
                               ng-class="{thListTaken: recipe.forPlanning}"></span>
+                            &nbsp
+                            <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
+
 
                         </div>
                     </div>
@@ -111,8 +117,12 @@
 
                     <div class="recipeWithDescrip" ng-show="recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)"  >
                         <div class="titleOfDescrip" >{{recipe.name}}  ({{recipe.nbPerson}} pers.)
-                            &nbsp&nbsp <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn" ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
-                            &nbsp&nbsp <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn" ng-class="{thListTaken: recipe.forPlanning}"></span>
+                            &nbsp&nbsp <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
+                                              ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
+                            &nbsp&nbsp <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
+                                             ng-class="{thListTaken: recipe.forPlanning}"></span>
+                            &nbsp
+                            <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
                         </div>
 
                         <div class="divTopRecipe">
@@ -136,15 +146,16 @@
             <div ng-show="showInBlock" class="divRecipesBlock" ng-repeat="recipe in recipesToDisplay | filter : searchRecipe | orderBy:'name'">
                 <div class="pixRecipeBlock" style="background-image:url('../images/{{recipeType}}/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
                 <div class="titleAndSoBlock" >
-                    <span class="title"> {{recipe.name}} </span>
+                    <div class="titleBlock" title="{{recipe.name}}"> {{recipe.name}} </div>
 
-                    &nbsp&nbsp
+                    &nbsp
                         <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
                                ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
-                    &nbsp&nbsp
+                    &nbsp
                         <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
                               ng-class="{thListTaken: recipe.forPlanning}"></span>
-
+                    &nbsp
+                        <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
                 </div>
 
             </div>

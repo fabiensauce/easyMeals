@@ -193,7 +193,6 @@ select::selection,option::selection { /* ne fonctionne pas  */
     border:1px solid lightgrey;
     color: #5cb85c;
 }
-
 select.fieldExpense {
     width:auto;
 }
@@ -276,7 +275,7 @@ textarea.fieldExpense {
 /*****************************************************************************************************************************************/
 /*****************************************************************************************************************************************/
 /*****************************************************************************************************************************************/
-/***********************************         RECIPE OLD            ***********************************************************************/
+/***********************************         RECIPE           ***********************************************************************/
 /*****************************************************************************************************************************************/
 /*****************************************************************************************************************************************/
 /*****************************************************************************************************************************************/
@@ -291,7 +290,7 @@ textarea.fieldExpense {
 }
 #filterRecipe{
     float: left;
-    /*margin-left:1vw;*/
+    margin-left:4%;
     width:22%;
 }
 
@@ -327,24 +326,25 @@ textarea.fieldExpense {
 }
 
 
+.txtTitleSelection{
+    font-size:14px;
+    font-weight: 600;
+}
+.txtSelection{
+    font-size:14px;
+}
+
 /*******FILTER******/
 .txtFilter{
-    font-size:12px;
+    font-size:14px;
 }
 
 .txtTitleSubFilter{
-    font-weight: 500; /*=normal.  bold = 700;*/
+    font-weight: 600; /*=normal.  bold = 700;*/
     border-bottom:1px solid grey;
     margin-bottom:10px;
 }
 
-.txtTitleSelection{
-    font-size:12px;
-    font-weight: 600;
-}
-.txtSelection{
-    font-size:12px;
-}
 .divSubFilter{
    /* border:1px solid grey;
     border-radius:5px;
@@ -364,19 +364,11 @@ textarea.fieldExpense {
 
 
 
-
-
-
-
-
-
-
-
 /*** LIST RECIPE #RIGHT  *********************************************************************************************/
 
 #listRecipe{
-    margin-left:32%;
-    width:62%;
+    margin-left:30%;
+    width:64%;
 }
 
 /** div recipe autant withDescr or noDescr.**/
@@ -388,18 +380,7 @@ textarea.fieldExpense {
     background-color: lightgrey;
     cursor:pointer;
 }
-.divRecipesBlock{
-    display:inline-block;
-    width:30%;
-    margin: 10px 0px 10px 20px;
-}
-.pixRecipeBlock{
-    width:200px;
-    height:130px;
-    background-repeat:no-repeat;
-    background-size:cover;
-    border-radius:3px;
-}
+
 /*
 .recipeWithDescription{
     color:red;
@@ -409,6 +390,19 @@ textarea.fieldExpense {
 }*/
 
 
+.fieldRecipe{
+    padding: 5px;
+    width:100px;
+    border-radius:3px;
+    text-align: center;
+
+    border:1px solid lightgrey;
+    color: #f0ad4e;
+}
+.fieldRecipe:focus {
+    outline: 0; /*2px solid #d9534f;*/
+    border: 2px solid #f5c88a ;
+}
 /*********************** NO DESCRIPTION **************************/
 
 
@@ -443,16 +437,7 @@ textarea.fieldExpense {
 
 }
 
-
-
-
-
-
-
 /*********************** WITH DESCRIPTION *************************************/
-
-
-
 .recipeWithDescrip{
     background-image:url('../images/blackSlateSlab.jpg');
     background-repeat:no-repeat;
@@ -462,13 +447,6 @@ textarea.fieldExpense {
     padding:10px;
     padding-bottom:20px;
 }
-
-
-
-
-
-
-
 
 .divTopRecipe{
     /*margin-top:15px;*/
@@ -519,15 +497,48 @@ textarea.fieldExpense {
     letter-spacing: 1px;
 }
 
+/******************** BLOCK ****************/
+.divRecipesBlock{
+    display:inline-block;
+    width:200px;
+    margin: 10px 0 10px 10px;
+}
+.pixRecipeBlock{
+    width:200px;
+    height:130px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    border-radius:3px;
+}
 
-
-
-
+.titleAndSoBlock{
+}
+.titleBlock{
+    max-width: 120px;
+    display:inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* marche pas ? *
+.titleBlock[title]:hover:after{
+    padding: 4px 8px;
+    position: absolute;
+    top: 100%;
+    left:-30px;
+    white-space: nowrap;
+    z-index: 50;
+    border-radius: 5px;
+    font-size:8px;
+    color:darkslategrey;
+    /*content: 'Ajouter à mes recettes préferées';*
+}
+*/
 /*****************************************************************************************************************************************/
 /*****************************************************************************************************************************************/
 /*****************************************************************************************************************************************/
 /*****************************************************************************************************************************************/
-/***********************************   --END--   RECIPE OLD        ***********************************************************************/
+/***********************************   --END--   RECIPE      *****************************************************************************/
 /*****************************************************************************************************************************************/
 /*****************************************************************************************************************************************/
 /*****************************************************************************************************************************************/
@@ -544,39 +555,38 @@ textarea.fieldExpense {
 .glyphiconBtn{
     cursor:pointer;
 }
+
 /** .titleAndSoNoDescription > **/
 .heart{
     color: #bfbfbf ;/*lightgrey++*/
-}
-.thList{
-    color: #bfbfbf ;/*lightgrey++*/
-}
-.heartTaken, .heartNoBtn{
-    color: #ff4d4d ;
- }
-.thListTaken, .thListNoBtn{
-    color: cornflowerblue;
 }
 .heart:hover{
     color:red;
     transform: scale(1.5);
 }
+.thList{
+    color: #bfbfbf ;/*lightgrey++*/
+}
 .thList:hover{
     color:#1b61e4;
     transform: scale(1.5);
 }
-.heartTaken:hover, .thListTaken:hover{
-    color:slategray;
-    transform: scale(1);
+.newWindow{
+    color: #f5c88a;
 }
+.newWindow:hover{
+    color: #f0ad4e;
+    transform: scale(1.5);
+}
+
+
 .heart[title]:hover:after,
-.thList[title]:hover:after{
-    padding: 4px 8px;
+.thList[title]:hover:after,
+.newWindow[title]:hover:after{
     position: absolute;
     top: 100%;
     left:-30px;
-    white-space: nowrap;
-    z-index: 50;
+    white-space: pre;
     border-radius: 5px;
     font-size:8px;
     color:darkslategrey;
@@ -586,6 +596,20 @@ textarea.fieldExpense {
 }
 .thList[title]:hover:after{
     content: 'Ajouter à liste planning';
+}
+.newWindow[title]:hover:after{
+    content: 'Ouvrir recette nouvel onglet';
+}
+
+.heartTaken:hover, .thListTaken:hover{
+    color:slategray;
+    transform: scale(1);
+}
+.heartTaken, .heartNoBtn{
+    color: #ff4d4d ;
+}
+.thListTaken, .thListNoBtn{
+    color: cornflowerblue;
 }
 .heartTaken[title]:hover:after{
     font-size:12px;
@@ -597,7 +621,8 @@ textarea.fieldExpense {
 }
 
 .recipeWithDescrip .heart[title]:hover:after,
-.recipeWithDescrip .thList[title]:hover:after{
+.recipeWithDescrip .thList[title]:hover:after,
+.recipeWithDescrip .newWindow[title]:hover:after{
     color:white;
     left:-60px;
 }

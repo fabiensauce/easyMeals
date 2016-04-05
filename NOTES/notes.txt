@@ -198,3 +198,12 @@ fab 40€ to fab, math, eddy, carine, person4, person5
 ********************************************************************************************************
     CHECKBOX size... cf(notesCSS.txt)
     *********************************
+
+
+********************************************************************************************************
+    SELECT - OPTION
+    *********************************
+    ex : calculationExpense.html
+    <select class="fieldExpense"  ng-model='row.buyerId'  >
+         <option ng-repeat="person in persons" value="{{person.id}}">{{person.name}}</option>
+    </select>
