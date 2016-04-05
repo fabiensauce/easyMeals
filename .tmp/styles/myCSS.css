@@ -456,9 +456,10 @@ textarea.fieldExpense {
 
 .pixRecipeWithDescrip{
     width:44%;/*240px;*/
+    min-width : 240px;
     height:160px; /* a modifier dynamiquement (avec javascript en recuperant la largeur et en faisant 2/3)*/
     background-repeat:no-repeat;
-    background-size:100%, cover; /*100% not enought*/
+    background-size:100% 100%; /*100% not enought*/
     background-position:top left;
     /*background-image:url("../images/burger2.jpg");*/
     display: inline-block;
@@ -534,6 +535,61 @@ textarea.fieldExpense {
     /*content: 'Ajouter à mes recettes préferées';*
 }
 */
+
+/************************** SINGLE RECIPE *************/
+.titleRecipeSingle{
+    margin-left:5%;
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: 2px;
+
+}
+.divRecipeSingle{
+    border-radius: 5px;
+    margin: 20px 5%;
+}
+
+.divTopRecipeSingle{
+    /*margin-top:15px;*/
+    overflow:hidden;
+    margin-bottom:10px;
+}
+.pixRecipeSingle{
+    width:44%;/*240px;*/
+    min-width:400px;
+    height:250px; /* a modifier dynamiquement (avec javascript en recuperant la largeur et en faisant 2/3)*/
+
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    background-position:top left;
+    /*background-image:url("../images/burger2.jpg");*/
+    display: inline-block;
+    margin-left:2%;
+    border-radius:3px;
+
+}
+.ingredientRecipeSingle{
+    display: inline-block;
+    width:50%;
+    margin-left:2%;
+    vertical-align:top;
+
+    font-size: 20px;
+    /*font-style:bold;
+    font-size:large;*/
+}
+.subTitleSingle{
+    margin-bottom:10px;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+.preparationRecipeSingle{
+    margin-left:2%;
+    font-size: 20px;
+}
+
 /*****************************************************************************************************************************************/
 /*****************************************************************************************************************************************/
 /*****************************************************************************************************************************************/

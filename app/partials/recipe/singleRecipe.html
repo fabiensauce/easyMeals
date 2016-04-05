@@ -2,22 +2,22 @@
 
 
     <div ng-show="showRecipe">
-        <h3 style="margin-left:5%">{{recipe.name}}  ({{recipe.nbPerson}} pers.)</h3>
+        <h3 class="titleRecipeSingle">{{recipe.name}}  ({{recipe.nbPerson}} pers.)</h3>
 
-        <div class="divRecipes recipeWithDescrip " >
-            <div class="divTopRecipe" style="margin-top:20px;">
-                <div class="pixRecipeWithDescrip" style="background-image:url('../images/course/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
+        <div class="divRecipeSingle" >
+            <div class="divTopRecipeSingle" style="margin-top:20px;">
+                <div class="pixRecipeSingle" style="background-image:url('../images/course/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
 
-                <div class="ingredientRecipe">
-                    <div class="subTitleOfDescrip"> Ingrédients </div>
+                <div class="ingredientRecipeSingle">
+                    <div class="subTitleSingle"> Ingrédients </div>
                     <ul ng-repeat="ingr in recipe.ingredients">
                         <li > <span>{{ingr.qty}}</span>{{ingr.unit}}<span></span> <span>{{ingr.food}}<span> </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="preparationRecipe">
-                <div class="subTitleOfDescrip"> Préparation</div>
+            <div class="preparationRecipeSingle">
+                <div class="subTitleSingle"> Préparation</div>
                 <div> {{recipe.description}} </div>
             </div>
         </div>
