@@ -56,7 +56,7 @@
                                     <span  title=""   class="glyphicon glyphicon-th-list thList"></span>
                                 </a></li>
                                 <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course/viande">viandes</a></li>
-                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/cours/poisson">poissons</a></li>
+                                <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course/poisson">poissons</a></li>
                                 <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course/gratin">gratins</a></li>
                                 <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course/four">four</a></li>
                                 <li class="page-scroll myDropdownItem" ng-class="{ }" ><a href="#/recipe/course">epice><</a></li>
@@ -133,9 +133,12 @@
                 <li class="page-scroll" ng-class="{ activeInNavBarExpense: isActiveInNavBar('calculationExpense')}">
                     <a href="/#/calculationExpense">Calcul Dépenses</a>
                 </li>
-                <li class="page-scroll" ng-class="{ activeInNavBarAlcohol: isActiveInNavBar('calculationAlcohol')}"><!--ng-class="{ active: isActiveInNavBar('#/calculationAlcohol')}"-->
+
+                <!--
+                <li class="page-scroll" ng-class="{ activeInNavBarAlcohol: isActiveInNavBar('calculationAlcohol')}"> <!--ng-class="{ active: isActiveInNavBar('#/calculationAlcohol')}"--
                     <a href="/#/calculationAlcohol">Soirée Alcoolisée ?</a>
                 </li>
+                -->
                 <li class="page-scroll" >
                     <span class="checkbox checkbox-warning" >
                         <input type="checkbox"  ng-model="showDebug"  id="idShowDebug" ng-change="toggleDebug()">

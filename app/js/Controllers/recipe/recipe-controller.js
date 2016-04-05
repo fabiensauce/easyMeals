@@ -3,14 +3,13 @@
  */
 var myModule = angular.module('controllers');
 
-myModule.controller('RecipeCtrl', function($scope, $routeParams, $log, RecipeService) {
+myModule.controller('RecipeCtrl', function($scope, $routeParams, $location,  $log, RecipeService) {
 
     $scope.$emit('intoRecipe'); //will tell to parents (global-controller.js) to modify pix
 
 
     var recipeType = $routeParams.recipeType;
     var recipeSelection = $routeParams.selection;
-
     $scope.recipeType = recipeType;
 
     var getRecipes = function(recipeType){
@@ -87,6 +86,11 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $log, RecipeSer
         updateFilter();
     }
 
+    $scope.reloadRoute = function() {
+        alert("bjr");
+        $route.reload();
+    }
+    $location.search( 'viande', null );
 
     /************************* FILTRE *********************************/
     $scope.filterSearch = {

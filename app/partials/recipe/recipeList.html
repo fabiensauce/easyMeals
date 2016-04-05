@@ -1,9 +1,35 @@
 <article id="listRecipe" >
     <div  class="panel panel-default" style=" overflow: hidden;" >
 
+        <!--
         <div class="panel-heading">
             <h3 class="panel-title">Liste {{displayRecipeType()}}</h3>
         </div>
+-->
+
+        <!--
+        <div style="font-size:15px; margin-left:5%; display:inline-block; height:50px; ">
+            <span   class="glyphicon glyphicon-search" ></span>
+            &nbsp
+            <input  type="text" ng-model="searchRecipe" placeholder="recette, ingredient etc.." style="border:none; ">
+        </div>
+       -->
+        <div class="panel-heading" >
+            <div style="color:darkslategrey; display:block" >
+                <h3 class="panel-title" style="display:inline-block;" >Liste {{displayRecipeType()}}</h3>
+
+                <div class="" style="font-size:17px; display:inline-block; position: relative; float: right; margin-right:5%;">
+                    <span   class="glyphicon glyphicon-search " ></span>
+                    &nbsp
+                    <input  type="text" ng-model="searchRecipe" placeholder="recette, ingredient etc.." style="border:none; ">
+                </div>
+            </div>
+
+        </div>
+
+
+
+
 
 
 
@@ -12,7 +38,7 @@
 
             <div class="topDisplay" style="display:block">
                 <div style="margin-left:5%; display:inline-block; height:50px;">
-                    <a href="#/recipeCreation/{{recipeType}}"  class="btn btn-warning"> {{displayCreationRecipeType()}}</a>
+                    <a href="#/recipeCreation/{{recipeType}}"  class="btn btn-warning"> {{displayCreationRecipeType()}}</a> <!--creer nouveau plat-->
                 </div>
 
                 <div style="margin-left:5%; display:inline-block; height:50px;">
@@ -22,11 +48,12 @@
                     <span ng-click="showInBlockFct()" title="" class="glyphicon glyphicon-th gliphBlock glyphiconBtn"></span></span>
                 </div>
 
+
                 <div style="font-size:15px; margin-left:5%; display:inline-block; height:50px; ">
-                    <span   class="glyphicon glyphicon-search" ></span>
-                    &nbsp
-                    <input  type="text" ng-model="searchRecipe" placeholder="recette, ingredient etc.." style="border:none; ">
+                    <span   class="glyphicon glyphicon-sort" ></span>
+                    &nbsp Trier par...
                 </div>
+
 
             </div>
 

@@ -15,6 +15,7 @@ myService.service('GlobalService', function() {
     var showDebug = false;
 
 
+
     toggleHelp = function(){
         showHelp = ! showHelp;
         if(showHelp){

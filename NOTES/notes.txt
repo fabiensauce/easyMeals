@@ -147,7 +147,10 @@ DEPENDANCE :
 
  !!! ATTENTION WATCH NE FONCTIONNE QUE s'il est placé en dessus de la fonction qu'il appel...
 
+ ********************************************************************************************************
+   - BUTTON
 
+    <button  ng-click="reloadRoute()"   class="btn btn-warning"> reloadRoute </button>
  ********************************************************************************************************
    - AWSOME CHECKBOXES
 

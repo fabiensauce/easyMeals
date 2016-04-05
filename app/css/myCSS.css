@@ -36,7 +36,7 @@
     /*font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
-    background: url(../img/intro-bg.jpg) ; /* expense-planning_Red-Raspberry   OR  planning-recipe_meals.jpg*/
+    background: url(../img/planning_background.jpg) ; /* expense-planning_Red-Raspberry   OR  intro-bg.jpg OR planning-recipe_meals.jpg*/
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;

@@ -1,49 +1,69 @@
+MATHILDE !!
+alors le mieux serait d'ajouter nos idÃ©es au meme endroit histoire que ce soit lisible ^^ pask ds ton .txt lÃ  c pas top :p
+je tai fait un pti paragraphe juste pour toi
+====> partials/others/welcomeMeals.html
+tu cherche >>>'mathou'<<< !! et tu ecris tes ptites phrases ;)
+
+comme ca jpourrai les barrer qd c fait et jles vois direct sur le site !
+(PS : reecris pas tout ske tas ecris dessous tkt ;) la plupart est DONE, sinon ben feu vert!)
+
+
+
 ** LAST comenntaires **
 
-- les filtres  : + et - à droite des éléments
-- enlever le filtre ingrédient (on ne sait pas s'il faut mettre un s ou pas et on peut déjà chercher dans la recherche générale ? 
+- les filtres  : + et - ï¿½ droite des ï¿½lï¿½ments
+- enlever le filtre ingrï¿½dient (on ne sait pas s'il faut mettre un s ou pas et on peut dï¿½jï¿½ chercher dans la recherche gï¿½nï¿½rale ? 
 - Affichage icon : centrer le nom de la recette en dessous de l'image + mettre les icon sur la droite de l'image :)
 - Recherche en plus gros au dessus de la liste
 
-Contenu des filtres : 
- + Nouveautés
+
+
+Contenu des filtres :
+ + Nouveautï¿½s
  + Meilleures recettes
  + De saison
+======>> TRIER PAR (note (=meilleur recettes) ; nouveautes etc..)
 
-Mettre les filtres en plus gros et plus proche de la liste des recettes : faut vraiment qu'on les voie pour les utiliser (par 
+
+
+Mettre les filtres en plus gros et plus proche de la liste des recettes : faut vraiment qu'on les voie pour les utiliser (par
 exemple sur la fourchettes ils sont plus gros)
+===============> DONE bitch ;)
+
 
 Selection viande : proposition type de viandes ? pas sur ^^
-
+====> SI ;)
 
 
 - Proposer un custom planning
-	En parcourant les recettes, petit bouton + permettant d'ajouter la recette dans une liste qui sera affichée lors 
-de la création du planning
+	En parcourant les recettes, petit bouton + permettant d'ajouter la recette dans une liste qui sera affichï¿½e lors
+de la crï¿½ation du planning
+=====> DONE
 
-- Gérer das catégories
+
+- Gï¿½rer das catï¿½gories
 	* viandes
 	* poissons
 	* quiche/pizza
 	* gratins
-	* pâtes et riz
-	* végétariens
-	* léger
+	* pï¿½tes et riz
+	* vï¿½gï¿½tariens
+	* lï¿½ger
 
 - Affichage des recettes:
 	Afficher juste nom de la recette et une photo
-	En cliquant dessus on voit le détail de la recette
+	En cliquant dessus on voit le dï¿½tail de la recette
 
-- Menu déroulant de recettes : 
-	Pourquoi pas une deuxième navbar parralèle à la première avec le choix entre
-	* entrées, viandes, poissons, accompagnement, dessert
-	- entrées: froide, chaude, potage/soupe, cakes, feuilletées/bricks
+- Menu dï¿½roulant de recettes : 
+	Pourquoi pas une deuxiï¿½me navbar parralï¿½le ï¿½ la premiï¿½re avec le choix entre
+	* entrï¿½es, viandes, poissons, accompagnement, dessert
+	- entrï¿½es: froide, chaude, potage/soupe, cakes, feuilletï¿½es/bricks
 	- viandes: boeuf/ volailles/ porc/ veau/ lapin/ 
 	- poissons: fruit de mer / poisson
 	- accompagnements: gratins, riz, pates, 
 	- dessert:
-	Chaque catégorie peut avoir une bar déroulante avec des sous-catégories ? 
-	Quand clique sur entrée, afficher en haut de la page recettes>entrées>soupe
+	Chaque catï¿½gorie peut avoir une bar dï¿½roulante avec des sous-catï¿½gories ? 
+	Quand clique sur entrï¿½e, afficher en haut de la page recettes>entrï¿½es>soupe
 
 
 - A long terme...
