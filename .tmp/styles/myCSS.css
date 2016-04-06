@@ -77,6 +77,42 @@
 }
 
 
+.btn{/*from bootstrap line 3005 ne sera plus utiliser soon!*/
+    padding: 10px 6px;
+    line-height:normal; /*putin de boostrap...*/
+}
+.myBtn{
+
+    padding: 6px 12px;
+    border-radius: 4px;
+
+/*
+    line-height:normal; /*putin de boostrap...*
+
+    vertical-align: middle;
+    /*
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height:normal;
+    text-align: center;
+    white-space: nowrap;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    */
+
+}
+
+
 ::selection { /* surlign / effet souris  */
     color: white;
     background: darkslategrey;
@@ -193,6 +229,7 @@ select::selection,option::selection { /* ne fonctionne pas  */
     border:1px solid lightgrey;
     color: #5cb85c;
 }
+
 select.fieldExpense {
     width:auto;
 }
@@ -290,17 +327,61 @@ textarea.fieldExpense {
 }
 #filterRecipe{
     float: left;
-    margin-left:4%;
-    width:22%;
+    margin-left:3vw; /* le % faisant grossir la largueur lors de scroll -> fixed*/
+    width:24vw;
+}
+/********************************** BTN RECIPE ********************/
+.littlePlus{
+    font-size:9px;
+    margin-right:5px; /* a enlever si pas de directive..*/
+}
+.btn-defaultRecipe{
+    padding: 4px 6px 5px 6px;
+    border:1px solid #f0ad4e;
+    color:#f0ad4e;
+    background-color: white;
+    text-transform : none;
+
+}
+.btn-defaultRecipe:hover{
+    color:darkslategrey;
+    background-color: #f5c88a;
+}
+.inputRecipe{
+    padding: 5px;
+    width:130px;
+    border-radius:3px;
+    border:1px solid lightgrey;
+    color: darkslategrey;
+
+}
+.inputRecipe:focus {
+    outline: 0; /*2px solid #d9534f;*/
+    border: 2px solid #f5c88a ;
+}
+.inputRecipeSearch{
+    padding: 2px;
+    border-radius:3px;
+    border:1px solid lightgrey;
+    border:none;
+    color: darkslategrey;
+}
+.inputRecipeSearch:focus{
+    /*border: 1px solid #f5c88a ;*/
+
 }
 
 /********************* *********************/
 
-.btnPlus{
-    font-size:9px;
+.btnPlusFilter{
+    font-size:12px;
+    padding-bottom:5px;
 }
 
+.myMainPanelFilterRecipe{
+    padding:1vw;
 
+}
 /*******SELECTION******/
 
 .trashFilter{
@@ -326,17 +407,37 @@ textarea.fieldExpense {
 }
 
 
-.txtTitleSelection{
-    font-size:13px;
-    font-weight: 600;
-}
 .txtSelection{
     font-size:13px;
+    color:darkslategrey;
 }
-
+.txtTitleSelection{
+    font-size:13px;
+}
 /*******FILTER******/
+.elemColonneX3{ /* colonnes x3*/
+    display:inline-block;
+    margin: 0 1% 0 1%;
+    width:30%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
+.elemCategorieVrac{ /*pas de colonne : tt en vrac*/
+     display:inline-block;
+     margin: 3px 3% 3px 0;
+ }
+.elemColonneX2{/*colonne x2*/
+    display:inline-block;
+    margin: 2px 0;
+    width:42%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
 .txtFilter{
     font-size:13px;
+    color:darkslategrey;
 }
 
 .txtTitleSubFilter{
@@ -370,11 +471,34 @@ textarea.fieldExpense {
     margin-left:30%;
     width:64%;
 }
-
+.myMainPanelListRecipe{
+    padding-top:2vw;
+    padding-left:3vw
+}
+.divTopListRecipe{
+    margin-bottom:2vw;
+}
+.buttonCreate{
+    margin-left:0;
+    display:inline-block;
+}
+.buttonsDisplayListRecipe{
+    margin-left:3vw;
+    display:inline-block;
+    vertical-align: middle;
+}
+.sortListRecipe{
+    font-size:15px;
+    margin-right:3vw;
+    display:inline-block;
+    position:relative;
+    float:right;
+}
 /** div recipe autant withDescr or noDescr.**/
 .divRecipes{
     border-radius: 5px;
-    margin: 20px 5%;
+    margin: 15px 0;
+    margin-right: 2vw;
 }
 .divRecipes:hover{
     background-color: lightgrey;
@@ -499,7 +623,7 @@ textarea.fieldExpense {
 /******************** BLOCK ****************/
 .divRecipesBlock{
     display:inline-block;
-    margin: 1vw 0 1vw 0;
+    margin: 1vw 2vw 1vw 0;
 }
 .divRecipesBlock:hover{
      cursor:pointer;
@@ -672,9 +796,6 @@ textarea.fieldExpense {
 /*****************************************************************************************************************************************/
 
 
-.btn{/*from bootstrap line 3005*/
-    padding: 4px 6px;
-}
 
 
 /***************************************   GLYPHICONS  *******************************************/

@@ -124,8 +124,8 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $win
     /************************* FILTRE *********************************/
     $scope.filterSearch = {
         myLists:[ {id:'myFavorite', name:'Mes recettes préférées'}, {id:'myPlanning', name:'Mes recettes planning'}], /*{id:'myMeal', name:'Mes plats'},*/
-        categories:['Viande','Poisson','Four', 'Gratin'],
-        origins:['Francais', 'Italien', 'Americain', 'Mexicain']
+        categories:['Viande','Poisson','Four', 'GratinDauphinois', 'aussiCa', 'sucre sale', 'et plein dautre', 'ahah', 'faya', 'fiest'],
+        origins:['Francais', 'Italien', 'Americain', 'Mexicain']//, 'Thai', 'Indien', 'Marocain']
     };
     $scope.filterMySelection = {
         myLists:[],
@@ -478,34 +478,4 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $win
     */
 
 
-});
-
-
-
-
-myModule.directive("scroll", function ($window, $log) {
-    return function(scope, element, attrs) {
-        angular.element($window).bind("scroll", function() {
-            if (this.pageYOffset >= 100) {
-                scope.boolNavFixed = true;
-                /*element.css({
-                    top: '0px',
-                    position: 'fixed'
-                });
-                 element.removeClass('col-xs-4');
-                 element.addClass('col-xs-3');
-                 element.next().addClass('col-xs-offset-3');
-                 $log.warn("BOOM - element : >"+element.contents());
-                 */
-            } else {
-
-                scope.boolNavFixed = false;
-                /*element.css({
-                    top: "auto",
-                    position: 'static'
-                });*/
-            }
-            scope.$apply();
-        });
-    };
 });

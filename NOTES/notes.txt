@@ -76,6 +76,11 @@ cf. $scope.addIngredientList (customizeShopping-controller.js)
     - customizeShopping-controller.js, fils de listShopping est egalement dans listShopping.html (on l'on trouve donc ng-controller="CustomizeShoppingCtrl")
 
 
+********************************************************************************************************
+ - PASSER VAR avec DIRECTIVES
+ ****************************
+ cf exemple recipe-directive 'PASSER VAR avec DIRECTIVES'
+
 
 ********************************************************************************************************
  - DIVISION HTML avec DIRECTIVES
@@ -117,6 +122,7 @@ DEPENDANCE :
 ********************************************************************************************************
     DIRECTIVES - ELEMENT modification functions
 
+    (ex : scroll -> recipe-directive.js)
     A good example to modify an element is when we scroll into recipes and then the leftNavBar is fixed
     This is done thanks to a directive called "scrollFixedPosition"
     => recipe.html & recipe-controller.js (directive)
