@@ -36,7 +36,7 @@
         <div class="panel-body main-panel">
 
 
-            <div class="topDisplay" style="display:block">
+            <div>
                 <div style="margin-left:5%; display:inline-block; height:50px;">
                     <a href="#/recipeCreation/{{recipeType}}"  class="btn btn-warning"> {{displayCreationRecipeType()}}</a> <!--creer nouveau plat-->
                 </div>
@@ -80,7 +80,8 @@
 
 
 
-            <div ng-show="showInList" class="divRecipes" ng-repeat="recipe in recipesToDisplay | filter : searchRecipe | orderBy: recipeOrderBy " ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
+            <div ng-show="showInList" class="divRecipes" ng-repeat="recipe in recipesToDisplay | filter : searchRecipe | orderBy: recipeOrderBy "
+                 ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
 
 
                     <div ng-show="!recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)">
@@ -115,7 +116,7 @@
                     </div>
 
 
-                    <div class="recipeWithDescrip" ng-show="recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)"  >
+                    <div ng-show="recipe.descriptionOpen" class="recipeWithDescrip" ng-click="toggleDescOpen(recipe)"  >
                         <div class="titleOfDescrip" >{{recipe.name}}  ({{recipe.nbPerson}} pers.)
                             &nbsp&nbsp <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
                                               ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
@@ -143,19 +144,50 @@
                     </div>
             </div>
 
-            <div ng-show="showInBlock" class="divRecipesBlock" ng-repeat="recipe in recipesToDisplay | filter : searchRecipe | orderBy:'name'">
-                <div class="pixRecipeBlock" style="background-image:url('../images/{{recipeType}}/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
-                <div class="titleAndSoBlock" >
-                    <div class="titleBlock" title="{{recipe.name}}"> {{recipe.name}} </div>
+            <div ng-show="showInBlock" class="divRecipesBlock" ng-repeat="recipe in recipesToDisplay | filter : searchRecipe | orderBy: recipeOrderBy "
+            ng-class="{divRecipesBlockIcon:!recipe.descriptionOpen, divRecipesBlockDescription:recipe.descriptionOpen}">
 
-                    &nbsp
-                        <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
-                               ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
-                    &nbsp
-                        <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
-                              ng-class="{thListTaken: recipe.forPlanning}"></span>
-                    &nbsp
+                <div ng-show="!recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)">
+                    <div class="pixRecipeBlock" style="background-image:url('../images/{{recipeType}}/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
+                    <div class="titleAndSoBlock" >
+                        <span class="titleBlock" title="{{recipe.name}}"> {{recipe.name}} </span>
+
+                                    <div class="glyphiconsBlock">
+                                        <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
+                                               ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
+                                        &nbsp
+                                        <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
+                                              ng-class="{thListTaken: recipe.forPlanning}"></span>
+                                        &nbsp
+                                        <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
+                                    </div>
+                    </div>
+                </div>
+                <div ng-show="recipe.descriptionOpen" class="recipeWithDescrip" ng-click="toggleDescOpen(recipe)"  >
+                    <div class="titleOfDescrip" >{{recipe.name}}  ({{recipe.nbPerson}} pers.)
+                        &nbsp&nbsp <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
+                                          ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
+                        &nbsp&nbsp <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
+                                         ng-class="{thListTaken: recipe.forPlanning}"></span>
+                        &nbsp
                         <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
+                    </div>
+
+                    <div class="divTopRecipe">
+                        <div class="pixRecipeWithDescrip" style="background-image:url('../images/course/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
+
+                        <div class="ingredientRecipe">
+                            <div class="subTitleOfDescrip"> Ingrédients </div>
+                            <ul ng-repeat="ingr in recipe.ingredients">
+                                <li > <span>{{ingr.qty}}</span>{{ingr.unit}}<span></span> <span>{{ingr.food}}<span> </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="preparationRecipe">
+                        <div class="subTitleOfDescrip"> Préparation</div>
+                        <div> {{recipe.description}} </div>
+                    </div>
                 </div>
 
             </div>

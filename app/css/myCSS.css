@@ -327,16 +327,16 @@ textarea.fieldExpense {
 
 
 .txtTitleSelection{
-    font-size:14px;
+    font-size:13px;
     font-weight: 600;
 }
 .txtSelection{
-    font-size:14px;
+    font-size:13px;
 }
 
 /*******FILTER******/
 .txtFilter{
-    font-size:14px;
+    font-size:13px;
 }
 
 .txtTitleSubFilter{
@@ -381,15 +381,6 @@ textarea.fieldExpense {
     cursor:pointer;
 }
 
-/*
-.recipeWithDescription{
-    color:red;
-}
-.recipeWithNoDescr{
-    color:cornflowerblue;
-}*/
-
-
 .fieldRecipe{
     padding: 5px;
     width:100px;
@@ -407,8 +398,8 @@ textarea.fieldExpense {
 
 
 .pixRecipeNoDescription{
-    width:180px;
-    height:120px;
+    width:220px;
+    height:140px;
     background-repeat:no-repeat;
     background-size:cover;
     /*
@@ -446,6 +437,13 @@ textarea.fieldExpense {
     border-radius:3px;
     padding:10px;
     padding-bottom:20px;
+}
+
+.recipeWithDescrip .heart[title]:hover:after,
+.recipeWithDescrip .thList[title]:hover:after,
+.recipeWithDescrip .newWindow[title]:hover:after{
+    color:white;
+    left:-60px;
 }
 
 .divTopRecipe{
@@ -501,12 +499,32 @@ textarea.fieldExpense {
 /******************** BLOCK ****************/
 .divRecipesBlock{
     display:inline-block;
-    width:200px;
-    margin: 10px 0 10px 10px;
+    margin: 1vw 0 1vw 0;
 }
+.divRecipesBlock:hover{
+     cursor:pointer;
+ }
+.divRecipesBlockIcon{
+
+    width:17vw; /*x4*/
+    /*width:14vw; x3*/
+    min-width:160px;
+    /*width:220px;*/
+    vertical-align: top;
+
+}.divRecipesBlockDescription{
+     width:90%;
+ }
+
 .pixRecipeBlock{
-    width:200px;
-    height:130px;
+    width:17vw; /*x3*/
+    height:11vw;
+    /*width:14vw; x3
+    height:9vw;*/
+    min-width:160px;
+    min-height:100px;
+    /*width:220px;
+    height:140px;*/
     background-repeat:no-repeat;
     background-size:cover;
     border-radius:3px;
@@ -514,15 +532,64 @@ textarea.fieldExpense {
 
 .titleAndSoBlock{
 }
+/* ici on laisse faire mais 1 ligne max pr le titre donc glyphicons en retour a la ligne au pire mais propre*/
 .titleBlock{
-    max-width: 120px;
     display:inline-block;
+    max-width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-/* marche pas ? *
+.glyphiconsBlock{
+    margin-left:5px;
+    display:inline-block;
+}
+/* ici on fix les glyphicon a droit et 1 seul ligne pr titre mais titre tres court...*
+.titleBlock{
+    display:inline-block;
+    /*no retour line:*
+    max-width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.glyphiconsBlock{
+    display:inline-block;
+    vertical-align: top;
+    position: relative;
+    float: right;
+}*/
+/* ici on fix les glyphicon a droite et plusieurs lignes pr titre mais largeur que 60% donc bof*
+.titleBlock{
+    display:inline-block;
+    /*no retour line:*
+    max-width: 60%;
+    white-space: normal;
+}
+.glyphiconsBlock{
+    display:inline-block;
+    vertical-align: top;
+    position: relative;
+    float: right;
+}*/
+/* ici on laisse faire (pb est sil y a  2 ligne mais 2eme ligne remplie que a moitie,
+    glyphicons seront en retour a la ligne qd mm.. (pask block de text rectangulaire*
+.titleBlock{
+    display:inline-block;
+}
+.glyphiconsBlock{
+    margin-left:5px;
+    display:inline-block;
+}
+*/
+
+
+/* marche mais pb de variable pr afficher {{recipe.name}} ...^^ *
+.titleBlock[title]:hover{
+    transform:scale(1);
+}
 .titleBlock[title]:hover:after{
+
     padding: 4px 8px;
     position: absolute;
     top: 100%;
@@ -532,9 +599,10 @@ textarea.fieldExpense {
     border-radius: 5px;
     font-size:8px;
     color:darkslategrey;
-    /*content: 'Ajouter à mes recettes préferées';*
+    content: 'Ajouter à mes recettes préferées';
 }
 */
+
 
 /************************** SINGLE RECIPE *************/
 .titleRecipeSingle{
@@ -555,10 +623,13 @@ textarea.fieldExpense {
     margin-bottom:10px;
 }
 .pixRecipeSingle{
-    width:44%;/*240px;*/
-    min-width:400px;
+    /*width:44%;/*240px;*
     height:250px; /* a modifier dynamiquement (avec javascript en recuperant la largeur et en faisant 2/3)*/
 
+    width:40vw;
+    height:23vw;
+    min-width:400px;
+    min-height:250px;
     background-repeat:no-repeat;
     background-size:100% 100%;
     background-position:top left;
@@ -634,7 +705,20 @@ textarea.fieldExpense {
     color: #f0ad4e;
     transform: scale(1.5);
 }
+.hearta:hover{
+    transform: scale(1.5);
+}
+.hearta[title]:hover:after{
 
+    position: absolute;
+    top: 100%;
+    left:-30px;
+    white-space: pre;
+    border-radius: 5px;
+    font-size:8px;
+    color:orange;
+    content: 'Ajouter à mes recettes fdsfdsdsqffdq';
+}
 
 .heart[title]:hover:after,
 .thList[title]:hover:after,
@@ -674,13 +758,6 @@ textarea.fieldExpense {
 .thListTaken[title]:hover:after{
     font-size:12px;
     content: 'Retirer de la liste planning';
-}
-
-.recipeWithDescrip .heart[title]:hover:after,
-.recipeWithDescrip .thList[title]:hover:after,
-.recipeWithDescrip .newWindow[title]:hover:after{
-    color:white;
-    left:-60px;
 }
 
 .gliphList,

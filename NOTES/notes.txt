@@ -207,3 +207,17 @@ fab 40€ to fab, math, eddy, carine, person4, person5
     <select class="fieldExpense"  ng-model='row.buyerId'  >
          <option ng-repeat="person in persons" value="{{person.id}}">{{person.name}}</option>
     </select>
+
+
+
+********************************************************************************************************
+    IMAGE IMG PROPORTION
+    *********************************
+    utilisr vw pour width ET HEIGHT (et non %), puisque vw est proportionnel a la LARGEUR de lecran alr que % est different pr width ou height
+
+
+
+********************************************************************************************************
+    VARIABLE CSS
+    *********************************
+    mettre le CSS ds html (style="...") et pouvoir ainsi utiliser des variables angular

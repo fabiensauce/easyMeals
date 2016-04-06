@@ -66,7 +66,7 @@ myService.service('RecipeService', function() {
             },
             {
                 id:3,
-                name:'Aubergines au Four',
+                name:'Aubergines au Four et blabalaaalaa',
                 pixName:'aubergineFour.jpg',
                 recipeType:'course',
                 nbPerson:2,

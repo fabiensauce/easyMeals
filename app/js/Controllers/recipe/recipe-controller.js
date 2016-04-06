@@ -9,6 +9,13 @@ myModule.controller('SingleRecipeCtrl', function($scope, $routeParams, $location
 
     $scope.bonjour = "ahahah";
 
+
+     $scope.$watch(function(){
+            return $window.width;
+        }, function(value) {
+            $log.debug("ALLLRRR --------------------- : "+value);
+        });
+
     var recipeType = $routeParams.recipeType;
     var recipeId = $routeParams.id;
     $scope.recipeType = recipeType;

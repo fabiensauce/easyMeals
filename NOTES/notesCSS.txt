@@ -84,4 +84,104 @@
 
 
 ********************************************************************************************************
+        RETOUR A LA LIGNE : white-space
+       -> nowrap : ne fait pas de retour à la ligne
+       -> normal (par defaut) fait un retour à la ligne
+
+       Pour couper un texte : text-overflow (white-space: nowrap; est obligatoire)
+       ->ellipsis : coupe avec 3 petits points
+       ->clip : coupe le texte net
+       ex :
+        max-width/width: 100px(/%);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
 ********************************************************************************************************
+    ALIGNER EN HAUT : dans un inline-bloc, pr aligner en haut (et non en bas de base) il suffit d'inserer la ligne css (dans le mm elem):
+    vertical-align: top;
+
+
+
+********************************************************************************************************
+********************************************************************************************************
+    TITLE sur un elem
+    *****************
+    Il semble (css pas top fait ou jai pas compris) qu'il faille 'transform:scale(1);' dans :hover pour que title s'afficher
+    de plus 'content' est obligatoire pr que qqchose saffiche egalement (ds :hover:after) pr que ca affiche le content apres que tout soit fait
+
+ex:
+.titleBlock[title]:hover{
+    transform:scale(1);
+}
+.titleBlock[title]:hover:after{
+    padding: 4px 8px;
+    position: absolute;
+    top: 100%;
+    left:-30px;
+    white-space: nowrap;
+    z-index: 50;
+    border-radius: 5px;
+    font-size:8px;
+    color:darkslategrey;
+    content: 'Ajouter à mes recettes préferées';
+}
+
+Dans le cas ou 'content:...' nest pas applicable sur des variable (ex : title="{{recipeName}}" et le style ne peut pas etre dans html puisque :after est un selector uniquement ds css
+voici une autre solution :
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+a.info{
+    position:relative; /*this is the key*/
+    z-index:24; background-color:#ccc;
+    color:#000;
+    text-decoration:none}
+
+a.info:hover{z-index:25; background-color:#ff0}
+
+a.info span{display: none}
+
+a.info:hover span{ /*the span will display just on :hover state*/
+    display:block;
+    position:absolute;
+    top:2em; left:2em; width:15em;
+    border:1px solid #0cf;
+    background-color:#cff; color:#000;
+    text-align: center}
+</style>
+
+
+</head>
+<body>
+<a class=info href="#">Mon lien<span>ici ce que lon ecrirait ds title</span></a>
+
+</body>
+</html>
+
+
+********************************************************************************************************
+********************************************************************************************************
+
+    *****************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
