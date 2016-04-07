@@ -7,7 +7,17 @@ myModule.controller('CustomizeShoppingCtrl', function($scope, $log, PlanningServ
 
 
     // $scope.listShop = [];
-    $scope.categories = [{id:0, name:'Autre', ingredients:[]},{id:3, name:'Epicerie', ingredients:[]},{id:5, name:'Boulangerie', ingredients:[]},{id:6, name:'Fruit/Legumes', ingredients:[]}, {id:4, name:'Surgeles', ingredients:[]}, {id:2, name:'Poissonnerie', ingredients:[]}, {id:1, name:'Boucherie', ingredients:[]}];
+    $scope.categories = [
+        {id:0, name:'Autre', ingredients:[]},
+        {id:1, name:'Boucherie', ingredients:[]},
+        {id:2, name:'Poissonnerie', ingredients:[]},
+        {id:3, name:'Epicerie', ingredients:[]},
+        {id:4, name:'Surgeles', ingredients:[]},
+        {id:5, name:'Boulangerie', ingredients:[]},
+        {id:6, name:'Fruit/Legumes', ingredients:[]},
+        {id:7, name:'Frais', ingredients:[]}
+    ];
+
     $scope.categoryChosen = 'Surgeles';
     $scope.modifQty = false;
     $scope.toggleModifQty = function(){

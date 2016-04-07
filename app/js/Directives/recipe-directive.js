@@ -102,21 +102,22 @@ myDirective.directive("scroll", function ($window, $log) {
  </button>
  -->
  */
+
 myDirective.directive('buttonSelection', function(){
     return{
         restrict:'EA',
         replace:true,
+        transclude:true,
         scope: { filtertype: '@filterType',
-            filterName: '=filterName'},
+            /*filtername: '=filterName'*/},
         template: '<button  type="button" class="myBtn btn-defaultRecipe" >'+
-            '<span class="glyphicon glyphicon-minus littlePlus" ></span>'+
-            '<span class="txtTitleSelection">{{filtertype}}</span> <span class="txtSelection" >{{filterName}}</span>'+
+        '<span class="glyphicon glyphicon-minus littlePlus" ></span>'+
+        '<span class="txtTitleSelection">{{filtertype}}</span> <span class="txtSelection" ng-transclude ></span>'+
         '</button>'
 
 
-} ;
+    } ;
 });
-
 /**
  * <!-- OLD
  <button  type="button" class="btn btn-default btnPlus" >

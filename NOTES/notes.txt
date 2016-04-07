@@ -1,5 +1,23 @@
 
 ********************************************************************************************************
+********************************************************************************************************
+QUELQUES CONVENTIONS !!
+********************************************************************************************************
+
+ -------------------
+ - un commit / ou commentaire, il commence par [nomDuChantierConcerné] (ex : [recette] ajout de nanana)
+ -------------------
+ - une VARIABLE ou nom n'est JAMAIS AU PLURIEL (pr une question de clarete et simplicite),
+ meme si l'on parle de recettes ou d'un type (ex viandes) : var recette, 'viande'
+ => les var au pluriel sont UNIQUEMENT des lists : var recettes=[a, b, ..]
+ -------------------
+
+
+
+
+
+********************************************************************************************************
+********************************************************************************************************
  -  AJOUT DROP-DOWN MENU dans NAVBAR
 download (puis mettre dans /lib)
     ui-bootstrap-tpls.min.js

@@ -911,14 +911,31 @@ textarea.fieldExpense {
 }
 
 /*************************************** glyphicons heart/thList  pr  NAVBAR *******************************************/
-.myDropdown .heart[title]:hover:after{
+.myDropdown .heart[title]:hover:after,.myDropdownLight .heart[title]:hover:after{
     content: 'Mes recettes preferées';
 }
-.myDropdown .thList[title]:hover:after{
+.myDropdown .thList[title]:hover:after, .myDropdownLight .thList[title]:hover:after{
     content: 'Liste planning';
 }
 .myDropdown .heart[title]:hover:after,
-.myDropdown .thList[title]:hover:after{
+.myDropdownLight .heart[title]:hover:after,
+.myDropdown .thList[title]:hover:after,
+.myDropdownLight .thList[title]:hover:after{
     color:white;
     left:-10px;
 }
+/*
+.navBarHeart{
+    color: #bfbfbf ;/*lightgrey++*
+}
+.navBarHeart > a > span:hover{
+    color:red;
+    transform: scale(1.5);
+}
+/*
+.navBarHeart > a >span[title]:hover:after{
+    content: 'Mes recettes preferées';
+    color:white;
+    left:-10px;
+}
+*/

@@ -124,8 +124,8 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $win
     /************************* FILTRE *********************************/
     $scope.filterSearch = {
         myLists:[ {id:'myFavorite', name:'Mes recettes préférées'}, {id:'myPlanning', name:'Mes recettes planning'}], /*{id:'myMeal', name:'Mes plats'},*/
-        categories:['Viande','Poisson','Four', 'GratinDauphinois', 'aussiCa', 'sucre sale', 'et plein dautre', 'ahah', 'faya', 'fiest'],
-        origins:['Francais', 'Italien', 'Americain', 'Mexicain']//, 'Thai', 'Indien', 'Marocain']
+        categories:['Viande','Poisson', 'Legume', 'Vegetarien', 'Four', 'Poêle', 'Gratin', 'Sucré Salé', 'Facile', 'Rapide'],
+        origins:['Francais', 'Italien', 'Americain', 'Mexicain', 'Thai', 'Indien']//, 'Thai', 'Indien', 'Marocain']
     };
     $scope.filterMySelection = {
         myLists:[],
