@@ -78,13 +78,13 @@
 
 
 .btn{/*from bootstrap line 3005 ne sera plus utiliser soon!*/
-    padding: 10px 6px;
-    line-height:normal; /*putin de boostrap...*/
+    padding: 6px 8px;
+    border-radius: 3px;
 }
 .myBtn{
 
     padding: 6px 12px;
-    border-radius: 4px;
+    border-radius: 3px;
 
 /*
     line-height:normal; /*putin de boostrap...*

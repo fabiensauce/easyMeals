@@ -11,8 +11,7 @@ QUELQUES CONVENTIONS !!
  meme si l'on parle de recettes ou d'un type (ex viandes) : var recette, 'viande'
  => les var au pluriel sont UNIQUEMENT des lists : var recettes=[a, b, ..]
  -------------------
-
-
+ - sur les noms : le container le plus important avt (ex : planningRecipes, planningListShopping etc...)
 
 
 

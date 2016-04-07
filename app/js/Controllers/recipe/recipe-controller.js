@@ -5,31 +5,16 @@ var myModule = angular.module('controllers');
 
 
 
-myModule.controller('SingleRecipeCtrl', function($scope, $routeParams, $location, $window,  $log, RecipeService) {
-
-    $scope.bonjour = "ahahah";
-
-
-     $scope.$watch(function(){
-            return $window.width;
-        }, function(value) {
-            $log.debug("ALLLRRR --------------------- : "+value);
-        });
-
-    var recipeType = $routeParams.recipeType;
-    var recipeId = $routeParams.id;
-    $scope.recipeType = recipeType;
-    $scope.recipeId = recipeId;
-    $scope.recipe = RecipeService.getSingleRecipe(recipeType, recipeId);
-    $scope.showRecipe = $scope.recipe != null;
-
-});
-
-
 myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $window,  $log, RecipeService) {
 
+    /*
+    $scope.$watch(function(){
+        return $window.width;
+    }, function(value) {
+        $log.debug("ALLLRRR --------------------- : "+value);
+    });
     $scope.$emit('intoRecipe'); //will tell to parents (global-controller.js) to modify pix
-
+    */
 
     var recipeType = $routeParams.recipeType;
     var recipeSelection = $routeParams.selection;
@@ -119,7 +104,10 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $win
     }*/
 
     $scope.listOrderBy = [{name:'nom', value:'name'}, {name:'note', value:'-rating'}]; /*- permet dinverser lordre*/
-    $scope.recipeOrderBy = 'name';
+    $scope.recipeOrderBy = 'name'; /* initialisation*/
+
+
+
 
     /************************* FILTRE *********************************/
     $scope.filterSearch = {

@@ -1,0 +1,43 @@
+
+
+
+/**********************************************************************************************/
+/*******************************************  recipes (PLANNING)  ****************************************/
+/********************************************************************************************/
+
+
+.divRecipesType{
+    margin: 2vw;
+}
+.btnRecipeType{
+    margin-right:2vw;
+}
+
+.artMySelection{
+    float: left;
+    margin-left:2vw; /* le % faisant grossir la largueur lors de scroll -> fixed*/
+    width:20vw;
+
+}
+.divFilterAndRecipes{
+    margin-left:25vw;
+    width:70vw;
+
+}
+.artFilters{
+    margin-bottom:1vw;
+
+}
+.filterMyLists{
+
+}
+.filterCategories{
+}
+.filterOrignins{
+
+}
+
+
+.artRecipes{
+
+}
