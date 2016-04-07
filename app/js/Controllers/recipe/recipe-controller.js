@@ -84,13 +84,11 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $win
     $scope.toggleFavorite = function(recipe, event){
         event.stopPropagation();
         recipe.favoriteRecipe = !recipe.favoriteRecipe;
-        updateRecipesLists();
         updateFilter();
     }
     $scope.toggleforPlanning = function(recipe, event){
         event.stopPropagation();
         recipe.forPlanning = !recipe.forPlanning;
-        updateRecipesLists();
         updateFilter();
     }
     $scope.openRecipeNewWindow = function(id) {
@@ -243,53 +241,7 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $win
      MAJ FILTER
      **************************************************************************************************/
 
-    /* est appele la premiere fois + quand toggleFavorite() & toggleforPlanning()*/
-    var updateRecipesLists = function() {
 
-        $scope.recipesFavorite = [];
-        $scope.recipesPlanning = [];
-        $scope.recipesMine = [];//initilisee so far
-
-        var recipe = {};
-        for (var i = 0; i < $scope.recipes.length; i++) {
-            recipe = $scope.recipes[i];
-            if(recipe.favoriteRecipe){
-                $scope.recipesFavorite.push(recipe);
-            }
-            if(recipe.forPlanning){
-                $scope.recipesPlanning.push(recipe);
-            }
-        }
-    }
-    updateRecipesLists();
-
-
-
-
-    /*var updateFilter = function(){
-        var recipesTmp = [];
-        var recipesFavorite = $scope.recipesFavorite;
-        var recipesPlanning = $scope.recipesPlanning;
-        var filterMySelection = $scope.filterMySelection;
-
-        for(var i=0; i<filterMySelection.myLists.length; i++){
-            if(filterMySelection.myLists[i].id == 'myFavorite'){
-                recipesTmp = concatArr1IntoArr2(recipesFavorite, recipesTmp)
-            }
-            if(filterMySelection.myLists[i].id == 'myPlanning'){
-                recipesTmp = concatArr1IntoArr2(recipesPlanning, recipesTmp) //recipesTmp = recipesTmp.concat(recipesPlanning);//ne fonctionne pas car autorise pas les doublon...
-            }
-        }
-
-
-        $scope.recipesTmp = recipesTmp;
-        if(filterMySelection.myLists.length > 0){
-            $scope.recipesToDisplay = $scope.recipesTmp;
-        }
-        else{
-            $scope.recipesToDisplay = $scope.recipes;
-        }
-    } */
     var updateFilter = function(){
         var recipes = $scope.recipes;
         var recipesNew = [];
@@ -454,16 +406,6 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $win
         }
         return intersectFinal;
     }
-    /*
-    var concatArr1IntoArr2 = function(arr1, arr2){
-        for(var k= 0; k<arr1.length; k++){
-            if(arr2.indexOf(arr1[k]) == -1){//arr2 contient pas arr1[k] (sinon renvoi pos. index > 0)
-                arr2.push(arr1[k]);
-            }
-        }
-        return arr2;
-    }
-    */
 
 
 });
