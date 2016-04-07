@@ -14,6 +14,17 @@ myModule.controller('FilterCtrl', function($scope, $routeParams, $location, $win
      *
      */
 
+
+    /*****
+     * ORDER BY list
+     */
+
+    $scope.listOrderBy = [{name:'nom', value:'name'}, {name:'note', value:'-rating'}]; /*- permet dinverser lordre*/
+    $scope.recipeOrderBy = 'name'; /* initialisation*/
+
+
+
+
     /** broadcast provenant de fct : $scope.toggleFavorite ()
      * ->into controller parent 'recipe-controller.js' */
     $scope.$on('updateFilter', function() {

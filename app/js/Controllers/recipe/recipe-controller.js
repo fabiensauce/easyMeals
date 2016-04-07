@@ -103,9 +103,5 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $win
         $location.search( 'viande', null );
     }*/
 
-    $scope.listOrderBy = [{name:'nom', value:'name'}, {name:'note', value:'-rating'}]; /*- permet dinverser lordre*/
-    $scope.recipeOrderBy = 'name'; /* initialisation*/
-
-
 
 });
