@@ -2,13 +2,17 @@
 
 /**************************** OLD GRAYSCALE ***********************************/
 
-.main {
+.myMain {
+
     padding-top:90px;
+    /*
+    display: block;/* ->from bootstrap;*
     margin-right: auto;
     margin-left: auto;
     min-height:780px;
     height:780px;
-    max-height:780px;
+    max-height:780px;*/
+
 }
 h1,
 h2,
@@ -142,22 +146,59 @@ h6 {
 }
 
 
+
+
+
+/**************************************************************************************************************************************************************************************/
+/**********************************************************************  ARTICLE custom   ********************************************************************************************/
+/************************************************************************************************************************************************************************************/
+.mySectionBlock{
+    display: block;
+}
+
+.myArticle{
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #fff;
+    //color:darkslategrey;
+    color:#333;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.myArticleHeading {
+    padding: 10px 1%;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.myArticleTitle{
+    color:#333;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.myArticleBody {
+    padding: 1%;
+}
+
+
+/**********************************************************************  BUTTONS   ********************************************************************************************/
+
 .btn{/*from bootstrap line 3005 ne sera plus utiliser soon!*/
     padding: 6px 8px;
     border-radius: 3px;
 }
 
-.myArticle{
 
-}
 .myBtn{
-
     padding: 6px 12px;
     border-radius: 3px;
-
-/*
-    line-height:normal; /*putin de boostrap...*
-
+/*  line-height:normal; /*putin de boostrap...*
     vertical-align: middle;
     /*
     display: inline-block;
@@ -178,10 +219,11 @@ h6 {
     background-image: none;
     border: 1px solid transparent;
     */
-
 }
 
 
+
+/**********************************************************************  SELECTION (mouse cursor select) ********************************************************************************************/
 ::selection { /* surlign / effet souris  */
     color: white;
     background: darkslategrey;
@@ -196,6 +238,16 @@ select::selection,option::selection { /* ne fonctionne pas  */
 }
 */
 
+
+/**********************************************************************  TABLES   ********************************************************************************************/
+
+.myTh{
+    color:darkslategrey;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700; /* epaisseur txt */
+    letter-spacing: 1px;
+    font-size: 20px;
+}
 /***********************************************************************************************************************************************************************************************/
 /***********************************************************************************************************************************************************************************************/
 /*******************************************************************    --end--   MAIN        **************************************************************************************************/
@@ -205,15 +257,6 @@ select::selection,option::selection { /* ne fonctionne pas  */
 
 
 
-/******************************************* TABLES ****************************************/
-
-.myTh{
-    color:darkslategrey;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700; /* epaisseur txt */
-    letter-spacing: 1px;
-    font-size: 20px;
-}
 
 
 

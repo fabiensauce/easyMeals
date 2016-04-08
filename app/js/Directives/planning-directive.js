@@ -27,7 +27,7 @@ myDirective.directive('helloTest', function(){
 
 
 
-myDirective.directive('recipesPlanning', function(){
+myDirective.directive('planningRecipes', function(){
     return{
         restrict:'E',
         templateUrl:'../../partials/planning/planningRecipes.html',
@@ -43,7 +43,7 @@ myDirective.directive('planningTofill', function(){
 
     } ;
 });
-myDirective.directive('listShopping', function(){
+myDirective.directive('planningListShopping', function(){
     return{
         restrict:'E',
         templateUrl:'../../partials/planning/planningListShopping.html',
