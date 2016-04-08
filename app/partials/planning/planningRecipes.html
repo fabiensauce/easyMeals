@@ -139,9 +139,9 @@
                     <div><b>Faire glisser les recettes dans le planning ci-dessous</b></div>
                     <br>
                 </div>
-                <div ng-repeat="recipe in recipesToDisplay | filter : searchRecipe | orderBy: recipeOrderBy" style="display:inline-block ">
+                <div ng-repeat="recipe in recipesToDisplay | filter : searchRecipe | orderBy: recipeOrderBy" style="display:inline-block "> <!-- track by $index-->
                     <div  class="itemToDragPlanning itemRecipesPlanning"
-                          data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="recipes" ng-show="recipe.name"
+                          data-drag="true" data-jqyoui-options="{revert: 'invalid', helper:'clone'}" ng-model="recipe" ng-show="recipe.name"
                           jqyoui-draggable="{index: {{$index}},placeholder:'keep', deepCopy:'true'}"
                           title="{{displayIngredientsOfRecipe(recipe)}}">
                         {{recipe.name}}

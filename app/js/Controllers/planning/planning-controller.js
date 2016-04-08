@@ -29,6 +29,7 @@ myModule.controller('PlanningCtrl', function($scope, $log, RecipeService, fourTy
     $scope.selectRecipes = function(recipeType){
         $scope.recipeType = recipeType;
         $scope.recipes = getRecipes(recipeType);
+        $scope.$broadcast('updateFilter');
     }
 
     $scope.displayRecipeType = function(){
