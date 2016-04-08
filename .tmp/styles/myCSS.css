@@ -127,6 +127,7 @@ h6 {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    padding: 0 2vw;
 }
 
 
@@ -155,6 +156,15 @@ h6 {
 .mySectionBlock{
     display: block;
 }
+.mySection{
+
+}
+.mySectionHeading{
+
+}
+.mySectionTitle{
+
+}
 
 .myArticle{
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -168,7 +178,7 @@ h6 {
 }
 
 .myArticleHeading {
-    padding: 10px 1%;
+    padding: 10px 1vw;
     border-bottom: 1px solid transparent;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -183,7 +193,7 @@ h6 {
     letter-spacing: 1px;
 }
 .myArticleBody {
-    padding: 1%;
+    padding: 1vw;
 }
 
 
@@ -929,12 +939,24 @@ select::selection,option::selection { /* ne fonctionne pas  */
 /***********************************************************************************************************************************************************************************************/
 
 
-
-.myBorder{
-    border: 5px solid red;
-    border-radius:10px;
+.artParameter{
+    width: 30%;
+    margin-bottom: 30px;
 }
-#resultExpense {
+.artParameterHelp{
+    width: 70%;
+}
+.artWhoPaidWhat{
+    width: 100%;
+    overflow-y:auto;
+    margin-bottom: 30px;
+}
+.artResult{
+    width: 30%;
+    margin-bottom: 30px;
+}
+
+.artBodyResult {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700; /* epaisseur txt */
     letter-spacing: 1px;

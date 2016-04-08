@@ -1,59 +1,155 @@
 <div  ng-controller="CalculationExpenseCtrl" >
 
 
-
-
-
-
-    <!----- TEST MY ARTICLE ------>
-    <div  class="myArticle" >
-        <div class="myArticleHeading">
-            <div class="myArticleTitle">My test ARTICLE</div>
-        </div>
-        <div class="myArticleBody" >
-            Ici le body on escri etc ect
-        </div>
-    </div>
-
-    <div  class="panel panel-default" >
-        <div class="panel-heading">
-            <h3 class="panel-title">My test</h3>
-        </div>
-        <div class="panel-body main-panel" >
-            Ici le body on escri etc ect
-        </div>
-    </div>
-
-
-
     <div><h2>Calcul des dépenses</h2></div>
 
 
-    <div class="row" style="color:darkslategrey">
-        <div class="{{largeExpense}}" > <!-- 'col-md-12' or 'col-md-6'-->
-            <div  class="panel panel-default" >
-                <div class="panel-heading">
-                    <h3 class="panel-title">Parametres</h3>
+    <article class="myArticle artParameter " ng-class="{artParameterHelp : showHelp}"> <!-- IMPROVEMENT class={{largeExpense}} (var into global-controller for mode accompagnement)-->
+        <div class="myArticleHeading">
+            <div class="myArticleTitle">Parametres</div>
+        </div>
+        <div class="myArticleBody" >
+            <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
+                <div style="font-size: 12px;">@ le mode accompagnement peut être désactivé dans l'accueil "EASYMEALS"</div>
+                <div>Le calcul de dépense permet de saisir toutes les dépenses de chacun des membres du groupe et de voir facilement qui doit rembourser qui</div>
+                <div><b>Selectionner le nombre de personnes composant le groupe (même si certains n'ont rien payé)</b></div>
+            </div>
+            <div>
+                <label>Nombre de personnes : </label>
+                &nbsp&nbsp<input class="fieldExpense" type="number" ng-model ='nbPers' ng-change="updatePersons()" min="1"/>
+            </div>
+        </div>
+    </article>
+
+
+
+    <article class="myArticle artWhoPaidWhat" >
+
+        <div class="myArticleHeading">
+            <div class="myArticleTitle">QUI à payé QUOI à QUI ?</div>
+        </div>
+
+        <div class="myArticleBody" >
+
+            <!-- DEBUG -->
+            <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                <div ng-repeat="row in rows" >
+                    {{row}}<br>
                 </div>
-                <div class="panel-body main-panel" >
-                    <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
-                        <div style="font-size: 12px;">@ le mode accompagnement peut être désactivé dans l'accueil "EASYMEALS"</div>
-                        <div>Le calcul de dépense permet de saisir toutes les dépenses de chacun des membres du groupe et de voir facilement qui doit rembourser qui</div>
-                        <div><b>Selectionner le nombre de personnes composant le groupe (même si certains n'ont rien payé)</b></div>
-                    </div>
-                    <div>
-                        <label>Nombre de personnes : </label>
-                        &nbsp&nbsp<input class="fieldExpense" type="number" ng-model ='nbPers' ng-change="updatePersons()" min="1"/>
-                    </div>
-                </div>
+            </div>
+
+            <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
+                <div ><b>Il est possible de saisir le prenom des membres du groupe directement dans chaque en-têtes de colonne</b></div>
+            </div>
+
+            <table class="table table-hover table-bordered">
+
+
+                <th class="success myThExpense">A payé</th> <!-- style="background-color: lightgreen" -->
+                <th class="success myThExpense">Prix (€)</th> <!-- this success :#dff0d8 -->
+                <th class="success myThExpense myThFieldExpense" ng-repeat="person in persons">
+                    <input  class="fieldExpense"  type="text"  ng-model="person.name" >
+                </th>
+                <th class="success myThExpense ">All</th><!--#5cb85c(success) lightgreen -->
+                <th class="success myThExpense">Description</th>
+                <th class="success myThExpense" >Supp.</th>
+
+
+                <tr ng-repeat="row in rows" >
+                    <!--{
+                    buyer:'fab',
+                    price:30,
+                    listChecked:[true, false],
+                    checkedAll:false,
+                    description:'pour les courses'
+                    -->
+                    <td>
+                        <!-- <select ng-model='row.buyer' ng-options='person.name for person in persons' >-->
+                        <select class="fieldExpense"  ng-model='row.buyerId'  >
+                            <option ng-repeat="person in persons" value="{{person.id}}">{{person.name}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input class="fieldExpense" type="number" min="0"  ng-model="row.price" >
+
+                    </td>
+                    <td ng-repeat="isChecked in row.listChecked" ><!-- ng-click="toggleCheckList(isChecked, row)" --fonctionne pas car en double avec le click sur la checkbox en elle meme !!>-->
+                                <span class="checkbox checkbox-success" style="margin-left:65px; -webkit-transform: scale(1.2);">
+                                     <input type="checkbox"  ng-model="isChecked.bool" ng-change="aPersonColumnChecked(row)" id="{{isChecked.id}}+idRow{{row.id}}">
+                                     <label for="{{isChecked.id}}+idRow{{row.id}}" ></label>
+                                 </span>
+                    </td>
+
+                    <td style="text-align: center">
+                                <span class="checkbox checkbox-warning" style="margin-left:8px; " >
+                                     <input type="checkbox"  ng-model="row.checkedAll" ng-change="aAllChecked(row)" id="idCheckedAll+{{row.id}}">
+                                     <label for="idCheckedAll+{{row.id}}" >
+                                         <!-- DEBUG -->
+                                         <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                                             <div >{{row.checkedAll}}</div>
+                                         </div>
+                                         <!---->
+                                     </label>
+                                 </span>
+                    </td>
+                    <td>
+                        <textarea rows="1" cols="15" class="fieldExpense" >{{row.description}}</textarea>
+
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-success" ng-click="deleteRowExpense(row)">
+                            <span class="glyphicon glyphicon-minus"></span>
+                        </button>
+
+
+                    </td>
+                </tr>
+            </table>
+
+            <button type="button" class="btn btn-success" ng-click="addRowExpense()">
+                <span class="glyphicon glyphicon-plus"></span> Ligne
+            </button>
+
+            <br>
+            <div ng-show="showImprovement" style="font-size: 15px; color:#d9534f">
             </div>
         </div>
 
+    </article>
 
+
+
+
+    <!-- DEBUG -->
+    <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+        <div >{{tabExpense}}</div>
+        <div ng-repeat="couple in tabCouple" >{{couple}}</div>
     </div>
+    <!---->
 
-    <br>
-    <br>
+
+    <article class="myArticle artResult" >
+        <div class="myArticleHeading">
+            <div class="myArticleTitle">Résultats des remboursements</div>
+        </div>
+        <div class="myArticleBody artBodyResult" >
+            <div ng-repeat="couple in tabCouple" >
+                <span>{{couple.debtGuy.name}}</span> -> {{couple.amount}}€ à {{couple.benefitGuy.name}}
+            </div>
+            <br>
+            (-> : "doit")
+            <br>
+        </div>
+    </article>
+
+
+
+
+
+
+
+
+    <!----- OLD DIV - QUI A PAYE QUOI A QUI before article
 
     <div class="row" style="color:darkslategrey">
         <div class="col-md-12">
@@ -67,122 +163,95 @@
 
                 <div class="panel-body main-panel" >
 
-                    <!-- DEBUG -->
-                    <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
-                        <div ng-repeat="row in rows" >
-                            {{row}}<br>
-                        </div>
-                    </div>
-
-                    <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
-                        <div ><b>Il est possible de saisir le prenom des membres du groupe directement dans chaque en-têtes de colonne</b></div>
-                    </div>
-
-                    <table class="table table-hover table-bordered">
-
-
-                        <th class="success myThExpense">A payé</th> <!-- style="background-color: lightgreen" -->
-                        <th class="success myThExpense">Prix (€)</th> <!-- this success :#dff0d8 -->
-                        <th class="success myThExpense myThFieldExpense" ng-repeat="person in persons">
-                            <input  class="fieldExpense"  type="text"  ng-model="person.name" >
-                        </th>
-                        <th class="success myThExpense ">All</th><!--#5cb85c(success) lightgreen -->
-                        <th class="success myThExpense">Description</th>
-                        <th class="success myThExpense" >Supp.</th>
-
-
-                        <tr ng-repeat="row in rows" >
-                            <!--{
-                            buyer:'fab',
-                            price:30,
-                            listChecked:[true, false],
-                            checkedAll:false,
-                            description:'pour les courses'
-                            -->
-                            <td>
-                                <!-- <select ng-model='row.buyer' ng-options='person.name for person in persons' >-->
-                                <select class="fieldExpense"  ng-model='row.buyerId'  >
-                                    <option ng-repeat="person in persons" value="{{person.id}}">{{person.name}}</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input class="fieldExpense" type="number" min="0"  ng-model="row.price" >
-
-                            </td>
-                            <td ng-repeat="isChecked in row.listChecked" ><!-- ng-click="toggleCheckList(isChecked, row)" --fonctionne pas car en double avec le click sur la checkbox en elle meme !!>-->
-                                <span class="checkbox checkbox-success" style="margin-left:65px; -webkit-transform: scale(1.2);">
-                                     <input type="checkbox"  ng-model="isChecked.bool" ng-change="aPersonColumnChecked(row)" id="{{isChecked.id}}+idRow{{row.id}}">
-                                     <label for="{{isChecked.id}}+idRow{{row.id}}" ></label>
-                                 </span>
-                            </td>
-
-                            <td style="text-align: center">
-                                <span class="checkbox checkbox-warning" style="margin-left:8px; " >
-                                     <input type="checkbox"  ng-model="row.checkedAll" ng-change="aAllChecked(row)" id="idCheckedAll+{{row.id}}">
-                                     <label for="idCheckedAll+{{row.id}}" >
-                                         <!-- DEBUG -->
-                                         <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
-                                             <div >{{row.checkedAll}}</div>
-                                         </div>
-                                         <!---->
-                                     </label>
-                                 </span>
-                            </td>
-                            <td>
-                                <textarea rows="1" cols="15" class="fieldExpense" >{{row.description}}</textarea>
-
-                            </td>
-                            <td>
-                                <button type="button" class="btn btn-success" ng-click="deleteRowExpense(row)">
-                                    <span class="glyphicon glyphicon-minus"></span>
-                                </button>
-
-
-                            </td>
-                        </tr>
-                    </table>
-
-                    <button type="button" class="btn btn-success" ng-click="addRowExpense()">
-                        <span class="glyphicon glyphicon-plus"></span> Ligne
-                    </button>
-
-                    <br>
-                    <div ng-show="showImprovement" style="font-size: 15px; color:#d9534f">
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- DEBUG -->
+                    <!-- DEBUG --
     <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
-        <div >{{tabExpense}}</div>
-        <div ng-repeat="couple in tabCouple" >{{couple}}</div>
-    </div>
-    <!---->
-
-
-    <div class="row" style="color:darkslategrey">
-        <div class="col-md-6">
-
-            <div  class="panel panel-default" >
-                <div class="panel-heading">
-                    <h3 class="panel-title">Résultats des remboursements</h3>
-                </div>
-
-                <div class="panel-body main-panel" id="resultExpense">
-                    <div ng-repeat="couple in tabCouple" >
-                        <span>{{couple.debtGuy.name}}</span> -> {{couple.amount}}€ à {{couple.benefitGuy.name}}
-                    </div>
-                    <br>
-                    (-> : "doit")
-                    <br>
-                </div>
-            </div>
+        <div ng-repeat="row in rows" >
+            {{row}}<br>
         </div>
     </div>
+
+    <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
+        <div ><b>Il est possible de saisir le prenom des membres du groupe directement dans chaque en-têtes de colonne</b></div>
+    </div>
+
+    <table class="table table-hover table-bordered">
+
+
+        <th class="success myThExpense">A payé</th> <!-- style="background-color: lightgreen" --
+        <th class="success myThExpense">Prix (€)</th> <!-- this success :#dff0d8 --
+        <th class="success myThExpense myThFieldExpense" ng-repeat="person in persons">
+            <input  class="fieldExpense"  type="text"  ng-model="person.name" >
+        </th>
+        <th class="success myThExpense ">All</th><!--#5cb85c(success) lightgreen --
+        <th class="success myThExpense">Description</th>
+        <th class="success myThExpense" >Supp.</th>
+
+
+        <tr ng-repeat="row in rows" >
+            <!--{
+            buyer:'fab',
+            price:30,
+            listChecked:[true, false],
+            checkedAll:false,
+            description:'pour les courses'
+            -->
+    <td>
+        <!-- <select ng-model='row.buyer' ng-options='person.name for person in persons' >--
+        <select class="fieldExpense"  ng-model='row.buyerId'  >
+            <option ng-repeat="person in persons" value="{{person.id}}">{{person.name}}</option>
+        </select>
+    </td>
+    <td>
+        <input class="fieldExpense" type="number" min="0"  ng-model="row.price" >
+
+    </td>
+    <td ng-repeat="isChecked in row.listChecked" ><!-- ng-click="toggleCheckList(isChecked, row)" --fonctionne pas car en double avec le click sur la checkbox en elle meme !!>--
+                        <span class="checkbox checkbox-success" style="margin-left:65px; -webkit-transform: scale(1.2);">
+                             <input type="checkbox"  ng-model="isChecked.bool" ng-change="aPersonColumnChecked(row)" id="{{isChecked.id}}+idRow{{row.id}}">
+                             <label for="{{isChecked.id}}+idRow{{row.id}}" ></label>
+                         </span>
+    </td>
+
+    <td style="text-align: center">
+                        <span class="checkbox checkbox-warning" style="margin-left:8px; " >
+                             <input type="checkbox"  ng-model="row.checkedAll" ng-change="aAllChecked(row)" id="idCheckedAll+{{row.id}}">
+                             <label for="idCheckedAll+{{row.id}}" >
+                                 <!-- DEBUG --
+                                 <div ng-show="showDebug" style="font-size: 18px; color:darkorange">
+                                     <div >{{row.checkedAll}}</div>
+                                 </div>
+                                 <!----
+                             </label>
+                         </span>
+    </td>
+    <td>
+        <textarea rows="1" cols="15" class="fieldExpense" >{{row.description}}</textarea>
+
+    </td>
+    <td>
+        <button type="button" class="btn btn-success" ng-click="deleteRowExpense(row)">
+            <span class="glyphicon glyphicon-minus"></span>
+        </button>
+
+
+    </td>
+</tr>
+</table>
+
+<button type="button" class="btn btn-success" ng-click="addRowExpense()">
+<span class="glyphicon glyphicon-plus"></span> Ligne
+</button>
+
+<br>
+<div ng-show="showImprovement" style="font-size: 15px; color:#d9534f">
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+------>
+
 
 </div>

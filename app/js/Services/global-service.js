@@ -10,7 +10,6 @@ myService.service('GlobalService', function() {
     var showImprovement = true;
 
     var showHelp = false;
-    var largeExpenseParameter = 'col-md-6';
 
     var showDebug = false;
 
@@ -18,17 +17,9 @@ myService.service('GlobalService', function() {
 
     toggleHelp = function(){
         showHelp = ! showHelp;
-        if(showHelp){
-            largeExpenseParameter='col-md-12';
-        }else{
-            largeExpenseParameter='col-md-6';
-        }
     }
     getHelp = function(){
         return showHelp;
-    }
-    getLargeExpenseParameter = function(){
-        return largeExpenseParameter;
     }
 
 
@@ -58,7 +49,6 @@ myService.service('GlobalService', function() {
         toggleDebug: toggleDebug,
         getImprovement: getImprovement,
         getHelp: getHelp,
-        getLargeExpenseParameter: getLargeExpenseParameter,
         getDebug: getDebug,
         incrementId: incrementId,
         getId: getId
