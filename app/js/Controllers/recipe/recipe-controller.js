@@ -13,8 +13,8 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $win
     }, function(value) {
         $log.debug("ALLLRRR --------------------- : "+value);
     });
+     */
     $scope.$emit('intoRecipe'); //will tell to parents (global-controller.js) to modify pix
-    */
 
     var recipeType = $routeParams.recipeType;
     $scope.recipeType = recipeType;

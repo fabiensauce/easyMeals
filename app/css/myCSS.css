@@ -96,6 +96,8 @@ h6 {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+
+    padding: 0 2vw;
 }
 
 .bodyPlanning{
@@ -304,8 +306,9 @@ select::selection,option::selection { /* ne fonctionne pas  */
 /***********************************************************************************************************************************************************************************************/
 /***********************************************************************************************************************************************************************************************/
 /***********************************************************************************************************************************************************************************************/
+
 .titleRecipe{
-    margin-left:3vw;
+    margin-left:2vw;
 }
 
 /**********************************************************************  FILTER RECIPE #LEFT FIXED   ********************************************************************************************/
@@ -316,7 +319,7 @@ select::selection,option::selection { /* ne fonctionne pas  */
 }
 #filterRecipe{
     float: left;
-    margin-left:3vw; /* le % faisant grossir la largueur lors de scroll -> fixed*/
+    margin-left:2vw; /* le % faisant grossir la largueur lors de scroll -> fixed*/
     width:24vw;
 }
 
@@ -460,7 +463,7 @@ select::selection,option::selection { /* ne fonctionne pas  */
 /**********************************************************************  LIST RECIPE #RIGHT   ************************************************************************************************/
 
 #listRecipe{
-    margin-left:30%;
+    margin-left:28%;
     width:64%;
 }
 .myMainPanelListRecipe{
