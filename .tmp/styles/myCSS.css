@@ -26,28 +26,7 @@ h6 {
     font-weight: 700;
     letter-spacing: 1px;
 }
-.btn {
-    text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
-}
 
-.btn-default {
-    border: 1px solid #28c3ab; //commentaire ici;
-    color: #28c3ab;
-    background-color: transparent;
-}
-
-.btn-default:hover,
-.btn-default:focus {
-    border: 1px solid #28c3ab;
-    outline: 0;
-    color: #000;
-    background-color: #28c3ab;
-}
 
 .main-panel {
     color:black;
@@ -201,6 +180,29 @@ h6 {
 
 /**********************************************************************  BUTTONS   ********************************************************************************************/
 
+.btn {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.btn-default {
+    border: 1px solid #28c3ab; //commentaire ici;
+    color: #28c3ab;
+    background-color: transparent;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    border: 1px solid #28c3ab;
+    outline: 0;
+    color: #000;
+    background-color: #28c3ab;
+}
+
 .btn{/*from bootstrap line 3005 ne sera plus utiliser soon!*/
     padding: 6px 8px;
     border-radius: 3px;
@@ -330,17 +332,25 @@ select::selection,option::selection { /* ne fonctionne pas  */
     font-size:9px;
     margin-right:5px; /* a enlever si pas de directive..*/
 }
+
+
+
+/*btn-defaultRecipe*/
+
 .btn-defaultRecipe{
     padding: 4px 6px 5px 6px;
     border:1px solid #f0ad4e;
     color:#f0ad4e;
-    background-color: white;
+    //background-color: white;
+    background-color: transparent;
     text-transform : none;
 
 }
-.btn-defaultRecipe:hover{
+.btn-defaultRecipe:hover,
+.btn-defaultRecipe:focus{
     color:darkslategrey;
     background-color: #f5c88a;
+    outline: 0;
 }
 .inputRecipe{
     padding: 5px;

@@ -137,25 +137,9 @@ myDirective.directive("scroll", function ($window, $log) {
 /**
  * **************************************   buttons filter in recipeFilter  *********************************************************************************************
  */
-/**
- * <!-- OLD
- <button  type="button" class="btn btn-default btnPlus" >
- <span class="glyphicon glyphicon-minus" ></span>
- </button>
- <span class="txtTitleSelection">Recette :</span> <span class="txtSelection">{{origin}}</span>
-
- -- NEW (into button-filter)
- <button  type="button" class="btn btn-defaultRecipe" >
- <span class="glyphicon glyphicon-minus littlePlus" ></span>
- <span class="txtTitleSelection">Recette :</span> <span class="txtSelection">{{origin}}</span>
- </button>
- -->
- */
-
 myDirective.directive('buttonSelection', function(){
     return{
         restrict:'EA',
-        replace:true,
         transclude:true,
         scope: { filtertype: '@filterType',
             /*filtername: '=filterName'*/},
@@ -167,20 +151,6 @@ myDirective.directive('buttonSelection', function(){
 
     } ;
 });
-/**
- * <!-- OLD
- <button  type="button" class="btn btn-default btnPlus" >
- <span class="glyphicon glyphicon-plus" style=""></span>
- </button>
- <span class="txtFilter">{{myList.name}}</span>
-
- -- NEW (into button-filter)
- <button  type="button" class="btn btn-defaultRecipe" >
- <span class="glyphicon glyphicon-plus littlePlus" ></span>
- <span class="txtFilter">{{myList.name}}</span>
- </button>
- -->
- */
 myDirective.directive('buttonFilter', function(){
     return{
         restrict:'EA',
@@ -202,8 +172,8 @@ myDirective.directive('buttonFilter', function(){
  *
  * ainsi l'object (ou string) -ici myList- est passé dans the-origin est recup ds l'isolate scope avec =theOrigin
  * si par ex ds Html, the-origin="myList", lobjet est donc passé ds la var originIsolate, sur lequel on peut appeler originIsolate.name
- */
-myDirective.directive('buttonFilterisolatescope', function(){
+ *
+ myDirective.directive('buttonFilterisolatescope', function(){
     return{
         restrict:'EA',
         replace:true,
@@ -215,5 +185,6 @@ myDirective.directive('buttonFilterisolatescope', function(){
 
     } ;
 });
+ */
 
 

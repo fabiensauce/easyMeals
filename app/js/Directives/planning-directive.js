@@ -43,7 +43,8 @@ myDirective.directive('planningTofill', function(){
 
     } ;
 });
-myDirective.directive('planningListShopping', function(){
+/*  avant : planningListShopping ( <planning-listShopping> ) fonctionnait... ^^*/
+myDirective.directive('planningListshopping', function(){
     return{
         restrict:'E',
         templateUrl:'../../partials/planning/planningListShopping.html',
