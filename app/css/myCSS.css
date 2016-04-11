@@ -92,6 +92,7 @@ h6 {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+    padding: 0 2vw;
 }
 
 
@@ -312,9 +313,99 @@ h6 {
     background-color: #28c3ab;
 }
 
+/*******************************************************************************************************************************************************************************/
+/**********************************************************************  SELECT & INPUT    ********************************************************************************************/
+/*****************************************************************************************************************************************************************************/
+
+
+.fieldRecipe{
+    padding: 5px;
+    width:100px;
+    border-radius:3px;
+    text-align: center;
+
+    border:1px solid lightgrey;
+    color: #f0ad4e;
+}
+.fieldRecipe:focus {
+    outline: 0; /*2px solid #d9534f;*/
+    border: 1px solid #f5c88a ;
+}
+
+
+.fieldPlanning{
+    padding: 5px;
+    width:100px;
+    border-radius:3px;
+    text-align: center;
+
+    border:1px solid lightgrey;
+    color: #5bc0de;
+}
+.fieldPlanning:focus {
+    outline: 0; /*2px solid #d9534f;*/
+    border: 1px solid #95d6e9 ;
+}
 
 
 
+.inputRecipe{
+    padding: 5px;
+    width:130px;
+    border-radius:3px;
+    border:1px solid lightgrey;
+    color: darkslategrey;
+
+}
+.inputRecipe:focus {
+    outline: 0; /*2px solid #d9534f;*/
+    border: 1px solid #f5c88a ;
+}
+.inputRecipeSearch{
+    padding: 2px;
+    border-radius:3px;
+    border:1px solid lightgrey;
+    border:none;
+    color: darkslategrey;
+}
+.inputRecipeSearch:focus{
+    /*border: 1px solid #f5c88a ;*/
+    outline: 0; /*2px solid #d9534f;*/
+    border: 1px solid #f5c88a ;
+}
+
+.inputRecipePlanning{
+    padding: 2px;
+    border-radius:3px;
+    border:1px solid lightgrey;
+    border:none;
+    color: darkslategrey;
+}
+.inputRecipePlanning:focus{
+    /*border: 1px solid #f5c88a ;*/
+    outline: 0; /*2px solid #d9534f;*/
+    border: 1px solid #95d6e9 ;
+}
+
+/**********************************************************************  TRASH  ********************************************************************************************/
+
+
+.trashFilterRecipe{
+    color: #f0ad4e;
+    font-size:18px;
+}
+.trashFilterRecipe:hover{
+    color: #f5c88a;
+    transform: scale(1.5);
+}
+.trashFilterPlanning{
+    color: #5bc0de;
+    font-size:18px;
+}
+.trashFilterPlanning:hover{
+    color: #95d6e9;
+    transform: scale(1.5);
+}
 
 
 /**********************************************************************  SELECTION (mouse cursor select) ********************************************************************************************/
@@ -429,30 +520,6 @@ select::selection,option::selection { /* ne fonctionne pas  */
 
 
 
-.inputRecipe{
-    padding: 5px;
-    width:130px;
-    border-radius:3px;
-    border:1px solid lightgrey;
-    color: darkslategrey;
-
-}
-.inputRecipe:focus {
-    outline: 0; /*2px solid #d9534f;*/
-    border: 2px solid #f5c88a ;
-}
-.inputRecipeSearch{
-    padding: 2px;
-    border-radius:3px;
-    border:1px solid lightgrey;
-    border:none;
-    color: darkslategrey;
-}
-.inputRecipeSearch:focus{
-    /*border: 1px solid #f5c88a ;*/
-
-}
-
 
 .btnPlusFilter{
     font-size:12px;
@@ -468,14 +535,7 @@ select::selection,option::selection { /* ne fonctionne pas  */
     /*overflow: auto; //into #filterRecipe; */
 }
 
-.trashFilter{
-    color: #f0ad4e;
-    font-size:18px;
-}
-.trashFilter:hover{
-    color: #f5c88a;
-    transform: scale(1.5);
-}
+
 .separatorSelection{
     border-bottom:1px solid lightgray;
 }
@@ -591,21 +651,6 @@ select::selection,option::selection { /* ne fonctionne pas  */
     background-color: lightgrey;
     cursor:pointer;
 }
-
-.fieldRecipe{
-    padding: 5px;
-    width:100px;
-    border-radius:3px;
-    text-align: center;
-
-    border:1px solid lightgrey;
-    color: #f0ad4e;
-}
-.fieldRecipe:focus {
-    outline: 0; /*2px solid #d9534f;*/
-    border: 2px solid #f5c88a ;
-}
-
 
 /************************************************************************************************************/
 /*********************************  NO DESCRIPTION custom  *************************************************/
@@ -945,7 +990,7 @@ select::selection,option::selection { /* ne fonctionne pas  */
 /**********************************************************************  PLANNING RECIPES  **************************************************************************************************/
 
 .divRecipesType{
-    margin: 2vw;
+    margin: 2vw 0;
 }
 .btnRecipeType{
     margin-right:2vw;
@@ -954,14 +999,15 @@ select::selection,option::selection { /* ne fonctionne pas  */
 
 .artMySelection{
     float: left;
-    margin-left:2vw; /* le % faisant grossir la largueur lors de scroll -> fixed*/
+    //margin-left:2vw; /* le % faisant grossir la largueur lors de scroll -> fixed*/
     width:20vw;
+    margin-bottom: 2vw;
 
 }
 .artFilters{
     margin-bottom:1vw;
-    margin-left:25vw;
-    width:70vw;
+    margin-left:23vw;
+    width:72vw;
 
 }
 
@@ -990,8 +1036,8 @@ select::selection,option::selection { /* ne fonctionne pas  */
 .artRecipes{
     /*margin-left:2vw;*/
     margin-bottom:1vw;
-    margin-left:25vw;
-    width:70vw;
+    margin-left:23vw;
+    width:72vw;
 
 
 }

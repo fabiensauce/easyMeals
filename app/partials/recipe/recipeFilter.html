@@ -13,7 +13,7 @@
         <div class="myArticleHeading">
             <div class="myArticleTitle titleInlineBlock">Ma Selection</div>
             <div class="rightHeadingInlineBlock">
-                <span ng-click="emptyFilterSelection()" class="glyphicon glyphicon-trash trashFilter glyphiconBtn" ></span>
+                <span ng-click="emptyFilterSelection()" class="glyphicon glyphicon-trash trashFilterRecipe glyphiconBtn" ></span>
             </div>
         </div>
 
@@ -92,14 +92,14 @@
                 </div>
             </div>
             <div class="divSubFilter">
-                <div class="txtTitleSubFilter" >Categories recette</div>
+                <div class="txtTitleSubFilter" >Categories recettes</div>
                 <div class="elemCategorieVrac" ng-repeat="category in filterSearch.categories | orderBy:'toString()'"
                      ng-click="moveCategoryToSelection(category)">
                     <button-filter mybtn-emptysection="myBtnEmptyRecipe">{{category}}</button-filter>
                 </div>
             </div>
             <div class="divSubFilter">
-                <div class="txtTitleSubFilter" >Recette</div>
+                <div class="txtTitleSubFilter" >Nationalités recettes</div>
                 <div class="elemColonneX2" ng-repeat="origin in filterSearch.origins | orderBy:'toString()'"
                      ng-click="moveOriginToSelection(origin)"><!--track by $index ne fonctionne pas : $index en argument de moveOr..() correspond pas-->
                     <button-filter mybtn-emptysection="myBtnEmptyRecipe">{{origin}}</button-filter>

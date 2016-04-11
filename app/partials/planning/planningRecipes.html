@@ -21,7 +21,7 @@
         <div class="myArticleHeading">
             <div class="myArticleTitle titleInlineBlock">Ma Selection</div>
             <div class="rightHeadingInlineBlock">
-                <span ng-click="emptyFilterSelection()" class="glyphicon glyphicon-trash trashFilter glyphiconBtn" ></span>
+                <span ng-click="emptyFilterSelection()" class="glyphicon glyphicon-trash trashFilterPlanning glyphiconBtn" ></span>
             </div>
         </div>
 
@@ -78,7 +78,7 @@
 
                 <span class="blockFilterPlanningRecipe">
                     Categories :
-                    <select ng- class="fieldRecipe"  ng-model='myCategory' ng-init="'Viande'" ng-change="moveCategoryToSelection(myCategory)">
+                    <select ng- class="fieldPlanning"  ng-model='myCategory' ng-init="'Viande'" ng-change="moveCategoryToSelection(myCategory)">
                         <!--<option value="" selected>Categorie</option>-->
                         <option ng-repeat="category in filterSearch.categories" value="{{category}}" >{{category}}</option>
                     </select>
@@ -87,7 +87,7 @@
 
                 <span class="blockFilterPlanningRecipe">
                     Nationalités :
-                    <select class="fieldRecipe"  ng-model='myOrigin' ng-change="moveOriginToSelection(myOrigin)">
+                    <select class="fieldPlanning"  ng-model='myOrigin' ng-change="moveOriginToSelection(myOrigin)">
                         <!--<option value="" selected>Nationalité</option>-->
                         <option ng-repeat="origin in filterSearch.origins" value="{{origin}}">{{origin}}</option>
                     </select>
@@ -165,7 +165,7 @@
                     <span class="sortPlanningRecipeList" >
                         <span   class="glyphicon glyphicon-sort" ></span>
                         &nbsp
-                        <select class="fieldRecipe"  ng-model='recipeOrderBy'  >
+                        <select class="fieldPlanning"  ng-model='recipeOrderBy'  >
                             <option ng-repeat="orderby in listOrderBy" value="{{orderby.value}}">{{orderby.name}}</option>
                         </select>
                     </span >
@@ -175,7 +175,7 @@
 
                     <span   class="glyphicon glyphicon-search " ></span>
                     &nbsp
-                    <input class="inputRecipeSearch" type="text" ng-model="searchRecipe" placeholder="recette, ingredient etc..">
+                    <input class="inputRecipePlanning" type="text" ng-model="searchRecipe" placeholder="recette, ingredient etc..">
                 </div>
 
 
