@@ -6,6 +6,13 @@ var myDirective = angular.module('directives');
 
 
 
+/**
+ * **************************************   DIRECTIVES : ng-include  *********************************************************************************************
+ */
+
+/*****************************
+ *  2 MAIN PARTS of recipe
+ *****************************/
 myDirective.directive('recipeFilter', function(){
     return{
         restrict:'E',
@@ -22,6 +29,45 @@ myDirective.directive('recipeList', function(){
 
     } ;
 });
+
+
+/*  Display of recipeItems in block/list, open or not
+ * In HTML it can be REPLACE by
+ * <div ng-include="'../../partials/recipe/recipeItemDisplayNotOpenInList.html'"></div>
+ */
+myDirective.directive('recipeitemDisplayinlist', function(){
+    return{
+        restrict:'E',
+        templateUrl:'../../partials/recipe/recipeItemDisplayNotOpenInList.html',
+        replace:true
+
+    } ;
+});
+myDirective.directive('recipeitemDisplayinblock', function(){
+    return{
+        restrict:'E',
+        templateUrl:'../../partials/recipe/recipeItemDisplayNotOpenInBlock.html',
+        replace:true
+
+    } ;
+});
+myDirective.directive('recipeitemDisplayopen', function(){
+    return{
+        restrict:'E',
+        templateUrl:'../../partials/recipe/recipeItemDisplayOpen.html',
+        replace:true
+
+    } ;
+});
+
+
+
+
+
+
+/**
+ * **************************************   scroll for recipeFilter  *********************************************************************************************
+ */
 
 myDirective.directive("scroll", function ($window, $log) {
     return function(scope, element, attrs) {
@@ -89,6 +135,9 @@ myDirective.directive("scroll", function ($window, $log) {
 
 
 /**
+ * **************************************   buttons filter in recipeFilter  *********************************************************************************************
+ */
+/**
  * <!-- OLD
  <button  type="button" class="btn btn-default btnPlus" >
  <span class="glyphicon glyphicon-minus" ></span>
@@ -146,7 +195,8 @@ myDirective.directive('buttonFilter', function(){
 
 
 /**
- * **************************************   PASSER VAR avec DIRECTIVES   ****************************************************
+ * **************************************   PASSER VAR avec DIRECTIVES  *********************************************************************************************
+ *
  * HTML
  * <button-Filterisolatescope the-origin="myList.name"></button-Filterisolatescope>
  *
@@ -165,3 +215,5 @@ myDirective.directive('buttonFilterisolatescope', function(){
 
     } ;
 });
+
+

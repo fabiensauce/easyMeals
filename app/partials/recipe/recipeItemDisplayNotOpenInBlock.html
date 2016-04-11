@@ -1,0 +1,16 @@
+<div ng-show="!recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)">
+    <div class="pixRecipeBlock" style="background-image:url('../images/{{recipeType}}/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
+    <div class="titleAndSoBlock" >
+        <span class="titleBlock" title="{{recipe.name}}"> {{recipe.name}} </span>
+
+        <div class="glyphiconsBlock">
+                                        <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
+                                               ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
+            &nbsp
+                                        <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
+                                              ng-class="{thListTaken: recipe.forPlanning}"></span>
+            &nbsp
+            <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
+        </div>
+    </div>
+</div>

@@ -49,7 +49,7 @@ myModule.controller('GlobalCtrl', function($scope, $log, $routeParams, $location
         GlobalService.toggleImprovement();
         $scope.showImprovement=GlobalService.getImprovement();
     }
-   //$scope.$watch('showImprovement', toggleImpr);
+    //$scope.$watch('showImprovement', toggleImpr);
     // CE WATCH NE FONCTIONNE PAAAAS => toggleImpr est un $SCOPE et devrait etre : var toggleImpr
 
     $scope.myId = GlobalService.getId();
@@ -63,8 +63,8 @@ myModule.controller('GlobalCtrl', function($scope, $log, $routeParams, $location
         return (($location.path().indexOf(viewLocationRoot)) > -1);
     };
     /*$scope.isActiveInNavBar = function (viewLocation) {
-        return '#/planning' === $location.path();
-    };*/
+     return '#/planning' === $location.path();
+     };*/
 
 
 
