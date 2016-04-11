@@ -142,8 +142,9 @@ myDirective.directive('buttonSelection', function(){
         restrict:'EA',
         transclude:true,
         scope: { filtertype: '@filterType',
+                myBtnEmptySection: '@mybtnEmptysection',
             /*filtername: '=filterName'*/},
-        template: '<button  type="button" class="myBtn btn-defaultRecipe" >'+
+        template: '<button  type="button" class="myBtnEmpty {{myBtnEmptySection}}" >'+
         '<span class="glyphicon glyphicon-minus littlePlus" ></span>'+
         '<span class="txtTitleSelection">{{filtertype}}</span> <span class="txtSelection" ng-transclude ></span>'+
         '</button>'
@@ -155,7 +156,9 @@ myDirective.directive('buttonFilter', function(){
     return{
         restrict:'EA',
         transclude:true,
-        template:   '<button  type="button" class="myBtn btn-defaultRecipe" >'+
+        scope: { myBtnEmptySection: '@mybtnEmptysection',
+            /*filtername: '=filterName'*/},
+        template:   '<button  type="button" class="myBtnEmpty {{myBtnEmptySection}}" >'+
         '<span class="glyphicon glyphicon-plus littlePlus"></span>'+
         '<span class="txtFilter" ng-transclude></span>'+
         '</button>'

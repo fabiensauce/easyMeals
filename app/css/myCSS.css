@@ -178,8 +178,13 @@ h6 {
 }
 
 
-/**********************************************************************  BUTTONS   ********************************************************************************************/
 
+/*******************************************************************************************************************************************************************************/
+/**********************************************************************  BUTTONS   ********************************************************************************************/
+/*****************************************************************************************************************************************************************************/
+
+/* btn & myBtn -> useless
+  examples : */
 .btn {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -188,26 +193,6 @@ h6 {
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
-
-.btn-default {
-    border: 1px solid #28c3ab; //commentaire ici;
-    color: #28c3ab;
-    background-color: transparent;
-}
-
-.btn-default:hover,
-.btn-default:focus {
-    border: 1px solid #28c3ab;
-    outline: 0;
-    color: #000;
-    background-color: #28c3ab;
-}
-
-.btn{/*from bootstrap line 3005 ne sera plus utiliser soon!*/
-    padding: 6px 8px;
-    border-radius: 3px;
-}
-
 
 .myBtn{
     padding: 6px 12px;
@@ -234,6 +219,101 @@ h6 {
         border: 1px solid transparent;
         */
 }
+
+/************************************** BUTTONS FULL not used yet ! **********************************************/
+
+.myBtnFull{
+    padding: 6px 12px;
+    border-radius: 3px;
+    border:none;
+    text-transform: uppercase;
+    //font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+
+    text-transform : none;
+    background-color: lightgrey;
+    color: white;
+}
+
+.myBtnFull:hover,
+.myBtnFull:focus{
+    background-color: #ddd;
+}
+
+.myBtnFullRecipe{
+    background-color: #f5c88a;
+}
+.myBtnFullRecipe:hover,
+.myBtnFullRecipe:focus{
+    background-color: #f0ad4e;
+}
+
+/************************************** BUTTONS EMPTY **********************************************/
+.myBtnEmpty{
+    padding: 6px 12px;
+    border-radius: 3px;
+    border:1px solid lightgrey;
+    color:lightgrey;
+    //background-color: white;
+    background-color: transparent;
+    text-transform : none;
+}
+
+.myBtnEmpty:hover,
+.myBtnEmpty:focus{
+    color: #333;
+    background-color:lightgrey;
+    outline: 0;
+}
+
+.myBtnEmptyRecipe{
+    padding: 4px 6px 5px 6px;
+    border:1px solid #f0ad4e;
+    color:#f0ad4e;
+}
+.myBtnEmptyRecipe:hover,
+.myBtnFilterRecipe:focus{
+    color:darkslategrey;
+    background-color: #f5c88a;
+    outline: 0;
+
+}
+
+.myBtnEmptyPlanning{
+    padding: 4px 6px 5px 6px;
+    border:1px solid #5bc0de;
+    color:#5bc0de;
+}
+.myBtnEmptyPlanning:hover,
+.myBtnEmptyPlanning:focus{
+    color:darkslategrey;
+    background-color: #95d6e9;
+    outline: 0;
+
+}
+
+
+
+
+.btn-default {
+    border: 1px solid #28c3ab;
+    color: #28c3ab;
+    background-color: transparent;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    border: 1px solid #28c3ab;
+    outline: 0;
+    color: #000;
+    background-color: #28c3ab;
+}
+
+
+
 
 
 
@@ -335,23 +415,6 @@ select::selection,option::selection { /* ne fonctionne pas  */
 
 
 
-/*btn-defaultRecipe*/
-
-.btn-defaultRecipe{
-    padding: 4px 6px 5px 6px;
-    border:1px solid #f0ad4e;
-    color:#f0ad4e;
-    //background-color: white;
-    background-color: transparent;
-    text-transform : none;
-
-}
-.btn-defaultRecipe:hover,
-.btn-defaultRecipe:focus{
-    color:darkslategrey;
-    background-color: #f5c88a;
-    outline: 0;
-}
 .inputRecipe{
     padding: 5px;
     width:130px;
