@@ -1,7 +1,30 @@
 
 
-- Installer tomcat 8
+- Installer tomcat 8 (Core, 1er zip)
+ -> dezipper le fichier (apache...) et le placer ds c:/program files
 
-- Télécharger MySQL :
+IntelliJ : activer la vue maven (files > settings > plugins > cocher le plugin maven integration)
+
+Files open dossier de projet (into new window)
+Activer vue maven : view > tools window > maven
+Si le projet n'apparait pas ds la vue maven (vue de droite), cliquer sur le plus '+' et selectionner le pom.xml du projet
+
+INstaller JDK java 1.8 (google : jdk java 1.8 -> check accept licence and download windows x86)
+=> Setup SDK dans le texte de intelliJ (= JDK) cliquer dessus + etc et trouver l'endroit d'installation du JDK : C:/programFiles/java/JDK
+pour le retrouver : file > project structure > SDKs
+
+Ajouter tomcat server : cliquer fleche en haut a droite (dirigÃ©e vers le bas) ->  "edit configuration"
+ -> find tomcat server (click '33 more' if not shown)
+ -> name : 'tomcat8'
+ -> CONFIGURE -> find good repo of the installed tomcat ('apache..')
+ (-> 'http://localhost:8080/' (a verifier ds conf.xml que le port correspond)
+ -> http port '8080')
+ -> DEPLOYMENT > '+' > 'artifact' -> 'war exploded' (le war qui sera deployer sur le server, 'exploded' permet de ne pas redemarrer le server)
+
+
+
+
+
+- Tï¿½lï¿½charger MySQL :
 http://dev.mysql.com/downloads/mysql/#downloads
-Télécharger le MSI. Lancer le fichier. Add => MySQL Server 
+Tï¿½lï¿½charger le MSI. Lancer le fichier. Add => MySQL Server 

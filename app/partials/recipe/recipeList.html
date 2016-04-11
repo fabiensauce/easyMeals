@@ -1,84 +1,37 @@
-<article id="listRecipe" >
+<article id="listRecipe" class="myArticle">
 
-
-    <!-- TEST MY ARTICLE
-    <article  class="myArticle" >
-        <div class="myArticleHeading">
-            <div class="myArticleTitle">My test ARTICLE</div>
-        </div>
-        <div class="myArticleBody" >
-            Ici le body on escri etc ect
-        </div>
-    </article>
-
-
-    <div  class="panel panel-default" >
-        <div class="panel-heading">
-            <h3 class="panel-title">My test</h3>
-        </div>
-        <div class="panel-body main-panel" >
-            Ici le body on escri etc ect
-        </div>
-    </div>
-    -->
-
-    <div  class="panel panel-default" style=" overflow: hidden;" >
-
-        <!--
-        <div class="panel-heading">
-            <h3 class="panel-title">Liste {{displayRecipeType()}}</h3>
-        </div>
--->
-
-        <!--
-        <div style="font-size:15px; margin-left:5%; display:inline-block; height:50px; ">
-            <span   class="glyphicon glyphicon-search" ></span>
-            &nbsp
-            <input  type="text" ng-model="searchRecipe" placeholder="recette, ingredient etc.." style="border:none; ">
-        </div>
-       -->
-        <div class="panel-heading" >
-            <div style="color:darkslategrey; display:block" >
-                <h3 class="panel-title" style="display:inline-block;" >Liste {{displayRecipeType()}}</h3>
-
-                <div class="" style="font-size:17px; display:inline-block; position: relative; float: right; margin-right:5%;">
-                    <span   class="glyphicon glyphicon-search " ></span>
-                    &nbsp
-                    <input class="inputRecipeSearch" type="text" ng-model="searchRecipe" placeholder="recette, ingredient etc..">
-                </div>
+        <div class="myArticleHeading" >
+            <div class="myArticleTitle titleMySelection">Liste {{displayRecipeType()}}</div>
+            <div class="rightHeadingSearch">
+                <span   class="glyphicon glyphicon-search " ></span>
+                &nbsp
+                <input class="inputRecipeSearch" type="text" ng-model="searchRecipe" placeholder="recette, ingredient etc..">
             </div>
-
         </div>
 
 
-
-
-
-
-
-        <div class="myMainPanelListRecipe main-panel">
-
+        <div class="myArticleBody artBodyListRecipe">
 
             <div class="divTopListRecipe">
                 <div class="buttonCreate" >
                     <a href="#/recipeCreation/{{recipeType}}"  class="btn btn-warning"> {{displayCreationRecipeType()}}</a> <!--creer nouveau plat-->
                 </div>
 
-                    <div class="buttonsDisplayListRecipe">
-                        Affichage : &nbsp
-                        <span ng-click="showInListFct()"  class="glyphicon glyphicon-align-justify gliphList glyphiconBtn"></span> <!--title=""-->
-                        &nbsp-&nbsp
-                        <span ng-click="showInBlockFct()" class="glyphicon glyphicon-th gliphBlock glyphiconBtn"></span></span><!--title=""-->
-                    </div>
+                <div class="buttonsDisplayListRecipe">
+                    Affichage : &nbsp
+                    <span ng-click="showInListFct()"  class="glyphicon glyphicon-align-justify gliphList glyphiconBtn"></span> <!--title=""-->
+                    &nbsp-&nbsp
+                    <span ng-click="showInBlockFct()" class="glyphicon glyphicon-th gliphBlock glyphiconBtn"></span></span><!--title=""-->
+                </div>
 
 
-                    <div class="sortListRecipe" >
-                        <span   class="glyphicon glyphicon-sort" ></span>
-                        &nbsp
-                        <select class="fieldRecipe"  ng-model='recipeOrderBy'  >
-                            <option ng-repeat="orderby in listOrderBy" value="{{orderby.value}}">{{orderby.name}}</option>
-                        </select>
-                    </div>
+                <div class="sortListRecipe" >
+                    <span   class="glyphicon glyphicon-sort" ></span>
+                    &nbsp
+                    <select class="fieldRecipe"  ng-model='recipeOrderBy'  >
+                        <option ng-repeat="orderby in listOrderBy" value="{{orderby.value}}">{{orderby.name}}</option>
+                    </select>
+                </div>
             </div>
 
             <!-- DEBUG ng-show="showDebug"
@@ -99,89 +52,87 @@
             </div>
             -->
 
-
-
             <div ng-show="showInList" class="divRecipes" ng-repeat="recipe in recipesToDisplay | filter : searchRecipe | orderBy: recipeOrderBy "
                  ng-class="{recipeWithDescription: recipe.descriptionOpen, recipeWithNoDescr:!recipe.descriptionOpen}">
 
 
-                    <div ng-show="!recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)">
+                <div ng-show="!recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)">
 
-                        <div class="pixRecipeNoDescription" style="background-image:url('../images/{{recipeType}}/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
-                        <div class="titleAndSoNoDescription">
-                            <div class="title"> {{recipe.name}} </div>
+                    <div class="pixRecipeNoDescription" style="background-image:url('../images/{{recipeType}}/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
+                    <div class="titleAndSoNoDescription">
+                        <div class="title"> {{recipe.name}} </div>
 
-                            <!-- DEBUG -->
-                            <div ng-show="showDebug" style="font-size: 15px; color:darkorange;  ">
-                                ({{recipe.origin}})
-                                <br>
-                                <div ng-repeat="category in recipe.categories">
-                                    {{category}}
-                                </div>
-                                <div ng-repeat="ingr in recipe.ingredients" style="position: relative;float: right;">
-                                    {{ingr.food}}-
-                                </div>
+                        <!-- DEBUG -->
+                        <div ng-show="showDebug" style="font-size: 15px; color:darkorange;  ">
+                            ({{recipe.origin}})
+                            <br>
+                            <div ng-repeat="category in recipe.categories">
+                                {{category}}
                             </div>
+                            <div ng-repeat="ingr in recipe.ingredients" style="position: relative;float: right;">
+                                {{ingr.food}}-
+                            </div>
+                        </div>
 
 
                         <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
                                ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
-                            &nbsp&nbsp
+                        &nbsp&nbsp
                         <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
                               ng-class="{thListTaken: recipe.forPlanning}"></span>
-                            &nbsp
-                            <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
+                        &nbsp
+                        <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
 
 
+                    </div>
+                </div>
+
+
+                <div ng-show="recipe.descriptionOpen" class="recipeWithDescrip" ng-click="toggleDescOpen(recipe)"  >
+                    <div class="titleOfDescrip" >{{recipe.name}}  ({{recipe.nbPerson}} pers.)
+                        &nbsp&nbsp <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
+                                          ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
+                        &nbsp&nbsp <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
+                                         ng-class="{thListTaken: recipe.forPlanning}"></span>
+                        &nbsp
+                        <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
+                    </div>
+
+                    <div class="divTopRecipe">
+                        <div class="pixRecipeWithDescrip" style="background-image:url('../images/course/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
+
+                        <div class="ingredientRecipe">
+                            <div class="subTitleOfDescrip"> Ingrédients </div>
+                            <ul ng-repeat="ingr in recipe.ingredients">
+                                <li > <span>{{ingr.qty}}</span>{{ingr.unit}}<span></span> <span>{{ingr.food}}<span> </li>
+                            </ul>
                         </div>
                     </div>
 
-
-                    <div ng-show="recipe.descriptionOpen" class="recipeWithDescrip" ng-click="toggleDescOpen(recipe)"  >
-                        <div class="titleOfDescrip" >{{recipe.name}}  ({{recipe.nbPerson}} pers.)
-                            &nbsp&nbsp <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
-                                              ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
-                            &nbsp&nbsp <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
-                                             ng-class="{thListTaken: recipe.forPlanning}"></span>
-                            &nbsp
-                            <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
-                        </div>
-
-                        <div class="divTopRecipe">
-                            <div class="pixRecipeWithDescrip" style="background-image:url('../images/course/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
-
-                            <div class="ingredientRecipe">
-                                <div class="subTitleOfDescrip"> Ingrédients </div>
-                                <ul ng-repeat="ingr in recipe.ingredients">
-                                    <li > <span>{{ingr.qty}}</span>{{ingr.unit}}<span></span> <span>{{ingr.food}}<span> </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="preparationRecipe">
-                            <div class="subTitleOfDescrip"> Préparation</div>
-                            <div> {{recipe.description}} </div>
-                        </div>
+                    <div class="preparationRecipe">
+                        <div class="subTitleOfDescrip"> Préparation</div>
+                        <div> {{recipe.description}} </div>
                     </div>
+                </div>
             </div>
 
             <div ng-show="showInBlock" class="divRecipesBlock" ng-repeat="recipe in recipesToDisplay | filter : searchRecipe | orderBy: recipeOrderBy "
-            ng-class="{divRecipesBlockIcon:!recipe.descriptionOpen, divRecipesBlockDescription:recipe.descriptionOpen}">
+                 ng-class="{divRecipesBlockIcon:!recipe.descriptionOpen, divRecipesBlockDescription:recipe.descriptionOpen}">
 
                 <div ng-show="!recipe.descriptionOpen" ng-click="toggleDescOpen(recipe)">
                     <div class="pixRecipeBlock" style="background-image:url('../images/{{recipeType}}/{{recipe.pixName}}'),url('../../images/no-image.png') ;"> </div>
                     <div class="titleAndSoBlock" >
                         <span class="titleBlock" title="{{recipe.name}}"> {{recipe.name}} </span>
 
-                                    <div class="glyphiconsBlock">
+                        <div class="glyphiconsBlock">
                                         <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
                                                ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
-                                        &nbsp
+                            &nbsp
                                         <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
                                               ng-class="{thListTaken: recipe.forPlanning}"></span>
-                                        &nbsp
-                                        <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
-                                    </div>
+                            &nbsp
+                            <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
+                        </div>
                     </div>
                 </div>
                 <div ng-show="recipe.descriptionOpen" class="recipeWithDescrip" ng-click="toggleDescOpen(recipe)"  >

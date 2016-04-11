@@ -97,7 +97,7 @@ h6 {
     background-size: cover;
     -o-background-size: cover;
 
-    padding: 0 2vw;
+    padding: 0 4vw;
 }
 
 .bodyPlanning{
@@ -210,27 +210,27 @@ h6 {
 .myBtn{
     padding: 6px 12px;
     border-radius: 3px;
-/*  line-height:normal; /*putin de boostrap...*
-    vertical-align: middle;
-    /*
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: normal;
-    line-height:normal;
-    text-align: center;
-    white-space: nowrap;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    */
+    /*  line-height:normal; /*putin de boostrap...*
+        vertical-align: middle;
+        /*
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height:normal;
+        text-align: center;
+        white-space: nowrap;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        */
 }
 
 
@@ -308,7 +308,7 @@ select::selection,option::selection { /* ne fonctionne pas  */
 /***********************************************************************************************************************************************************************************************/
 
 .titleRecipe{
-    margin-left:2vw;
+    /*margin-left:2vw;*/
 }
 
 /**********************************************************************  FILTER RECIPE #LEFT FIXED   ********************************************************************************************/
@@ -319,8 +319,9 @@ select::selection,option::selection { /* ne fonctionne pas  */
 }
 #filterRecipe{
     float: left;
-    margin-left:2vw; /* le % faisant grossir la largueur lors de scroll -> fixed*/
-    width:24vw;
+    width:24vw; /* stay at 64vw in any case*/
+    overflow: auto;
+    /*margin-left:2vw; /* le % faisant grossir la largueur lors de scroll -> fixed*/
 }
 
 
@@ -371,13 +372,17 @@ select::selection,option::selection { /* ne fonctionne pas  */
     padding-bottom:5px;
 }
 
-.myMainPanelFilterRecipe{
-    padding:1vw;
-
-}
 /************************************************************************************************************/
 /*****************************  FILTER - MA SELECTION    ***************************************************/
 /**********************************************************************************************************/
+
+.artRecipeMySelection{
+    margin-bottom:20px;
+    /*overflow: auto; //into #filterRecipe; */
+}
+.titleMySelection{
+    display:inline-block;
+}
 
 .trashFilter{
     color: #f0ad4e;
@@ -463,12 +468,24 @@ select::selection,option::selection { /* ne fonctionne pas  */
 /**********************************************************************  LIST RECIPE #RIGHT   ************************************************************************************************/
 
 #listRecipe{
-    margin-left:28%;
-    width:64%;
+    margin-left:28vw;
+    width:64vw; /* stay at 64vw in any case*/
+    overflow: hidden;
+
 }
-.myMainPanelListRecipe{
+
+.rightHeadingSearch{
+    font-size:17px;
+    display:inline-block;
+    position: relative;
+    float: right;
+    margin-right:5%;
+}
+
+.artBodyListRecipe{
     padding-top:2vw;
     padding-left:3vw
+    /* .myArticleBody = padding: 1vw; */
 }
 .divTopListRecipe{
     margin-bottom:2vw;
