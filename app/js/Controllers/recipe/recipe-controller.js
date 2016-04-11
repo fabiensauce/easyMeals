@@ -83,14 +83,14 @@ myModule.controller('RecipeCtrl', function($scope, $routeParams, $location, $win
     }
 
     /* ICI !!!! doit communiquer avec filter controller (broadcast) */
-    $scope.toggleFavorite = function(recipe, event){
+    $scope.toggleIsFavorite = function(recipe, event){
         event.stopPropagation();
-        recipe.favoriteRecipe = !recipe.favoriteRecipe;
+        recipe.isFavorite = !recipe.isFavorite;
         $scope.$broadcast('updateFilter');
     }
-    $scope.toggleforPlanning = function(recipe, event){
+    $scope.toggleIsForPlanning = function(recipe, event){
         event.stopPropagation();
-        recipe.forPlanning = !recipe.forPlanning;
+        recipe.isForPlanning = !recipe.isForPlanning;
         $scope.$broadcast('updateFilter');
     }
     $scope.openRecipeNewWindow = function(id) {

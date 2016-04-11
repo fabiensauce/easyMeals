@@ -1,9 +1,9 @@
 <div ng-show="recipe.descriptionOpen" class="recipeWithDescrip" ng-click="toggleDescOpen(recipe)"  >
     <div class="titleOfDescrip" >{{recipe.name}}  ({{recipe.nbPerson}} pers.)
-        &nbsp&nbsp <span  ng-click="toggleFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
-                          ng-class="{heartTaken: recipe.favoriteRecipe}"></span>
-        &nbsp&nbsp <span ng-click="toggleforPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
-                         ng-class="{thListTaken: recipe.forPlanning}"></span>
+        &nbsp&nbsp <span  ng-click="toggleIsFavorite(recipe, $event);" title=""   class="glyphicon glyphicon-heart heart glyphiconBtn"
+                          ng-class="{heartTaken: recipe.isFavorite}"></span>
+        &nbsp&nbsp <span ng-click="toggleIsForPlanning(recipe, $event);" title="" class="glyphicon glyphicon-th-list thList glyphiconBtn"
+                         ng-class="{thListTaken: recipe.isForPlanning}"></span>
         &nbsp
         <span ng-click="openRecipeNewWindow(recipe.id)" title="" class="glyphicon glyphicon-new-window newWindow glyphiconBtn"></span>
     </div>

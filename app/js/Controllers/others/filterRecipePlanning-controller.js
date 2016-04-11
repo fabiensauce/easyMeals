@@ -25,7 +25,7 @@ myModule.controller('FilterCtrl', function($scope, $routeParams, $location, $win
 
 
 
-    /** broadcast provenant de fct : $scope.toggleFavorite ()
+    /** broadcast provenant de fct : $scope.toggleIsFavorite ()
      * ->into controller parent 'recipe-controller.js' */
     $scope.$on('updateFilter', function() {
         updateFilter();
@@ -197,7 +197,7 @@ myModule.controller('FilterCtrl', function($scope, $routeParams, $location, $win
             if(isThereAfilterMyList){ //if there is at least one filter into selection concerning myList
                 for(var k=0; k<recipes.length; k++){
                     //hence we check for each item of the recipes if it can be selected ! (and added to the new recipes)
-                    if((isMyFavoriteIntoSelection && recipes[k].favoriteRecipe) || (isPlanningIntoSelection && recipes[k].forPlanning)){
+                    if((isMyFavoriteIntoSelection && recipes[k].isFavorite) || (isPlanningIntoSelection && recipes[k].isForPlanning)){
                         recipesNew.push(recipes[k]);
                     }
                 }

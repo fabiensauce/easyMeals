@@ -51,8 +51,8 @@ myService.service('RecipeService', function() {
                 descriptionOpen: false,
                 origin:'Americain',
                 categories:['viande', 'four', 'Facile'],
-                favoriteRecipe: false,
-                forPlanning:false,
+                isFavorite: false,
+                isForPlanning:false,
                 rating:2
             },
             {
@@ -67,8 +67,8 @@ myService.service('RecipeService', function() {
                 descriptionOpen: false,
                 origin:'Francais',
                 categories:['poisson', 'legume','four'],
-                favoriteRecipe: true,
-                forPlanning:true,
+                isFavorite: true,
+                isForPlanning:true,
                 rating:2
             },
             {
@@ -84,8 +84,8 @@ myService.service('RecipeService', function() {
                 descriptionOpen: false,
                 origin:'Francais',
                 categories:['vegetarien', 'legume', 'four'],
-                favoriteRecipe: false,
-                forPlanning:true,
+                isFavorite: false,
+                isForPlanning:true,
                 rating:4
             },
             {
@@ -102,8 +102,8 @@ myService.service('RecipeService', function() {
                 descriptionOpen: false,
                 origin:'Francais',
                 categories:['viande', 'poêle', 'Sucré Salé', 'Facile'],
-                favoriteRecipe: false,
-                forPlanning:false,
+                isFavorite: false,
+                isForPlanning:false,
                 rating:2
             },
             {
@@ -117,8 +117,8 @@ myService.service('RecipeService', function() {
                 descriptionOpen: false,
                 origin:'Mexicain',
                 categories:['viande', 'poêle', 'legume', 'Facile'],
-                favoriteRecipe: true,
-                forPlanning:false,
+                isFavorite: true,
+                isForPlanning:false,
                 rating:3.5
             },
             {
@@ -138,8 +138,8 @@ myService.service('RecipeService', function() {
                 descriptionOpen: false,
                 origin:'Americain',
                 categories:['viande', 'four', 'Facile'],
-                favoriteRecipe: true,
-                forPlanning:true,
+                isFavorite: true,
+                isForPlanning:true,
                 rating:5
             },
 
@@ -159,8 +159,8 @@ myService.service('RecipeService', function() {
                 descriptionOpen: false,
                 origin:'Italien',
                 categories:['viande', 'four', 'gratin'],
-                favoriteRecipe: false,
-                forPlanning:true,
+                isFavorite: false,
+                isForPlanning:true,
                 rating:4
             },
 
@@ -181,8 +181,8 @@ myService.service('RecipeService', function() {
                 descriptionOpen:false,
                 origin:'Italien',
                 categories:['viande', 'poêle'],
-                favoriteRecipe: true,
-                forPlanning:false,
+                isFavorite: true,
+                isForPlanning:false,
                 rating:5
             },
             {
@@ -201,8 +201,8 @@ myService.service('RecipeService', function() {
                 descriptionOpen:false,
                 origin:'Francais',
                 categories:['viande', 'four', 'sucré salé', 'Legume'],
-                favoriteRecipe: false,
-                forPlanning:false,
+                isFavorite: false,
+                isForPlanning:false,
                 rating:3
             }
 
