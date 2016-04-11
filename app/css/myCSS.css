@@ -573,7 +573,7 @@ select::selection,option::selection { /* ne fonctionne pas  */
     display:inline-block;
     vertical-align: middle;
 }
-.sortListRecipe{
+.sortRecipeList{
     font-size:15px;
     margin-right:3vw;
     display:inline-block;
@@ -982,10 +982,18 @@ select::selection,option::selection { /* ne fonctionne pas  */
 
 
 .artRecipes{
-    margin-left:2vw;
+    /*margin-left:2vw;*/
+    margin-bottom:1vw;
+    margin-left:25vw;
+    width:70vw;
+
 
 }
 
+.sortPlanningRecipeList{
+    font-size:15px;
+    margin-right:1vw;
+}
 
 
 

@@ -13,15 +13,6 @@
 
 
     <!--
-    <article class="myArticle">
-        <div class="myArticleHeading" >
-            <div class="myArticleTitle">Liste {{displayRecipeType()}}</div>
-        </div>
-        <div class="myArticleBody artBodyListRecipe">
-        </div>
-    </article>
-    -->
-    <!--
     ----------------------------------------------------------------------------------------------------------
     -------------------------   MA SELECTION   ---------------------------------------------------------------
     ----------------------------------------------------------------------------------------------------------
@@ -69,13 +60,12 @@
         -------------------------   FILTERS   ---------------------------------------------------------------
         ----------------------------------------------------------------------------------------------------------
         -->
-    <div  class="artFilters panel panel-default " >
-        <div  class="panel panel-default" style=" overflow: auto;" >
-            <div class="panel-heading" >
-                <h3 class="panel-title">Affiner la recherche</h3>
+    <article  class="myArticle artFilters" >
+            <div class="myArticleHeading" >
+                <div class="myArticleTitle">Affiner la recherche</div>
             </div>
 
-            <div class="panel-body main-panel">
+            <div class="myArticleBody">
                 <div class="filterMyLists">
                     <div class="txtTitleSubFilter" >Mes listes</div>
                     <div class="divSubSelection" ng-repeat="myList in filterSearch.myLists | orderBy:'name'" ng-click="moveMyListToSelection(myList)">
@@ -110,39 +100,49 @@
                     <button ng-click="moveOriginToSelection(myOrigin)">ADD </button>
                 </div>
             </div>
+    </article>
+
+
+    <!--
+    <article class="myArticle">
+        <div class="myArticleHeading" >
+            <div class="myArticleTitle">Liste {{displayRecipeType()}}</div>
         </div>
-    </div>
-
-
+        <div class="myArticleBody artBodyListRecipe">
+        </div>
+    </article>
+    -->
     <!--
            ----------------------------------------------------------------------------------------------------------
            -------------------------   RECIPES LIST   ---------------------------------------------------------------
            ----------------------------------------------------------------------------------------------------------
      -->
-    <div class="artRecipes myArticle">
+    <article class="myArticle artRecipes">
 
-        <div  class="panel panel-default" style="overflow: auto;" >
-            <div class="panel-heading" >
-                <div class="row" style="color:darkslategrey" >
-                    <h3 class="col-md-4 panel-title">
-                        {{displayRecipeType()}}
-                    </h3>
-                    <div class="col-md-4 sortListRecipe" >
+            <div class="myArticleHeading" >
+
+                <div class="myArticleTitle titleInlineBlock">Liste {{displayRecipeType()}}</div>
+                <div class="rightHeadingInlineBlock rightHeadingSearch">
+                    <span class="sortPlanningRecipeList" >
                         <span   class="glyphicon glyphicon-sort" ></span>
                         &nbsp
                         <select class="fieldRecipe"  ng-model='recipeOrderBy'  >
                             <option ng-repeat="orderby in listOrderBy" value="{{orderby.value}}">{{orderby.name}}</option>
                         </select>
-                    </div>
-                    <div class="col-md-4" style="font-size:15px">
-                        <span   class="glyphicon glyphicon-search " ></span>
-                        &nbsp
-                        <input  type="text" ng-model="searchRecipe" placeholder="plat ou ingredient" style="border:none; ">
-                    </div>
+                    </span >
+
+                    &nbsp
+                    &nbsp
+
+                    <span   class="glyphicon glyphicon-search " ></span>
+                    &nbsp
+                    <input class="inputRecipeSearch" type="text" ng-model="searchRecipe" placeholder="recette, ingredient etc..">
                 </div>
+
+
             </div>
 
-            <div class="panel-body main-panel">
+            <div class="myArticleBody">
 
                 <div ng-show="showHelp" style="font-size: 18px; color:cornflowerblue">
                     <div style="font-size: 12px;">@ le mode accompagnement peut être désactivé dans l'accueil "EASYMEALS"</div>
@@ -159,8 +159,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+    </article>
 
 
 
