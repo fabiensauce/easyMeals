@@ -19,11 +19,11 @@ myModule.controller('RecipeCreationCtrl', function($scope, $location, $routePara
         };
     $scope.displayRecipeType = function(){
         switch($scope.recipeType){
-            case 'starter' : return 'Entrée';
-            case 'course' :  return 'Plat';
-            case 'dessert' : return 'Dessert';
-            case 'breakfast' : return 'Petit Dej - Gouter';
-            case 'cocktail' : return 'Cocktail';
+            case 'starter' : return 'Entrées';
+            case 'course' :  return 'Plats';
+            case 'dessert' : return 'Desserts';
+            case 'breakfast' : return 'Déjeuners - Goûters';
+            case 'cocktail' : return 'Cocktails';
         }
     }
         $scope.addRowIngredient = function(){
