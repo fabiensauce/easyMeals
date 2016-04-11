@@ -18,7 +18,6 @@
         </div>
 
         <div class="myArticleBody">
-            <div class="divSelection">
                 <div class="divSubSelection" ng-repeat="myList in filterMySelection.myLists | orderBy:'name'"
                      ng-click="removeMyListFromSelection(myList)">
                     <button-selection mybtn-emptysection="myBtnEmptyRecipe">
@@ -43,7 +42,6 @@
                      ng-click="removeOriginFromSelection(origin)">
                     <button-selection filter-type="Recette :" mybtn-emptysection="myBtnEmptyRecipe">{{origin}}</button-selection>
                 </div>
-            </div>
         </div>
     </article>
 

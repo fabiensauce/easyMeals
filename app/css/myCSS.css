@@ -479,9 +479,6 @@ select::selection,option::selection { /* ne fonctionne pas  */
     border-bottom:1px solid lightgray;
 }
 
-.divSelection{
-    margin:2px 5px;
-}
 .divSubSelection{
     margin:3px 0;
 }
