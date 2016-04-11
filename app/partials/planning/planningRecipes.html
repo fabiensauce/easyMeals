@@ -28,22 +28,22 @@
         <div class="myArticleBody">
             <div class="divSubSelection" ng-repeat="myList in filterMySelection.myLists | orderBy:'name'"
                  ng-click="removeMyListFromSelection(myList)">
-                <button-selection>
+                <button-selection mybtn-emptysection="myBtnEmptyPlanning">
                     {{myList.name}}
                     <span ng-show="isRecipeFavorite(myList.id)" class="glyphicon glyphicon-heart heartNoBtn"></span>
                     &nbsp
                     <span ng-show="isRecipePlanning(myList.id)" class="glyphicon glyphicon-th-list thListNoBtn"></span>
                 </button-selection>
             </div>
-            <div class="separatorSelection" ng-show="separateMyList()"></div>
+            <!--<div class="separatorSelection" ng-show="separateMyList()"></div>-->
             <div class="divSubSelection" ng-repeat="category in filterMySelection.categories | orderBy:'toString()'"
                  ng-click="removeCategoryFromSelection(category)">
-                <button-selection filter-type="Categorie :" >{{category}}</button-selection>
+                <button-selection filter-type="Categorie :" mybtn-emptysection="myBtnEmptyPlanning">{{category}}</button-selection>
             </div>
-            <div class="separatorSelection" ng-show="separateCategorie()"></div>
+            <!--<div class="separatorSelection" ng-show="separateCategorie()"></div>-->
             <div class="divSubSelection" ng-repeat="origin in filterMySelection.origins | orderBy:'toString()'"
                  ng-click="removeOriginFromSelection(origin)">
-                <button-selection filter-type="Recette :">{{origin}}</button-selection>
+                <button-selection filter-type="Recette :" mybtn-emptysection="myBtnEmptyPlanning">{{origin}}</button-selection>
             </div>
         </div>
 
@@ -66,39 +66,78 @@
             </div>
 
             <div class="myArticleBody">
-                <div class="filterMyLists">
-                    <div class="txtTitleSubFilter" >Mes listes</div>
-                    <div class="divSubSelection" ng-repeat="myList in filterSearch.myLists | orderBy:'name'" ng-click="moveMyListToSelection(myList)">
-                        <button-filter>
+
+                <span class="blockFilterPlanningRecipe"   ng-repeat="myList in filterSearch.myLists | orderBy:'name'" ng-click="moveMyListToSelection(myList)">
+                        <button-filter mybtn-emptysection="myBtnEmptyPlanning">
                             {{myList.name}}
                             <span ng-show="isRecipeFavorite(myList.id)" class="glyphicon glyphicon-heart heartNoBtn"></span>
                             &nbsp
                             <span ng-show="isRecipePlanning(myList.id)" class="glyphicon glyphicon-th-list thListNoBtn"></span>
                         </button-filter>
-                    </div>
+                    </span>
+
+                <span class="blockFilterPlanningRecipe">
+                    Categories :
+                    <select ng- class="fieldRecipe"  ng-model='myCategory' ng-init="'Viande'" ng-change="moveCategoryToSelection(myCategory)">
+                        <!--<option value="" selected>Categorie</option>-->
+                        <option ng-repeat="category in filterSearch.categories" value="{{category}}" >{{category}}</option>
+                    </select>
+                </span>
+
+
+                <span class="blockFilterPlanningRecipe">
+                    Nationalités :
+                    <select class="fieldRecipe"  ng-model='myOrigin' ng-change="moveOriginToSelection(myOrigin)">
+                        <!--<option value="" selected>Nationalité</option>-->
+                        <option ng-repeat="origin in filterSearch.origins" value="{{origin}}">{{origin}}</option>
+                    </select>
+                </span>
+
+
+
+
+
+            <!--
+                <div class="filterMyLists">
+                    <!--<div class="txtTitleSubFilter" >Mes listes</div>->
+                    <span class="divSubSelection"   ng-repeat="myList in filterSearch.myLists | orderBy:'name'" ng-click="moveMyListToSelection(myList)">
+                        <button-filter mybtn-emptysection="myBtnEmptyPlanning">
+                            {{myList.name}}
+                            <span ng-show="isRecipeFavorite(myList.id)" class="glyphicon glyphicon-heart heartNoBtn"></span>
+                            &nbsp
+                            <span ng-show="isRecipePlanning(myList.id)" class="glyphicon glyphicon-th-list thListNoBtn"></span>
+                        </button-filter>
+                    </span>
                 </div>
 
 
-                <div class="filterCategories">
-                    <div class="txtTitleSubFilter" >Categories recette</div>
 
-                    <select class="fieldRecipe"  ng-model='myCategory' ng-init="'Viande'" >
-                        <option ng-repeat="category in filterSearch.categories" value="{{category}}" selected>{{category}}</option>
+
+
+
+                <div class="filterCategories">
+                    <!--<div class="txtTitleSubFilter" >Categories recette</div>->
+                    Categories :
+                    <select ng- class="fieldRecipe"  ng-model='myCategory' ng-init="'Viande'" ng-change="moveCategoryToSelection(myCategory)">
+                        <!--<option value="" selected>Choose your category</option>->
+                        <option ng-repeat="category in filterSearch.categories" value="{{category}}" >{{category}}</option>
                     </select>
 
-                    <button ng-click="moveCategoryToSelection(myCategory)">ADD </button>
+                    <!--<button ng-click="moveCategoryToSelection(myCategory)">ADD </button>->
 
                 </div>
 
                 <div class="filterOrignins">
-                    <div class="txtTitleSubFilter" >Recette</div>
-
-                    <select class="fieldRecipe"  ng-model='myOrigin' >
-                        <option ng-repeat="origin in filterSearch.origins" value="{{origin}}" selected>{{origin}}</option>
+                    <!--<div class="txtTitleSubFilter" >Recette</div>->
+                    Recettes :
+                    <select class="fieldRecipe"  ng-model='myOrigin' ng-change="moveOriginToSelection(myOrigin)">
+                        <option ng-repeat="origin in filterSearch.origins" value="{{origin}}">{{origin}}</option>
                     </select>
 
-                    <button ng-click="moveOriginToSelection(myOrigin)">ADD </button>
+                    <!--<button ng-click="moveOriginToSelection(myOrigin)">ADD </button>->
                 </div>
+
+            -->
             </div>
     </article>
 

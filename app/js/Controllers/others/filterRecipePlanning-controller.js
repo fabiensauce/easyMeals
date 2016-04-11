@@ -120,9 +120,10 @@ myModule.controller('FilterCtrl', function($scope, $routeParams, $location, $win
         }
     }
     $scope.moveCategoryToSelection = function(category){
-        $scope.filterMySelection.categories.push(category);
-        var index =  $scope.filterSearch.categories.indexOf(category); //fonctionne aussi tres bien
-        $scope.filterSearch.categories.splice(index, 1);
+            $scope.filterMySelection.categories.push(category);
+            var index =  $scope.filterSearch.categories.indexOf(category); //fonctionne aussi tres bien
+            $scope.filterSearch.categories.splice(index, 1);
+
     }
     $scope.moveOriginToSelection = function(origin){
         $scope.filterMySelection.origins.push(origin);

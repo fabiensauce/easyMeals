@@ -349,6 +349,7 @@ select::selection,option::selection { /* ne fonctionne pas  */
 .titleInlineBlock{
     display:inline-block;
 }
+
 .rightHeadingInlineBlock{
     display:inline-block;
     position: relative;
@@ -963,9 +964,14 @@ select::selection,option::selection { /* ne fonctionne pas  */
     width:70vw;
 
 }
+
+.blockFilterPlanningRecipe{
+    display:inline-block;
+    margin-right:1vw;
+}
 .filterMyLists{
     display:inline-block;
-    width:30%;
+    //width:25%;
     vertical-align: top;
 
 }
